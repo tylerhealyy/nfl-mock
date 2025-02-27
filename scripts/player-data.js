@@ -119,7 +119,7 @@ export const playerData = [
   {
     name: "Tyler Warren",
     position: "TE",
-    school: "Penn St",
+    school: "Penn State",
     schoolLogo: "https://upload.wikimedia.org/wikipedia/en/thumb/3/3a/Penn_State_Nittany_Lions_logo.svg/1200px-Penn_State_Nittany_Lions_logo.svg.png",
     height: "6'6",
     weight: "261",
@@ -949,7 +949,7 @@ export const playerData = [
   {
     name: "Kevin Winston Jr",
     position: "S",
-    school: "Penn St",
+    school: "Penn State",
     schoolLogo: "https://upload.wikimedia.org/wikipedia/en/thumb/3/3a/Penn_State_Nittany_Lions_logo.svg/1200px-Penn_State_Nittany_Lions_logo.svg.png",
     height: "6'2",
     weight: "208",
