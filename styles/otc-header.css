@@ -1,0 +1,78 @@
+.otc-panel {
+  background-color: white;
+  box-shadow: inset 0px 0px 150px #4B92DB;
+  color: white;
+  position: fixed;
+  top: 0px;
+  left: 22%;
+  right: 0px;
+  display: grid;
+  grid-template-columns: 200px 550px 300px 1fr;
+  height: 100px;
+}
+
+.otc-image {
+  height: 100%;
+  margin: auto;
+}
+
+.otc-middle {
+  display: flex;
+  flex-direction: column;
+  padding-left: 40px;
+  max-height: 100px;
+}
+
+.otc-text {
+  display: flex;
+  align-items: start;
+  font-size: 66px;
+  font-weight: 700;
+  white-space: nowrap;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+  height: 60px;
+  line-height: 60px;
+}
+
+.otc-picks {
+  font-size: 18px;
+  font-weight: 700;
+  padding-left: 5px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
+  line-height: 18px;
+}
+
+.otc-needs {
+  font-size: 16px;
+  font-weight: 700;
+  padding-left: 5px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
+}
+
+.otc-team {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 40px;
+  display: flex;
+  align-items: center;
+  text-align: start;
+  justify-content: start;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
+}
+
+.otc-previous {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-right: 50px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  overflow: scroll;
+}
+
+.otc-previous-pick {
+  font-size: 16px;
+  font-weight: 500;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
+  padding-right: 5px;
+  padding-bottom: 5px;
+}

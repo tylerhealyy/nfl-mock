@@ -1,0 +1,293 @@
+body {
+  font-family: Roboto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 1750px;
+  position: relative;
+}
+
+.screenshot-btn-h {
+  position: absolute;
+  background-color: #6C3BAA;
+  box-shadow: inset 0px 0px 25px rgba(255, 255, 255, 0.25);
+  border: 1px solid black;
+  z-index: 100;
+  right: 120px;
+  top: 50px;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btnv {
+  right: 865px;
+  top: 873px;
+}
+
+.btn2 {
+  right: 80px;
+  top: 873px;
+}
+
+.btn3 {
+  right: 300px;
+  top: 1933px;
+}
+.btn4 {
+  right: 300px;
+  top: 2995px;
+}
+.btn5 {
+  right: 300px;
+  top: 4056px;
+}
+.btn6 {
+  right: 300px;
+  top: 5117px;
+}
+.btn7 {
+  right: 300px;
+  top: 6178px;
+}
+
+.download-icon {
+  height: 50px;
+}
+
+.window {
+  border: 1px solid black;
+  background-color: rgba(0, 0, 0, 0);
+  margin: 50px;
+  width: 1366px;
+  height: 720px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 50px rgba(0, 0, 0, 1);
+}
+
+.header {
+  background-color: #6C3BAA;
+  color: rgb(255, 255, 255);
+  height: 75px;
+  width: 100%;
+  font-size: 54px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 1px 5px rgb(0, 0, 0);
+  border-bottom: 1px solid black;
+  box-shadow: inset 0px 0px 50px rgba(0, 0, 0, 0.15);
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+}
+
+.grid {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-auto-flow: column;
+}
+
+.bottom {
+  color: rgb(255, 255, 255);
+  background-color: #6C3BAA;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 500;
+  box-shadow: inset 0px 0px 50px rgba(0, 0, 0, 0.15);
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+}
+
+.pick {
+  border-bottom: 1px solid rgba(0, 0, 0, 1);
+  border-right: 1px solid rgba(0, 0, 0, 1);
+  color: rgb(0, 0, 0);
+  font-size: 22px;
+  font-weight: 700;
+  height: 75px;
+  display: grid;
+  grid-template-columns: 30px 75px 174.5px 55px;
+  align-items: center;
+  background-color: white;
+  width: 340.5px;
+}
+
+.summary-pick-number {
+  text-shadow: 0px 0px 8px rgba(0, 0, 0, 1);
+  color: rgb(255, 255, 255);
+  padding-left: 5px;
+}
+
+.summary-pick-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.summary-nfl-pick-image {
+  max-height: 42px;
+  max-width: 65px;
+}
+
+.pick-player-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5px;
+}
+
+.summary-pick-image {
+  max-height: 65px;
+  max-width: 50px;
+}
+
+.v-summary-pick-image {
+  max-height: 45px;
+  max-width: 45px;
+}
+
+.summary-pick-player {
+  text-align: start;
+  padding-left: 6px;
+  display: flex;
+  flex-direction: column;
+  line-height: 20px;
+  max-width: 174.5px;
+}
+
+.pick-name {
+  font-size: 20px;
+  font-weight: 700;
+  white-space: nowrap;
+  color: rgb(0, 0, 0);
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+  max-width: 174.5px;
+}
+
+.summary-pick-info {
+  font-size: 18px;
+  color: rgb(65, 65, 65);
+  font-weight: 500;
+  white-space: nowrap;
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+  max-width: 174.5px;
+}
+
+.v-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.v-summary {
+  height: 960px;
+  width: 683px;
+  display: flex;
+  flex-direction: column;
+  margin: 50px;
+  border: 1px solid black;
+  box-shadow: 0px 0px 50px rgba(0, 0, 0, 1);
+  border-bottom: none;
+}
+.summary3 {
+  width: 1024px;
+}
+
+.vertical {
+  background-color: rgba(255, 0, 0, 0);
+  width: 683px;
+  height: 910px;
+}
+.vertical3 {
+  width: 1024px;
+}
+
+.v-header {
+  background-color: #6C3BAA;
+  color: white;
+  width: 100%;
+  height: 50px;
+  border-bottom: 1px solid black;
+  box-shadow: inset 0px 0px 50px rgba(0, 0, 0, 0.15);
+  display: grid;
+  grid-template-columns: 475px 208px;
+  align-items: center;
+}
+.header3 {
+  grid-template-columns: 683px 1fr;
+}
+
+.v-title {
+  font-size: 40px;
+  font-weight: 700;
+  text-align: start;
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+  padding-top: 1px;
+  padding-left: 8px;
+}
+.title3 {
+  text-align: start;
+}
+
+.v-author {
+  text-align: end;
+  padding-right: 8px;
+  font-weight: 500;
+  text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+  padding-top: 1px;
+}
+
+.v-grid {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-auto-flow: column;
+}
+
+.v-pick {
+  border-bottom: 1px solid rgba(0, 0, 0, 1);
+  border-right: 1px solid rgba(0, 0, 0, 1);
+  color: rgb(0, 0, 0);
+  font-size: 22px;
+  font-weight: 700;
+  height: 55.5px;
+  display: grid;
+  grid-template-columns: 30px 75px 1fr 50px;
+  align-items: center;
+  background-color: white;
+  width: 340.5px;
+}
+
+.user {
+  margin-left: 6px;
+}
+
+.idaho {
+  max-width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 25px;
+}
+
+.pick-image7 {
+  max-width: 50px;
+  max-height: 42px;
+}
+
+.message {
+  position: absolute;
+  top: 10px;
+}
