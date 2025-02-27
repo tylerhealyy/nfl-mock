@@ -1,0 +1,127 @@
+
+
+.players-positions {
+  background-color: rgb(255, 255, 255);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  border-bottom: 1px solid rgb(133, 133, 133);
+  position: fixed;
+  top: 100px;
+  left: 22%;
+  height: 70px;
+  width: 40%;
+}
+
+.players-positions-button {
+  margin: 2px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.35);
+  border: none;
+  font-family: Roboto;
+  font-weight: 700;
+  padding-top: 0px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.offense {
+  background-color: rgb(233, 255, 233);
+}
+.offense:hover {
+  background-color: rgb(212, 255, 212);
+}
+.offense:active {
+  background-color: rgb(146, 255, 146);
+}
+
+.defense {
+  background-color: rgb(255, 244, 225);
+}
+.defense:hover {
+  background-color: rgb(255, 234, 198);
+}
+.defense:active {
+  background-color: rgb(255, 213, 140);
+}
+
+.special:hover {
+  background-color: rgb(239, 239, 239);
+}
+
+.players-players {
+  background-color: rgb(255, 255, 255);
+  border-bottom: 1px solid rgb(133, 133, 133);
+  overflow: scroll;
+  position: fixed;
+  top: 200px;
+  left: 22%;
+  bottom: 50px;
+  width: 40%;
+}
+
+.players-player-card {
+  height: 40px;
+  background-color: rgb(238, 238, 238);
+  margin-bottom: 2px;
+  margin-top: 2px;
+  border-bottom: 1px solid rgb(133, 133, 133);
+  display: grid;
+  grid-template-columns: 40px 1fr 45px 175px 45px;
+  align-items: center;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: inset 0px -3px 5px rgba(0, 0, 0, 0.15);
+  transition: 0.15s;
+  padding-right: 10px;
+}
+.players-player-card:hover {
+  background-color: rgb(210, 210, 210);
+}
+.players-player-card:active {
+  background-color: rgb(188, 188, 188);
+}
+
+.players-player-card-rank {
+  text-align: end;
+  font-weight: 400;
+}
+.players-player-card-position {
+  text-align: end;
+  font-weight: 500;
+  margin-right: 5px;
+}
+.players-player-card-name {
+  padding-left: 15px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.players-player-card-school {
+  font-weight: 500;
+  padding-left: 5px;
+  white-space: nowrap;
+}
+
+.labels {
+  height: 25px;
+  color: rgb(101, 101, 101);
+  font-size: 16px;
+  background-color: white;
+  grid-template-columns: 40px 45px 1fr 205px;
+  cursor: default;
+  position: fixed;
+  top: 172px;
+  left: 22%;
+  width: 40%;
+  height: 25px;
+}
+.labels:hover {
+  background-color: white;
+}
+
+.college-image {
+  max-height: 35px;
+  max-width: 40px;
+  margin: auto;
+}

@@ -1,0 +1,35 @@
+.settings-bar {
+  background-color: rgb(255, 255, 255);
+  position: fixed;
+  bottom: 0px;
+  left: 22%;
+  right: 0px;
+  height: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.settings-option {
+  background-color: rgb(213, 213, 213);
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.settings-text {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.settings-option:hover {
+  background-color: rgb(194, 194, 194);
+}
+
+.settings-option:active {
+  background-color: rgb(174, 174, 174);
+}
