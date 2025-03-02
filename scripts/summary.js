@@ -130,107 +130,56 @@ document.querySelectorAll('.user').forEach((user) => {
   user.innerHTML = JSON.parse(localStorage.getItem("savedName"));
 })
 
-for (let i = 1; i < 33; i++) { // Build first round summaries (horizontal and vertical)
-  nflTeams.forEach((team) => {
-    if (team.test.some(obj => obj.n === i)) {
-      let example = JSON.parse(localStorage.getItem(`${i}${team.name}`)); // Get each pick that was saved when the draft button was clicked
-      playerData.forEach((player) => {
-        if (example.p === `${player.position} ${player.name}`) {
-          draftee = player; // access player data
-        }
-      });
+localStorage.removeItem("functionExecuted");
 
-      document.querySelector('.grid').innerHTML += `
-        <div class="pick" style="
-          background-color: white;
-          box-shadow: inset 0px 0px 50px ${team.color};
-        ">
-          <div class="summary-pick-number">${team.order}</div>
-          <div class="summary-pick-logo">
-            <img src="${team.logo}" class="summary-nfl-pick-image">
-          </div>
-          <div class="summary-pick-player">
-            <div class="pick-name">${draftee.name}</div>
-            <div class="summary-pick-info">${draftee.position} ${draftee.school}</div>
-          </div>
-          <div class="pick-player-logo">
-            <img src="${draftee.schoolLogo}" class="summary-pick-image">
-          </div>
-        </div>
-      `;
+window.addEventListener("DOMContentLoaded", (draftee) => {
+  const key = "functionExecuted";
 
-      document.querySelector('.v-grid').innerHTML += `
-        <div class="v-pick" style="
-          background-color: white;
-          box-shadow: inset 0px 0px 50px ${team.color};
-        ">
-          <div class="summary-pick-number">${team.order}</div>
-          <div class="pick-logo">
-            <img src="${team.logo}" class="pick-image">
-          </div>
-          <div class="summary-pick-player">
-            <div class="pick-name">${draftee.name}</div>
-            <div class="summary-pick-info">${draftee.position} ${draftee.school}</div>
-          </div>
-          <div class="pick-player-logo">
-            <img src="${draftee.schoolLogo}" class="v-summary-pick-image">
-          </div>
-        </div>
-      `;
-    }
-  });
-}
-
-for (let i = 33; i < 65; i++) { // Build second round summary
-nflTeams.forEach((team) => {
-  if (team.test.some(obj => obj.n === i)) {
-    let example = JSON.parse(localStorage.getItem(`${i}${team.name}`));
-    if (example.p === "") { // If there are no second round picks, keep the summary empty
-      document.querySelector('.grid2').innerHTML += '';
-    } else { // If there are second round picks, add them to the summary
-      playerData.forEach((player) => {
-        if (example.p === `${player.position} ${player.name}`) {
-          draftee = player;
-        }
-      });
-  
-      document.querySelector('.grid2').innerHTML += `
-        <div class="v-pick" style="
-          background-color: white;
-          box-shadow: inset 0px 0px 50px ${team.color};
-        ">
-          <div class="summary-pick-number">${i}</div>
-          <div class="pick-logo">
-            <img src="${team.logo}" class="pick-image">
-          </div>
-          <div class="summary-pick-player">
-            <div class="pick-name">${draftee.name}</div>
-            <div class="summary-pick-info">${draftee.position} ${draftee.school}</div>
-          </div>
-          <div class="pick-player-logo">
-            <img src="${draftee.schoolLogo}" class="v-summary-pick-image">
-          </div>
-        </div>
-      `;
-    }
+  if (!localStorage.getItem(key)) {
+      buildSummary(draftee); // Call your function
+      localStorage.setItem(key, "true"); // Mark it as executed
   }
 });
-}
 
-for (let i = 65; i < 102; i++) { // Build third round summary
-  nflTeams.forEach((team) => {
-    if (team.test.some(obj => obj.n === i)) {
-      let example = JSON.parse(localStorage.getItem(`${i}${team.name}`));
-      if (example.p === "") { // If there are no third round picks, keep the summary empty
-        document.querySelector('.grid3').innerHTML += '';
-      } else { // If there are third round picks, add them to the summary
+function buildSummary(draftee) {
+  for (let i = 1; i < 33; i++) { // Build first round summaries (horizontal and vertical)
+    nflTeams.forEach((team) => {
+
+      let newTest;
+      if (JSON.parse(localStorage.getItem(`${team.name}test`))) {
+        newTest = JSON.parse(localStorage.getItem(`${team.name}test`));
+      } else {
+        newTest = team.test;
+      }
+
+      if (newTest.some(obj => obj.n === i)) {
+        let example = JSON.parse(localStorage.getItem(`${i}${team.name}`)); // Get each pick that was saved when the draft button was clicked
         playerData.forEach((player) => {
           if (example.p === `${player.position} ${player.name}`) {
-            draftee = player;
+            draftee = player; // access player data
           }
         });
   
-        document.querySelector('.grid3').innerHTML += `
+        document.querySelector('.grid').innerHTML += `
+          <div class="pick" style="
+            background-color: white;
+            box-shadow: inset 0px 0px 50px ${team.color};
+          ">
+            <div class="summary-pick-number">${i}</div>
+            <div class="summary-pick-logo">
+              <img src="${team.logo}" class="summary-nfl-pick-image">
+            </div>
+            <div class="summary-pick-player">
+              <div class="pick-name">${draftee.name}</div>
+              <div class="summary-pick-info">${draftee.position} ${draftee.school}</div>
+            </div>
+            <div class="pick-player-logo">
+              <img src="${draftee.schoolLogo}" class="summary-pick-image">
+            </div>
+          </div>
+        `;
+  
+        document.querySelector('.v-grid').innerHTML += `
           <div class="v-pick" style="
             background-color: white;
             box-shadow: inset 0px 0px 50px ${team.color};
@@ -249,150 +198,266 @@ for (let i = 65; i < 102; i++) { // Build third round summary
           </div>
         `;
       }
-    }
-  });
+    });
+  }
+
+  for (let i = 33; i < 65; i++) { // Build second round summary
+    nflTeams.forEach((team) => {
+
+      let newTest;
+      if (JSON.parse(localStorage.getItem(`${team.name}test`))) {
+        newTest = JSON.parse(localStorage.getItem(`${team.name}test`));
+      } else {
+        newTest = team.test;
+      }
+
+      if (newTest.some(obj => obj.n === i)) {
+        let example = JSON.parse(localStorage.getItem(`${i}${team.name}`));
+        if (example.p === "") { // If there are no second round picks, keep the summary empty
+          document.querySelector('.grid2').innerHTML += '';
+        } else { // If there are second round picks, add them to the summary
+          playerData.forEach((player) => {
+            if (example.p === `${player.position} ${player.name}`) {
+              draftee = player;
+            }
+          });
+      
+          document.querySelector('.grid2').innerHTML += `
+            <div class="v-pick" style="
+              background-color: white;
+              box-shadow: inset 0px 0px 50px ${team.color};
+            ">
+              <div class="summary-pick-number">${i}</div>
+              <div class="pick-logo">
+                <img src="${team.logo}" class="pick-image">
+              </div>
+              <div class="summary-pick-player">
+                <div class="pick-name">${draftee.name}</div>
+                <div class="summary-pick-info">${draftee.position} ${draftee.school}</div>
+              </div>
+              <div class="pick-player-logo">
+                <img src="${draftee.schoolLogo}" class="v-summary-pick-image">
+              </div>
+            </div>
+          `;
+        }
+      }
+    });
+  }
+
+  for (let i = 65; i < 102; i++) { // Build third round summary
+    nflTeams.forEach((team) => {
+      let newTest;
+      if (JSON.parse(localStorage.getItem(`${team.name}test`))) {
+        newTest = JSON.parse(localStorage.getItem(`${team.name}test`));
+      } else {
+        newTest = team.test;
+      }
+      if (newTest.some(obj => obj.n === i)) {
+        let example = JSON.parse(localStorage.getItem(`${i}${team.name}`));
+        if (example.p === "") { // If there are no third round picks, keep the summary empty
+          document.querySelector('.grid3').innerHTML += '';
+        } else { // If there are third round picks, add them to the summary
+          playerData.forEach((player) => {
+            if (example.p === `${player.position} ${player.name}`) {
+              draftee = player;
+            }
+          });
+    
+          document.querySelector('.grid3').innerHTML += `
+            <div class="v-pick" style="
+              background-color: white;
+              box-shadow: inset 0px 0px 50px ${team.color};
+            ">
+              <div class="summary-pick-number">${i}</div>
+              <div class="pick-logo">
+                <img src="${team.logo}" class="pick-image">
+              </div>
+              <div class="summary-pick-player">
+                <div class="pick-name">${draftee.name}</div>
+                <div class="summary-pick-info">${draftee.position} ${draftee.school}</div>
+              </div>
+              <div class="pick-player-logo">
+                <img src="${draftee.schoolLogo}" class="v-summary-pick-image">
+              </div>
+            </div>
+          `;
+        }
+      }
+    });
+  }
+
+  for (let i = 102; i < 140; i++) { // Build third round summary
+    nflTeams.forEach((team) => {
+      let newTest;
+      if (JSON.parse(localStorage.getItem(`${team.name}test`))) {
+        newTest = JSON.parse(localStorage.getItem(`${team.name}test`));
+      } else {
+        newTest = team.test;
+      }
+      if (newTest.some(obj => obj.n === i)) {
+        let example = JSON.parse(localStorage.getItem(`${i}${team.name}`));
+        if (example.p === "") { // If there are no third round picks, keep the summary empty
+          document.querySelector('.grid4').innerHTML += '';
+        } else { // If there are third round picks, add them to the summary
+          playerData.forEach((player) => {
+            if (example.p === `${player.position} ${player.name}`) {
+              draftee = player;
+            }
+          });
+    
+          document.querySelector('.grid4').innerHTML += `
+            <div class="v-pick" style="
+              background-color: white;
+              box-shadow: inset 0px 0px 50px ${team.color};
+            ">
+              <div class="summary-pick-number">${i}</div>
+              <div class="idaho">
+                <img src="${team.logo}" class="pick-image7">
+              </div>
+              <div class="summary-pick-player">
+                <div class="pick-name">${draftee.name}</div>
+                <div class="summary-pick-info">${draftee.position} ${draftee.school}</div>
+              </div>
+              <div class="pick-player-logo">
+                <img src="${draftee.schoolLogo}" class="v-summary-pick-image">
+              </div>
+            </div>
+          `;
+        }
+      }
+    });
+  }
+
+  for (let i = 140; i < 179; i++) { // Build third round summary
+    nflTeams.forEach((team) => {
+      let newTest;
+      if (JSON.parse(localStorage.getItem(`${team.name}test`))) {
+        newTest = JSON.parse(localStorage.getItem(`${team.name}test`));
+      } else {
+        newTest = team.test;
+      }
+      if (newTest.some(obj => obj.n === i)) {
+        let example = JSON.parse(localStorage.getItem(`${i}${team.name}`));
+        if (example.p === "") { // If there are no third round picks, keep the summary empty
+          document.querySelector('.grid5').innerHTML += '';
+        } else { // If there are third round picks, add them to the summary
+          playerData.forEach((player) => {
+            if (example.p === `${player.position} ${player.name}`) {
+              draftee = player;
+            }
+          });
+    
+          document.querySelector('.grid5').innerHTML += `
+            <div class="v-pick" style="
+              background-color: white;
+              box-shadow: inset 0px 0px 50px ${team.color};
+            ">
+              <div class="summary-pick-number">${i}</div>
+              <div class="idaho">
+                <img src="${team.logo}" class="pick-image7">
+              </div>
+              <div class="summary-pick-player">
+                <div class="pick-name">${draftee.name}</div>
+                <div class="summary-pick-info">${draftee.position} ${draftee.school}</div>
+              </div>
+              <div class="pick-player-logo">
+                <img src="${draftee.schoolLogo}" class="v-summary-pick-image">
+              </div>
+            </div>
+          `;
+        }
+      }
+    });
+  }
+
+  for (let i = 179; i < 219; i++) { // Build third round summary
+    nflTeams.forEach((team) => {
+      let newTest;
+      if (JSON.parse(localStorage.getItem(`${team.name}test`))) {
+        newTest = JSON.parse(localStorage.getItem(`${team.name}test`));
+      } else {
+        newTest = team.test;
+      }
+      if (newTest.some(obj => obj.n === i)) {
+        let example = JSON.parse(localStorage.getItem(`${i}${team.name}`));
+        if (example.p === "") { // If there are no third round picks, keep the summary empty
+          document.querySelector('.grid6').innerHTML += '';
+        } else { // If there are third round picks, add them to the summary
+          playerData.forEach((player) => {
+            if (example.p === `${player.position} ${player.name}`) {
+              draftee = player;
+            }
+          });
+    
+          document.querySelector('.grid6').innerHTML += `
+            <div class="v-pick" style="
+              background-color: white;
+              box-shadow: inset 0px 0px 50px ${team.color};
+            ">
+              <div class="summary-pick-number">${i}</div>
+              <div class="idaho">
+                <img src="${team.logo}" class="pick-image7">
+              </div>
+              <div class="summary-pick-player">
+                <div class="pick-name">${draftee.name}</div>
+                <div class="summary-pick-info">${draftee.position} ${draftee.school}</div>
+              </div>
+              <div class="pick-player-logo">
+                <img src="${draftee.schoolLogo}" class="v-summary-pick-image">
+              </div>
+            </div>
+          `;
+        }
+      }
+    });
+  }
+
+  for (let i = 219; i < 258; i++) { // Build third round summary
+    nflTeams.forEach((team) => {
+      let newTest;
+      if (JSON.parse(localStorage.getItem(`${team.name}test`))) {
+        newTest = JSON.parse(localStorage.getItem(`${team.name}test`));
+      } else {
+        newTest = team.test;
+      }
+      if (newTest.some(obj => obj.n === i)) {
+        let example = JSON.parse(localStorage.getItem(`${i}${team.name}`));
+        if (example.p === "") { // If there are no third round picks, keep the summary empty
+          document.querySelector('.grid7').innerHTML += '';
+        } else { // If there are third round picks, add them to the summary
+          playerData.forEach((player) => {
+            if (example.p === `${player.position} ${player.name}`) {
+              draftee = player;
+            }
+          });
+    
+          document.querySelector('.grid7').innerHTML += `
+            <div class="v-pick" style="
+              background-color: white;
+              box-shadow: inset 0px 0px 50px ${team.color};
+            ">
+              <div class="summary-pick-number">${i}</div>
+              <div class="idaho">
+                <img src="${team.logo}" class="pick-image7">
+              </div>
+              <div class="summary-pick-player">
+                <div class="pick-name">${draftee.name}</div>
+                <div class="summary-pick-info">${draftee.position} ${draftee.school}</div>
+              </div>
+              <div class="pick-player-logo">
+                <img src="${draftee.schoolLogo}" class="v-summary-pick-image">
+              </div>
+            </div>
+          `;
+        }
+      }
+    });
+  }
 }
 
-for (let i = 102; i < 140; i++) { // Build third round summary
-  nflTeams.forEach((team) => {
-    if (team.test.some(obj => obj.n === i)) {
-      let example = JSON.parse(localStorage.getItem(`${i}${team.name}`));
-      if (example.p === "") { // If there are no third round picks, keep the summary empty
-        document.querySelector('.grid4').innerHTML += '';
-      } else { // If there are third round picks, add them to the summary
-        playerData.forEach((player) => {
-          if (example.p === `${player.position} ${player.name}`) {
-            draftee = player;
-          }
-        });
-  
-        document.querySelector('.grid4').innerHTML += `
-          <div class="v-pick" style="
-            background-color: white;
-            box-shadow: inset 0px 0px 50px ${team.color};
-          ">
-            <div class="summary-pick-number">${i}</div>
-            <div class="idaho">
-              <img src="${team.logo}" class="pick-image7">
-            </div>
-            <div class="summary-pick-player">
-              <div class="pick-name">${draftee.name}</div>
-              <div class="summary-pick-info">${draftee.position} ${draftee.school}</div>
-            </div>
-            <div class="pick-player-logo">
-              <img src="${draftee.schoolLogo}" class="v-summary-pick-image">
-            </div>
-          </div>
-        `;
-      }
-    }
-  });
-}
 
-for (let i = 140; i < 179; i++) { // Build third round summary
-  nflTeams.forEach((team) => {
-    if (team.test.some(obj => obj.n === i)) {
-      let example = JSON.parse(localStorage.getItem(`${i}${team.name}`));
-      if (example.p === "") { // If there are no third round picks, keep the summary empty
-        document.querySelector('.grid5').innerHTML += '';
-      } else { // If there are third round picks, add them to the summary
-        playerData.forEach((player) => {
-          if (example.p === `${player.position} ${player.name}`) {
-            draftee = player;
-          }
-        });
-  
-        document.querySelector('.grid5').innerHTML += `
-          <div class="v-pick" style="
-            background-color: white;
-            box-shadow: inset 0px 0px 50px ${team.color};
-          ">
-            <div class="summary-pick-number">${i}</div>
-            <div class="idaho">
-              <img src="${team.logo}" class="pick-image7">
-            </div>
-            <div class="summary-pick-player">
-              <div class="pick-name">${draftee.name}</div>
-              <div class="summary-pick-info">${draftee.position} ${draftee.school}</div>
-            </div>
-            <div class="pick-player-logo">
-              <img src="${draftee.schoolLogo}" class="v-summary-pick-image">
-            </div>
-          </div>
-        `;
-      }
-    }
-  });
-}
 
-for (let i = 179; i < 219; i++) { // Build third round summary
-  nflTeams.forEach((team) => {
-    if (team.test.some(obj => obj.n === i)) {
-      let example = JSON.parse(localStorage.getItem(`${i}${team.name}`));
-      if (example.p === "") { // If there are no third round picks, keep the summary empty
-        document.querySelector('.grid6').innerHTML += '';
-      } else { // If there are third round picks, add them to the summary
-        playerData.forEach((player) => {
-          if (example.p === `${player.position} ${player.name}`) {
-            draftee = player;
-          }
-        });
-  
-        document.querySelector('.grid6').innerHTML += `
-          <div class="v-pick" style="
-            background-color: white;
-            box-shadow: inset 0px 0px 50px ${team.color};
-          ">
-            <div class="summary-pick-number">${i}</div>
-            <div class="idaho">
-              <img src="${team.logo}" class="pick-image7">
-            </div>
-            <div class="summary-pick-player">
-              <div class="pick-name">${draftee.name}</div>
-              <div class="summary-pick-info">${draftee.position} ${draftee.school}</div>
-            </div>
-            <div class="pick-player-logo">
-              <img src="${draftee.schoolLogo}" class="v-summary-pick-image">
-            </div>
-          </div>
-        `;
-      }
-    }
-  });
-}
 
-for (let i = 219; i < 258; i++) { // Build third round summary
-  nflTeams.forEach((team) => {
-    if (team.test.some(obj => obj.n === i)) {
-      let example = JSON.parse(localStorage.getItem(`${i}${team.name}`));
-      if (example.p === "") { // If there are no third round picks, keep the summary empty
-        document.querySelector('.grid7').innerHTML += '';
-      } else { // If there are third round picks, add them to the summary
-        playerData.forEach((player) => {
-          if (example.p === `${player.position} ${player.name}`) {
-            draftee = player;
-          }
-        });
-  
-        document.querySelector('.grid7').innerHTML += `
-          <div class="v-pick" style="
-            background-color: white;
-            box-shadow: inset 0px 0px 50px ${team.color};
-          ">
-            <div class="summary-pick-number">${i}</div>
-            <div class="idaho">
-              <img src="${team.logo}" class="pick-image7">
-            </div>
-            <div class="summary-pick-player">
-              <div class="pick-name">${draftee.name}</div>
-              <div class="summary-pick-info">${draftee.position} ${draftee.school}</div>
-            </div>
-            <div class="pick-player-logo">
-              <img src="${draftee.schoolLogo}" class="v-summary-pick-image">
-            </div>
-          </div>
-        `;
-      }
-    }
-  });
-}
+
+

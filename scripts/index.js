@@ -54,7 +54,17 @@ function startDraft() { // Close pre-draft settings and start draft
   const playerCard = document.querySelectorAll('.player-card-js');
   displayProfile(playerCard, selectedValue); // Add event listeners to every player card on the screen that displays their profile
 
+  for (let i = 1; i < 258; i++) {
+    localStorage.removeItem(`${i}info`);
+    localStorage.removeItem(`${i}logo`);
+  }
+  nflTeams.forEach((team) => {
+    localStorage.removeItem(`${team.name}test`);
+  });
+
   buildDraftOrder2(selectedValue); // Builds the draft order display on left side
+  
+  tradeFunction(selectedValue);
 }
 
 function buildPlayerList(player) { // Goes through every player in the player data script and adds this html for each player
@@ -188,6 +198,7 @@ function draftPlayer(selectedValue, player) { // Read selected player to add it 
         <div class="pick-name">${player.name}</div>
         <div class="pick-info">${player.position} ${player.school}</div>
       `;
+      savePickInfo(pick.dataset.info, pick);
     }
   });
 
@@ -197,6 +208,7 @@ function draftPlayer(selectedValue, player) { // Read selected player to add it 
       pick.innerHTML = `
         <img src="${player.schoolLogo}" class="college-image">
       `;
+      savePickLogo(pick.dataset.logo, pick);
     }
   });
   
@@ -284,7 +296,18 @@ function draftPlayer(selectedValue, player) { // Read selected player to add it 
 
 function changeHeader() { // Change the display at top based on which team is now on the clock
   nflTeams.forEach((team) => {
-    if (team.picks.includes(otc)) { // If a team is next in the draft order, display their header
+    let newTest;
+    if (JSON.parse(localStorage.getItem(`${team.name}test`))) {
+      newTest = JSON.parse(localStorage.getItem(`${team.name}test`));
+    } else {
+      newTest = team.test;
+    }
+
+    if (newTest.some(obj => obj.n === otc)) { // If a team is next in the draft order, display their header
+      let listedPicks = [];
+      newTest.forEach((pick) => {
+        listedPicks.push(pick.n);
+      });
       document.querySelector('.otc-header').innerHTML = `
         <div class="otc-panel" style="
           background-color: white;
@@ -293,7 +316,7 @@ function changeHeader() { // Change the display at top based on which team is no
           <img class="otc-image" src="${team.logo}">
           <div class="otc-middle">
             <div class="otc-text">ON THE CLOCK</div>
-            <div class="otc-picks">Picks: ${team.picks}</div>
+            <div class="otc-picks">Picks: ${listedPicks}</div>
             <div class="otc-needs">Needs: ${team.needs}</div>
           </div>
           <div class="otc-team">${team.city}<br>${team.name}</div>
@@ -311,9 +334,8 @@ function changeHeader() { // Change the display at top based on which team is no
   });
 }
 
-//tradeFunction();
 
-function showTrade() {
+function showTrade(selectedValue) {
   // Prevent multiple popups from being created
   if (document.querySelector('.settings-popup')) return;
 
@@ -321,7 +343,7 @@ function showTrade() {
     <div class="settings-popup">
       <div class="settings-content">
         <div class="trade-team-section section-left">
-          <select class="trade-team-selector selector1">
+          <select class="trade-team-selector selectorA">
             <option disabled selected>Choose Team 1</option>
             <option value="Cardinals">Arizona Cardinals</option>
             <option value="Falcons">Atlanta Falcons</option>
@@ -356,10 +378,10 @@ function showTrade() {
             <option value="Titans">Tennessee Titans</option>
             <option value="Commanders">Washington Commanders</option>
           </select>
-          <div class="trade-assets assets1"></div>
+          <ul id="teamA" class="trade-assets assets1"></ul>
         </div>
         <div class="trade-team-section">
-          <select class="trade-team-selector selector2">
+          <select class="trade-team-selector selectorB">
             <option disabled selected>Choose Team 2</option>
             <option value="Cardinals">Arizona Cardinals</option>
             <option value="Falcons">Atlanta Falcons</option>
@@ -394,7 +416,7 @@ function showTrade() {
             <option value="Titans">Tennessee Titans</option>
             <option value="Commanders">Washington Commanders</option>
           </select>
-          <div class="trade-assets assets2"></div>
+          <ul id="teamB" class="trade-assets assets1"></ul>
         </div>
       </div>
       <button class="close-settings">X</button>
@@ -402,83 +424,115 @@ function showTrade() {
     </div>
   `);
 
-  let teamSelected = document.querySelectorAll('.trade-team-selector');
+  let selectedA = [];
+  let selectedB = [];
+  const tradeTeamA = document.querySelector('.selectorA');
+  const tradeTeamB = document.querySelector('.selectorB');
 
-  const tradeTeam1 = document.querySelector('.selector1');
-  tradeTeam1.addEventListener("change", () => {
-    document.querySelector('.assets1').innerHTML = '';
-    nflTeams.forEach((team) => {
-      if (team.name === tradeTeam1.value) {
-        team.test.forEach((pick) => {
-          document.querySelector('.assets1').innerHTML += `
-            <div class="trade-asset-item" onclick="
-              this.dataset.ison = this.dataset.ison === 'true' ? 'false' : 'true';
-              this.style.backgroundColor = this.dataset.ison === 'true' ? 'rgb(200, 200, 200)' : 'white';
-            " data-ison="false" data-team="${team.name}">${pick.r}.${pick.n}</div>
-          `;
-        });
-      }
+  function renderTeams() {
+    let teamAList = document.getElementById('teamA');
+    let teamBList = document.getElementById('teamB');
+    teamAList.innerHTML = '';
+    teamBList.innerHTML = '';
+
+    tradeTeamA.addEventListener("change", () => {
+      selectedA = [];
+      teamAList.replaceChildren();
+      nflTeams.forEach((team) => {
+        if (team.name === tradeTeamA.value) {
+          team.test.forEach((pick) => {
+            let li = document.createElement('li'); // Create <li> for each pick
+            li.textContent = `${pick.r}.${pick.n}`; // Fill in <li> content
+            li.onclick = () => selectItem(li, pick, `${team.name}`); // Add class to color the <li>, and save the pick so we can trade it and remove the class later
+            teamAList.appendChild(li);
+          });
+        }
+      });
     });
-  });
-  const tradeTeam2 = document.querySelector('.selector2');
-  tradeTeam2.addEventListener("change", () => {
-    document.querySelector('.assets2').innerHTML = '';
-    nflTeams.forEach((team) => {
-      if (team.name === tradeTeam2.value) {
-        team.test.forEach((pick) => {
-          document.querySelector('.assets2').innerHTML += `
-            <div class="trade-asset-item" onclick="
-              this.dataset.ison = this.dataset.ison === 'true' ? 'false' : 'true';
-              this.style.backgroundColor = this.dataset.ison === 'true' ? 'rgb(200, 200, 200)' : 'white';
-            " data-ison="false" data-team="${team.name}"><span class="asset-round">${pick.r}</span>.<span class="asset-number">${pick.n}</span></div>
-          `;
-        });
-      }
+
+    tradeTeamB.addEventListener("change", () => {
+      selectedB = [];
+      teamBList.replaceChildren();
+      nflTeams.forEach((team) => {
+        if (team.name === tradeTeamB.value) {
+          team.test.forEach((pick) => {
+            let li = document.createElement('li'); // Create <li> for each pick
+            li.textContent = `${pick.r}.${pick.n}`; // Fill in <li> content
+            li.onclick = () => selectItem(li, pick, `${team.name}`); // Add class to color the <li>, and save the pick so we can trade it and remove the class later
+            teamBList.appendChild(li);
+          });
+        }
+      });
     });
-  });
+  }
+
+  function selectItem(item, asset, team) {
+    if (team === tradeTeamA.value) {
+      if (!selectedA.some(v => v.element === item && v.asset === asset)) { // If it's not already selected, select it and highlight
+        selectedA.push({ element: item, asset }); // Save the <li> and specific pick to switch the pick and move the <li> if it is traded
+        item.classList.remove('deselected');
+      } else { // If it is already selected, remove it from selected list and remove highlight
+        selectedA = selectedA.filter(v => !(v.element === item && v.asset === asset));
+        item.classList.add('deselected');
+      }
+    } else if (team === tradeTeamB.value) {
+      if (!selectedB.some(v => v.element === item && v.asset === asset)) {
+        selectedB.push({ element: item, asset });
+        item.classList.remove('deselected');
+      } else {
+        selectedB = selectedB.filter(v => !(v.element === item && v.asset === asset));
+        item.classList.add('deselected');
+      }
+    }
+    item.classList.add('selected'); // Add color to newly selected one
+  }
+
+  let rounds = selectedValue;
   
-  const submitBtn = document.querySelector('.submit-trade');
-  submitBtn.addEventListener("click", () => {
-    const assets = document.querySelectorAll('.trade-asset-item');
-    assets.forEach((asset) => {
-      const assetNumber = document.querySelector('.asset-number');
-      const assetRound = document.querySelector('.asset-round');
-      let pine = {r: parseFloat(assetRound.textContent), n: parseFloat(assetNumber.textContent), p: ""};
-      console.log(`${asset.textContent} ${asset.dataset.ison}`)
-      if (asset.dataset.ison === 'true') {
-        nflTeams.forEach((team) => {
+  function trade(rounds) {
+    if (selectedA.length !== 0 && selectedB.length !== 0) {
 
-          if (team.name === asset.dataset.team) {
-            console.log(team.name, asset.dataset.team)
+      let arrayTeamA = nflTeams.find(team => team.name === tradeTeamA.value);
+      let arrayTeamB = nflTeams.find(team => team.name === tradeTeamB.value);
+  
+      selectedA.forEach((apick) => {
+        arrayTeamA.test = arrayTeamA.test.filter(asset => asset !== apick.asset);
+        arrayTeamB.test.push(apick.asset);
+        apick.element.classList.remove('selected');
+      });
+  
+      selectedB.forEach((bpick) => {
+        arrayTeamB.test = arrayTeamB.test.filter(asset => asset !== bpick.asset);
+        arrayTeamA.test.push(bpick.asset);
+        bpick.element.classList.remove('selected');
+      });
 
-            // I think the problem is still in the if statements. It's not accurately checking if the team already has the asset or not.
-            // Because when selecting multiple assets to trade, it isn't doing add/remove correctly for each asset.
-            if (!team.test.some(obj =>
-                obj.r === assetRound.textContent &&
-                obj.n === assetNumber.textContent &&
-                obj.p === "")) {
-              team.test.push(pine);
-              console.log('added', team.test);
-            } else {
-              team.test.forEach((pick) => {
-                if (`${pick.r}.${pick.n}` === asset.textContent) {
-                  team.test.splice(team.test.findIndex(v => v.n === pick.n), 1);
-                  console.log('removed', team.test);
-                }
-              });
-            }
-          }
-        });
-      }
-    });
+      // save each team.test
+      localStorage.setItem(`${arrayTeamA.name}test`, JSON.stringify(arrayTeamA.test));
+      localStorage.setItem(`${arrayTeamB.name}test`, JSON.stringify(arrayTeamB.test));
+        
+      selectedA = [];
+      selectedB = [];
+
+      document.querySelector('.settings-popup').remove();
+    }
+    document.querySelector('.draft-order-panel').innerHTML = '';
+    buildDraftOrder2(rounds);
+    changeHeader();
+  }
+
+  renderTeams();
+
+  document.querySelector('.submit-trade').addEventListener("click", () => {
+    trade(rounds);
   });
   
   attachCloseEvent(); // Attach close event after popup is added
 }
 
-function tradeFunction() {
+function tradeFunction(selectedValue) {
   document.querySelector('.trade').addEventListener("click", () => {
-    showTrade(); // Ensure this function recreates .settings-popup
+    showTrade(selectedValue); // Ensure this function recreates .settings-popup
     attachCloseEvent(); // Attach close event after .settings-popup is created
   });
 }
@@ -499,3 +553,11 @@ document.querySelector('.settings').addEventListener("click", () => { // Add fun
     location.reload();
   }
 });
+
+function savePickInfo(n, pick) {
+  localStorage.setItem(`${n}info`, JSON.stringify(pick.innerHTML));
+}
+
+function savePickLogo(n, pick) {
+  localStorage.setItem(`${n}logo`, JSON.stringify(pick.innerHTML));
+}

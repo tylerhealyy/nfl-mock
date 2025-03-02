@@ -49,7 +49,23 @@ export function buildDraftOrder2(rounds) { // Read the number of rounds to displ
 
 function buildPanelItems(i) { // Build HTML for each pick
   nflTeams.forEach((team) => {
-    if (team.picks.includes(i)) { // If a team owns a pick, display that team's card in that spot on the panel
+    if (team.test.some(v => v.n === i)) { // If a team owns a pick, display that team's card in that spot on the panel
+      const storedInfo = JSON.parse(localStorage.getItem(`${i}info`));
+      const storedLogo = JSON.parse(localStorage.getItem(`${i}logo`));
+      function getInfo() {
+        if (storedInfo) {
+          return storedInfo;
+        } else {
+          return '';
+        }
+      }
+      function getLogo() {
+        if (storedLogo) {
+          return storedLogo;
+        } else {
+          return '';
+        }
+      }
       document.querySelector('.draft-order-panel').innerHTML += `
         <div class="draft-order-item" data-order="${i}" style="
           background-color: white;
@@ -59,8 +75,8 @@ function buildPanelItems(i) { // Build HTML for each pick
           <div class="pick-logo">
             <img src="${team.logo}" class="pick-image">
           </div>
-          <div class="pick-player" data-info="${i}"></div>
-          <div class="pick-player-logo" data-logo="${i}"></div>
+          <div class="pick-player" data-info="${i}">${getInfo()}</div>
+          <div class="pick-player-logo" data-logo="${i}">${getLogo()}</div>
         </div>
       `;
     }
