@@ -441,10 +441,12 @@ function showTrade(selectedValue) {
       nflTeams.forEach((team) => {
         if (team.name === tradeTeamA.value) {
           team.test.forEach((pick) => {
-            let li = document.createElement('li'); // Create <li> for each pick
-            li.textContent = `${pick.r}.${pick.n}`; // Fill in <li> content
-            li.onclick = () => selectItem(li, pick, `${team.name}`); // Add class to color the <li>, and save the pick so we can trade it and remove the class later
-            teamAList.appendChild(li);
+            if (pick.n >= otc) {
+              let li = document.createElement('li'); // Create <li> for each pick
+              li.textContent = `${pick.r}.${pick.n}`; // Fill in <li> content
+              li.onclick = () => selectItem(li, pick, `${team.name}`); // Add class to color the <li>, and save the pick so we can trade it and remove the class later
+              teamAList.appendChild(li);
+            }
           });
         }
       });
@@ -456,10 +458,12 @@ function showTrade(selectedValue) {
       nflTeams.forEach((team) => {
         if (team.name === tradeTeamB.value) {
           team.test.forEach((pick) => {
-            let li = document.createElement('li'); // Create <li> for each pick
-            li.textContent = `${pick.r}.${pick.n}`; // Fill in <li> content
-            li.onclick = () => selectItem(li, pick, `${team.name}`); // Add class to color the <li>, and save the pick so we can trade it and remove the class later
-            teamBList.appendChild(li);
+            if (pick.n >= otc) {
+              let li = document.createElement('li'); // Create <li> for each pick
+              li.textContent = `${pick.r}.${pick.n}`; // Fill in <li> content
+              li.onclick = () => selectItem(li, pick, `${team.name}`); // Add class to color the <li>, and save the pick so we can trade it and remove the class later
+              teamBList.appendChild(li);
+            }
           });
         }
       });
