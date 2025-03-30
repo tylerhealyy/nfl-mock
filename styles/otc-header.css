@@ -3,16 +3,18 @@
   box-shadow: inset 0px 0px 150px #4B92DB;
   color: white;
   position: fixed;
-  top: 0px;
-  left: 22%;
-  right: 0px;
+  top: 15px;
+  left: 24%;
+  right: 15px;
   display: grid;
   grid-template-columns: 200px 550px 300px 1fr;
   height: 100px;
+  border-radius: 5px;
+  border: 1px solid black;
 }
 
 .otc-image {
-  height: 100%;
+  height: 85%;
   margin: auto;
 }
 

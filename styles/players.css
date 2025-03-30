@@ -4,12 +4,15 @@
   background-color: rgb(255, 255, 255);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  border-bottom: 1px solid rgb(133, 133, 133);
   position: fixed;
-  top: 100px;
-  left: 22%;
+  top: 130px;
+  left: 24%;
   height: 70px;
   width: 40%;
+  border: 1px solid black;
+  border-bottom: none;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .players-positions-button {
@@ -55,10 +58,14 @@
   border-bottom: 1px solid rgb(133, 133, 133);
   overflow: scroll;
   position: fixed;
-  top: 200px;
-  left: 22%;
-  bottom: 50px;
+  top: 227px;
+  left: 24%;
+  bottom: 70px;
   width: 40%;
+  border: 1px solid black;
+  border-top: none;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .players-player-card {
@@ -104,17 +111,19 @@
 }
 
 .labels {
-  height: 25px;
   color: rgb(101, 101, 101);
   font-size: 16px;
   background-color: white;
-  grid-template-columns: 40px 45px 1fr 205px;
+  grid-template-columns: 40px 1fr 45px 230px;
   cursor: default;
   position: fixed;
-  top: 172px;
-  left: 22%;
+  top: 199px;
+  left: 24%;
   width: 40%;
   height: 25px;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  padding-right: 0px;
 }
 .labels:hover {
   background-color: white;
