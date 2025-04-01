@@ -127,7 +127,7 @@ document.querySelector('.grid6').innerHTML = '';
 document.querySelector('.grid7').innerHTML = '';
 
 document.querySelectorAll('.user').forEach((user) => {
-  user.innerHTML = JSON.parse(localStorage.getItem("savedName"));
+  user.innerHTML = JSON.parse(localStorage.getItem("nameInput"));
 })
 
 localStorage.removeItem("functionExecuted");

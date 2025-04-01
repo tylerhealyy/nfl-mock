@@ -6,10 +6,7 @@ let playerList = '';
 let otc = 1;
 let viewing;
 let selectedValue;
-
-document.querySelector('.name-input').value = '';
-let nameValue = document.querySelector('.name-input').value;
-localStorage.setItem("savedName", nameValue);
+let nameValue = '';
 
 nflTeams.forEach((team) => { // Reset all picks on every refresh
   team.test.forEach((pick) => {
@@ -18,29 +15,35 @@ nflTeams.forEach((team) => { // Reset all picks on every refresh
   });
 });
 
-document.querySelector('.start-button').addEventListener("click", () => { // Add functionality to 'start draft' button
+window.addEventListener("DOMContentLoaded", () => {
+  for (let i = 1; i < 258; i++) {
+    localStorage.removeItem(`${i}info`);
+    localStorage.removeItem(`${i}logo`);
+  }
+  nflTeams.forEach((team) => {
+    localStorage.removeItem(`${team.name}test`);
+  });
+  selectedValue = JSON.parse(localStorage.getItem('roundsInput'));
+  buildDraftOrder2(selectedValue); // Builds the draft order display on left side
+});
+
+document.querySelector('.begin').addEventListener("click", () => {
   startDraft();
+  document.querySelector('.begin').innerHTML = '';
+  document.querySelector('.begin').style.backgroundColor = 'white';
+  document.querySelector('.begin').style.color = 'black';
+  document.querySelector('.begin').style.textShadow = 'none';
 });
 
 function startDraft() { // Close pre-draft settings and start draft
-  let radios = document.getElementsByName("rounds");
 
-  for (let radio of radios) { // Read how many rounds the user selected
-    if (radio.checked) {
-      selectedValue = radio.value;
-      break;
-    }
-  }
-
-  nameValue = document.querySelector('.name-input').value; // Get inputted name and store it
+  selectedValue = JSON.parse(localStorage.getItem('roundsInput'));
+  nameValue = JSON.parse(localStorage.getItem('nameInput'));
   if (nameValue === '') {
-    nameValue = 'Nobody';
+    nameValue = 'Anonymous';
   }
-  localStorage.setItem("savedName", JSON.stringify(nameValue));
-  
-  document.querySelector('.pre-draft-options').innerHTML = ''; // Remove pre-draft options screen
 
-  for (let i = 1; i < 301; i++) { // Build the list of all players
+  for (let i = 1; i < 310; i++) { // Build the list of all players
     playerData.forEach((player) => {
       if (player.rank === i) {
         buildPlayerList(player);
@@ -53,16 +56,6 @@ function startDraft() { // Close pre-draft settings and start draft
   
   const playerCard = document.querySelectorAll('.player-card-js');
   displayProfile(playerCard, selectedValue); // Add event listeners to every player card on the screen that displays their profile
-
-  for (let i = 1; i < 258; i++) {
-    localStorage.removeItem(`${i}info`);
-    localStorage.removeItem(`${i}logo`);
-  }
-  nflTeams.forEach((team) => {
-    localStorage.removeItem(`${team.name}test`);
-  });
-
-  buildDraftOrder2(selectedValue); // Builds the draft order display on left side
   
   tradeFunction(selectedValue);
 }
@@ -189,7 +182,7 @@ function displayProfile(playerCard, selectedValue) { // Add event listeners to p
   });
 }
 
-function draftPlayer(selectedValue, player) { // Read selected player to add it correctly to team data and draft order display
+export function draftPlayer(selectedValue, player) { // Read selected player to add it correctly to team data and draft order display
 
   const teamPick = document.querySelectorAll('.pick-player'); // This is built in buildDraftOrder2(), it is where the player's name and info go
   teamPick.forEach((pick) => {
@@ -554,7 +547,7 @@ function attachCloseEvent() {
 
 document.querySelector('.settings').addEventListener("click", () => { // Add functionality to restart button
   if(confirm("Are you sure you want to restart?")) {
-    location.reload();
+    window.location.href = 'index.html';
   }
 });
 
@@ -565,3 +558,4 @@ function savePickInfo(n, pick) {
 function savePickLogo(n, pick) {
   localStorage.setItem(`${n}logo`, JSON.stringify(pick.innerHTML));
 }
+
