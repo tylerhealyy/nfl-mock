@@ -83,11 +83,12 @@ function buildPanelItems(i, rounds) { // Build HTML for each pick
         </div>
       `;
 
-      document.querySelectorAll('.draft-order-item').forEach((panelItem) => {
+      /*document.querySelectorAll('.draft-order-item').forEach((panelItem) => {
         panelItem.addEventListener("click", () => {
-          autoDraft(rounds, team);
+          //autoDraft(rounds, team);
+          singleAutoPick(rounds);
         });
-      });
+      });*/
     }
   });
 
@@ -212,4 +213,80 @@ export async function autoDraft(rounds) {
 
     await new Promise(resolve => setTimeout(resolve, speed)); // Delay for next pick
   }
+}
+
+let autoPickTeam = '';
+export async function singleAutoPick(rounds) {
+
+  let iterations;
+  switch(rounds) {
+    case "1":
+      iterations = 33;
+      break;
+    case "2":
+      iterations = 65;
+      break;
+    case "3":
+      iterations = 102;
+      break;
+    case "4":
+      iterations = 140;
+      break;
+    case "5":
+      iterations = 179;
+      break;
+    case "6":
+      iterations = 219;
+      break;
+    case "7":
+      iterations = 258;
+      break;
+  }
+
+  for (let i = 1; i < iterations; i++) {
+    nflTeams.forEach((team) => {
+      if (team.test.some(y => y.n === JSON.parse(localStorage.getItem('otc')))) {
+        autoPickTeam = team;
+      }
+    });
+  
+    let selectedPlayer = aiDraftPick(autoPickTeam);
+    if (selectedPlayer) {
+      draftPlayer(rounds, selectedPlayer);
+    }
+    
+    console.log(autoPickTeam.needs, selectedPlayer.name, selectedPlayer.score, 301 - selectedPlayer.consensus);
+  
+    await new Promise(resolve => setTimeout(resolve, speed)); // Delay for next pick
+  }
+}
+
+function aiDraftPick(team) {
+  return playerData
+    .map(player => {
+      let score = 301 - player.consensus; // Base score on player rating
+      
+      if (team.needs.includes(player.position)) {
+        score += Math.floor(Math.random() * (15 - 5 + 1)) + 5; // Boost for positions of need
+      }
+
+      if (player.name === 'Travis Hunter' || 'Abdul Carter' || 'Ashton Jeanty' || 'Tyler Warren') {
+        score += 5;
+      }
+
+      if (player.name === 'Abdul Carter') {
+        score += 5;
+      }
+
+      if (Math.random() < 0.1) {
+        score += Math.floor(Math.random() * 5) + 1; // Occasionally throw in a "surprise pick"
+      }
+
+      if (Math.random() < 0.1) {
+        score -= 5;
+      }
+
+      return { ...player, score };
+    })
+    .sort((a, b) => b.score - a.score)[0]; // Select best score
 }

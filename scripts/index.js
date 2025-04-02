@@ -1,9 +1,11 @@
 import { playerData } from "./player-data.js";
 import { nflTeams } from "./nfl-team-data.js";
 import { buildDraftOrder2 } from "./draft-order.js";
+import { singleAutoPick } from "./draft-order.js";
 
 let playerList = '';
 let otc = 1;
+localStorage.setItem('otc', JSON.stringify(otc));
 let viewing;
 let selectedValue;
 let nameValue = '';
@@ -58,6 +60,12 @@ function startDraft() { // Close pre-draft settings and start draft
   displayProfile(playerCard, selectedValue); // Add event listeners to every player card on the screen that displays their profile
   
   tradeFunction(selectedValue);
+
+  document.querySelectorAll('.draft-order-item').forEach((panelItem) => {
+    panelItem.addEventListener("click", () => {
+      singleAutoPick(selectedValue);
+    });
+  });
 }
 
 function buildPlayerList(player) { // Goes through every player in the player data script and adds this html for each player
@@ -275,6 +283,7 @@ export function draftPlayer(selectedValue, player) { // Read selected player to 
   
 
   otc += 1; // Move to next team in draft order
+  localStorage.setItem('otc', JSON.stringify(otc));
   changeHeader(); // Change the display at top based on which team is now on the clock
   document.querySelector(".profile-js").innerHTML = null; // Clear the profile of the player that was just drafted
 

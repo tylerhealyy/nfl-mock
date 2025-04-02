@@ -9,6 +9,7 @@ export const playerData = [
     age: "21.7",
     rank: 1,
     positionRank: 1,
+    consensus: 3,
     analysis: "Hunter is a fundamentally sound press corner who gets his hands on receivers, runs well and gets his head turned in time to locate the ball. He reads the quarterback and tracks the ball in zone looks. Hunter has the instincts and ball skills of a playmaker. He -- who also plays wide receiver for Colorado -- projects best overall at corner, but he is WR2 on my board. But if Hunter plays offense, he has the tools to quickly develop into a No. 2 receiver. He gets off the line well, has the extra gear to stretch the field and has the catching radius to win 50-50 balls downfield. He has the burst to threaten after the catch. -- Steve Muench, ESPN",
     stats: "https://www.sports-reference.com/cfb/players/travis-hunter-2.html"
   },
@@ -22,6 +23,7 @@ export const playerData = [
     age: "21.2",
     rank: 2,
     positionRank: 1,
+    consensus: 2,
     analysis: "Carter is an explosive speed rusher with a quick get-off and the lower body flexibility to bend inside at the top of his rush. He's not a polished technician, but his hands are active, he has the length to get into the frame of the blocker, and he changes directions well. He gets to depth, reads the quarterback and gets his hands in passing windows dropping into coverage. Carter is a rangy run defender with good closing speed. -- Steve Muench, ESPN",
     stats: "https://www.sports-reference.com/cfb/players/abdul-carter-1.html"
   },
@@ -35,6 +37,7 @@ export const playerData = [
     age: "21.8",
     rank: 3,
     positionRank: 1,
+    consensus: 9,
     analysis: "McMillan is a sudden route runner who separates well, especially for his size and has an outstanding feel for how to attack zone looks. He has a wide catching radius and naturally plucks the ball out of the air. His ability to accelerate after the catch jumps out on tape. McMillan has the foot speed and active hands to win at the line of scrimmage and get off press. He tracks the ball well and makes contested catches downfield. -- Steve Muench, ESPN",
     stats: "https://www.sports-reference.com/cfb/players/tetairoa-mcmillan-1.html"
   },
@@ -48,6 +51,7 @@ export const playerData = [
     age: "21.4",
     rank: 4,
     positionRank: 1,
+    consensus: 5,
     analysis: "Graham is a game-wrecker who looks unblockable for long stretches. He shoots his hands, stacks blockers and sheds in time to make plays. His size and strength make it tough to move off the ball, and he can occupy double teams without giving much ground. Graham has active hands and the initial quickness to slip blocks and get into gaps. He's a relentless pass rusher who pushes the pocket, tracks the quarterback and gets off blocks late. -- Steve Muench, ESPN",
     stats: "https://www.sports-reference.com/cfb/players/mason-graham-2.html"
   },
@@ -61,6 +65,7 @@ export const playerData = [
     age: "21.2",
     rank: 5,
     positionRank: 1,
+    consensus: 6,
     analysis: "Jeanty is a patient and smooth runner who looks quick but is never in a hurry between the tackles. He uses jab steps to get defenders off balance and set up vertical cuts. Jeanty makes defenders miss and makes it difficult for them to get into sound tackling position. He has a low center of gravity, excellent core strength and great balance. He sheds defenders who fail to wrap his legs and lowers his shoulder and delivers the blow on contact. Jeanty is a natural receiver and is a threat after the catch. He can move around the formation. -- Steve Muench, ESPN",
     stats: "https://www.sports-reference.com/cfb/players/ashton-jeanty-1.html"
   },
@@ -74,6 +79,7 @@ export const playerData = [
     age: "21.2",
     rank: 9,
     positionRank: 1,
+    consensus: 21,
     analysis: "Starks is a productive and versatile safety with good size and speed. He covers ground quickly in two-high looks, is competitive matching up with slot receivers in off coverage and matches up well with tight ends. Starks is a playmaker who tracks the ball well and elevates well. He is an active run defender who fills gaps and sifts through traffic. -- Steve Muench, ESPN",
     stats: "https://www.sports-reference.com/cfb/players/malaki-starks-1.html"
   },
@@ -87,6 +93,7 @@ export const playerData = [
     age: "21.1",
     rank: 6,
     positionRank: 1,
+    consensus: 8,
     analysis: "Campbell is smooth getting set and rarely loses once he's locked on in pass protection. He has excellent size and the strength to wall off defenders in the run game. Campbell is effective at combo blocking up to the second level. -- Steve Muench, ESPN",
     stats: "https://www.sports-reference.com/cfb/players/will-campbell-1.html"
   },
@@ -100,6 +107,7 @@ export const playerData = [
     age: "21.1",
     rank: 15,
     positionRank: 2,
+    consensus: 34,
     analysis: "Burden is an instinctive and slippery open field runner with good burst after the catch. He tracks the deep ball well and creates late separation downfield. Burden is also a dangerous punt returner. He has the traits to develop into an elite route runner working out of the slot, and he has a good feel for how to attack zone looks. Burden makes contested and tough catches thanks to his focus and body control. -- Steve Muench, ESPN",
     stats: "https://www.sports-reference.com/cfb/players/luther-burden-1.html"
   },
@@ -113,6 +121,7 @@ export const playerData = [
     age: "23.2",
     rank: 7,
     positionRank: 2,
+    consensus: 16,
     analysis: "Barron is a talented Swiss Army Knife. He aligned outside, in the slot and in the box as a dime linebacker for the Longhorns. He made impact plays in every game I studied. He’s a quicker-than-fast athlete with outstanding eyes and conviction. He’s at his best when he can play off and see through receivers to the quarterback. He reads the QB’s drop and anticipates to beat pass catchers to the ball. He doesn’t waste steps and has outstanding hands. He lacks elite top speed, but he’s always in position and he is excellent at locating/playing the football downfield. He has good timing and feel as a blitzer. He can adjust from pass to run defense to collect tackles. His batting average as a tackler in space is very high. Overall, Barron excels at taking the ball away and reminds me of Brian Branch when he was coming out of Alabama. -- Daniel Jeremiah, NFL Network",
     stats: "https://www.sports-reference.com/cfb/players/jahdae-barron-1.html"
   },
@@ -126,6 +135,7 @@ export const playerData = [
     age: "N/A",
     rank: 8,
     positionRank: 1,
+    consensus: 10,
     analysis: "Warren plays tight end, receiver, running back and quarterback. He's a smooth route runner and settles into windows working against zone looks. He's a big target with a wide catching radius and the frame to box out defenders. Warren makes plays in traffic, and he comes down with 50-50 balls. He breaks tackles when he gets into space, and he pushes the pile when he doesn't get a seam when he runs between the tackles. He catches passes in stride, and he flashes the ability to make the first defender miss. Warren has the frame to develop into an effective in-line blocker. -- Steve Muench, ESPN",
     stats: "https://www.sports-reference.com/cfb/players/tyler-warren-1.html"
   },
@@ -139,6 +149,7 @@ export const playerData = [
     age: "21.3",
     rank: 12,
     positionRank: 2,
+    consensus: 24,
     analysis: "Pearce is a talented pass rusher who tied for the SEC lead in sacks (9.5) in 2023. He is quick and closes well. He is smooth at changing directions and can quickly redirect inside when blockers try to take away the edge. Pearce works back inside when he sees the quarterback start to climb the pocket, and he can shoot his hands and drive blockers. He's a rangy run defender who closes well in pursuit. Pearce looks natural dropping into coverage and can kick inside to rush the passer. -- Steve Muench, ESPN",
     stats: "https://www.sports-reference.com/cfb/players/james-pearce-jr-1.html"
   },
@@ -152,6 +163,7 @@ export const playerData = [
     age: "N/A",
     rank: 13,
     positionRank: 3,
+    consensus: 18,
     analysis: "Green was an ultra-explosive and productive edge rusher for the Thundering Herd. He jumped on the radar with an outstanding performance against Ohio State in September and continued to dominate through the entire campaign. He’s continued to add weight over the last year and checked in at over 250 pounds at the Reese’s Senior Bowl. In the pass game, he has an excellent get-off and he can convert speed to power. He has quick hands and wins with a dip/rip on the edge. He has enjoyed success with spin moves, but he gets a little too reliant on them at times. I love his effort to keep working and refuse to stay blocked. In the run game, he knocks back tight ends at the point of attack and he can pop/separate to free himself for tackles. He is very disruptive on stunts and games. Overall, Green is a very gifted pass rusher and more than holds his own against the run. -- Daniel Jeremiah, NFL Network",
     stats: "https://www.sports-reference.com/cfb/players/mike-green-14.html"
   },
@@ -165,6 +177,7 @@ export const playerData = [
     age: "21.8",
     rank: 14,
     positionRank: 3,
+    consensus: 12,
     analysis: "Johnson is a lockdown corner who excels at reading receivers and breaking on passes in off-coverage. He closes quickly and has excellent body control and fluidity for a taller corner. Johnson has an excellent feel for route combinations, passes off receivers and tracks the ball well in zone coverage. He has the length to reroute receivers and the speed to run with them in press. Johnson fights to get off blocks and wraps in run support and after the catch. -- Steve Muench, ESPN",
     stats: "https://www.sports-reference.com/cfb/players/will-johnson-10.html"
   },
@@ -178,6 +191,7 @@ export const playerData = [
     age: "21.3",
     rank: 17,
     positionRank: 2,
+    consensus: 22,
     analysis: "Grant flashes on tape and has a high ceiling. He is a disruptive run defender with an explosive first step and active hands to slip blocks. He has the size and strength to anchor when he keeps his pads down. Grant runs well for his size and can make plays in pursuit. He has the tools to develop into a productive pass rusher. He can win with power and with his hands. -- Steve Muench, ESPN",
     stats: "https://www.sports-reference.com/cfb/players/kenneth-grant-2.html"
   },
@@ -191,6 +205,7 @@ export const playerData = [
     age: "21.3",
     rank: 25,
     positionRank: 3,
+    consensus: 28,
     analysis: "Nolen is a Texas A&M transfer who has gotten better every year. He slips blocks and gets into the backfield. He stacks and gets off blocks. Nolen splits and fights off double teams. He has the range and motor to make plays in pursuit. He explodes out of his stance, and he has high upside as a pass rusher. He works half the man, and he can win clean. -- Steve Muench, ESPN",
     stats: "https://www.sports-reference.com/cfb/players/walter-nolen-1.html"
   },
@@ -204,6 +219,7 @@ export const playerData = [
     age: "22.1",
     rank: 18,
     positionRank: 2,
+    consensus: 25,
     analysis: "Simmons is a smooth mover with great quickness and feet. He gets good width with his kick step and delivers a strong punch in pass protection. Simmons mirrors, bends and anchors well. He has the tools to excel in zone-heavy run schemes. He gets into position, plays with a good base and walls off edge defenders. Simmons gets to the second level and covers up linebackers. He started 13 games at right tackle at San Deigo State in 2022 and at left tackle for Ohio State the past two seasons. -- Steve Muench, ESPN",
     stats: "https://www.sports-reference.com/cfb/players/josh-simmons-1.html"
   },
@@ -217,6 +233,7 @@ export const playerData = [
     age: "22.3",
     rank: 19,
     positionRank: 3,
+    consensus: 33,
     analysis: "Egubka excels at exploiting soft spots in zone looks. He's a crafty and physical route runner working against man looks. He's reliable, tough and makes contested catches. He has good open field instincts, and he runs hard after the catch. -- Steve Muench, ESPN",
     stats: "https://www.sports-reference.com/cfb/players/emeka-egbuka-1.html"
   },
@@ -230,6 +247,7 @@ export const playerData = [
     age: "20.9",
     rank: 20,
     positionRank: 3,
+    consensus: 15,
     analysis: "Banks has the lateral quickness to seal the front side and cut off backside defenders. He walls off defenders and flashes the ability to generate push. Banks has the range to reach second-level defenders and the powerful punch to knock linebackers off course. He has the quickness, foot speed and strength to develop into an elite pass blocker. He shows the ability to reset his hands when defenders get into his frame initially, and he mirrors well. -- Steve Muench, ESPN",
     stats: "https://www.sports-reference.com/cfb/players/kelvin-banks-jr-1.html"
   },
@@ -243,6 +261,7 @@ export const playerData = [
     age: "22.7",
     rank: 21,
     positionRank: 1,
+    consensus: 1,
     analysis: "Ward transferred to Miami after playing at Washington State and Incarnate Word for four seasons. He's put up impressive numbers and performances at each stop, but he's played at his best with the Hurricanes. Ward has shown great poise in the pocket and in critical game situations; his footwork and decision-making have also improved. He's an escape artist with the foot speed and core strength to extend plays. He keeps his eyes downfield as he moves up in the pocket. Ward makes off-platform throws and excels at throwing over the middle and to his right while moving to his left. He adjusts his release point in the face of pressure. He drives the ball into tight windows and downfield. -- Steve Muench, ESPN",
     stats: "https://www.sports-reference.com/cfb/players/cameron-ward-1.html"
   },
@@ -256,6 +275,7 @@ export const playerData = [
     age: "N/A",
     rank: 22,
     positionRank: 4,
+    consensus: 29,
     analysis: "Harmon is a versatile defensive lineman. He is at his best playing 4i, lined up over the inside shoulder of the offensive tackle in base three-man fronts and 3-technique or lined up on the outside shoulder of the offensive guard in base four-man fronts. He is quick and strong enough to play the B gap and squeeze the A gap when he lines up over the inside shoulder of the offensive tackle. Harmon stacks blockers, locates the ball and sheds in time to make plays. He flashes the ability to slip blocks, can win with his hands and chases the quarterback with good effort rushing the passer. -- Steve Muench, ESPN",
     stats: "https://www.sports-reference.com/cfb/players/derrick-harmon-2.html"
   },
@@ -269,6 +289,7 @@ export const playerData = [
     age: "20.6",
     rank: 24,
     positionRank: 4,
+    consensus: 14,
     analysis: "Williams excels at shooting his hands and stacking blockers. He can set the edge on the outside and anchor when he lines up inside. Williams is also quick with active hands and can slip blocks. He is a powerful pass rusher who drives blockers back to the quarterback, and he is effective in looping around on stunts. Williams has the length and change of direction to develop. -- Steve Muench, ESPN",
     stats: "https://www.sports-reference.com/cfb/players/mykel-williams-1.html"
   },
@@ -282,6 +303,7 @@ export const playerData = [
     age: "21.2",
     rank: 26,
     positionRank: 5,
+    consensus: 13,
     analysis: "Stewart is a long, dynamic and athletic edge rusher. He generates a lot of pressures but struggles to finish in the passing game. That’s why his low sack total (4.5 in three seasons) is misleading. He still impacts the game, even without major sack production. He has a very explosive first step and uses his long-arm move to run offensive tackles back to the passer. He bends well at the top of his rush for such a big edge defender. He has an outstanding closing burst once he clears the tackle. He does need to add more moves to his arsenal, but I guarantee defensive line coaches are going to be lining up to work with him. Against the run, he can easily set the edge and he has the speed to chase and make plays on the back side. I’m sure some will struggle to see past the limited sack total, but there is just too much talent here to fall into that trap. -- Daniel Jeremiah, NFL Network",
     stats: "https://www.sports-reference.com/cfb/players/shemar-stewart-1.html"
   },
@@ -295,6 +317,7 @@ export const playerData = [
     age: "20.9",
     rank: 11,
     positionRank: 4,
+    consensus: 7,
     analysis: "Membou is a versatile and outstanding run blocker. He moves well laterally, stays connected to defensive linemen moving down the line and is smooth climbing to the second level as a zone blocker. He is a powerful drive blocker with the strength to move defenders off the ball and finish. He has the skill set to develop into an outstanding pass blocker. Membou has the balance and the body control to recover when he gets caught out of position. He is big and bends well enough to anchor and is quick and long enough to handle speed off the edge. -- Steve Muench, ESPN",
     stats: "https://www.sports-reference.com/cfb/players/armand-membou-1.html"
   },
@@ -308,6 +331,7 @@ export const playerData = [
     age: "21.5",
     rank: 27,
     positionRank: 4,
+    consensus: 20,
     analysis: "Golden has average size, but he plays with tremendous polish, instincts and toughness. He spends a lot of time operating out of the slot. He can defeat press coverage with quickness or strength. He understands how to tempo routes and sets up defenders down the field. He can change gears when the ball goes up and he tracks it naturally. He does a nice job of staying grounded through the catch when working on crossers. He has the utmost confidence in his ball skills. After the catch, he is very strong/sturdy to pull through tackles and he can make defenders miss in space. I love his temperament on the field -- he plays with an edge. Overall, Golden doesn’t have dynamic traits, but he’s a natural football player and a quarterback’s best friend. He’s dependable. -- Daniel Jeremiah, NFL Network",
     stats: "https://www.sports-reference.com/cfb/players/matthew-golden-1.html"
   },
@@ -321,6 +345,7 @@ export const playerData = [
     age: "21.9",
     rank: 28,
     positionRank: 2,
+    consensus: 26,
     analysis: "Hampton is a big and powerful inside and short-yardage runner. He keeps his feet moving and pushes the pile when he doesn't get a seam. He makes defenders pay for trying to tackle him high and breaks tackles in space. Hampton may not have elite top-end speed, but he's quick and fast enough to break long runs when he does get a seam. He is an effective pass blocker. He steps up and is stout taking on defenders. Hampton looks natural catching the ball in stride and flashes after the catch. -- Steve Muench, ESPN",
     stats: "https://www.sports-reference.com/cfb/players/omarion-hampton-1.html"
   },
@@ -334,6 +359,7 @@ export const playerData = [
     age: "22.8",
     rank: 31,
     positionRank: 5,
+    consensus: 30,
     analysis: "Zabel is a versatile offensive lineman with excellent toughness and awareness. He lined up at left tackle in 2024, but he has played four O-line positions during his collegiate career. I believe he’s best suited to play guard at the next level. In pass pro, he has quick feet, stays square and catches/absorbs rushers. His lack of length shows up on the perimeter. He allows defenders to capture his chest, but he still possesses the core strength and balance to stall their push. He shows the savvy to snatch rushers when they get overextended. I love his ability to fit up and drive defenders in the run game. He has a great feel on combo blocks, and he always looks to finish. He has a nasty playing style, but he doesn’t get caught off-balance. Overall, I see Zabel as a Day 1 starter at guard. -- Daniel Jeremiah, NFL Network",
     stats: ""
   },
@@ -347,6 +373,7 @@ export const playerData = [
     age: "20.4",
     rank: 32,
     positionRank: 6,
+    consensus: 37,
     analysis: "Scourton gets to the quarterback in different ways. He dips and rips and starts upfield and then redirects inside. He gets good push as a power rusher; he spins inside and outside. Scourton tracks the quarterback and falls back inside when the quarterback steps up. He is a disruptive run defender who slips blocks quickly. He has the size and strength to set the edge. He gets to depth and reads the quarterback in coverage, and he can kick inside to rush the passer. -- Steve Muench, ESPN",
     stats: "https://www.sports-reference.com/cfb/players/nic-caraway-1.html"
   },
@@ -360,6 +387,7 @@ export const playerData = [
     age: "N/A",
     rank: 23,
     positionRank: 5,
+    consensus: 47,
     analysis: "Interior lineman with the size, length and physicality for consideration in odd or even fronts. Alexander is capable of destroying blocks, but he needs to do a better job of balancing his force to control the action at the point of attack. He can hold his ground when he’s staying low, but the pad level is inconsistent and causes his gap constriction to be hit-or-miss. Alexander has above-average rush acumen. He does a nice job of utilizing his traits and crafting a plan of attack. His best football could be ahead of him, but for now, he projects as an average rotational player or backup. -- Lance Zierlein, NFL.com",
     stats: ""
   },
@@ -373,6 +401,7 @@ export const playerData = [
     age: "20.9",
     rank: 10,
     positionRank: 1,
+    consensus: 17,
     analysis: "Campbell is a versatile linebacker who lines up off the ball and on the edge. He has the length and strength to stack blockers. He chases with good effort and makes plays in pursuit. Campbell runs with tight ends working out of the slot and releasing from an in-line alignment. He quickly gets to depth and shows good range in zone looks. -- Steve Muench, ESPN",
     stats: ""
   },
@@ -386,6 +415,7 @@ export const playerData = [
     age: "21.2",
     rank: 34,
     positionRank: 6,
+    consensus: 36,
     analysis: "Conerly started 28 games at left tackle over the past two seasons. He's quick and maintains a wide base when he kicks out so he can plant and power down when defenders try to cross his face in pass protection. He mirrors well and rarely loses once locked on. He has the core strength to sit and anchor. Conerly squares up and turns out defenders in the run game. He's smooth getting into position and working up to the second level on zone runs. -- Steve Muench, ESPN"
   },
   {
@@ -398,6 +428,7 @@ export const playerData = [
     age: "20.8",
     rank: 29,
     positionRank: 2,
+    consensus: 19,
     analysis: "Loveland is a smooth route runner who gets out of his breaks and flattens out working against man looks. He presents the quarterback with a big target sitting in pockets working against zone looks. Loveland has the burst and toughness to get behind linebackers and make plays in front of safeties working the middle of the field. He has a wide catching radius and good body control. Loveland is a threat after the catch and has the speed to make plays down the seam. -- Steve Muench, ESPN",
     stats: ""
   },
@@ -411,6 +442,7 @@ export const playerData = [
     age: "20.9",
     rank: 30,
     positionRank: 2,
+    consensus: 11,
     analysis: "Walker is a versatile front seven defender who lines up off the ball and on the edge. He's an explosive speed rusher with an effective rip to dip move coming off the edge. He has the foot speed to work inside when blockers try to take away the edge and flashes the ability to win with his hands. Walker gets skinny shooting gaps between the tackles, and he relentlessly chases the quarterback. He's smooth dropping into coverage, slips blocks and beats blockers to the point of attack between the tackles defending the run. -- Steve Muench, ESPN",
     stats: ""
   },
@@ -424,6 +456,7 @@ export const playerData = [
     age: "N/A",
     rank: 33,
     positionRank: 3,
+    consensus: 73,
     analysis: "Demetrius Knight Jr. is a former dual-threat quarterback and a six-year senior which shows up in his instincts against the run. He's quick to key and diagnose, recognizes when he can shoot gaps, is good at mirror running backs on zone runs and can sift through the trash to make tackles. -- Matt Holder, Bleacher Report",
     stats: ""
   },
@@ -437,6 +470,7 @@ export const playerData = [
     age: "22.9",
     rank: 40,
     positionRank: 4,
+    consensus: 41,
     analysis: "Long press cornerback who proved he could make the jump from the Sun Belt to the SEC without a hitch. Amos can disrupt the release and plays with good short-area movement in man coverage. He can get a little lost at the top of the route and needs occasional safety nets over the top. He has twitchy feet to close and sees the action clearly from zone but can be hampered by indecisiveness, despite favorable instincts. Amos uses physicality and length to shrink the 50/50 odds in his favor. He can play in multiple coverage but is most consistent in zone. Amos needs to ramp up his run support and trust his eyes in space, but he has the goods to become a solid starting outside corner. -- Lance Zierlein, NFL.com",
     stats: ""
   },
@@ -450,6 +484,7 @@ export const playerData = [
     age: "22.8",
     rank: 44,
     positionRank: 5,
+    consensus: 39,
     analysis: "Big, long and fast are the physical descriptors that stand out for the East Carolina corner. Revel is leggy when matching press release but he’s disruptive once he gets his hands on the wideout. He plays upright in man coverage, tends to allow small pockets of separation due to his high center of gravity and still needs improvement when it comes to finding and defending the deep ball, despite his ability to stay in phase with vertical routes. He has ideal length and good vision from zone, and he should continue to improve in that coverage with more experience. Revel suffered a torn ACL in September, but his measurables, explosiveness and upside give him a good chance to become an early starter. -- Lance Zierlein, NFL.com",
     stats: ""
   },
@@ -463,6 +498,7 @@ export const playerData = [
     age: "21.4",
     rank: 16,
     positionRank: 7,
+    consensus: 32,
     analysis: "Ezeiruaku is a compact edge rusher with outstanding length, burst and production. In the pass game, he has a very quick first step and gets on top of blockers in a hurry. He excels at prying open the outside shoulder and cornering toward the quarterback. He has a full array of moves to complement his speed rush. He has won with a club/swim, inside counter, spin move and Euro step. He’s an outstanding finisher (16.5 sacks in 2024). Against the run, he needs to be more consistent using his length to stack blocks. He takes them on with his shoulder too often. He shows solid effort on the back side to chase plays. Overall, Ezeiruaku has an ideal body type to rush the passer, and he has all the tricks in his bag to win against good players. -- Daniel Jeremiah, NFL Network",
     stats: ""
   },
@@ -476,6 +512,7 @@ export const playerData = [
     age: "N/A",
     rank: 35,
     positionRank: 5,
+    consensus: 52,
     analysis: "Elic Ayomanor projects as a good number two Z-receiver for an NFL offense. He is alignment-versatile and makes plays from the slot with a two-way release. Adding his play strength, he will give smaller nickel defenders fits in man coverage by boxing them out for in-breaking passes. Ayomanor is a talented and reliable pass catcher who can start for multiple years and contracts. -- Dame Parson, Bleacher Report",
     stats: ""
   },
@@ -489,6 +526,7 @@ export const playerData = [
     age: "20.9",
     rank: 67,
     positionRank: 6,
+    consensus: 44,
     analysis: "Morrison is a tough and physical press corner. He gets his hands on receivers and smoothers them underneath. He's smooth turning and makes it difficult for receivers to stack him on vertical routes. Morrison's at his best in press coverage, but he tracks the ball well in zone looks. He flashes good timing reaching in and breaking up passes. He's a sound wrap up tackler who fights to get off blocks in run support. -- Steve Muench, ESPN",
     stats: ""
   },
@@ -502,6 +540,7 @@ export const playerData = [
     age: "21.5",
     rank: 36,
     positionRank: 6,
+    consensus: 64,
     analysis: "Sanders is a long, lean and twitchy defensive tackle. He aligned up and down the front in South Carolina’s scheme. He’s disruptive against the pass, boasting an explosive get-off. He uses his length to keep blockers off his chest. When he keeps his pads low, he can create pocket push. He will get his pads a little too high at times and stall out. He has the agility to wrap around blockers on stunts/games. South Carolina had one of the best defensive lines in the country, which limited some of his production. Against the run, he can unlock his hips, shoot his hands and hold the point of attack against single blocks. He isn’t as stout against double-teams and will get displaced at times. He plays with high effort. Overall, Sanders is an ascending player with the ability to impact the quarterback. -- Daniel Jeremiah, NFL Network",
     stats: ""
   },
@@ -515,6 +554,7 @@ export const playerData = [
     age: "21.9",
     rank: 37,
     positionRank: 7,
+    consensus: 48,
     analysis: "Williams is a big interior run stuffer with active hands. He stacks blockers, locates the ball and sheds in time to make the play. He's quick for his size, slips blocks and gets into the backfield. Williams shoots his hands, pushes the pocket and gets off blocks rushing the passer. He gets his hands up in passing lanes. -- Steve Muench, ESPN",
     stats: ""
   },
@@ -528,6 +568,7 @@ export const playerData = [
     age: "22.1",
     rank: 38,
     positionRank: 6,
+    consensus: 61,
     analysis: "Competitive inside or outside target who stands out as a box-checker in several important columns. Bech can be slowed in press and might not have much separation speed, but he’s a big, strong receiver with outstanding ball skills. He’s physical at the top of the route and has a rebounder’s feel for owning catch space once he gains top positioning. His hands are sticky and strong with elite catch focus from any spot on the field. He’s fearless and physical as a runner but needs more nastiness as a run blocker. Bech’s lack of explosiveness could shrink his work space, but the focus should be on his pro-ready toughness and ball skills that make him a projectable possession target with WR3 upside. -- Lance Zierlein, NFL.com",
     stats: ""
   },
@@ -541,6 +582,7 @@ export const playerData = [
     age: "23.2",
     rank: 39,
     positionRank: 2,
+    consensus: 50,
     analysis: "Safety with the versatility and ball skills to make plays from a variety of alignments. Watts plays with rare feel and instincts on the back-end, allowing him to range over the top in single-high or read and drive on throws as a split safety. Watts lined up over the slot at times in college, but he might not have the man-cover talent to do that as a pro. His ball skills and production are intoxicating, but his run support and tackling are quite sobering. Watts lacks pursuit discipline and fails to break down in space, leading to open-field misses and back-breaking mistakes. The tackling lowers his floor some, but I expect him to drift toward his ceiling because he’s so good on the back-end. -- Lance Zierlein, NFL.com",
     stats: ""
   },
@@ -554,6 +596,7 @@ export const playerData = [
     age: "22.1",
     rank: 41,
     positionRank: 8,
+    consensus: 43,
     analysis: "High-energy edge prospect with projectable traits but unorthodox movements and body control that might create a lack of conviction when it’s time to stamp a grade. Jackson added muscle mass to his leggy frame, but a lack of bend hinders his anchor and contact balance against force. He’s long and urgent in fighting his way past the man in front of him. He’ll never be a natural edge bender but he plays with connected hands and feet that should allow him to develop more impactful rush counters. It will look gawky at times, but Jackson seems to be growing into his frame and possesses the traits and motor to make it as a future starter on the edge. -- Lance Zierlein, NFL.com",
     stats: ""
   },
@@ -567,6 +610,7 @@ export const playerData = [
     age: "22.8",
     rank: 45,
     positionRank: 9,
+    consensus: 60,
     analysis: "Finesse edge defender with traits, athleticism and upside to have his sack production translate to the NFL. Umanmielen is a serious ground-gainer with burst, stride and bend to create shallow edges leading directly into the quarterback’s drop space. He’s not instinctive and takes predictable pathways to the pocket, but he’s simply hard to keep out of the pocket due to his attributes. He lacks play strength and aggression as a run defender. He will have trouble setting edges and might not be an early down option early in his career. Umanmielen is an ascending stand-up edge rusher who might be just scratching the surface of his already threatening rush talent. -- Lance Zierlein, NFL.com",
     stats: ""
   },
@@ -580,6 +624,7 @@ export const playerData = [
     age: "22.7",
     rank: 57,
     positionRank: 10,
+    consensus: 53,
     analysis: "Sawyer is a big, rugged edge defender with excellent production. Against the run, he’s a bully at the point of attack. He jolts blockers with his hands before discarding and pursuing the ball. He consistently collapses tight ends. He plays with excellent effort to chase plays from the back side. He will drop into coverage on occasion. He’s tight in his change of direction, but his instincts put him in position to make plays. As a pass rusher, he relies mostly on power. He runs his feet on contact, generating a push with his bull rush. He also has a violent club move. Overall, Sawyer is a dominant edge-setter in the run game and he will test the brakes of opposing tackles in the pass game. -- Daniel Jeremiah, NFL Network",
     stats: ""
   },
@@ -593,6 +638,7 @@ export const playerData = [
     age: "22.1",
     rank: 46,
     positionRank: 8,
+    consensus: 87,
     analysis: "Three-year starter with “tweener” measurables but excellent musculation and lean mass. Turner plays with unlimited activity and a heavy dose of violence. He has a quick first step and an explosive punch. He’s capable of holding the point against single blocks or working the gaps with foot quickness. His pressure rate is hurt by a lack of length but he’s a restless rusher who hunts blockers’ edges and will eventually leak through if the play extends. His athleticism and chase quickness will see him in or near the pile with some frequency as a future starter. -- Lance Zierlein, NFL.com",
     stats: ""
   },
@@ -606,6 +652,7 @@ export const playerData = [
     age: "23.0",
     rank: 47,
     positionRank: 2,
+    consensus: 4,
     analysis: "Sanders is accurate with the quick release to pick defenses apart with short-to-intermediate passes. In 2023, he set Colorado school records for passing yards in a season (3,230), completion percentage (.693) and touchdown-to-interception ratio (27-to-3) despite frequently poor pass protection. Sanders has handled the hype well and doesn't appear afraid of the big moment on the big stage. He throws to open receivers and leads them to yards after the catch. Sanders spins the ball well and showed better timing and touch on his downfield throws in the three-game evaluation of 2023 tape than in the four 2022 Jackson State games watched. -- Steve Muench, ESPN",
     stats: ""
   },
@@ -619,6 +666,7 @@ export const playerData = [
     age: "21.7",
     rank: 53,
     positionRank: 12,
+    consensus: 51,
     analysis: "Tuimolau is an effective hand fighter who swipes blockers' hands off him as he works upfield. He wins with inside moves and mixes in an effective spin move. He reads the quarterback and gets his hands up in passing lanes. Tuimolau has the size and strength to set the edge against the run. He chases the quarterback and pursues the run with great effort. -- Steve Muench, ESPN",
     stats: ""
   },
@@ -632,6 +680,7 @@ export const playerData = [
     age: "20.8",
     rank: 48,
     positionRank: 1,
+    consensus: 27,
     analysis: "Booker is a big guard with the size and strength to cover up defenders in the run game. He is effective combination blocking to the second level, and he moves well enough to pull. He's smooth kicking out to three techniques. Booker works with hands inside, locks on and locks out. He slides and anchors well. He keeps his head up and picks up line stunts and pressures. -- Steve Muench, ESPN"
   },
   {
@@ -644,6 +693,7 @@ export const playerData = [
     age: "23.3",
     rank: 49,
     positionRank: 9,
+    consensus: 56,
     analysis: "Collins is a dominant run defender with upside as a pass rusher. He has the ideal size, length and motor for his position. Against the run, he can uncoil his hips and explode into blockers. He can lock out single blocks with one arm and has the base/balance to hold up versus double teams. He will incorporate a violent snatch-and-dump move when blockers get overextended. He occasionally aligned over tight ends and physically mauled them. He chases plays from the back side with excellent effort. As a pass rusher, he is a tick late off the ball and lacks a true game plan. He still generates pressure once he gets rolling, but the sacks were not there. I see a lot to work with in this department and expect more production from him at the next level. Overall, Collins is a dominant two-down defensive tackle with the potential to develop into more as a professional. -- Daniel Jeremiah, NFL Network",
     stats: ""
   },
@@ -657,6 +707,7 @@ export const playerData = [
     age: "23.0",
     rank: 52,
     positionRank: 3,
+    consensus: 66,
     analysis: "Carnage creator with a compact frame and elite contact balance. Skattebo can break through second-level tacklers and careen off of bodies for extended yards after contact. He reads his blocks quickly and is more elusive in the early stages of the run than he’s probably given credit for. He lacks top-end speed and will have to contend with bigger, better tacklers on the next level. Skattebo’s effectiveness as a receiver out of the backfield should add to his draft value. His physicality and edge should bode well for him as a complementary back with three-down value who is capable of helping an offense wear down the defense. -- Lance Zierlein, NFL.com",
     stats: ""
   },
@@ -670,6 +721,7 @@ export const playerData = [
     age: "N/A",
     rank: 54,
     positionRank: 4,
+    consensus: 55,
     analysis: "Schwesinger is an ultra-instinctive linebacker with range and cover ability. Against the run, he is quick to key/diagnose. He is adept at beating blockers to spots, dipping underneath and avoiding them with quickness. He struggles to free himself when he’s forced to engage blocks. He has outstanding lateral range, and while he lacks thump, he’s a reliable tackler. He is smooth and fluid in coverage and has the agility to mirror/match tight ends and running backs. I love his play speed and energy. He chases plays all over the field. Overall, Schwesinger isn’t the most imposing figure, but he’s going to rack up production because of his blend of speed and instincts. -- Daniel Jeremiah, NFL Network",
     stats: ""
   },
@@ -683,6 +735,7 @@ export const playerData = [
     age: "22.8",
     rank: 56,
     positionRank: 7,
+    consensus: 84,
     analysis: "Feisty slot-only target who has maximized his talent and honed his craft. Restrepo is a route chef who reeks of urgency and plays much faster than the stopwatch is likely to time him. His footwork, leverage and burst allowed consistent separation from man coverage on the college level but contested catches await him on the next level. His instincts, blitz recognition and talent to scramble open when plays break down will make him a favorite of quarterbacks and play-callers. Subpar length and average measurables could create some hesitation for NFL evaluators but the play and football demeanor feel translatable as a future starting slot. -- Lance Zierlein, NFL.com",
     stats: ""
   },
@@ -696,6 +749,7 @@ export const playerData = [
     age: "24.1",
     rank: 59,
     positionRank: 7,
+    consensus: 59,
     analysis: "Sixth-year senior with elite traits and special teams talent but only one year of starting experience at cornerback. Porter’s rep total is heavy on zone coverages but he has the athleticism, burst and speed to handle more man coverage. He has excellent zone awareness with the twitch and ball skills to expand his sphere of influence. He uses his length to shade downfield throws but needs to get stronger to improve his press, his contest and his tackling in run support. More schooling is needed as a pattern-matcher but his athletic profile and instant impact on special teams should create more confidence in projecting Porter’s continued ascension as a CB2/CB3. -- Lance Zierlein, NFL.com",
     stats: ""
   },
@@ -709,6 +763,7 @@ export const playerData = [
     age: "23.2",
     rank: 60,
     positionRank: 13,
+    consensus: 96,
     analysis: "Despite consecutive seasons of production in opponents’ backfields, Ivey’s strengths and weaknesses converge for a feast-or-famine playing style. His rush is segmented and leggy with average short-area closing burst for an edge rusher. He lacks anchor and contact balance to command the point. On the other hand, Ivey is surprisingly slippery, using his stride, length and upper-body swivel to shapeshift and circumvent blocks. He needs to play with a little more edge but has enough disruption potential to become a rotational 4-3 defensive end with sub-rush potential inside. -- Lance Zierlein, NFL.com",
     stats: ""
   },
@@ -722,6 +777,7 @@ export const playerData = [
     age: "N/A",
     rank: 61,
     positionRank: 7,
+    consensus: 42,
     analysis: "Ersery, who didn't start playing football until his junior year of high school, is not a technician, but he has a high ceiling and the tools to build on the progress he's made. He is quick with outstanding size and engulfs defenders in the run game. Ersery is smooth at combo blocking to the second level. He moves well laterally and can seal edge defenders. He has the potential to develop into an elite pass blocker. Ersery has the frame and length to push speed rushers past the pocket, and he has the size and strength to anchor when his technique is sound. -- Steve Muench, ESPN",
     stats: ""
   },
@@ -735,6 +791,7 @@ export const playerData = [
     age: "N/A",
     rank: 77,
     positionRank: 10,
+    consensus: 88,
     analysis: "Farmer has outstanding bulk, length and strength for his position. Against the pass, he has a quick first step and push-the-pocket power. He can win early when slanting and he flashes the ability to stack moves together when his initial move is thwarted. Against the run, he faced double-teams quite a bit, but he can sink his weight and hold up fine. He can stack single blocks easily. He has a lot of shock in his hands to jolt and free himself. He’s a little late to locate the ball-carrier at times, but once he finds him, he pursues with effort. Overall, Farmer is likely to rise up boards during the evaluation process. He is scheme-versatile and provides value on every down. -- Daniel Jeremiah, NFL Network",
     stats: ""
   },
@@ -748,6 +805,7 @@ export const playerData = [
     age: "20.4",
     rank: 64,
     positionRank: 4,
+    consensus: 95,
     analysis: "Compact back with good instincts and run-after-contact ability that propelled him to stardom in his lone season as a starter. Sampson separates himself from other backs in the class with an impressive feel for timing, spacing and blocking scheme. He sees lane development in real time and is disciplined to stay on the designed track, but he can flip a switch and improvise when traffic mounts. He can wiggle around tacklers or break free from their grasps. Ball security and pass protection improvement will be early priorities for his next coaching staff. Sampson plays with the instincts of a seasoned veteran and has the talent to build on what he started in 2024. -- Lance Zierlein, NFL.com",
     stats: ""
   },
@@ -761,6 +819,7 @@ export const playerData = [
     age: "21.5",
     rank: 65,
     positionRank: 5,
+    consensus: 65,
     analysis: "Johnson is built like a bruiser, but his style is more finesse, preferring to win with tempo and decisiveness. He keeps his runs on time and on track while allowing blockers to do their job. He’s not overly aggressive, but he has the size and strength to break tackles and grab extra yards at the finish. He runs with below-average creativity and cut quickness but has consistent linear play speed to pop chunk runs. He can catch, but his three-down value takes a hit because of his struggles in pass pro. Johnson’s traits and running style make him a projectable fit in a two-back system with the upside to take on a bigger chunk down the road. -- Lance Zierlein, NFL.com",
     stats: ""
   },
@@ -774,6 +833,7 @@ export const playerData = [
     age: "23.1",
     rank: 66,
     positionRank: 14,
+    consensus: 86,
     analysis: "Edge defender with reams of 2024 production to sift through. Kennard keeps his long frame clean with well-timed punches and has plus range as a playmaker. He can be slippery when he finds edges in either phase. He is frequently knocked off-balance at contact points, though. He will create pressure with his get-off and length alone but needs less predictable rush patterns and more hand skill to beat NFL tackles. He fits as a wide nine-technique, where he can avoid early contact and create rush momentum. He profiles as a Day 2 pick, but the tape creates enough concerns to lower the floor for his projection. -- Lance Zierlein, NFL.com",
     stats: ""
   },
@@ -787,6 +847,7 @@ export const playerData = [
     age: "22.9",
     rank: 62,
     positionRank: 11,
+    consensus: 81,
     analysis: "Norman-Lott is an undersized interior defender who will need to specialize in penetration and havoc creation in a one-gapping scheme. He has plus snap quickness and is talented at reading and beating move blocks. He’s a rangy run defender with a full tank of gas but will struggle against downhill rushing attacks aimed at him. Norman-Lott is an energetic pass rusher with a high pressure rate. He plays with harmonious hands and feet that work to and around edges, but he won’t offer much as a power rusher. His lack of size could hurt his draft slotting, but he has the potential to become a rotational defender and sub-package rusher. -- Lance Zierlein, NFL.com",
     stats: ""
   },
@@ -800,6 +861,7 @@ export const playerData = [
     age: "N/A",
     rank: 51,
     positionRank: 8,
+    consensus: 54,
     analysis: "Big inside/outside wideout with modest athletic attributes but outstanding ball skills that make him a projectable NFL prospect. Higgins needs a more limited route tree but can operate on all three levels in the right scheme. He’s smooth but physical in his routes and does a nice job of creating pockets of separation with force and strength. He has mismatch qualities from the slot with body control and a catch radius that make him a menace on jump balls downfield. He won’t outrun cornerbacks and is nothing special after the catch, but his size, ball skills and competitiveness create a profile of production as a future contributor in three-wide sets. -- Lance Zierlein, NFL.com",
     stats: ""
   },
@@ -813,6 +875,7 @@ export const playerData = [
     age: "22.2",
     rank: 68,
     positionRank: 8,
+    consensus: 38,
     analysis: "Jackson has ideal size, strength and bend as an interior offensive lineman. He is best suited at guard, but he stepped up to play left tackle after the Buckeyes lost their starter at the position in the middle of the 2024 season. In the pass game, he sets with a firm anchor, bends his knees and stays attached. He can slide and redirect smoothly. He is keenly aware on twists and stunts. In the run game, he creates movement on down blocks. He has the quickness and athleticism to kick out defenders on outside pulls. He has enough foot speed to reach and seal on the back side. His overall hand placement is excellent in both the run and pass game. He had a couple tough reps against Abdul Carter, but I was impressed with his overall competitiveness at tackle. He is more than functional at that position, but I see him as a top-tier guard. -- Daniel Jeremiah, NFL Network",
     stats: ""
   },
@@ -826,6 +889,7 @@ export const playerData = [
     age: "21.8",
     rank: 69,
     positionRank: 15,
+    consensus: 77,
     analysis: "Stewart is an undersized bolt of lightning off the edge. He plays with tremendous passion, energy and effort. He explodes off the line of scrimmage and has a powerful shake/bull move to generate pressures and sacks. He also can dip/rip through a blocker’s outside shoulder or swipe the hands away to win on the edge. For an undersized player, he plays much bigger than you might expect at the point of attack. He jars blockers in the run game and avoids getting displaced. He has the speed to chase down plays from the back side. Sources at Michigan rave about his tenacity and leadership. If Stewart had ideal measurements for his position, he would be talked about as one of the best players in the draft. -- Daniel Jeremiah, NFL Network",
     stats: ""
   },
@@ -839,6 +903,7 @@ export const playerData = [
     age: "22.3",
     rank: 70,
     positionRank: 6,
+    consensus: 46,
     analysis: "Henderson is a muscled-up runner with elite speed and versatility. He is patient to the hole before exploding through with high knees. He has long speed to destroy pursuit angles once he gets into the open field. He needs to improve his contact balance, though. Too often, his feet stop when met at or near the line of scrimmage. He has the lower-body strength to power through if he keeps driving his feet. In the passing game, he runs a wide variety of routes with quickness and savvy. He has strong, reliable hands. He’s an elite pass protector. He is quick to identify blitzers and attack them. He strains to finish, sometimes well after the ball has been caught down the field. Overall, Henderson is a three-down weapon, brimming with big-play potential. -- Daniel Jeremiah, NFL Network",
     stats: ""
   },
@@ -852,6 +917,7 @@ export const playerData = [
     age: "23.3",
     rank: 72,
     positionRank: 16,
+    consensus: 74,
     analysis: "Burch’s tape can be inconsistent, but he offers physical traits and upside as a rusher. As a run defender, his length and play strength flashes, but he simply doesn’t play with the block destruction or aggression you want to see for a player of his size. As a pass rusher, he’s a more energetic player with good get-off, long strides and the bend to turn the corner or unleash a bull-rush. He needs to work on adding skill to his hands and becoming more creative as a rusher to create quick wins. Burch leaves too many plays on the field, but the upside will have teams anxious to light the fire and get more out of him. -- Lance Zierlein, NFL.com",
     stats: ""
   },
@@ -865,6 +931,7 @@ export const playerData = [
     age: "21.3",
     rank: 73,
     positionRank: 9,
+    consensus: 68,
     analysis: "Williams has outstanding size and can get some push in the run game. He's effective combo blocking to the second level. He moves well when he pulls, and he engulfs defenders in space. Williams has room to improve in pass protection, but he gets out of his stance well for his size and can power down to take away inside moves when his footwork is sound. He's strong enough to anchor even though he's high cut and sets high. -- Steve Muench, ESPN",
     stats: ""
   },
@@ -878,6 +945,7 @@ export const playerData = [
     age: "N/A",
     rank: 74,
     positionRank: 10,
+    consensus: 104,
     analysis: "Tall tackle prospect with NFL bloodlines and a noticeable improvement in play strength last season. The run-blocking tape falls below the protection tape due to leverage and adjustment limitations we frequently see with taller tackles. Trapilo won’t generate much movement in the run game, but good upper-body power helps him neutralize the edge. He operates with sound pass sets, active hands and excellent arm extension. He has a good feel for pocket depth with an ability to ride rushers over the top, but he will get beat by inside counters and speed-to-power rushers at times. Trapilo could operate as a swing tackle early on but his potential in pass protection gives him a good chance to become a starter. -- Lance Zierlein, NFL.com",
     stats: ""
   },
@@ -891,6 +959,7 @@ export const playerData = [
     age: "21.3",
     rank: 55,
     positionRank: 7,
+    consensus: 49,
     analysis: "Judkins is a powerful, compact runner with outstanding career production. He is very decisive and aggressive on inside runs. He runs low to the ground and hunts the unblocked defender with a thirst for violence. He has a vicious stiff-arm, provided he doesn’t simply lower his shoulder and run through the defender. On perimeter runs, he usually looks to square up and get vertical as soon as possible. He isn’t as polished in the passing game as Ohio State teammate TreVeyon Henderson, but he’s competent as a screen/checkdown option and he’s aware in pass protection. He’s at his best in the four-minute offense. He closed out the Penn State game with one punishing run after another. Overall, Judkins has areas to improve, but he is a natural runner and he’s built to carry a full load as a starter. -- Daniel Jeremiah, NFL Network",
     stats: ""
   },
@@ -904,6 +973,7 @@ export const playerData = [
     age: "22.3",
     rank: 75,
     positionRank: 5,
+    consensus: 93,
     analysis: "Weakside linebacker prospect with ascending talent and production for a 4-3 defense. Paul is an assignment-oriented linebacker whose play recognition improved as the season progressed. He takes quality angles to the action and is a sure-handed tackler when he gets his hooks in. He appears quicker than fast and is better at spot-dropping or blitzing on passing downs than he is at matching up with backs and pass-catching tight ends. Paul colors inside the lines and does his job inside the scheme, but he could take another step forward if he can play with more of a “see play, make play” mentality downhill. -- Lance Zierlein, NFL.com",
     stats: ""
   },
@@ -917,6 +987,7 @@ export const playerData = [
     age: "24.3",
     rank: 79,
     positionRank: 3,
+    consensus: 150,
     analysis: "Scheme-dependent safety who plays with chaotic energy near the line of scrimmage. Castro might lack the man-cover skills and athleticism to remain a big nickelback in the pros. He plays with urgency from short zone and rushes downhill to set a contain edge and spackle missing run fits as a run defender. Athletic testing will be key in projecting Castro’s usage. A lack of versatility and his age (turns 25 in October) could work against him in the draft, but his physicality, field demeanor and special-teams utility create roster value in his favor as a down safety. -- Lance Zierlein, NFL.com",
     stats: ""
   },
@@ -930,6 +1001,7 @@ export const playerData = [
     age: "N/A",
     rank: 80,
     positionRank: 12,
+    consensus: 110,
     analysis: "Powerful nose tackle known for his work ethic and leadership. Phillips is compact and explosive at the point but is inconsistent at controlling blocks quickly enough as a read-and-react defender. He can be quick off the snap but lacks fluidity and tends to get sealed by move blocks. In general, he’s gap-sound and can be hard for blockers to finish. He has yet to display he can provide pass-rush production, so he will need to prove he can at least be a run plugger in the pros. -- Lance Zierlein, NFL.com",
     stats: ""
   },
@@ -943,6 +1015,7 @@ export const playerData = [
     age: "N/A",
     rank: 81,
     positionRank: 17,
+    consensus: 149,
     analysis: "Productive base end with good play strength who continues to add weight to his frame. Roberts has chalked up stats as a standing defender but isn’t athletic enough to play as a 3-4 outside ‘backer in the NFL and might not have the brutality to play inside at three-technique despite his size. Roberts won’t win the rush with speed or quickness but he can collapse the pocket with a finesse-to-power rush transition. He is slow to read and react to mesh points and counters. He’s also a wildly inconsistent arm tackler. The production could earn him an opportunity, but it might not be translatable as a base defensive end in the pros. -- Lance Zierlein, NFL.com",
     stats: ""
   },
@@ -956,6 +1029,7 @@ export const playerData = [
     age: "21.2",
     rank: 82,
     positionRank: 4,
+    consensus: 92,
     analysis: "Winston is an aggressive downhill run defender who chases with great effort, wraps up and delivers some big hits. He has the traits to make an immediate impact on special teams. Winston reads the quarterback, gets an early break on the ball and closes well breaking on passes thrown in front of him. He has the size, fluidity and speed to cover tight ends. He flashes the ability to recover when he gets caught out of position. Winston is not a ball hawk, but he flashes good ball skills and shows good timing breaking up passes. -- Steve Muench, ESPN",
     stats: ""
   },
@@ -969,6 +1043,7 @@ export const playerData = [
     age: "23.1",
     rank: 88,
     positionRank: 11,
+    consensus: 70,
     analysis: "Tough, strong and assignment-oriented, Milum possesses the frame and mentality of an NFL player. It’s hard to get excited about his prospects as a tackle due to his shorter arms, but there is no reason to believe Milum can’t bump inside to guard and offer tackle depth in a pinch. He plays with heavy hands in pass protection and has ideal instincts to sniff out twists and stop them in their tracks. He’s hard to bull-rush or push around in the running game but he will slip and slide off sustain blocks at times due to a narrowing base. His physical profile, play strength and football intelligence could have him ready as an early starter for gap-scheme teams. -- Lance Zierlein, NFL.com",
     stats: ""
   },
@@ -982,6 +1057,7 @@ export const playerData = [
     age: "24.1",
     rank: 128,
     positionRank: 3,
+    consensus: 143,
     analysis: "Gabriel is an older and smaller QB prospect, but he offers a tremendous amount of game experience and productivity. He operates with poise and confidence from the pocket. His field vision is average, but he typically takes care of the football. He’s capable of playing within the confines of an offense and can create yards with his legs as needed. Gabriel’s accuracy and timing is accurate on shorter throws, but the placement becomes erratic when pushed outside of his comfortable range. He might require a ball-control passing game to help manage his lack of arm talent and keep him from throwing into closing windows. He’s an effective scrambler who is able to elude pressure and make plays outside of the pocket. Gabriel requires a very specific offensive fit, but he’s a gamer with enough good tape to have a chance to become a decent backup. -- Lance Zierlein, NFL.com",
     stats: ""
   },
@@ -995,6 +1071,7 @@ export const playerData = [
     age: "N/A",
     rank: 86,
     positionRank: 12,
+    consensus: 62,
     analysis: "Savaiinaea maintains a wide base and moves well in pass protection even flashing the ability to recover when he gets caught out of position. He has the size and strength to anchor. Savaiinaea gets good initial pop and walls off defenders in the run game. He flashes the ability to cut off backside three-techniques and reach second level assignments. -- Steve Muench, ESPN",
     stats: ""
   },
@@ -1008,6 +1085,7 @@ export const playerData = [
     age: "22.0",
     rank: 87,
     positionRank: 9,
+    consensus: 78,
     analysis: "Skilled and instinctive, Royals might lack the desired explosiveness, but he makes up for it with his body control and feel for the game. He has good size and is keenly aware of defenders around him, which allows him to adjust routes and improve his chances on contested catches. He’s a decent route-runner but doesn’t have the short-area foot quickness and burst to open wide windows for his quarterback. He’s excellent as a zone-beater and uses plus body control and play strength to bring in catches in traffic. Royals is a smooth athlete who can play inside or outside and is best suited for an offense that will value him as a possession target over the first two levels. -- Lance Zierlein, NFL.com",
     stats: ""
   },
@@ -1021,6 +1099,7 @@ export const playerData = [
     age: "22.4",
     rank: 113,
     positionRank: 3,
+    consensus: 99,
     analysis: "A combination tight end with good size and soft hands, Helm developed rapidly in the high-scoring Texas offense. He is a capable route runner who can be used on all three levels but was allowed free releases and frequent open looks that he won’t see as a pro. His size, hands and feel for space make him a quarterback-friendly target capable of moving the sticks at opportune times. He’ll need to thicken his lowers and improve his hand usage to handle in-line blocking chores in the NFL. Helm projects as a future TE2 with three-down potential. -- Lance Zierlein, NFL.com",
     stats: ""
   },
@@ -1034,6 +1113,7 @@ export const playerData = [
     age: "N/A",
     rank: 90,
     positionRank: 10,
+    consensus: 90,
     analysis: "Developmental wideout who offers an alluring blend of physical gifts and untapped potential. Williams is big, strong and fast but very raw as a route-runner and is unreliable with his hands. His production is uneven as a traditional wideout, but he adds a dynamic kick to the offense as a gadget runner and as a catch-and-run option underneath. He excels on power sweeps and is willful enough for consideration on short-yardage and goal-line carries on direct snaps. The ball skills can be hit-or-miss. but there are flashes to work with on tape. The difference between “siren song” or “pot of gold” could rest in Williams’ technical development and the creativity of his play-caller. -- Lance Zierlein, NFL.com",
     stats: ""
   },
@@ -1047,6 +1127,7 @@ export const playerData = [
     age: "N/A",
     rank: 42,
     positionRank: 8,
+    consensus: 35,
     analysis: "Hairston is a lean, athletic cornerback with ideal play speed and fluidity. In press coverage, he incorporates a one-hand jam before turning and carrying vertical routes. He has plenty of burst/speed. In off coverage, he likes to settle and catch receivers at the break point. He’ll need to play cleaner with his hands down the field at the next level. In Kentucky’s defense, he rolled back to play in the middle of the field versus certain formations/motions, but he was late to diagnose and react from that alignment. He’s willing in run support and is a dynamic blitzer. He was limited to seven games this past season due to injury. He had a very productive 2023 season (five interceptions) but wasn’t targeted much in the games I studied from this past year. Overall, Hairston offers an enticing blend of movement skills and production. -- Daniel Jeremiah, NFL Network",
     stats: ""
   },
@@ -1060,6 +1141,7 @@ export const playerData = [
     age: "22.6",
     rank: 91,
     positionRank: 5,
+    consensus: 100,
     analysis: "Ransom is an experienced starter and natural strong safety with adequate size, all-day toughness and a proactive approach at the position. He plays with decisive eyes and good instincts that place him where he needs to be. He flows hard and fast. He’s a physical striker in run support and as an intimidator over the middle. Ransom is at his best playing downhill but can handle split safety duties. He might not have the coverage burst or top-end speed for some individual matchups but does a nice job of sticking to tight ends in man coverage. In total, he’s a disruptive, physical safety who can positively impact games and has future starting potential as a middle-rounder. -- Lance Zierlein, NFL.com",
     stats: ""
   },
@@ -1073,6 +1155,7 @@ export const playerData = [
     age: "22.4",
     rank: 92,
     positionRank: 6,
+    consensus: 120,
     analysis: "Bassa is a weak-side linebacker prospect who played inside at Oregon to get the best athletes on the field. He’s a little bit mechanical as a run defender and will flow downhill before properly diagnosing, but he keeps himself clean using his hands to separate. He needs to pursue with better leverage to prevent overflow, but he does what is needed to get involved with the play. He’s capable on passing downs, with man-cover talent and an ability to attack the pocket as a blitzer. A move to Will linebacker would allow Bassa to play more run-and-hit football, which could bolster his chances as a good ‘backer with the potential to develop into a starter. -- Lance Zierlein, NFL.com",
     stats: ""
   },
@@ -1086,6 +1169,7 @@ export const playerData = [
     age: "N/A",
     rank: 58,
     positionRank: 4,
+    consensus: 63,
     analysis: "Arroyo is an athletic, seam-stretching tight end with ideal size/length. He moved around the formation in Miami’s offense, but he did most of his damage flexed out in the slot. He’s sudden in his release and he gains speed as he climbs down the field. He’s at his best when he’s attacking vertically or running away from defenders on crossers. He isn’t a nuanced/polished route runner, but he has a good feel to find space when his quarterback scrambles. He tracks the ball very well over the shoulder and has reliable hands. After the catch, he relies on his speed to pull away from pursuing defenders. He’s an effective shield/wall-off blocker in the run game. The medical-evaluation portion of the draft process will be important for him given his injury history. Overall, Arroyo is still developing as a complete route runner, but he can do a lot of damage on limited touches because of his speed. -- Daniel Jeremiah, NFL Network",
     stats: ""
   },
@@ -1099,6 +1183,7 @@ export const playerData = [
     age: "21.8",
     rank: 85,
     positionRank: 13,
+    consensus: 67,
     analysis: "Mbow's range is outstanding and quickly reaches linebackers releasing up to the second level. He is an effective puller, and he can get out in front on screens. His burst and lateral quickness make him a good fit for zone heavy schemes. He has the potential to develop into an excellent pass blocker as an interior offensive lineman. He has a strong punch, and he works independent hands. He is strong enough to anchor when he sinks his hips at the top of his set. His footwork is inconsistent, but he moves well enough to recover when he gets out of position. -- Steve Muench, ESPN",
     stats: ""
   },
@@ -1112,6 +1197,7 @@ export const playerData = [
     age: "20.9",
     rank: 104,
     positionRank: 11,
+    consensus: 72,
     analysis: "Bond is an explosive slot receiver with the burst to develop into an outstanding route runner and threat after the catch. He can run away from coverage on crossers, find pockets working against zone looks and uncover when the play starts to break down and the quarterback must improvise. Bond tracks the deep ball well and has the extra gear to take the top off the coverage. He has potential to develop into productive return man. -- Steve Muench, ESPN",
     stats: ""
   },
@@ -1125,6 +1211,7 @@ export const playerData = [
     age: "N/A",
     rank: 94,
     positionRank: 14,
+    consensus: 94,
     analysis: "Highly consistent performer with elite length and better technique than many prospects coming from a higher level of competition. Grant played with both urgency and positioning in William & Mary’s zone-heavy approach, but he needs to add bulk and improve his pad level to play with the drive and anchor needed as a pro. The former high school wrestler utilizes a bag of tricks with his protection approach and possesses adequate core strength to absorb a speed-to-power pass rush. He could develop into a solid pro as either a guard or tackle if he cleans up issues with hand usage. -- Lance Zierlein, NFL.com",
     stats: ""
   },
@@ -1138,6 +1225,7 @@ export const playerData = [
     age: "20.7",
     rank: 63,
     positionRank: 9,
+    consensus: 40,
     analysis: "Thomas is a tall, long and fluid cornerback. In press coverage, he has the size and physicality to disrupt at the line of scrimmage, but he does need to clean up some footwork. His feet will occasionally widen at the snap, and he’s forced to recover if he doesn’t land his hands. From off coverage, he’s effective playing from a side-turn, where he can explode and drive on in-breaking routes. He isn’t a violent tackler, but he’s more than willing and he can effectively get runners on the ground. He displays effort to chase plays from the back side. Sources from Florida State rave about his intelligence and character. Overall, Thomas has some areas to clean up, but he has the foundational tools of a dependable starter. -- Daniel Jeremiah, NFL Network",
     stats: ""
   },
@@ -1151,6 +1239,7 @@ export const playerData = [
     age: "N/A",
     rank: 95,
     positionRank: 15,
+    consensus: 105,
     analysis: "Belton is an enormous tackle with good power and long arms. He can bulldoze the roads clean for running backs but needs to play with better hand placement to sustain his early lead. Belton has the length to shove rushers up and around the pocket but his punch timing is inconsistent and he lacks the body control to consistently respond to inside counters. If a team can steady his feet and improve his hand placement, he could become a solid starter at right tackle, but he will need some help from time to time. -- Lance Zierlein, NFL.com",
     stats: ""
   },
@@ -1164,6 +1253,7 @@ export const playerData = [
     age: "21.0",
     rank: 43,
     positionRank: 6,
+    consensus: 23,
     analysis: "Emmanwori is a versatile safety with an excellent blend of length, size and range. He can blanket tight ends in coverage and run with slot receivers in press. He has the range to play high in two-high and single-high looks. He also has the length and frame to break up passes and compete for 50-50 balls. Emmanwori is not a proven playmaker, and there's room for improvement when it comes to locating the ball, though. He has the size and strength to stack blockers when he lines up at linebacker depth. He has good stopping power, and his long arms are a great asset when it comes to wrapping up ball carriers. -- Steve Muench, ESPN",
     stats: ""
   },
@@ -1177,6 +1267,7 @@ export const playerData = [
     age: "N/A",
     rank: 71,
     positionRank: 5,
+    consensus: 53,
     analysis: "Taylor catches the ball in stride and hits his top-end speed quickly. He lowers his shoulder and fights for yards. Taylor flashes as a route runner and is a big target with the frame and awareness to develop into a zone buster. He is a competitive blocker who walls off defenders in space, has the frame to develop into an effective in-line blocker and fights to hold his ground in pass protection. -- Steve Muench, ESPN",
     stats: ""
   },
@@ -1190,6 +1281,7 @@ export const playerData = [
     age: "22.7",
     rank: 97,
     positionRank: 12,
+    consensus: 97,
     analysis: "Productive, high-volume slot receiver whose evaluation will include balancing the playmaking against his lack of traits. Johnson is thin-limbed with average suddenness and benefited from a scheme allowing him to run free in space. He’s clever and instinctive with his routes, finding ways to uncover over the first two levels. His hands are below average and he struggles when contested, but he’s tough to find and tackle quickly after the catch. Johnson’s lack of size, strength and NFL ball skills mean he’s likely to profile as a good community target rather than succeeding independent of the talent around him. -- Lance Zierlein, NFL.com",
     stats: ""
   },
@@ -1203,6 +1295,7 @@ export const playerData = [
     age: "21.5",
     rank: 93,
     positionRank: 8,
+    consensus: 146,
     analysis: "Workload runner with NFL size and four years of steady production to help elevate the program. Neal runs with a nice blend of patience and decisiveness to choose the right lanes and maximize each carry. He lacks top-end burst and speed, which will shrink the field for him, but he’s a fall-forward runner with good contact balance and a nose for short-yardage conversions. He has good instincts and soft hands in space and can help as a leak-out or swing-pass option. His blue-collar approach isn’t exciting but it is effective and Neal has the ability to develop into a backup three-down back. -- Lance Zierlein, NFL.com",
     stats: ""
   },
@@ -1216,6 +1309,7 @@ export const playerData = [
     age: "22.9",
     rank: 98,
     positionRank: 13,
+    consensus: 57,
     analysis: "Harris is a big target who can box out defenders when he gets leverage working against man looks and settle into pockets working against zone looks. He breaks tackles and fights for every yard he can get after the catch. He's a long strider with the speed to threaten vertically and pull away when he gets a seam after the catch. He has the body control and catching radius to come down with 50-50 balls, and he makes plays over the middle. -- Steve Muench, ESPN",
     stats: ""
   },
@@ -1229,6 +1323,7 @@ export const playerData = [
     age: "20.5",
     rank: 99,
     positionRank: 6,
+    consensus: 79,
     analysis: "Enigmatic prospect featuring record-breaking single-season catch production despite a straight-legged playing style. Fannin’s lack of functional bend forces him on more linear tracks and cuts his route tree in half, but it doesn't keep him from getting around the field and through the pattern with good speed. Fannin’s hands are automatic and he’s a competitive runner after the catch, but he needs to prove he can beat tight press-man coverage. He won’t block much, but his ability to stretch the field from the slot and make the tough catches give him a shot as a potential TE2 with upside. -- Lance Zierlein, NFL.com",
     stats: ""
   },
@@ -1242,6 +1337,7 @@ export const playerData = [
     age: "20.9",
     rank: 102,
     positionRank: 13,
+    consensus: 83,
     analysis: "A defensive lineman with rare traits, Walker might require a heavier lean on projection over tape. He’s tight-hipped and too upright to really sink in and command the gaps as an even-front defensive tackle. His success rate rises once he’s able to kick out wider in the alignment and engage in more man-to-man battles. Consistent pocket pressure could come if he starts playing with better aggression to overwhelm protection with physical gifts. The tape was better in 2023 and there were times in 2024 that his conditioning showed up as an issue. Walker’s traits and upside could make him a more consistent NFL talent if he improves his technique and ramps up his motor. -- Lance Zierlein, NFL.com",
     stats: ""
   },
@@ -1255,6 +1351,7 @@ export const playerData = [
     age: "22.9",
     rank: 103,
     positionRank: 18,
+    consensus: 174,
     analysis: "Shorter edge defender and 36-game starter with a compact frame and good length for his size. Rucker has adequate first-step quickness as a move defender but struggles to play around big bodies and gets pushed around at the point. He's a confident pass rusher with little wasted motion and a feel for bypassing protection when he gets to an edge. However, he has average go-to moves and counters. He’s a detailed tackler and finishes the job at a high rate. Rucker has high character and adequate career production, but he will need to fight hard to slot in as a designated rusher in a 3-4 defense. -- Lance Zierlein, NFL.com",
     stats: ""
   },
@@ -1268,6 +1365,7 @@ export const playerData = [
     age: "23.8",
     rank: 89,
     positionRank: 2,
+    consensus: 76,
     analysis: "A three-year starting right guard with a relatively safe floor, Ratledge plays with a dirt-dog mentality. His pad level is too high, but he mauls his way into early advantages in the run game. He has strong hands and uses them effectively to control and sustain his block. He’s an average athlete with adequate foot quickness and technique to get the job done. Ratledge lacks length and will reach when punching, opening him to quick counters. He sees and handles twists with above-average success and has enough anchor and redirect power to protect his pocket. Ratledge’s mentality and toughness should help him become a solid starter fairly quickly. -- Lance Zierlein, NFL.com",
     stats: ""
   },
@@ -1281,6 +1379,7 @@ export const playerData = [
     age: "N/A",
     rank: 105,
     positionRank: 19,
+    consensus: 175,
     analysis: "Fifth-year senior with a “tweener” body type but glimpses of pro potential. Robinson played primarily on special teams until 2024. He’s long and athletic but might be too light for the edge. He needs more schooling and game reps to play off the ball. He can run the arc as an edge rusher and has the ability to mismatch guards as an off-ball blitzer or spy mobile quarterbacks. Robinson lacks physicality, but he has enough traits to warrant consideration as a four-phase special-teamer with developmental potential as a hybrid 3-4 linebacker. -- Lance Zierlein, NFL.com",
     stats: ""
   },
@@ -1294,6 +1393,7 @@ export const playerData = [
     age: "22.1",
     rank: 96,
     positionRank: 4,
+    consensus: 45,
     analysis: "Milroe is an explosive athlete who is very capable outside the pocket, but he lacks accuracy, touch and decision-making when he’s inside the pocket. A lack of anticipation and timing leads to interceptions and contested throws to intermediate areas of the field. He has an NFL arm, but he might need to fine-tune his footwork and delivery to improve accuracy on all three levels. He can get through his reads when he’s confident and feels protected but becomes predictable and easier for defenses to manipulate when he’s rattled. He’s built like a Will linebacker, runs like a receiver and is a threat to hit the home run on called runs and scrambles. Milroe was a much better deep-ball passer in 2023, but his 2024 regression makes it harder to project success from the pocket at a high enough rate to become a capable NFL starter. A strong arm and elite speed will have teams intrigued, but if he doesn’t make it as a starter, it’s incumbent upon his team to find a way to get the ball in his hands with packaged plays. -- Lance Zierlein, NFL.com",
     stats: ""
   },
@@ -1307,6 +1407,7 @@ export const playerData = [
     age: "22.2",
     rank: 107,
     positionRank: 7,
+    consensus: 85,
     analysis: "Four-year starter who plays the game with the instincts and awareness of a player who has seen a lot of football. Mukuba has the athleticism to play in the slot but is best when he’s able to read the field as a “robber” and use his instincts, burst and ball skills to make plays. He moves efficiently in coverage, but that efficiency can get away from him in run support, where he races in too hot and misses tackles. Mukuba possesses the character, physicality and playmaking instincts that will draw NFL teams to him as a future starter. -- Lance Zierlein, NFL.com",
     stats: ""
   },
@@ -1320,6 +1421,7 @@ export const playerData = [
     age: "N/A",
     rank: 50,
     positionRank: 11,
+    consensus: 71,
     analysis: "Late bloomer with big hands, long arms and a frame to carry more muscle. Swinson is competitive at the point of attack, where he uses his length and footwork to beat the block or prevent block sustains. He is high-cut and leggy with average lateral agility but has an innate feel for playing off the block and making tackles. Swinson is less of an arc runner and more of a read-and-respond rusher relying on length and deception to open doors on either edge. He needs to craft rush strategies and work on getting quicker wins with go-to moves at the edge, but he’s always in the backfield. Swinson is an ascending talent with the demeanor, traits and talent to become a good starter as a 3-4 rush linebacker. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/bradyn-swinson-1.html"
   },
@@ -1333,6 +1435,7 @@ export const playerData = [
     age: "22.9",
     rank: 101,
     positionRank: 10,
+    consensus: 107,
     analysis: "Long, instinctive cornerback who can be a disruptive press corner or scan the field for ball production in zone. Strong has average play strength getting off of blocks and tackling, but it doesn’t bother his press redirect or ability to effectively contest catches. He has issues matching route breaks and flipping to sprint against deep targets due to average hips and foot quickness. He plays with adequate field awareness and anticipation in reading the quarterback. Strong should begin his career as a backup, but his cover talent could ultimately overcome any coverage concerns on the next level.",
     stats: "https://www.sports-reference.com/cfb/players/dorian-strong-1.html"
   },
@@ -1346,6 +1449,7 @@ export const playerData = [
     age: "N/A",
     rank: 114,
     positionRank: 11,
+    consensus: 126,
     analysis: "Thin but highly competitive cornerback with plenty of ball production and penalties to sift through. First and foremost, Bryant wants the football and does what he can to find it. He’s adequate in man coverage but struggles against big receivers in space. His instincts and ball skills shine in zone, where he reads route development and quarterback intentions. His low weight and skinny build will put him below the threshold for some teams, while his length, toughness and strong performance at the East-West Shrine Bowl will put him in play for others. Bryant has the potential to see nickel snaps as a pro if he can trust his technique and limit the penalties. -- Lance Lierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/jacobee-bryant-1.html"
   },
@@ -1359,6 +1463,7 @@ export const playerData = [
     age: "N/A",
     rank: 78,
     positionRank: 9,
+    consensus: 125,
     analysis: "Productive, blue-collar back with a compact frame and a willingness to get his nose dirty on each snap. Harvey lacks creativity and burst but adds yards after contact with contact balance and lower-body strength. While he’s well built, he’s not a big back by NFL standards, so he needs to run with better vision and tempo to get past second-level defenders at a decent rate. He’s a dump-and-dash pass catcher with below-average pass protection, so he’s unlikely to compete for third-down reps. Harvey’s will as a runner is admirable, but backup duty might be his ceiling. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/rj-harvey-1.html"
   },
@@ -1372,6 +1477,7 @@ export const playerData = [
     age: "23.4",
     rank: 108,
     positionRank: 5,
+    consensus: 69,
     analysis: "Howard brings outstanding size and toughness to the table. He showed good improvement over the last three seasons. He is more a vessel of the play-caller than a playmaking talent, though. He typically reads half the field and makes reasonable decisions with the football, using good mechanics and consistent accuracy. He doesn’t hold defenders at bay with his eyes and lacks the arm strength to beat tight man coverage on second- and third-level throws. He showed good poise in 2024 to beat the blitz through the air and has always been able to escape pressure by making plays with his legs. Howard is big, tough and accurate but benefited from superior talent at the skill positions at Ohio State. Unless he proves he can play chess against NFL defenses, he might not have enough in the tool box to become more than an average backup. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/will-howard-2.html"
   },
@@ -1385,6 +1491,7 @@ export const playerData = [
     age: "N/A",
     rank: 110,
     positionRank: 20,
+    consensus: 114,
     analysis: "Productive and experienced, Gillotte shines with his ability to threaten the pocket. His rush isn’t overly complicated, but he can collapse the pocket with power, beat up the edge with violent hands and sneak past guards with snap quickness when playing inside. He’s powerful but doesn’t have a solid anchor to hold his ground as a run defender. I’ve graded Gillotte as a 4-3 defensive end, but he has the athletic ability to stand and play 3-4 outside ‘backer. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/ashton-gillotte-1.html"
   },
@@ -1398,6 +1505,7 @@ export const playerData = [
     age: "N/A",
     rank: 111,
     positionRank: 8,
+    consensus: 132,
     analysis: "Energetic safety with good production but areas to clean up in his game. The three-year starter possesses good size and strength with a willingness to play downhill that led to a high tackle count. Sanker is long and rangy but gets himself in trouble with inconsistent pursuit angles. He’s adept at matching up against big slot receivers in man and plays with quick, instinctive eyes and a good burst to close in zone. He gets caught staring into the backfield at times, so his team will need to work on his eye discipline and focus. Sanker’s traits and special teams value could lock him into an NFL roster early on and give him a chance to work his way up. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/jonas-sanker-1.html"
   },
@@ -1411,6 +1519,7 @@ export const playerData = [
     age: "23.4",
     rank: 112,
     positionRank: 14,
+    consensus: 140,
     analysis: "Even-front defensive tackle who lacks measurables but makes up for it with an off-the-charts work rate. Peebles plays like a boxer who constantly comes forward and keeps the pressure on his opponent. He doesn’t have the length to stack and secure gaps as a read-and-react defender, but he can play in the gaps and up the field. He’ll fight hard, but he has no real chance against NFL double teams. However, he consistently battles his way off single blocks and toward the ball. He has an eclectic rush package fueled by motor, power and elusiveness that could translate. He has a decent chance of outplaying his draft slotting if teams get too hung up on his measurables and fail to trust their eyes. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/aeneas-peebles-1.html"
   },
@@ -1424,6 +1533,7 @@ export const playerData = [
     age: "N/A",
     rank: 117,
     positionRank: 12,
+    consensus: 211,
     analysis: "Instinctive outside corner with impressive ball production. Dotson has adequate NFL size and a good feel for reading routes underneath, but he struggles to stay connected if the play travels beyond the first level. He has good instincts and eyes in zone coverage. He triggers on throws with efficiency and ballhawking angles to take it away. He lacks speed and could struggle making plays downfield. Dotson’s size, instincts and ball production will earn him consideration from zone teams, but playing in the league will require improved tackling and a specific scheme fit. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/ramello-dotson-1.html"
   },
@@ -1437,6 +1547,7 @@ export const playerData = [
     age: "N/A",
     rank: 100,
     positionRank: 3,
+    consensus: 80,
     analysis: "Wilson is a one-year starter lacking the size and power to hold his own against an NFL nose tackle. He’s athletic and should continue improving with additional experience but will need help from bigger guards next to him. He plays with inside hands and decent core strength in both phases but would benefit from better strain and a finisher’s mentality. He’s rangy and agile in protection and was rarely bull-rushed. Wilson has a shot to make a roster, but average traits and a lack of two-position versatility could make it tougher for him. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/jared-wilson-2.html"
   },
@@ -1450,6 +1561,7 @@ export const playerData = [
     age: "N/A",
     rank: 115,
     positionRank: 21,
+    consensus: 141,
     analysis: "Heralded FCS edge rusher with jarring production in high-impact stat columns. Walker falls below height and length standards, but his game reminds me of 2024 draft pick Mohamed Kamara’s. He has explosive, freaky power in his lower half. He can leverage and anchor the point and create instant pocket consequences with his bull rush. He’s an instinctive rusher with an above-average attack portfolio but a lack of length will be an obstacle to overcome. He’s an average athlete in space but his movements near the line are controlled and fluid. Walker’s stature might hurt his draft standing for some teams, but it won’t be a dream-ender. He has rotational value as an edge rusher in a 3-4 defense. -- Lance Zierlein, NFL.com",
     stats: ""
   },
@@ -1463,6 +1575,7 @@ export const playerData = [
     age: "N/A",
     rank: 116,
     positionRank: 15,
+    consensus: 130,
     analysis: "Caldwell carries the broad hips and girth of a classic nose tackle, but he is athletic enough to take snaps at either tackle spot in an even front. He can eat blocks against double teams or hog gaps as a read-and-react two-gapper. He gets bounced around some when he plays too straight-legged or ends up on the ground when he loses control, but he plays with heart and has a strong win rate at the point. He’s a hustle rusher with the potential to dent the pocket when singled up. Caldwell has middle-round value but could find starter’s reps in the future. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/jamaree-caldwell-1.html"
   },
@@ -1476,6 +1589,7 @@ export const playerData = [
     age: "20.9",
     rank: 106,
     positionRank: 13,
+    consensus: 103,
     analysis: "Two-year starter with ball skills and athleticism for inside/outside versatility. Parrish glides around the field powered by quick feet and smooth hips. He can stay tight to underneath routes from press man and plays with poise and timing when the throw goes deep. He has adequate long speed and twitchy short-area burst to challenge throws from off-man and zone but struggles to gather and redirect quickly to match comebacks and double-breakers. He played with better coverage physicality in 2024 but is still lacking as a run defender and open-field tackler. He needs more seasoning but has the athletic tools and ball skills to compete for a role as a CB3. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/jacob-parrish-1.html"
   },
@@ -1489,6 +1603,7 @@ export const playerData = [
     age: "21.5",
     rank: 83,
     positionRank: 10,
+    consensus: 108,
     analysis: "A productive runner with good size, Giddens lacks explosive elements in his game. He defies expectations as a big back who doesn’t run with heavy power. He’s a long-strider with wiggle between the tackles. He’s patient behind his blocks and quickly processes run-lane development. He’s not sudden and lacks the burst to outflank defenses, so running behind his pads and picking up the tough yardage inside might have to be his ticket into a rotation. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/dj-giddens-1.html"
   },
@@ -1502,6 +1617,7 @@ export const playerData = [
     age: "22.4",
     rank: 118,
     positionRank: 6,
+    consensus: 197,
     analysis: "Leonard has adequate size and is an above-average competitor with good toughness. However, he fails to hit the mark as a pro-caliber passer. He’s a dual-threat quarterback who falls more firmly on the side of grit than gifted. He can make controlled throws inside his comfort level, but his accuracy and timing dip when he has to work beyond primary reads. He’s relatively careful with the football in the red area and in the face of pressure. He can move the sticks with his legs on called runs or when pressured. Leonard is average as a field-reader and doesn’t have enough arm to beat NFL defenders on seam throws or outside the numbers. He needs a solid running game and advantages at the skill positions to function on a pro level, but even then his play might be more dependent on his legs than his eyes and arm. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/riley-leonard-1.html"
   },
@@ -1515,6 +1631,7 @@ export const playerData = [
     age: "21.7",
     rank: 126,
     positionRank: 7,
+    consensus: 31,
     analysis: "Three-year SEC starter who saw improvement in play and production season after season. Dart has a stocky build and average physical attributes but good makeup and intangibles. He’s fairly accurate and rarely overcomplicates things for himself. He won’t strike anyone as a running quarterback, but he can find tough yards on the ground. He can make full-field reads but looks more comfortable grazing from the trough of the simple. He will need to work with better anticipation and decisiveness to win in tight windows as a pro. Teams might see physical and play similarities between Dart and Brock Purdy but such a pathway for Dart likely requires a balanced, ball-control passing attack that allows him to manage the game instead of driving it. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/jaxson-dart-1.html"
   },
@@ -1528,6 +1645,7 @@ export const playerData = [
     age: "21.9",
     rank: 139,
     positionRank: 8,
+    consensus: 91,
     analysis: "Ewers' arm talent and game flashes are enticing, but he hasn’t learned to play the game with a high enough level of consistency. The tape of road wins over Alabama and Michigan over the last two seasons showed the clearest picture of Ewers’ ceiling. He spins it with a sudden release and good touch over the first two levels and makes it look easy when he finds a rhythm. He won a high percentage of his career starts but struggled to put points on the board in most big games in 2024. Ewers rarely operates as a smooth, full-field reader. He often predetermines his target and throws into coverage instead of taking what the defense is offering. A lack of escapability will require him to process quickly enough to stay ahead of NFL blitz packages. The raw talent and upside will be alluring for pro-style passing attacks, but it’s fair to wonder if he will ever be able to rise above the talent on his roster and the ability of his play-caller to create favorable terms. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/quinn-ewers-1.html"
   },
@@ -1541,6 +1659,7 @@ export const playerData = [
     age: "22.4",
     rank: 159,
     positionRank: 9,
+    consensus: 158,
     analysis: "Pocket passer with good size who played in a high-volume, pro-passing scheme that should give him a head start as a pro. McCord was too inconsistent at Ohio State, relative to the talent around him, but he proved to be confident and productive last season at Syracuse without that same level of supporting talent. His fundamentals are usually solid and he plays with adequate poise in the face of pressure. He has enough arm to make window throws and push the ball around the field. McCord seeks to attack coverages vertically instead of operating as a “Checkdown Charlie.” While he can hit chunk throws, his decision-making and ball placement aren’t always good fits for his gunslinger mentality. His mobility inside and outside the pocket is average. McCord has good size, adequate talent and commendable resilience. He could find a home as a backup quarterback with modest upside. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/kyle-mccord-1.html"
   },
@@ -1554,6 +1673,7 @@ export const playerData = [
     age: "24.3",
     rank: 185,
     positionRank: 10,
+    consensus: 238,
     analysis: "Rourke earns a draftable grade because of his size, experience and production. He’s coming off an ACL tear, but the injury might not have a major impact on his draft slotting since his game isn’t built on mobility. Rourke’s evaluation requires 2023 tape to get a feel for his delivery and velocity when his knee is stable. While he can make pro throws, the accuracy and placement is average. He’s a decent field-reader who throws with adequate touch and anticipation. Rourke played winning football in 2024 and he’s plenty tough, but he needs to take better care of the football if he wants to stick with an NFL team. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/kurtis-rourke-1.html"
   },
@@ -1567,6 +1687,7 @@ export const playerData = [
     age: "23.9",
     rank: 194,
     positionRank: 11,
+    consensus: 254,
     analysis: "Confident, cerebral quarterback with average traits who proved he could play at the FBS level. Brosmer has an average arm but throws with anticipation and a sudden release. His ball placement needs work to become more accomplished against tight man coverage, but he can pick apart zone coverages with intermediate throws. He’s asked to read and attack coverages, and can do so when in rhythm, but his production nosedives when the pocket heats up and he’s forced to move. Brosmer’s lack of mobility and second-reaction playmaking hurts his chances, but he should be appealing to a play-action based offense utilizing levels route concepts. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/max-brosmer-1.html"
   },
@@ -1580,6 +1701,7 @@ export const playerData = [
     age: "25.4",
     rank: 180,
     positionRank: 12,
+    consensus: 98,
     analysis: "Pocket passer with a seven-year college career prompted by three consecutive years of injuries while at Texas Tech. Shough will turn 26 in September, was in the same recruiting class as Trevor Lawrence and backed up Justin Herbert at Oregon. He’s a talented passer with a live arm who is capable of making pro throws both intermediate and deep but battles inconsistency. He plays with good field vision, using his eyes to hold defenders and set up his throwing windows. Shough is confident and accurate when protected, but will flinch when pressure mounts, leading to spotty decision-making and big sacks. His size and passing talent will be enticing, but durability and mobility concerns are impediments he will need to overcome. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/tyler-shough-1.html"
   },
@@ -1593,6 +1715,7 @@ export const playerData = [
     age: "24.2",
     rank: 226,
     positionRank: 13,
+    consensus: 286,
     analysis: "A highly experienced quarterback with NFL size, Mertz is recovering from an ACL tear suffered in October 2024. Despite a lack of eye-popping production, he became a much more comfortable and competent quarterback during his time at Florida. He operated with better poise under pressure and improved his decision-making. He gets through his progressions with average quickness but occasionally struggles to cut it loose on time, leading to pass breakups or incompletions near the boundary. He’s pretty good about getting rid of the football to avoid sacks but he also lacks the aggressive mentality needed to attack pro defenses. Mertz is a game manager with adequate NFL tools for consideration as a backup, but the ceiling is low. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/graham-mertz-1.html"
   },
@@ -1606,6 +1729,7 @@ export const playerData = [
     age: "N/A",
     rank: 259,
     positionRank: 14,
+    consensus: 284,
     analysis: "Productive four-year starter with a long, wiry build and hands on the small side. Henigan displayed an adequate feel for the offense, but it never really felt like he was taking a scalpel to fairly average defenses. He’s not a commanding thrower and lacks arm talent on the move. He has adequate mobility inside the pocket and throws with accuracy to his first option when he’s on-platform, but his feet get impatient when getting through progressions. On paper, his accuracy intermediate and deep are below average, but on tape, he simply didn’t have receivers who could separate and create better passing windows. The production has been solid and he’s worth a look as a potential backup. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/seth-henigan-1.html"
   },
@@ -1619,6 +1743,7 @@ export const playerData = [
     age: "23.2",
     rank: 192,
     positionRank: 15,
+    consensus: 198,
     analysis: "Tantalizing prospect thanks to his athleticism and arm talent but the more I studied, the more doubt creeped in. Cook played with a better command of the offense in 2023, which led to better in-game rhythm and results. He can make every NFL throw but struggles to make them with consistent timing and accuracy. Cook needs to improve his eye discipline to keep windows open and safeties out of his business. He’s an average decision-maker and field-reader who defaults to unsound passing platforms when he feels pressure. He has the size and mobility to make plays as a scrambler and with designed runs. Cook’s physical traits and athletic ability are worth a discussion as a developmental prospect. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/brady-cook-1.html"
   },
@@ -1632,6 +1757,7 @@ export const playerData = [
     age: "N/A",
     rank: 119,
     positionRank: 22,
+    consensus: 133,
     analysis: "Sorrell’s measurables and speed won’t be eye-catching, but he’s very consistent and plays with good technique. He can play up or down, but might be targeted as a 3-4 outside ‘backer due to a lack of length. He plays with adequate power at the point and can work around blocks and into the backfield. Sorrell’s rush lacks speed and power but he wins with his hands and has an above-average feel for creating entry points with positioning and body turn. He doesn’t have high-end traits, but he’s productive and reliable. Sorrell could become an average starter in time. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/barryn-sorrell-1.html"
   },
@@ -1645,6 +1771,7 @@ export const playerData = [
     age: "N/A",
     rank: 120,
     positionRank: 16,
+    consensus: 160,
     analysis: "A burly offensive lineman with natural anchor and above-average length, Rivers is best-suited for short spaces, where his athletic limitations can be mitigated. He could get a shot at right tackle but slow feet will put him in harm’s way against NFL edge rushers. He’s sturdy at the point against bull-rushers and space-eaters. He works with stiff hips and below-average base footwork, which often short-circuit attempts to leverage and clear the gaps. He’s a clunky mover who will be tied to scheme, but his mass and length increase his likelihood of finding starting reps at some point, provided he can stay healthy. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/jalen-rivers-1.html"
   },
@@ -1658,6 +1785,7 @@ export const playerData = [
     age: "23.2",
     rank: 121,
     positionRank: 16,
+    consensus: 163,
     analysis: "Compact, thick-hipped defensive lineman with versatility to play multiple positions -- including short-yardage running back! Pegues can be hell on wheels when he’s motivated and has it cranked up. He’s quick off the ball but not explosive into first contact as consistently as he could be. He’ll beat reach blocks and double teams if he gets his technique ironed out. He has quicker hands and feet than most opponents he’ll face and has the talent to get to the other side of the line in both phases. He has rush talent and can finish using rare change-of-direction quickness, allowing him to capture pocket-mobile quarterbacks. Ole Miss leaned on Pegues as a short-yardage runner on offense, using his power and athleticism to convert at a high rate. He has the potential to become a very productive interior defender but his ceiling and floor will be determined by the consistency of his motor. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/jj-pegues-1.html"
   },
@@ -1671,6 +1799,7 @@ export const playerData = [
     age: "22.0",
     rank: 76,
     positionRank: 7,
+    consensus: 102,
     analysis: "Productive pass catcher with good size but an alarming lack of tenacity and fire when it’s time to run block. Ferguson saw adequate short-catch volume but was rarely asked to venture beyond the front yard as a route-runner. He has not shown enough technique or toughness to neutralize an NFL edge defender at the point of attack, but he can hit targets as a move blocker. Ferguson could improve in that area with additional coaching, but he might need to find the grit needed to compete against NFL tough guys as a run blocker to realize his full potential. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/terrance-ferguson-1.html"
   },
@@ -1684,6 +1813,7 @@ export const playerData = [
     age: "N/A",
     rank: 122,
     positionRank: 14,
+    consensus: 142,
     analysis: "Long cornerback with eye-popping interception totals that could skew his evaluation. Williams operated out of press man, quarters and Cover 3 looks. He lacks disruption from press, but he does a nice job of trailing routes and finding the football. He can be a little slow to open his hips and phase route breaks, but he possesses enough burst to close the distance when beaten. He’s eager from zone with instincts and ball skills to make plays on the throw. Williams’ inconsistency in run support could be a concern, but his size and ball production are hard to ignore. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/nohl-williams-1.html"
   },
@@ -1697,6 +1827,7 @@ export const playerData = [
     age: "21.1",
     rank: 123,
     positionRank: 11,
+    consensus: 162,
     analysis: "Blue played behind very good backs, so his carry count is lower, but he clearly has talent. He’s a narrow-hipped, linear runner with good speed to threaten wide and attack downfield out of the backfield. He has adequate wiggle in the open field but lacks base strength to break tackles. Blue’s lack of tempo and vision inside gets him behind schedule and could limit how teams use him as a ball-carrier. While he can be labeled a “change-of-pace slasher,” his real value will revolve around his ability to mismatch linebackers and threaten defenses as a receiver out of the backfield. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/jaydon-blue-1.html"
   },
@@ -1710,6 +1841,7 @@ export const playerData = [
     age: "24.0",
     rank: 124,
     positionRank: 17,
+    consensus: 233,
     analysis: "Big tackle with a broad frame, long arms and 46 starts to his name. He can find run-block connections provided they’re in front of him and uses his size to create movement on double teams and down blocks. However, he’s simply not quick enough to expand very far beyond the batter’s box as a run blocker. He will struggle to mirror and anchor as a pro due to his lack of bend, but he’s crafty with his hands and does a nice job of sticking rushers with well-timed punches to slow their rush plan. Crenshaw-Dickson is scheme-limited and will need to use all the tricks up his sleeve to overcome his athletic limitations. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/brandon-crenshaw-dickson-1.html"
   },
@@ -1723,6 +1855,7 @@ export const playerData = [
     age: "22.3",
     rank: 125,
     positionRank: 7,
+    consensus: 101,
     analysis: "Prototypical three-down linebacker who added muscle mass in 2024 without losing playmaking quickness. Carter overcomes average instincts and recognition with full-field range and elite body control in pursuit, though there is room for improvement with both his angles and leverage. Carter can play around or off the block and has the agility and reaction quickness for sudden adjustments as an open-field tackler. He’s capable in man coverage and stands out as both a blitzer and a spy for mobile quarterbacks. Carter’s demeanor, versatility and athletic profile give him a good chance of becoming a quality starter as a run-and-chase Will linebacker. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/barrett-carter-1.html"
   },
@@ -1736,6 +1869,7 @@ export const playerData = [
     age: "22.4",
     rank: 84,
     positionRank: 14,
+    consensus: 75,
     analysis: "Noel’s blend of receiving and return talent could carry more sway with teams given the league’s new kickoff rules in 2024. He’s primarily a slot receiver but has enough size and speed to kick outside in a pinch. His routes can be a little unfocused but that’s correctable with coaching. What can’t be coached is his consistent play speed. He can accelerate and separate from turns and stems and tends to uncover on cross-country routes. The catch focus can be inconsistent, but he is willing to mix it up in the middle of the field and is a natural after the ball is in his hands. Noel’s upside and punt/kick return value could make him a Day 2 pick with the potential to develop into a starter. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/jaylin-noel-1.html"
   },
@@ -1749,6 +1883,7 @@ export const playerData = [
     age: "21.6",
     rank: 138,
     positionRank: 23,
+    consensus: 117,
     analysis: "A 4-3 defensive end who fits the NFL mold with size, toughness and effort. Jones has good bend and a couple of reliable moves to unlock the top of the rush. He rarely works beyond pocket depth and has an instinctive secondary rush to cook in the pocket. His hands are twitchy and violent but he allows blockers into his frame a little too often. Maximum energy is exerted on every rep but he might need to improve pacing to become more consistent against the run. Jones’ translatable traits and rush talent make him an ascending prospect who could see early third-down reps before taking on a starting spot in the future. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/saivion-jones-1.html"
   },
@@ -1762,6 +1897,7 @@ export const playerData = [
     age: "N/A",
     rank: 127,
     positionRank: 4,
+    consensus: 185,
     analysis: "Lampkin has an unprecedented combination of size limitations and great tape that creates a difficult projection for the NFL, but he more than held his own in the ACC and Mobile. Worst case Lampkin can fit into a versatile move blocker role in the mold of Ravens FB Pat Ricard but checks enough boxes apart from size to compete for a job at center as a rookie. -- Brandon Thorn, Bleacher Report",
     stats: "https://www.sports-reference.com/cfb/players/willie-lampkin-1.html"
   },
@@ -1775,6 +1911,7 @@ export const playerData = [
     age: "N/A",
     rank: 129,
     positionRank: 24,
+    consensus: 236,
     analysis: "Bulky 4-3 defensive end with a strong motor and impressive production but a lack of NFL-ready instincts. Hassanein hasn’t played as much football as other prospects, so he’s still in the process of learning technique and developing play recognition. He comes off the ball with a narrow base but will deliver a good initial pop. The rush production is less a function of skilled play and more a function of play extension and secondary effort. He’s tough but limited and misses a lot of tackles. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/ahmed-hassanein-1.html"
   },
@@ -1788,6 +1925,7 @@ export const playerData = [
     age: "24.4",
     rank: 130,
     positionRank: 8,
+    consensus: 166,
     analysis: "Sixth-year senior with good football intelligence and immediate four-phase special teams value. Kiser will be a 25-year-old rookie in September, with average physical attributes, but he’s productive and consistent. He understands his limitations and works around them with instincts and positioning, but a lack of speed and length will create smaller margins for error as a pro. He struggles to take on and get off blocks, so he’ll have to take a few more chances moving forward. Kiser’s ability to play on third down and special teams boosts his chances of becoming a backup inside linebacker. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/jack-kiser-1.html"
   },
@@ -1801,6 +1939,7 @@ export const playerData = [
     age: "21.0",
     rank: 131,
     positionRank: 12,
+    consensus: 116,
     analysis: "Productive three-year starter with an impressive blend of power, dexterity and decisiveness. First and foremost, Martinez is truly a “big back” who proves he can find yards after contact on most carries. He lacks speed to win outside but does a nice job creating alternate routes using vision and agility when it’s congested inside. Despite a lack of breakaway speed, Martinez averaged 6.2 yards per carry on 514 career totes. He can catch passes here and there but could be best dialed in as a complementary banger capable of taking on the lion’s share of the carries if needed. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/damien-martinez-1.html"
   },
@@ -1814,6 +1953,7 @@ export const playerData = [
     age: "N/A",
     rank: 132,
     positionRank: 15,
+    consensus: 112,
     analysis: "Productive fifth-year senior and two-time team captain whose 2024 season was cut short by a knee surgery. Horton is a loose athlete with quality speed and above-average cut quickness. He’s an instinctive route runner with a feel for burst timing and he rarely drops what is thrown his way. Big press corners are likely to slow him and take a bite out of his effectiveness, but motion and bunch formations could solve that problem. He can knife through the heart of zone defenses and is competitive at the catch point but can be overtaken on 50/50 balls by length and size. If healthy, Horton has WR3 upside. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/tory-horton-1.html"
   },
@@ -1827,6 +1967,7 @@ export const playerData = [
     age: "23.0",
     rank: 133,
     positionRank: 25,
+    consensus: 177,
     analysis: "Powell-Ryland used smart hands and a diversified rush plan to accumulate 25.5 sacks over the last two seasons. He lacks length and speed but creates pressures by remaining varied and unpredictable. He uses accurate, violent hands to eliminate the punch and kick-start his bull rush. Powell-Ryland plays with a sturdy base and good leverage at the point, but he’s unlikely to control the edge. NFL length will limit his early wins, so he’ll need to keep developing his counters. The production is hard to ignore but modest traits and average athleticism will make it tough for his numbers to translate to the next level. -- Lance Zierlein, NFL.com",
     stats: "https://www.espn.com/college-football/player/_/id/4429009/antwaun-powell-ryland"
   },
@@ -1840,6 +1981,7 @@ export const playerData = [
     age: "N/A",
     rank: 134,
     positionRank: 15,
+    consensus: 131,
     analysis: "Alexander utilizes size, speed, length and athleticism through all phases of coverage. He’s not overly disruptive from press but rarely allows much separation if beaten. He leverages routes with pattern recognition and maintains connection to the route from trail. He’s effective from man and zone with timing and tracking that could make him a coveted prospect for defenses with heavy Cover 3 looks. Alexander’s tools and traits give him a chance to become a starter. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/zy-alexander-1.html"
   },
@@ -1853,6 +1995,7 @@ export const playerData = [
     age: "N/A",
     rank: 135,
     positionRank: 18,
+    consensus: 152,
     analysis: "Highly experienced collegiate right tackle who is likely to be in consideration at tackle and/or guard due to his lack of length. Lundt is strong in his core and hands. He does a nice job balancing through contact and using good hand placement to secure his run blocks. He has the tools to play hat-on-hat or as a move blocker in the run game due to technique and adequate flexion, but he might need to add more bulk. Lundt might not be a physical match to handle rushers with the speed, power and counters he will see as an NFL tackle in pass protection. He projects as an average swing tackle but a move to guard could create an easier pathway to become a solid NFL starter. -- Lance Zierlein, NFL.com",
     stats: "https://www.espn.com/college-football/player/_/id/4427843/chase-lundt"
   },
@@ -1866,6 +2009,7 @@ export const playerData = [
     age: "N/A",
     rank: 136,
     positionRank: 13,
+    consensus: 127,
     analysis: "Undersized running back who transferred from Miami and switched positions from wide receiver. Smith lacks ideal size and displays some hesitation in his early reads but is slippery over the first two levels, using quick cuts and spin moves to elude tacklers. He has a feel for finding soft spots along the interior but has average speed to turn the corner on wide runs. He could get pushed up a full round thanks to his ball skills and ability to run routes in space. Smith shined as a kick returner at Miami and will likely get that chance in the pros as a third-down back with room for development. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/brashard-smith-1.html"
   },
@@ -1879,6 +2023,7 @@ export const playerData = [
     age: "23.5",
     rank: 137,
     positionRank: 17,
+    consensus: 206,
     analysis: "Mills has the size, strength and demeanor of a 3-4 defensive end. He’s aggressive and physical in phone booth fist-fights but plays off blocks and tackles the gaps around him. He’s not much of a knee-bender, so anchoring firm will get a lot tougher as a pro. He lacks explosive, twitchy movements as a rusher but makes good use of heavy hands to carve open edges and get into the pocket. He’s a better picker than twister and can bull-rush unsuspecting guards. Mills could become a three-down rotational piece provided there are no lingering issues from the knee injury he suffered during the College Football Playoff. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/rylie-mills-1.html"
   },
@@ -1892,6 +2037,7 @@ export const playerData = [
     age: "N/A",
     rank: 140,
     positionRank: 26,
+    consensus: 89,
     analysis: "Linebacker-turned-edge-rusher whose draft profile might have gone from dull to dynamic with the switch. Oladejo is long and aggressive in attacking blockers in front of him. A lack of instincts in the run game and plans as a pass rusher could be temporary bumps in the road that should be smoothed with coaching. He greets and discards blockers with powerful, twitchy hands and still plays with a linebacker’s range and nose for the football despite his new position. He catches the “developmental” tag relative to his edge experience, but his traits and tape suggest he will make a difference sooner than expected. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/femi-oladejo-1.html"
   },
@@ -1905,6 +2051,7 @@ export const playerData = [
     age: "21.9",
     rank: 141,
     positionRank: 8,
+    consensus: 134,
     analysis: "Combination tight end who came back strong from a season-ending knee injury in 2023 and got better and more productive as the season progressed. Evans is willing as a blocker and has the size to help in that area, but he would be more consistent with better pad level and strain to finish what he starts. He catches passes aligning in-line or from the slot and frames up defenders to create catch space when contested. He has good ball skills and put a couple of spectacular catches on tape, but he will lose effectiveness beyond the second level. Evans’ size and dual-capacity ability on all three downs gives him a chance to become a starter with average catch production. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/mitchell-evans-2.html"
   },
@@ -1918,6 +2065,7 @@ export const playerData = [
     age: "N/A",
     rank: 142,
     positionRank: 14,
+    consensus: 240,
     analysis: "Evaluating Croskey-Merritt as a prospect is interesting, considering he’s rarely played since his 2023 campaign. With that being said, he’s an electrifying back who’s seen his stock explode in the pre-draft process. He’s going to be somewhat of a dart throw with the mysteries surrounding his current profile, but the highs he’s put on tape are very desirable. He could work himself into an RB1 role in the right system and has the complete play style to at least be an effective RB2. -- Ian Harper, LWOS",
     stats: "https://www.sports-reference.com/cfb/players/jacory-croskey-merritt-1.html"
   },
@@ -1931,6 +2079,7 @@ export const playerData = [
     age: "N/A",
     rank: 143,
     positionRank: 27,
+    consensus: 171,
     analysis: "Batty has played standing on occasion, but he will be a 4-3, strong-side defensive end in the NFL. He’s densely muscled and plays with consistent aggression at the point. He hustles in pursuit, too. He has some snap in his initial punch but lacks the length and twitch quickness to get away from blocks quickly and will succumb to power from tackles. He creates pressure with hops and euro-steps to gain ground. He has strong hands to discard the punch but won’t beat most pro tackles with speed or power. He’s an older rookie and an effort player, but it’s not clear if he’ll have the physical gifts or skill level to become a “make it” prospect. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/tyler-batty-1.html"
   },
@@ -1944,6 +2093,7 @@ export const playerData = [
     age: "N/A",
     rank: 145,
     positionRank: 9,
+    consensus: 209,
     analysis: "Projecting to the next level, Yurosek has the tools to become a solid contributor as a TE2 with the potential to develop into a starting role. If he can enhance his physicality and sharpen his skills, Yurosek can emerge as a dependable playmaker at the next level. His ability to adapt and grow in the competitive environment of the SEC bodes well for his transition to the pros, where he can leverage his experience and versatility to make an impact. -- Wyatt Brooks, NFLdraftbuzz.com",
     stats: "https://www.sports-reference.com/cfb/players/benjamin-yurosek-1.html"
   },
@@ -1957,6 +2107,7 @@ export const playerData = [
     age: "22.1",
     rank: 146,
     positionRank: 15,
+    consensus: 182,
     analysis: "Run-after-contact machine who can extend the play well beyond what you might expect. Hunter is a compact back renowned for his lower-body power and battering-ram mentality. He frequently tears through arm tackles and drags tacklers for extra yardage. He could use less “fight” and more “flight” when there are still moves to make on the second level. While the burst is average, he’s decisive and sees run-lane development as a zone-scheme runner. Hunter is a little limited, but his role is easily definable as a two-down pile-mover for teams looking to impose their will on the ground. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/jarquez-hunter-1.html"
   },
@@ -1970,6 +2121,7 @@ export const playerData = [
     age: "22.0",
     rank: 147,
     positionRank: 9,
+    consensus: 122,
     analysis: "The only things keeping Bowman from a higher grade is a lack of NFL size and his inconsistencies as a tackler. He’s fluid and athletic to man up over the slot. He’s meddlesome to float around looking for playmaking opportunities in zone coverage. He’ll struggle matching on big bodies and will get beat on jump balls downfield. He loves to rocket downhill to support the run but he lacks stopping power and will miss his share of tackles. His size and tackling inconsistency might be a concern for some teams, but he’s too instinctive and versatile to overlook as a safety/corner hybrid with starting talent. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/billy-bowman-1.html"
   },
@@ -1983,6 +2135,7 @@ export const playerData = [
     age: "22.3",
     rank: 148,
     positionRank: 16,
+    consensus: 219,
     analysis: "Mullings is a big back and inside runner who plays the game with a healthy level of disdain for the defense, using bend, balance and leg drive to move piles and break tackles. He runs with average vision and feel for the blocking scheme and lacks open-field elusiveness. He has good foot agility for his size and might have more up his sleeve in a more diverse rushing scheme. Mullings can handle some protection duties and should be an immediate option on special teams. He offers Day 3 value as a downhill back for teams looking to add size and toughness to their room. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/kalel-mullings-1.html"
   },
@@ -1996,6 +2149,7 @@ export const playerData = [
     age: "N/A",
     rank: 149,
     positionRank: 5,
+    consensus: 190,
     analysis: "Two-year starter at Cincinnati with a burly body type and a lack of natural fluidity. Kandra possesses a strong core and adequate base, but he’s a waist-bender who struggles with balance and positioning. He doesn’t explode into contact and will have trouble removing defenders from his gaps. His punch is firm and adequately timed but defending twists and mirroring athletic rushers will be a challenge. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/luke-kandra-1.html"
   },
@@ -2009,6 +2163,7 @@ export const playerData = [
     age: "22.2",
     rank: 150,
     positionRank: 16,
+    consensus: 186,
     analysis: "Three-year starter with ascending production and the potential to play inside and outside. Bryant has good size but lacks suddenness and pure vertical gas. What he lacks in explosiveness he makes up for with intelligent releases, physicality inside the route and elite ball skills. Bryant has average play strength but musters it all when competing for the catch. His body control and focus put him in position to win fade routes but his high-point talent often seals the deal. The ball skills are superior, but he needs to prove he can find ways to uncover against NFL press coverage to become more than a downfield target with backup value. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/pat-bryant-1.html"
   },
@@ -2022,6 +2177,7 @@ export const playerData = [
     age: "23.3",
     rank: 151,
     positionRank: 28,
+    consensus: 151,
     analysis: "Fifth-year senior with the size and athleticism for consideration as an edge defender in odd or even fronts. Baron plays with clear eyes to read play development and locate the football but possesses just average upper- and lower-body strength to battle the block. He doesn’t create fear with his rush quickness or skill level but he’s an active worker with a slippery upper body that could foreshadow improvement in rush efficiency with more work. He moved inside as a sub-rusher at Tennessee, which could create an additional layer of alignment versatility. Baron projects as a middle-round edge prospect whose ceiling could be tied to his ability to become a more consistently disruptive force. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/tyler-baron-1.html"
   },
@@ -2035,6 +2191,7 @@ export const playerData = [
     age: "22.2",
     rank: 152,
     positionRank: 10,
+    consensus: 136,
     analysis: "What Briningstool lacks in mass he makes up for with toughness in both phases. He’s a possession-based tight end who majors in zone-beaters but will struggle to separate against man coverage. He operates in space with good body control and strong hands at the catch point and does an adequate job of keeping defenders on his hip. Despite a high pad level he can help as a run blocker both connected to the line and in space. He’s not a true “Y” or “F” tight end but is capable enough in all areas to become a factor in two-tight end sets. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/jake-briningstool-1.html"
   },
@@ -2048,6 +2205,7 @@ export const playerData = [
     age: "N/A",
     rank: 153,
     positionRank: 17,
+    consensus: 214,
     analysis: "Perimeter wideout with good size and above-average speed to separate as a deep-ball option. Hudson is slick with his press release and tracks the football effectively once it goes up. He can make challenging catches but struggles with focus drops and bringing in off-frame throws over the first two levels. Hudson will need to improve as a route runner before he can be anything more than a field stretcher, but he has the size and athletic profile to be worthy of a Day 3 pick. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/kobe-hudson-1.html"
   },
@@ -2061,6 +2219,7 @@ export const playerData = [
     age: "N/A",
     rank: 154,
     positionRank: 16,
+    consensus: 200,
     analysis: "Sixth-year senior coming off the strongest season of his career. Huzzie is short-armed with a compact build and plenty of play strength. He plays with good flow in his pedal and has the stop-start quickness to stay near the route. He uses his hands to help maintain feel for the release and route breaks, but he needs to dial it back or he’ll face penalties as a pro. His body control and athleticism are strengths, but his vertical speed appears limited. He lacks ideal measurables but is tough, athletic and experienced on special teams, which gives him a chance to find a roster spot as a backup nickelback. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/alijah-huzzie-1.html"
   },
@@ -2074,6 +2233,7 @@ export const playerData = [
     age: "22.7",
     rank: 155,
     positionRank: 18,
+    consensus: 263,
     analysis: "His run defense dominance stands out immediately - you can't teach that natural leverage and power at the point of attack. The pass rush limitations show up too clearly to ignore though, especially when you stack his pressure production against his testing numbers. Draft grade puts him solidly in day three territory, which matches what the tape shows: a ready-made run defender who needs development rushing the passer. Added two blocked kicks this season, so you're getting a guy who can help on special teams while he develops. -- nfldraftbuzz.com",
     stats: "https://www.sports-reference.com/cfb/players/simeon-barrow-1.html"
   },
@@ -2087,6 +2247,7 @@ export const playerData = [
     age: "20.6",
     rank: 156,
     positionRank: 17,
+    consensus: 153,
     analysis: "Low-mileage back with modest production and average explosiveness but legitimate three-down versatility. He lacks the speed and power of his brother, the Jacksonville Jaguars’ Travis Etienne, but Trevor wins with vision, elusiveness and efficiency. He is capable inside and does a nice job of staying tight to the track but could struggle to get tough yards. He runs with average burst wide but sets up tacklers and gets in and out of cuts without losing speed. Etienne catches with sticky hands, evades tacklers in space and has a very good understanding of protections. He has middle-round value but could become a third-down option early in his career. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/trevor-etienne-1.html"
   },
@@ -2100,6 +2261,7 @@ export const playerData = [
     age: "23.7",
     rank: 157,
     positionRank: 17,
+    consensus: 129,
     analysis: "Riley’s performance took a dip in 2024 but his tape shows the same strengths and weaknesses from the year prior. The ball production looks nice, but his indecisiveness and lack of awareness cause inconsistencies from zone and off-man coverage. He’s competitive with good make-up speed and the athleticism to improve his coverage squeeze if he takes the coaching. Riley needs to become more reliable in run support for teams to trust him as a nickel defender. The sixth-year senior clearly has play traits that work in his favor, but he must learn to play with quicker eyes and better focus to become more than a quality backup with inside/outside potential. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/quincy-riley-2.html"
   },
@@ -2113,6 +2275,7 @@ export const playerData = [
     age: "N/A",
     rank: 158,
     positionRank: 18,
+    consensus: 113,
     analysis: "Fifth-year senior with alignment versatility and home run potential. Williams will never be tabbed as “sure-handed” but he can separate deep and create big plays, which could make the catch issues easier to swallow. He eliminates pursuit angles as a catch-and-run artist and gets respectful cushions, allowing for easy comeback throws. His lack of route-running fundamentals limit his tree, but that should be correctable with work. Williams' subpar hands lower his floor, but teams looking to add a playmaker could have him queued up as a future WR3. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/kyle-williams-11.html"
   },
@@ -2126,6 +2289,7 @@ export const playerData = [
     age: "N/A",
     rank: 160,
     positionRank: 29,
+    consensus: 251,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/rj-oben-1.html"
   },
@@ -2139,6 +2303,7 @@ export const playerData = [
     age: "N/A",
     rank: 161,
     positionRank: 9,
+    consensus: 183,
     analysis: "Big, productive inside linebacker who needs to play with good technique to make up for athletic and speed limitations. King is best in the confines of the box, where he can play downhill and utilize his physicality. He’s good with block take-ons and can compress the runner’s workspace. He loses ground pursuing outside runs and falls prey to missed tackles in the open field. King can be exploited on passing downs, but he plays with the toughness and physicality necessary to be a two-down inside linebacker. He has the potential to become a starter. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/kobe-king-1.html"
   },
@@ -2152,6 +2317,7 @@ export const playerData = [
     age: "N/A",
     rank: 109,
     positionRank: 19,
+    consensus: 106,
     analysis: "Fifth-year senior with three seasons as a full-time starter at Kent State and one at Indiana. West benefited from an extremely active, gaming front that created playmaking opportunities, but he also did the dirty work inside that scheme. He plays with adequate hand and foot quickness and is quick to diagnose the play. A lack of length and leverage at the point of attack might tie him to a one-gapping scheme as a pro. The sack totals are light, but he has enough athletic ability to compete as a rusher on single blocks. West has Day 3 value as a likely three-technique backup. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/cj-west-1.html"
   },
@@ -2165,6 +2331,7 @@ export const playerData = [
     age: "N/A",
     rank: 162,
     positionRank: 11,
+    consensus: 156,
     analysis: "Hawes is a thump-and-drive tight end with the technique and fire to help make a difference in the run game as both a lead/move blocker and at the point of attack. Hawes proved he could move from the Ivy League to the ACC and fit right in despite the step up in competition. There are correctable areas as a run blocker but his demeanor and size make it easier to project his move to the NFL in that area. He’s limited as a route runner and pass catcher, so a roster spot will need to be secured with a steady diet of physicality. Hawes has Day 3 value with a chance to earn NFL snaps. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/jackson-hawes-1.html"
   },
@@ -2178,6 +2345,7 @@ export const playerData = [
     age: "N/A",
     rank: 163,
     positionRank: 10,
+    consensus: 188,
     analysis: "An undersized cornerback who spent much of his time playing wide corner, Stout has the twitch and athleticism to project inside. What he lacks in length he makes up for with his competitiveness. He’s a natural pattern reader with the hips and feet to match breaks without giving up much separation. There are times he fails to trust his cover talent, holding and grabbing without cause. He’s fairly instinctive and has the short-area burst to squeeze throwing windows. Stout’s physical profile could hurt his draft standing, but the determination and athleticism will be hard to ignore. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/upton-stout-1.html"
   },
@@ -2191,6 +2359,7 @@ export const playerData = [
     age: "N/A",
     rank: 165,
     positionRank: 6,
+    consensus: 147,
     analysis: "Highly intelligent center-only prospect coming off of an Achilles tear. McLaughlin has his itinerary fully mapped pre-snap but makes quick alterations when needed. He’s gritty with good core strength. He has the range and radar to pull effectively and operates with timing on work-up blocks. He lacks ideal knock-back pop at the point and his block sustain could take a small downturn against NFL power. He’s technically sound in protection but a lack of length and range causes it to get leaky when rushers find his edge. His injury status could hurt his draft slotting, but he has the makeup and consistency to make it in the league. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/seth-mclaughlin-1.html"
   },
@@ -2204,6 +2373,7 @@ export const playerData = [
     age: "N/A",
     rank: 166,
     positionRank: 19,
+    consensus: 176,
     analysis: "Sixth-year senior who came in as a dual-threat quarterback and departed after sweeping all the major receiving categories last season. Nash isn’t the fastest or quickest, but when the ball goes up, he has a great chance of winning. He might need scheme help against press and he’s more competitive than talented with the ball in his hands. He should continue to expand and improve as a route runner with more coaching and polish. He was bigger and more skilled in 2024, which speaks to his commitment. Nash’s competitiveness, ball skills and football character give him a chance to become a productive three-level slot receiver in the pros. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/nick-nash-1.html"
   },
@@ -2217,6 +2387,7 @@ export const playerData = [
     age: "22.1",
     rank: 168,
     positionRank: 7,
+    consensus: 173,
     analysis: "Four-year starter who can play guard in a primarily move-oriented rushing attack. Colby started 50 games at Iowa and is well-versed in the inside-outside zone attack. He reads defensive movements and adjusts his blocks accordingly. He connects with strong hands and looks to finish lateral engagements but doesn’t have the pad level or play strength to deal with power across from him. His pass protection is troubling, with areas of concern that might not be correctable. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/connor-colby-1.html"
   },
@@ -2230,6 +2401,7 @@ export const playerData = [
     age: "N/A",
     rank: 169,
     positionRank: 12,
+    consensus: 248,
     analysis: "Fidone is long and linear with impressive athleticism but just two years of game experience due to injuries over his first two seasons. He’s a willing blocker with pretty good technique but needs to add strength to handle the work in-line. He needs to become more elusive with his release and more physical at the catch point, but he’s fast and fluid through his routes. He has the ability to uncover and stress the defense beyond the first level. Fidone’s effort, athleticism and ability to improve a passing game give him a chance to become a TE2 in the NFL. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/thomas-fidone-iii-1.html"
   },
@@ -2243,6 +2415,7 @@ export const playerData = [
     age: "N/A",
     rank: 170,
     positionRank: 8,
+    consensus: 277,
     analysis: "",
     stats: ""
   },
@@ -2256,6 +2429,7 @@ export const playerData = [
     age: "N/A",
     rank: 171,
     positionRank: 30,
+    consensus: 196,
     analysis: "Long-limbed edge defender with highs and lows on tape that make him a little more challenging to project. Joyner is a tight-hipped, short-stepping rusher with unimpressive speed and power. His hand work is basic, but he’s resilient and creates opportunities on the edges by utilizing his length and nose for the ball. He lacks a functional anchor to hold up against NFL run blockers and will need to play wide or standing until he improves his core strength and tightens up his block take-on. Joyner has traits but too many mismatched pieces in his game, which makes him a developmental prospect with a lower ceiling. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/jah-joyner-1.html"
   },
@@ -2269,6 +2443,7 @@ export const playerData = [
     age: "N/A",
     rank: 172,
     positionRank: 10,
+    consensus: 222,
     analysis: "Inside linebacker with a stout frame, good toughness and adequate talent. Simon plays with decent instincts and awareness to diagnose the action. He takes decent paths to the ball and is adept at slipping blocks or playing into them without losing much gap integrity. He’s athletic with average pursuit speed to chase and tackle wide. He’s technically sound as a tackler but has short arms, so positioning will be key to prevent broken tackles. Simon has enough talent for three-down consideration and should be able to help on special teams until he proves he’s ready to go from backup to starter. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/cody-simon-1.html"
   },
@@ -2282,6 +2457,7 @@ export const playerData = [
     age: "22.9",
     rank: 173,
     positionRank: 18,
+    consensus: 181,
     analysis: "Short but stout two-time team captain who is bundled tightly into a compact, muscular frame. Monangai is quicker than fast and lacks breakaway speed but can change the track of the run at a moment’s notice with unpredictable cuts at sharp angles. His vision is average and his lack of run-lane discipline will irk offensive line coaches, but he creates yardage out of nowhere and has exceptional contact balance to repel would-be tacklers. He lacks ideal third-down value, so teams will need to be comfortable with tabbing Monangai as an early-down backup who can handle a heavier carry load if needed. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/kyle-monangai-1.html"
   },
@@ -2295,6 +2471,7 @@ export const playerData = [
     age: "N/A",
     rank: 175,
     positionRank: 11,
+    consensus: 237,
     analysis: "Assignment-oriented linebacker and patient tackle-collector from the second level. Lindenberg is long-legged with average play strength but posted explosive athletic-testing numbers last spring. He has trouble taking on blocks and coming out on top, so he might need to become more active at flowing downhill and tilting the odds in his favor. He recognizes blocking schemes and sees clearly into the backfield but allows separation when plays flow wide. He can handle basic zone drops but will be mismatched against route runners. The on-field tape is fairly average, but the traits scream special-teamer with backup potential. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/cody-lindenberg-1.html"
   },
@@ -2308,6 +2485,7 @@ export const playerData = [
     age: "22.2",
     rank: 176,
     positionRank: 18,
+    consensus: 109,
     analysis: "Productive four-year starter with the ability to press and navigate zone coverages. Burke possesses NFL size and strength to slow and control the release from press. His coverage movements are smooth, but he’s not always instinctive or natural in man coverage. Burke struggles with change of direction as a pattern-matcher and lacks the closing burst to make up for it. He’s capable from zone but needs to prioritize the ball over the man when breaking on the throw. He’s fierce in run support and tackles with good technique to stop ball-carriers. Burke fits as a downhill zone corner with special-teams ability. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/denzel-burke-1.html"
   },
@@ -2321,6 +2499,7 @@ export const playerData = [
     age: "21.9",
     rank: 177,
     positionRank: 12,
+    consensus: 139,
     analysis: "Inside linebacker with size and instincts to post a board full of high totals as a tackler. Stutsman is football smart with studious play recognition to stay one step ahead of blockers. His downhill flows narrow the runner’s angles and he’s accomplished at slipping around blockers or sliding off of them to tackle. His block take-on needs work, though. He’s efficient and productive near the line, but his effectiveness and tackling dip once the play moves into space. Stutsman is an adequate athlete with good size and special-teams talent, showing the potential to become a starting inside ‘backer. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/danny-stutsman-1.html"
   },
@@ -2334,6 +2513,7 @@ export const playerData = [
     age: "N/A",
     rank: 178,
     positionRank: 19,
+    consensus: 249,
     analysis: "Two-year starter from the FCS who needs a very specific role to have a long-term chance. Yarns was a productive three-down player at Delaware. He’s a slender long-strider with good top-end speed but has very little contact balance and is not built for interior runs in the NFL. He will need to improve his route-running so he can rebrand as a change-of-pace slasher with pass-catching talent. -- Lance Zierlein, NFL.com",
     stats: "https://www.espn.com/college-football/player/_/id/4694302/marcus-yarns"
   },
@@ -2347,6 +2527,7 @@ export const playerData = [
     age: "22.7",
     rank: 182,
     positionRank: 9,
+    consensus: 432,
     analysis: "Versatile offensive lineman with impressive football intelligence and quality pass protection. Monheim has started at guard, tackle and center, but a lack of functional length narrows the focus on where he could take snaps at the next level. He plays with punch quickness and accurate hands but will get beat by longer rushers and a two-gapping nose tackle. He fits up blocks on time, but won’t get much push or displacement. He does excellent work identifying fronts and communicating with teammates, which will endear him to coaches, but Monheim might not create enough plus reps against NFL opponents to make his mark. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/jonah-monheim-1.html"
   },
@@ -2360,6 +2541,7 @@ export const playerData = [
     age: "20.9",
     rank: 184,
     positionRank: 19,
+    consensus: 82,
     analysis: "Three-year starting right tackle with broad shoulders and long arms. Jones gets to lateral landmarks on reach blocks, is fluid getting into space and can erase rushers looking to flatten and corner at the edge. His consistency as a run blocker is impacted by a lack of hand-readiness and balance issues that see him on the ground too often. In pass protection, he struggles to gain ground quickly enough, causing him to open and race to the edge. Skilled rushers are sure to attack his pass-setting inconsistencies with success unless coaching can correct the issue. The traits and talent should make him a starter, but there might be issues that flare in the pro game, causing bouts of inconsistency in his play. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/emery-jones-1.html"
   },
@@ -2373,6 +2555,7 @@ export const playerData = [
     age: "N/A",
     rank: 186,
     positionRank: 20,
+    consensus: 258,
     analysis: "Williams, a college tackle, has the body type of a guard, which is where he might be asked to move as a pro. He’s tight-hipped, leading to waist-bending, but he has adequate quickness in the early stages of the block. He lacks decisiveness and body control to make consistent use of early advantages. He also needs to get stronger and more aggressive as a run blocker. He’s long in pass pro with adequate footwork when projected to guard, but it remains to be seen if he can survive against pro bull-rushers. -- Lance Zierlein, NFL.com",
     stats: "https://www.espn.com/college-football/player/_/id/383510/john-williams"
   },
@@ -2386,6 +2569,7 @@ export const playerData = [
     age: "22.0",
     rank: 187,
     positionRank: 20,
+    consensus: 118,
     analysis: "If you spend too much time focusing on the small inconsistencies of Tuten’s college game, you run the risk of overlooking the match he is for the pro game. He’s an explosive athlete with average size but a compact frame. He has elite straight-line speed and easy hips to make sudden cuts and turns. He’s fairly average at reading the front and running with early decisiveness but creates with wiggle, power and speed. Drops and fumbles are a concern, but runners with his contact balance, power and home run speed put tremendous stress on defenses over four quarters. Tuten could become a starting-caliber back with three-down value. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/bhayshul-tuten-1.html"
   },
@@ -2399,6 +2583,7 @@ export const playerData = [
     age: "23.4",
     rank: 167,
     positionRank: 19,
+    consensus: 119,
     analysis: "Two-year starter with good height and length but lacking in play strength. He’s not physical from press but he plays long and with twitchy movements to match route breaks or break into the passing lane when reading the quarterback from zone. His instincts are above average and his ball skills are solid. Big, physical wideouts can create a mismatch against him inside the route, at the catch point and after the catch. Fortune is scheme-versatile but won’t offer help on special teams and is a liability as a run defender. Consistency and ball production will be critical for him. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/odonnell-fortune-1.html"
   },
@@ -2412,6 +2597,7 @@ export const playerData = [
     age: "25.4",
     rank: 190,
     positionRank: 13,
+    consensus: 271,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/caden-prieskorn-1.html"
   },
@@ -2425,6 +2611,7 @@ export const playerData = [
     age: "N/A",
     rank: 191,
     positionRank: 20,
+    consensus: 241,
     analysis: "Hard hat defensive tackle who is much more of a plugger than a playmaker. Smith has average size and traits, but he thumps blockers with accurate strikes and anchors down to clog lanes. He can set a firm edge or control the block as a two-gapper but a lack of length could catch up with him as a pro. He has enough power to get into the pocket on occasion, but he might need scheme help to get home as a rusher. Smith plays with pretty good power and sound technique. He could become a rotational defender in the NFL. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/tim-smith-8.html"
   },
@@ -2438,6 +2625,7 @@ export const playerData = [
     age: "N/A",
     rank: 193,
     positionRank: 20,
+    consensus: 227,
     analysis: "Durable four-year starter with Wisconsin football racing through his blood. He’s a better run blocker than pass protector on tape, with the quickness and athleticism to find his landmarks on move blocks. He operates with good strain and technique on base and drive blocks but won’t create much push. Nelson’s pass sets can feel frantic with disheveled footwork, inconsistent body control and an anchor that could struggle to withstand NFL speed-to-power. He needs to get stronger, but his instincts and awareness in protection could pair with his range as a move blocker for consideration by zone-heavy teams. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/jack-nelson-1.html"
   },
@@ -2451,6 +2639,7 @@ export const playerData = [
     age: "N/A",
     rank: 179,
     positionRank: 20,
+    consensus: 223,
     analysis: "Slender cornerback who is “wired right” but lacks the size NFL teams typically require. Longerbeam played outside at Rutgers, but the size disadvantage likely means he’ll be moving inside as a pro. He has the feet to match route breaks and good burst to close from zone. He gives some ground deep and struggles to win above the rim, though. He’s a willing run supporter but the frame will only allow so much. His on-ball production and competitiveness are appealing, but teams will need to balance those elements against his size when determining his draft value. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/robert-longerbeam-1.html"
   },
@@ -2464,6 +2653,7 @@ export const playerData = [
     age: "23.9",
     rank: 195,
     positionRank: 20,
+    consensus: 244,
     analysis: "Fifth-year senior with three seasons under his belt against SEC competition. His routes lack suddenness to separate and he struggles to win contested battles. He runs with good build-up speed to get deep and he’s a bruising runner after the catch, but he needs to catch with better focus underneath. Ultimately, Wells' traits and ball skills fail to stand out. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/antwane-wells-jr-1.html"
   },
@@ -2477,6 +2667,7 @@ export const playerData = [
     age: "N/A",
     rank: 196,
     positionRank: 14,
+    consensus: 168,
     analysis: "With his size and athletic talent, Conyers could become an NFL surprise if he commits himself to the work off the field. The route-running needs work and he’s faster than quick, but he has the size and ball skills to win when contested. His build-up speed allows for better throwing windows over the second and third levels than it does underneath against tight man coverage. He can add yards after the catch and has impressive tape out of the Wildcat at Arizona State, but the run blocking runs hot and cold. The size and talent are there for a roster spot, but sticking around might be up to Conyers. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/jalin-conyers-1.html"
   },
@@ -2490,6 +2681,7 @@ export const playerData = [
     age: "20.9",
     rank: 197,
     positionRank: 21,
+    consensus: 247,
     analysis: "Physical runner with a compact frame and lower center of gravity. James punches way above his weight class when it comes to breaking tackles and doling out punishment, but his ability to suddenly cut and change direction should not be minimized. He plays fast but lacks patience to allow his blocks to develop. Early success on runs over the tackle can eventually lead to collision finishes, where he ducks his eyes instead of seeking to find a cut or move. James lacks finesse, but his ability to get tough yards could create draft value as a RB3 with a chance to develop into a larger role in time. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/jordan-james-3.html"
   },
@@ -2503,6 +2695,7 @@ export const playerData = [
     age: "N/A",
     rank: 198,
     positionRank: 21,
+    consensus: 187,
     analysis: "Tafuna lacks the traits and production teams look for from interior defenders, but his athletic flashes might be enough to create intrigue. He’s gritty at the point of attack, fighting to neutralize double-teams and down blocks but has a smaller margin for error. He gets around with fluidity and good change of direction when he’s twisting and stunting. He can chase plays down the line. Tafuna is an early-down-only player with some rush qualities that could be developed, but his ceiling is limited. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/junior-tafuna-1.html"
   },
@@ -2516,6 +2709,7 @@ export const playerData = [
     age: "22.7",
     rank: 200,
     positionRank: 22,
+    consensus: 231,
     analysis: "Stout runner and workhorse who handled a whopping 633 touches for Texas Tech’s offense over the last two seasons. Brooks runs low to the ground with a powerful base and instant cut quickness to shake tacklers or elude them in tight quarters. He can keep a run alive but doesn’t have the stride length or acceleration to create space and run away from a rally-hard defense, which could turn him into more of a try-hard grinder. He plays on third downs but hasn’t been all that explosive out of the backfield. Brooks’ productivity and ability to force missed tackles give him a chance to become an NFL backup. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/tahj-brooks-1.html"
   },
@@ -2529,6 +2723,7 @@ export const playerData = [
     age: "N/A",
     rank: 201,
     positionRank: 22,
+    consensus: 264,
     analysis: "On paper, Biggers has the measurables that teams search for along the defensive front, but he lacks the build of an NFL interior defender. He’ll flash with a big punch to drive a guard off his spot, but he logs too many reps where he’s slow into contact and jostled around at the point. He’s slow getting off the blocks and misses too many tries. Biggers offers no rush help. He needs to get stronger to take advantage of his length and will have to prove himself as a 3-4 defensive end in the pros. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/zeek-biggers-1.html"
   },
@@ -2542,6 +2737,7 @@ export const playerData = [
     age: "N/A",
     rank: 203,
     positionRank: 11,
+    consensus: 281,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/akili-arnold-1.html"
   },
@@ -2555,6 +2751,7 @@ export const playerData = [
     age: "22.7",
     rank: 144,
     positionRank: 21,
+    consensus: 167,
     analysis: "A durable lineman with NFL traits and four years of starting experience, Cornelius lacks standout flashes on tape. He has been a full-time right tackle but lacks protection talent to stay outside as a pro. He has access to physical tools but needs to play with better bend and hand quickness to help stabilize his play. He can cover up defenders with size but is frequently out-leveraged at the point of attack. His average body control and slide quickness should be mitigated in smaller spaces but those issues will still be concerning against explosive interior rushers. The traits should make him a Day 3 target, but his ceiling might be as a backup. -- Lance Zierlein, NFL.com",
     stats: "https://www.espn.com/college-football/player/_/id/4696203/ajani-cornelius"
   },
@@ -2568,6 +2765,7 @@ export const playerData = [
     age: "21.1",
     rank: 204,
     positionRank: 23,
+    consensus: 124,
     analysis: "Big-workload back with a skill set that requires a physical, downhill run scheme. Gordon is tight-hipped and forced to run linear tracks. He plays with adequate decisiveness and interior vision but lacks the agility to cut sharply or slip tackles in tight quarters. When he gets going downhill he becomes a battering ram, slamming through tackles and adding tough yards after contact. He’s good in the screen game and could improve his protection in time. His 2024 production fell off through no fault of his own. Gordon is big and physical and could attract Day 2 attention from teams looking to add a bruiser to a two-back system. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/ollie-gordon-1.html"
   },
@@ -2581,6 +2779,7 @@ export const playerData = [
     age: "N/A",
     rank: 205,
     positionRank: 21,
+    consensus: 191,
     analysis: "Three-year starter with measurables and ball production that could leave teams lukewarm on his NFL prospects. Smith plays with a narrow backpedal, glitchy transitions and sluggish closing burst from off-man coverage, but he is much clingier from press-man. He might not have the play strength, length or top-end speed to be reliable on an island outside, though. The 2024 tape was better and he does offer some inside/outside flexibility, but he might be fighting for a roster spot throughout his career. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/jaylin-smith-1.html"
   },
@@ -2594,6 +2793,7 @@ export const playerData = [
     age: "20.5",
     rank: 206,
     positionRank: 24,
+    consensus: 220,
     analysis: "Allen is a versatile back with adequate size and speed. He’s decisive and gets what he can on most carries but lacks burst, imagination and contact force to create on his own. He’s a reliable pass-catching option with natural hands and an ability to run routes and find yards after the catch. His pass-protection willingness and execution stands out against others in this class. Allen’s ability to cover kicks and return punts adds to his value as a potential Day 3 pick who could compete for a role as a third-down option. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/lequint-allen-1.html"
   },
@@ -2607,6 +2807,7 @@ export const playerData = [
     age: "23.1",
     rank: 207,
     positionRank: 10,
+    consensus: 242,
     analysis: "Majors is a short-armed, center-only prospect. He’s technically sound and plays with poise and control. He’s athletic enough to lead the charge around the corner and can get into the second level. He has neutralizing core strength but that won’t mean much against NFL two-gappers who can strike and control him when singled up. He’s a coach’s dream with a high football IQ and operational toughness. He punches with inside hands and a well-balanced base to immediately stall early bull-rush tries. Majors is smart, tough and reliable with the potential to eventually become a starter. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/jake-majors-1.html"
   },
@@ -2620,6 +2821,7 @@ export const playerData = [
     age: "22.4",
     rank: 208,
     positionRank: 21,
+    consensus: 180,
     analysis: "Outside receiver with size and speed to create advantages downfield. Prather is not explosive -- though he builds and carries speed to create deep windows -- and needs to do a better job of finishing routes and catches. He’s too leggy and tight-hipped to beat man coverage over the first two levels and he’s not a natural pass catcher in traffic. Prather is a niche option as a field-stretcher with good height, weight and speed, but he might need to prove he can play special teams to give himself a legitimate roster shot. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/kaden-prather-1.html"
   },
@@ -2633,6 +2835,7 @@ export const playerData = [
     age: "23.0",
     rank: 209,
     positionRank: 13,
+    consensus: 170,
     analysis: "Despite physical and athletic limitations, Higgins racked up tackles and awards over the last two seasons. He’s built like a downhill running back and delivers power behind his pads like one. Instincts feed his gaudy production, but a lack of length and twitch lead to him getting stuck on blocks when he’s not playing downhill. He lacks change-of-direction quickness and isn’t fast enough to capture outside runners. Higgins shouldn’t be asked to handle man coverage as a pro, but he’s above average as a zone defender. He has three-down talent and coverage value but his limitations create small margins for error and large obstacles to overcome. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/jay-higgins-1.html"
   },
@@ -2646,6 +2849,7 @@ export const playerData = [
     age: "N/A",
     rank: 210,
     positionRank: 22,
+    consensus: 239,
     analysis: "Niche receiver with average hands but good early speed to bypass man coverage and give life to the vertical game. Dike is a second- and third-level receiver whose routes have the energy of a youngster on a playground with all gas and no brakes. He is an early separator with his speed but won’t see nearly as many free or schemed releases as he saw at Florida. He catches with downfield focus and good toughness when contested but doesn’t always play with catch-ready hands, which will lead to frustrating misses. He’s more of a field-stretcher than a volume option, but his talent for opening intermediate and deep windows could appeal to teams in need of speed. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/chimere-dike-1.html"
   },
@@ -2659,6 +2863,7 @@ export const playerData = [
     age: "N/A",
     rank: 211,
     positionRank: 12,
+    consensus: 235,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/dean-clark-1.html"
   },
@@ -2672,6 +2877,7 @@ export const playerData = [
     age: "N/A",
     rank: 212,
     positionRank: 11,
+    consensus: 137,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/miles-frazier-1.html"
   },
@@ -2685,6 +2891,7 @@ export const playerData = [
     age: "N/A",
     rank: 202,
     positionRank: 23,
+    consensus: 201,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/keandre-lambert-smith-1.html"
   },
@@ -2698,6 +2905,7 @@ export const playerData = [
     age: "N/A",
     rank: 213,
     positionRank: 12,
+    consensus: 123,
     analysis: "",
     stats: "https://www.espn.com/college-football/player/_/id/4876319/jackson-slater"
   },
@@ -2711,6 +2919,7 @@ export const playerData = [
     age: "21.6",
     rank: 214,
     positionRank: 13,
+    consensus: 253,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/alijah-clark-1.html"
   },
@@ -2724,6 +2933,7 @@ export const playerData = [
     age: "23.0",
     rank: 216,
     positionRank: 24,
+    consensus: 195,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/ricky-white-2.html"
   },
@@ -2737,6 +2947,7 @@ export const playerData = [
     age: "21.9",
     rank: 217,
     positionRank: 25,
+    consensus: 127,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/tai-felton-1.html"
   },
@@ -2750,6 +2961,7 @@ export const playerData = [
     age: "23.6",
     rank: 218,
     positionRank: 15,
+    consensus: 234,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/luke-lachey-1.html"
   },
@@ -2763,6 +2975,7 @@ export const playerData = [
     age: "N/A",
     rank: 219,
     positionRank: 23,
+    consensus: 269,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/cam-horsley-1.html"
   },
@@ -2776,6 +2989,7 @@ export const playerData = [
     age: "23.2",
     rank: 221,
     positionRank: 14,
+    consensus: 194,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/jamon-dumas-johnson-1.html"
   },
@@ -2789,6 +3003,7 @@ export const playerData = [
     age: "22.4",
     rank: 222,
     positionRank: 22,
+    consensus: 202,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/jason-marshall-jr-1.html"
   },
@@ -2802,6 +3017,7 @@ export const playerData = [
     age: "N/A",
     rank: 223,
     positionRank: 14,
+    consensus: 213,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/rj-mickens-1.html"
   },
@@ -2815,6 +3031,7 @@ export const playerData = [
     age: "N/A",
     rank: 224,
     positionRank: 26,
+    consensus: 212,
     analysis: "",
     stats: "https://www.espn.com/college-football/player/_/id/4695193/efton-chism-iii"
   },
@@ -2828,6 +3045,7 @@ export const playerData = [
     age: "21.6",
     rank: 225,
     positionRank: 16,
+    consensus: 228,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/oronde-gadsden-ii-1.html"
   },
@@ -2841,6 +3059,7 @@ export const playerData = [
     age: "22.4",
     rank: 229,
     positionRank: 27,
+    consensus: 268,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/jimmy-horn-jr-1.html"
   },
@@ -2854,6 +3073,7 @@ export const playerData = [
     age: "N/A",
     rank: 231,
     positionRank: 31,
+    consensus: 159,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/fadil-diggs-1.html"
   },
@@ -2867,6 +3087,7 @@ export const playerData = [
     age: "N/A",
     rank: 232,
     positionRank: 28,
+    consensus: 256,
     analysis: "",
     stats: "https://www.espn.com/college-football/player/_/id/4587977/sam-brown-jr"
   },
@@ -2880,6 +3101,7 @@ export const playerData = [
     age: "N/A",
     rank: 233,
     positionRank: 24,
+    consensus: 370,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/camron-jackson-1.html"
   },
@@ -2893,6 +3115,7 @@ export const playerData = [
     age: "22.1",
     rank: 234,
     positionRank: 15,
+    consensus: 232,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/hunter-wohler-1.html"
   },
@@ -2906,6 +3129,7 @@ export const playerData = [
     age: "23.4",
     rank: 235,
     positionRank: 25,
+    consensus: 279,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/jaquinden-jackson-1.html"
   },
@@ -2919,6 +3143,7 @@ export const playerData = [
     age: "N/A",
     rank: 199,
     positionRank: 29,
+    consensus: 148,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/donte-thornton-1.html"
   },
@@ -2932,6 +3157,7 @@ export const playerData = [
     age: "24.1",
     rank: 236,
     positionRank: 26,
+    consensus: 210,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/joquavious-marks-1.html"
   },
@@ -2945,6 +3171,7 @@ export const playerData = [
     age: "N/A",
     rank: 237,
     positionRank: 15,
+    consensus: 257,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/karene-reid-1.html"
   },
@@ -2958,6 +3185,7 @@ export const playerData = [
     age: "N/A",
     rank: 267,
     positionRank: 16,
+    consensus: 323,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/aubrey-burks-1.html"
   },
@@ -2971,6 +3199,7 @@ export const playerData = [
     age: "N/A",
     rank: 238,
     positionRank: 30,
+    consensus: 266,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/will-sheppard-1.html"
   },
@@ -2984,6 +3213,7 @@ export const playerData = [
     age: "N/A",
     rank: 174,
     positionRank: 22,
+    consensus: 144,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/logan-brown-1.html"
   },
@@ -2997,6 +3227,7 @@ export const playerData = [
     age: "23.4",
     rank: 230,
     positionRank: 17,
+    consensus: 172,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/malachi-moore-2.html"
   },
@@ -3010,6 +3241,7 @@ export const playerData = [
     age: "N/A",
     rank: 239,
     positionRank: 13,
+    consensus: 291,
     analysis: "",
     stats: "https://www.espn.com/college-football/player/_/id/4568320/timothy-mckay"
   },
@@ -3023,6 +3255,7 @@ export const playerData = [
     age: "22.9",
     rank: 240,
     positionRank: 31,
+    consensus: 225,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/lajohntay-wester-1.html"
   },
@@ -3036,6 +3269,7 @@ export const playerData = [
     age: "N/A",
     rank: 241,
     positionRank: 25,
+    consensus: 111,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/ty-robinson-1.html"
   },
@@ -3049,6 +3283,7 @@ export const playerData = [
     age: "N/A",
     rank: 242,
     positionRank: 14,
+    consensus: 115,
     analysis: "",
     stats: "https://www.espn.com/college-football/player/_/id/4646773/dylan-fairchild"
   },
@@ -3062,6 +3297,7 @@ export const playerData = [
     age: "N/A",
     rank: 164,
     positionRank: 32,
+    consensus: 203,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/isaac-teslaa-1.html"
   },
@@ -3075,6 +3311,7 @@ export const playerData = [
     age: "22.0",
     rank: 243,
     positionRank: 16,
+    consensus: 138,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/smael-mondon-jr-1.html"
   },
@@ -3088,6 +3325,7 @@ export const playerData = [
     age: "N/A",
     rank: 244,
     positionRank: 17,
+    consensus: 297,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/jailin-walker-1.html"
   },
@@ -3101,6 +3339,7 @@ export const playerData = [
     age: "N/A",
     rank: 245,
     positionRank: 27,
+    consensus: 259,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/montrell-johnson-1.html"
   },
@@ -3114,6 +3353,7 @@ export const playerData = [
     age: "N/A",
     rank: 246,
     positionRank: 18,
+    consensus: 305,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/gaethan-bernadel-1.html"
   },
@@ -3127,6 +3367,7 @@ export const playerData = [
     age: "23.7",
     rank: 247,
     positionRank: 23,
+    consensus: 245,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/fentrell-cypress-ii-1.html"
   },
@@ -3140,6 +3381,7 @@ export const playerData = [
     age: "N/A",
     rank: 248,
     positionRank: 15,
+    consensus: 221,
     analysis: "",
     stats: "https://www.espn.com/college-football/player/_/id/4426336/clay-webb"
   },
@@ -3153,6 +3395,7 @@ export const playerData = [
     age: "N/A",
     rank: 227,
     positionRank: 23,
+    consensus: 128,
     analysis: "",
     stats: "https://www.espn.com/college-football/player/_/id/4698119/hollin-pierce"
   },
@@ -3166,6 +3409,7 @@ export const playerData = [
     age: "N/A",
     rank: 255,
     positionRank: 18,
+    consensus: 243,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/dante-trader-1.html"
   },
@@ -3179,6 +3423,7 @@ export const playerData = [
     age: "N/A",
     rank: 249,
     positionRank: 32,
+    consensus: 261,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/ethan-downs-1.html"
   },
@@ -3192,6 +3437,7 @@ export const playerData = [
     age: "N/A",
     rank: 250,
     positionRank: 33,
+    consensus: 289,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/theo-wease-1.html"
   },
@@ -3205,6 +3451,7 @@ export const playerData = [
     age: "N/A",
     rank: 252,
     positionRank: 16,
+    consensus: 154,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/joshua-gray-1.html"
   },
@@ -3218,6 +3465,7 @@ export const playerData = [
     age: "23.6",
     rank: 253,
     positionRank: 24,
+    consensus: 255,
     analysis: "",
     stats: "https://www.espn.com/college-football/player/_/id/4427080/xavier-truss"
   },
@@ -3231,6 +3479,7 @@ export const playerData = [
     age: "24.1",
     rank: 254,
     positionRank: 34,
+    consensus: 300,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/kyren-lacy-1.html"
   },
@@ -3244,6 +3493,7 @@ export const playerData = [
     age: "21.5",
     rank: 256,
     positionRank: 19,
+    consensus: 164,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/jordan-hancock-1.html"
   },
@@ -3257,6 +3507,7 @@ export const playerData = [
     age: "N/A",
     rank: 257,
     positionRank: 33,
+    consensus: 278,
     analysis: "",
     stats: "https://www.espn.com/college-football/player/_/id/4430973/johnny-walker-jr"
   },
@@ -3270,6 +3521,7 @@ export const playerData = [
     age: "N/A",
     rank: 258,
     positionRank: 17,
+    consensus: 280,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/moliki-matavao-1.html"
   },
@@ -3283,6 +3535,7 @@ export const playerData = [
     age: "N/A",
     rank: 260,
     positionRank: 19,
+    consensus: 299,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/greg-penn-iii-1.html"
   },
@@ -3296,6 +3549,7 @@ export const playerData = [
     age: "N/A",
     rank: 261,
     positionRank: 20,
+    consensus: 208,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/dan-jackson-2.html"
   },
@@ -3309,6 +3563,7 @@ export const playerData = [
     age: "22.7",
     rank: 262,
     positionRank: 28,
+    consensus: 226,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/raheim-sanders-1.html"
   },
@@ -3322,6 +3577,7 @@ export const playerData = [
     age: "N/A",
     rank: 263,
     positionRank: 20,
+    consensus: 319,
     analysis: "",
     stats: "https://www.espn.com/college-football/player/_/id/4749258/aaron-smith"
   },
@@ -3335,6 +3591,7 @@ export const playerData = [
     age: "N/A",
     rank: 264,
     positionRank: 34,
+    consensus: 320,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/elijah-alston-1.html"
   },
@@ -3348,6 +3605,7 @@ export const playerData = [
     age: "24.3",
     rank: 265,
     positionRank: 35,
+    consensus: 282,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/zakhari-franklin-1.html"
   },
@@ -3361,6 +3619,7 @@ export const playerData = [
     age: "N/A",
     rank: 266,
     positionRank: 17,
+    consensus: 267,
     analysis: "",
     stats: "https://www.espn.com/college-football/player/_/id/4570953/marcus-wehr"
   },
@@ -3374,6 +3633,7 @@ export const playerData = [
     age: "22.9",
     rank: 268,
     positionRank: 24,
+    consensus: 145,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/tommi-hill-1.html"
   },
@@ -3387,6 +3647,7 @@ export const playerData = [
     age: "N/A",
     rank: 269,
     positionRank: 25,
+    consensus: 265,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/mac-mcwilliams-1.html"
   },
@@ -3400,6 +3661,7 @@ export const playerData = [
     age: "23.3",
     rank: 183,
     positionRank: 26,
+    consensus: 218,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/tonka-hemingway-1.html"
   },
@@ -3413,6 +3675,7 @@ export const playerData = [
     age: "N/A",
     rank: 270,
     positionRank: 26,
+    consensus: 350,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/cam-miller-1.html"
   },
@@ -3426,6 +3689,7 @@ export const playerData = [
     age: "N/A",
     rank: 271,
     positionRank: 21,
+    consensus: 165,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/teddye-buchanan-1.html"
   },
@@ -3439,6 +3703,7 @@ export const playerData = [
     age: "N/A",
     rank: 272,
     positionRank: 27,
+    consensus: 316,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/shamari-simmons-1.html"
   },
@@ -3452,6 +3717,7 @@ export const playerData = [
     age: "22.3",
     rank: 273,
     positionRank: 22,
+    consensus: 178,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/nickolas-martin-1.html"
   },
@@ -3465,6 +3731,7 @@ export const playerData = [
     age: "25.2",
     rank: 274,
     positionRank: 18,
+    consensus: 300,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/brant-kuithe-1.html"
   },
@@ -3478,6 +3745,7 @@ export const playerData = [
     age: "N/A",
     rank: 275,
     positionRank: 36,
+    consensus: 302,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/roc-taylor-1.html"
   },
@@ -3491,6 +3759,7 @@ export const playerData = [
     age: "N/A",
     rank: 276,
     positionRank: 37,
+    consensus: 293,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/jackson-meeks-1.html"
   },
@@ -3504,6 +3773,7 @@ export const playerData = [
     age: "N/A",
     rank: 277,
     positionRank: 23,
+    consensus: 216,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/shemar-james-1.html"
   },
@@ -3517,6 +3787,7 @@ export const playerData = [
     age: "24.6",
     rank: 278,
     positionRank: 38,
+    consensus: 273,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/bru-mccoy-1.html"
   },
@@ -3530,6 +3801,7 @@ export const playerData = [
     age: "23.1",
     rank: 279,
     positionRank: 28,
+    consensus: 184,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/jabbar-muhammad-1.html"
   },
@@ -3543,6 +3815,7 @@ export const playerData = [
     age: "N/A",
     rank: 280,
     positionRank: 25,
+    consensus: 288,
     analysis: "",
     stats: "https://www.espn.com/college-football/player/_/id/4430812/trey-wedig"
   },
@@ -3556,6 +3829,7 @@ export const playerData = [
     age: "23.5",
     rank: 281,
     positionRank: 27,
+    consensus: 215,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/howard-cross-iii-1.html"
   },
@@ -3569,6 +3843,7 @@ export const playerData = [
     age: "N/A",
     rank: 282,
     positionRank: 21,
+    consensus: 285,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/shilo-sanders-2.html"
   },
@@ -3582,6 +3857,7 @@ export const playerData = [
     age: "N/A",
     rank: 283,
     positionRank: 26,
+    consensus: 224,
     analysis: "",
     stats: "https://www.espn.com/college-football/player/_/id/4769895/carson-vinson"
   },
@@ -3595,6 +3871,7 @@ export const playerData = [
     age: "N/A",
     rank: 285,
     positionRank: 24,
+    consensus: 325,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/david-gbenda-1.html"
   },
@@ -3608,6 +3885,7 @@ export const playerData = [
     age: "N/A",
     rank: 286,
     positionRank: 22,
+    consensus: 326,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/derickey-wright-1.html"
   },
@@ -3621,6 +3899,7 @@ export const playerData = [
     age: "N/A",
     rank: 287,
     positionRank: 28,
+    consensus: 250,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/thor-griffith-1.html"
   },
@@ -3634,6 +3913,7 @@ export const playerData = [
     age: "N/A",
     rank: 288,
     positionRank: 18,
+    consensus: 283,
     analysis: "",
     stats: "https://www.espn.com/college-football/player/_/id/4567802/drew-kendall"
   },
@@ -3647,6 +3927,7 @@ export const playerData = [
     age: "N/A",
     rank: 289,
     positionRank: 39,
+    consensus: 275,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/elijhah-badger-1.html"
   },
@@ -3660,6 +3941,7 @@ export const playerData = [
     age: "N/A",
     rank: 290,
     positionRank: 29,
+    consensus: 311,
     analysis: "",
     stats: "https://www.espn.com/college-football/player/_/id/4568016/joe-evans"
   },
@@ -3673,6 +3955,7 @@ export const playerData = [
     age: "24.1",
     rank: 291,
     positionRank: 40,
+    consensus: 290,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/daquan-felton-1.html"
   },
@@ -3686,6 +3969,7 @@ export const playerData = [
     age: "N/A",
     rank: 292,
     positionRank: 30,
+    consensus: 294,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/eric-gregory-1.html"
   },
@@ -3699,6 +3983,7 @@ export const playerData = [
     age: "24.0",
     rank: 293,
     positionRank: 25,
+    consensus: 276,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/eugene-asante-1.html"
   },
@@ -3712,6 +3997,7 @@ export const playerData = [
     age: "22.8",
     rank: 294,
     positionRank: 31,
+    consensus: 246,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/nazir-stackhouse-1.html"
   },
@@ -3725,6 +4011,7 @@ export const playerData = [
     age: "N/A",
     rank: 295,
     positionRank: 27,
+    consensus: 328,
     analysis: "",
     stats: "https://www.espn.com/college-football/player/_/id/5153070/esa-pole"
   },
@@ -3738,6 +4025,7 @@ export const playerData = [
     age: "N/A",
     rank: 296,
     positionRank: 41,
+    consensus: 327,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/joey-hobert-1.html"
   },
@@ -3751,6 +4039,7 @@ export const playerData = [
     age: "22.4",
     rank: 297,
     positionRank: 35,
+    consensus: 189,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/collin-oliver-1.html"
   },
@@ -3764,6 +4053,7 @@ export const playerData = [
     age: "22.0",
     rank: 298,
     positionRank: 29,
+    consensus: 252,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/donovan-edwards-1.html"
   },
@@ -3777,6 +4067,7 @@ export const playerData = [
     age: "23.9",
     rank: 299,
     positionRank: 19,
+    consensus: 354,
     analysis: "",
     stats: "https://www.espn.com/college-football/player/_/id/4431251/cooper-mays"
   },
@@ -3790,6 +4081,7 @@ export const playerData = [
     age: "24.1",
     rank: 300,
     positionRank: 42,
+    consensus: 554,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/julian-fleming-1.html"
   },
@@ -3803,6 +4095,7 @@ export const playerData = [
     age: "23.7",
     rank: 301,
     positionRank: 32,
+    consensus: 358,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/nash-hutmacher-1.html"
   },
@@ -3816,6 +4109,7 @@ export const playerData = [
     age: "22.1",
     rank: 302,
     positionRank: 43,
+    consensus: 426,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/beaux-collins-1.html"
   },
@@ -3829,6 +4123,7 @@ export const playerData = [
     age: "22.4",
     rank: 303,
     positionRank: 19,
+    consensus: 342,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/bryson-nesbit-1.html"
   },
@@ -3842,6 +4137,7 @@ export const playerData = [
     age: "23.9",
     rank: 304,
     positionRank: 33,
+    consensus: 507,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/joey-slackman-1.html"
   },
@@ -3855,6 +4151,7 @@ export const playerData = [
     age: "23.3",
     rank: 305,
     positionRank: 44,
+    consensus: 295,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/jacorey-brooks-1.html"
   },
@@ -3868,6 +4165,7 @@ export const playerData = [
     age: "N/A",
     rank: 306,
     positionRank: 29,
+    consensus: 304,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/brandon-adams-2.html"
   },
@@ -3881,6 +4179,7 @@ export const playerData = [
     age: "N/A",
     rank: 215,
     positionRank: 20,
+    consensus: 260,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/cj-dippre-1.html"
   },
@@ -3894,6 +4193,7 @@ export const playerData = [
     age: "N/A",
     rank: 307,
     positionRank: 28,
+    consensus: 307,
     analysis: "",
     stats: "https://www.espn.com/college-football/player/_/id/4426972/dalton-cooper"
   },
@@ -3907,6 +4207,7 @@ export const playerData = [
     age: "N/A",
     rank: 284,
     positionRank: 50,
+    consensus: 292,
     analysis: "",
     stats: ""
   },
@@ -3920,6 +4221,7 @@ export const playerData = [
     age: "N/A",
     rank: 251,
     positionRank: 50,
+    consensus: 262,
     analysis: "",
     stats: ""
   },
@@ -3933,6 +4235,7 @@ export const playerData = [
     age: "N/A",
     rank: 228,
     positionRank: 50,
+    consensus: 193,
     analysis: "",
     stats: ""
   },
@@ -3946,6 +4249,7 @@ export const playerData = [
     age: "N/A",
     rank: 220,
     positionRank: 50,
+    consensus: 274,
     analysis: "",
     stats: ""
   },
@@ -3959,6 +4263,7 @@ export const playerData = [
     age: "N/A",
     rank: 188,
     positionRank: 50,
+    consensus: 205,
     analysis: "",
     stats: ""
   },
@@ -3972,6 +4277,7 @@ export const playerData = [
     age: "N/A",
     rank: 189,
     positionRank: 50,
+    consensus: 204,
     analysis: "",
     stats: ""
   },
@@ -3985,6 +4291,7 @@ export const playerData = [
     age: "N/A",
     rank: 181,
     positionRank: 50,
+    consensus: 192,
     analysis: "",
     stats: ""
   },

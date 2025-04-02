@@ -7,7 +7,7 @@ export const nflTeams = [
     order: 1,
     picks: [1, 35, 102, 119, 142, 168, 180, 241],
     drafted: [],
-    needs: "QB, OT, ED, CB",
+    needs: "QB, WR, ED",
     test: [{r: 1,n: 1,p: ""},{r: 2,n: 35,p: ""},{r: 4,n: 102,p: ""},{r: 4,n: 119,p: ""},{r: 5,n: 142,p: ""},{r: 5,n: 168,p: ""},{r: 6,n: 180,p: ""},{r: 7,n: 241,p: ""}]
   },
   {
@@ -18,7 +18,7 @@ export const nflTeams = [
     order: 2,
     picks: [2, 33, 67, 94, 103, 165, 181, 194, 202, 216, 217, 257],
     drafted: [],
-    needs: "QB, RB, OT, CB",
+    needs: "OT, IOL, WR, RB, QB",
     test: [{r: 1,n: 2,p: ""},{r: 2,n: 33,p: ""},{r: 3,n: 67,p: ""},{r: 3,n: 94,p: ""},{r: 4,n: 103,p: ""},{r: 5,n: 165,p: ""},{r: 6,n: 181,p: ""},{r: 6,n: 194,p: ""},{r: 6,n: 202,p: ""},{r: 6,n: 216,p: ""},{r: 6,n: 217,p: ""},{r: 7,n: 257,p: ""}]
   },
   {
@@ -29,7 +29,7 @@ export const nflTeams = [
     order: 3,
     picks: [3, 34, 65, 104, 134, 155, 221, 248],
     drafted: [],
-    needs: "QB, OT, CB, S",
+    needs: "QB, IOL, DT, ED",
     test: [{r: 1,n: 3,p: ""},{r: 2,n: 34,p: ""},{r: 3,n: 65,p: ""},{r: 4,n: 104,p: ""},{r: 4,n: 134,p: ""},{r: 5,n: 155,p: ""},{r: 7,n: 221,p: ""},{r: 7,n: 248,p: ""}]
   },
   {
@@ -40,7 +40,7 @@ export const nflTeams = [
     order: 4,
     picks: [4, 38, 69, 77, 105, 145, 219, 222, 240],
     drafted: [],
-    needs: "RB, WR, IOL, OT",
+    needs: "OT, IOL, WR, ED",
     test: [{r: 1,n: 4,p: ""},{r: 2,n: 38,p: ""},{r: 3,n: 69,p: ""},{r: 3,n: 77,p: ""},{r: 4,n: 105,p: ""},{r: 5,n: 145,p: ""},{r: 7,n: 219,p: ""},{r: 7,n: 222,p: ""},{r: 7,n: 240,p: ""}]
   },
   {
@@ -51,7 +51,7 @@ export const nflTeams = [
     order: 5,
     picks: [5, 36, 70, 88, 106, 125, 143, 184, 196, 223],
     drafted: [],
-    needs: "IOL, DT, CB",
+    needs: "DT, WR, S",
     test: [{r: 1,n: 5,p: ""},{r: 2,n: 36,p: ""},{r: 3,n: 70,p: ""},{r: 3,n: 88,p: ""},{r: 4,n: 106,p: ""},{r: 4,n: 125,p: ""},{r: 5,n: 143,p: ""},{r: 6,n: 184,p: ""},{r: 6,n: 196,p: ""},{r: 7,n: 223,p: ""}]
   },
   {
@@ -62,7 +62,7 @@ export const nflTeams = [
     order: 6,
     picks: [6, 37, 68, 73, 107, 144, 182, 214, 218, 224],
     drafted: [],
-    needs: "QB, RB, WR, CB",
+    needs: "CB, RB, WR",
     test: [{r: 1,n: 6,p: ""},{r: 2,n: 37,p: ""},{r: 3,n: 68,p: ""},{r: 4,n: 107,p: ""},{r: 5,n: 144,p: ""},{r: 6,n: 182,p: ""},{r: 6,n: 214,p: ""},{r: 6,n: 218,p: ""},{r: 7,n: 224,p: ""}]
   },
   {
@@ -73,7 +73,7 @@ export const nflTeams = [
     order: 7,
     picks: [7, 42, 92, 109, 146, 157, 188, 209],
     drafted: [],
-    needs: "QB, DT, CB, S",
+    needs: "OT, WR, TE, DT",
     test: [{r: 1,n: 7,p: ""},{r: 2,n: 42,p: ""},{r: 3,n: 73,p: ""},{r: 4,n: 109,p: ""},{r: 5,n: 146,p: ""},{r: 5,n: 157,p: ""},{r: 6,n: 188,p: ""},{r: 6,n: 209,p: ""}]
   },
   {
@@ -84,7 +84,7 @@ export const nflTeams = [
     order: 8,
     picks: [8, 57, 74, 110, 113, 141, 147, 164, 229],
     drafted: [],
-    needs: "DT, ED, CB, S",
+    needs: "WR, ED, S",
     test: [{r: 1,n: 8,p: ""},{r: 2,n: 57,p: ""},{r: 3,n: 74,p: ""},{r: 4,n: 110,p: ""},{r: 4,n: 113,p: ""},{r: 5,n: 141,p: ""},{r: 5,n: 147,p: ""},{r: 5,n: 164,p: ""},{r: 7,n: 229,p: ""}]
   },
   {
@@ -95,7 +95,7 @@ export const nflTeams = [
     order: 9,
     picks: [9, 40, 71, 93, 111, 130, 186, 254],
     drafted: [],
-    needs: "WR, TE, DT, ED",
+    needs: "WR, CB, ED",
     test: [{r: 1,n: 9,p: ""},{r: 2,n: 40,p: ""},{r: 3,n: 71,p: ""},{r: 3,n: 93,p: ""},{r: 4,n: 111,p: ""},{r: 4,n: 130,p: ""},{r: 6,n: 186,p: ""},{r: 7,n: 254,p: ""}]
   },
   {
@@ -106,7 +106,7 @@ export const nflTeams = [
     order: 10,
     picks: [10, 39, 41, 72, 149, 197, 235, 242],
     drafted: [],
-    needs: "RB, IOL, ED",
+    needs: "RB, S, ED",
     test: [{r: 1,n: 10,p: ""},{r: 2,n: 39,p: ""},{r: 2,n: 41,p: ""},{r: 3,n: 72,p: ""},{r: 5,n: 149,p: ""},{r: 6,n: 197,p: ""},{r: 7,n: 235,p: ""},{r: 7,n: 242,p: ""}]
   },
   {
@@ -117,7 +117,7 @@ export const nflTeams = [
     order: 11,
     picks: [11, 43, 75, 99, 112, 138, 139, 189, 228, 232, 255],
     drafted: [],
-    needs: "IOL, OT, DT, ED",
+    needs: "IOL, OT, DT, CB",
     test: [{r: 1,n: 11,p: ""},{r: 2,n: 43,p: ""},{r: 3,n: 75,p: ""},{r: 3,n: 99,p: ""},{r: 4,n: 112,p: ""},{r: 4,n: 138,p: ""},{r: 4,n: 139,p: ""},{r: 6,n: 189,p: ""},{r: 7,n: 228,p: ""},{r: 7,n: 232,p: ""},{r: 7,n: 255,p: ""}]
   },
   {
@@ -128,7 +128,7 @@ export const nflTeams = [
     order: 12,
     picks: [12, 44, 76, 150, 170, 172, 174, 190, 211, 249],
     drafted: [],
-    needs: "RB, WR, OT, ED",
+    needs: "RB, OT, IOL, WR",
     test: [{r: 1,n: 12,p: ""},{r: 2,n: 44,p: ""},{r: 3,n: 76,p: ""},{r: 5,n: 150,p: ""},{r: 5,n: 170,p: ""},{r: 5,n: 172,p: ""},{r: 5,n: 174,p: ""},{r: 6,n: 190,p: ""},{r: 6,n: 211,p: ""},{r: 7,n: 249,p: ""}]
   },
   {
@@ -139,7 +139,7 @@ export const nflTeams = [
     order: 13,
     picks: [13, 48, 98, 115, 135, 151, 156, 226, 233, 252],
     drafted: [],
-    needs: "IOL, OT, DT, S",
+    needs: "S, DT, OT, IOL",
     test: [{r: 1,n: 13,p: ""},{r: 2,n: 48,p: ""},{r: 3,n: 98,p: ""},{r: 4,n: 115,p: ""},{r: 4,n: 135,p: ""},{r: 5,n: 151,p: ""},{r: 5,n: 156,p: ""},{r: 7,n: 226,p: ""},{r: 7,n: 233,p: ""},{r: 7,n: 252,p: ""}]
   },
   {
@@ -150,7 +150,7 @@ export const nflTeams = [
     order: 14,
     picks: [14, 45, 80, 116, 152, 191, 234],
     drafted: [],
-    needs: "TE, ED, CB, S",
+    needs: "TE, IOL, S",
     test: [{r: 1,n: 14,p: ""},{r: 2,n: 45,p: ""},{r: 3,n: 80,p: ""},{r: 4,n: 116,p: ""},{r: 5,n: 152,p: ""},{r: 6,n: 191,p: ""},{r: 7,n: 234,p: ""}]
   },
   {
@@ -161,7 +161,7 @@ export const nflTeams = [
     order: 15,
     picks: [15, 46, 117, 244],
     drafted: [],
-    needs: "WR, ED, LB, CB",
+    needs: "ED, IOL, TE",
     test: [{r: 1,n: 15,p: ""},{r: 2,n: 46,p: ""},{r: 4,n: 117,p: ""},{r: 7,n: 244,p: ""}]
   },
   {
@@ -172,7 +172,7 @@ export const nflTeams = [
     order: 16,
     picks: [16, 47, 78, 114, 153],
     drafted: [],
-    needs: "IOL, OT, DT, ED",
+    needs: "CB, IOL, OT, DT, ED",
     test: [{r: 1,n: 16,p: ""},{r: 2,n: 47,p: ""},{r: 3,n: 78,p: ""},{r: 4,n: 114,p: ""},{r: 5,n: 153,p: ""}]
   },
   {
@@ -183,7 +183,7 @@ export const nflTeams = [
     order: 17,
     picks: [17, 49, 81, 118, 154, 195],
     drafted: [],
-    needs: "WR, IOL, DT, ED",
+    needs: "ED, IOL, S",
     test: [{r: 1,n: 17,p: ""},{r: 2,n: 49,p: ""},{r: 3,n: 81,p: ""},{r: 4,n: 118,p: ""},{r: 5,n: 154,p: ""},{r: 6,n: 195,p: ""}]
   },
   {
@@ -194,7 +194,7 @@ export const nflTeams = [
     order: 18,
     picks: [18, 50, 82, 137, 173, 187, 212, 236],
     drafted: [],
-    needs: "IOL, ED, LB",
+    needs: "IOL, WR",
     test: [{r: 1,n: 18,p: ""},{r: 2,n: 50,p: ""},{r: 3,n: 82,p: ""},{r: 3,n: 92,p: ""},{r: 4,n: 137,p: ""},{r: 5,n: 173,p: ""},{r: 6,n: 187,p: ""},{r: 6,n: 212,p: ""},{r: 7,n: 236,p: ""}]
   },
   {
@@ -205,7 +205,7 @@ export const nflTeams = [
     order: 19,
     picks: [19, 53, 84, 120, 158, 237],
     drafted: [],
-    needs: "ED, LB, CB, S",
+    needs: "ED, CB, LB",
     test: [{r: 1,n: 19,p: ""},{r: 2,n: 53,p: ""},{r: 3,n: 84,p: ""},{r: 4,n: 120,p: ""},{r: 5,n: 158,p: ""},{r: 7,n: 237,p: ""}]
   },
   {
@@ -216,7 +216,7 @@ export const nflTeams = [
     order: 20,
     picks: [20, 51, 85, 121, 193, 199, 210],
     drafted: [],
-    needs: "WR, TE, LB, S",
+    needs: "RB, DT, WR",
     test: [{r: 1,n: 20,p: ""},{r: 2,n: 51,p: ""},{r: 3,n: 85,p: ""},{r: 4,n: 121,p: ""},{r: 6,n: 193,p: ""},{r: 6,n: 199,p: ""},{r: 6,n: 210,p: ""}]
   },
   {
@@ -227,7 +227,7 @@ export const nflTeams = [
     order: 21,
     picks: [21, 52, 83, 122, 163, 225, 231, 247],
     drafted: [],
-    needs: "QB, WR, CB, S",
+    needs: "QB, RB, CB",
     test: [{r: 1,n: 21,p: ""},{r: 2,n: 52,p: ""},{r: 3,n: 83,p: ""},{r: 4,n: 122,p: ""},{r: 5,n: 163,p: ""},{r: 7,n: 225,p: ""},{r: 7,n: 231,p: ""},{r: 7,n: 247,p: ""}]
   },
   {
@@ -238,7 +238,7 @@ export const nflTeams = [
     order: 22,
     picks: [22, 55, 86, 124, 159, 177, 183, 201, 215, 220, 253],
     drafted: [],
-    needs: "RB, WR, TE, ED",
+    needs: "ED, DT, RB, WR",
     test: [{r: 1,n: 22,p: ""},{r: 2,n: 55,p: ""},{r: 3,n: 86,p: ""},{r: 4,n: 124,p: ""},{r: 5,n: 159,p: ""},{r: 5,n: 177,p: ""},{r: 6,n: 183,p: ""},{r: 6,n: 201,p: ""},{r: 6,n: 215,p: ""},{r: 7,n: 220,p: ""},{r: 7,n: 253,p: ""}]
   },
   {
@@ -249,7 +249,7 @@ export const nflTeams = [
     order: 23,
     picks: [23, 54, 87, 123, 160, 200, 239, 251],
     drafted: [],
-    needs: "WR, IOL, ED, CB",
+    needs: "WR, CB, ED",
     test: [{r: 1,n: 23,p: ""},{r: 2,n: 54,p: ""},{r: 3,n: 87,p: ""},{r: 4,n: 123,p: ""},{r: 5,n: 160,p: ""},{r: 6,n: 200,p: ""},{r: 7,n: 239,p: ""},{r: 7,n: 251,p: ""}]
   },
   {
@@ -260,7 +260,7 @@ export const nflTeams = [
     order: 24,
     picks: [24, 97, 140, 161],
     drafted: [],
-    needs: "RB, IOL, DT, CB",
+    needs: "S, CB, DT",
     test: [{r: 1,n: 24,p: ""},{r: 3,n: 97,p: ""},{r: 5,n: 140,p: ""},{r: 5,n: 161,p: ""}]
   },
   {
@@ -271,7 +271,7 @@ export const nflTeams = [
     order: 25,
     picks: [25, 58, 89, 127, 167, 243],
     drafted: [],
-    needs: "WR, IOL, DT",
+    needs: "OT, IOL, WR",
     test: [{r: 1,n: 25,p: ""},{r: 2,n: 58,p: ""},{r: 3,n: 89,p: ""},{r: 4,n: 127,p: ""},{r: 5,n: 167,p: ""},{r: 7,n: 243,p: ""}]
   },
   {
@@ -282,7 +282,7 @@ export const nflTeams = [
     order: 26,
     picks: [26, 90, 100, 126, 192, 203, 204],
     drafted: [],
-    needs: "TE, OT, LB, CB",
+    needs: "CB, LB, OT",
     test: [{r: 1,n: 26,p: ""},{r: 3,n: 90,p: ""},{r: 3,n: 100,p: ""},{r: 4,n: 126,p: ""},{r: 6,n: 192,p: ""},{r: 6,n: 203,p: ""},{r: 6,n: 204,p: ""}]
   },
   {
@@ -293,7 +293,7 @@ export const nflTeams = [
     order: 27,
     picks: [27, 59, 91, 128, 136, 176, 178, 185, 205, 213, 245],
     drafted: [],
-    needs: "WR, OT, ED, CB",
+    needs: "ED, CB, DT",
     test: [{r: 1,n: 27,p: ""},{r: 2,n: 59,p: ""},{r: 3,n: 91,p: ""},{r: 4,n: 128,p: ""},{r: 4,n: 136,p: ""},{r: 5,n: 176,p: ""},{r: 5,n: 178,p: ""},{r: 6,n: 185,p: ""},{r: 6,n: 205,p: ""},{r: 6,n: 213,p: ""},{r: 7,n: 245,p: ""}]
   },
   {
@@ -304,7 +304,7 @@ export const nflTeams = [
     order: 28,
     picks: [28, 60, 101, 133, 198, 227, 230, 246],
     drafted: [],
-    needs: "IOL, ED, CB",
+    needs: "ED, OT, IOL, CB",
     test: [{r: 1,n: 28,p: ""},{r: 2,n: 60,p: ""},{r: 3,n: 101,p: ""},{r: 4,n: 133,p: ""},{r: 6,n: 198,p: ""},{r: 7,n: 227,p: ""},{r: 7,n: 230,p: ""},{r: 7,n: 246,p: ""}]
   },
   {
@@ -315,7 +315,7 @@ export const nflTeams = [
     order: 29,
     picks: [29, 61, 79, 148, 207, 238, 250],
     drafted: [],
-    needs: "WR, OT, ED, CB",
+    needs: "WR, ED, CB",
     test: [{r: 1,n: 29,p: ""},{r: 2,n: 61,p: ""},{r: 3,n: 79,p: ""},{r: 5,n: 148,p: ""},{r: 6,n: 207,p: ""},{r: 7,n: 238,p: ""},{r: 7,n: 250,p: ""}]
   },
   {
@@ -326,7 +326,7 @@ export const nflTeams = [
     order: 30,
     picks: [30, 56, 62, 108, 131, 171, 175, 179, 206, 208],
     drafted: [],
-    needs: "WR, DT, LB, CB",
+    needs: "ED, DT, CB",
     test: [{r: 1,n: 30,p: ""},{r: 2,n: 56,p: ""},{r: 2,n: 62,p: ""},{r: 4,n: 108,p: ""},{r: 4,n: 131,p: ""},{r: 5,n: 171,p: ""},{r: 5,n: 175,p: ""},{r: 6,n: 179,p: ""},{r: 6,n: 206,p: ""},{r: 6,n: 208,p: ""}]
   },
   {
@@ -337,7 +337,7 @@ export const nflTeams = [
     order: 31,
     picks: [31, 63, 66, 95, 132, 256],
     drafted: [],
-    needs: "OT, DT, ED, LB",
+    needs: "OT, DT, ED",
     test: [{r: 1,n: 31,p: ""},{r: 2,n: 63,p: ""},{r: 3,n: 66,p: ""},{r: 3,n: 95,p: ""},{r: 4,n: 132,p: ""},{r: 7,n: 256,p: ""}]
   },
   {
@@ -348,7 +348,7 @@ export const nflTeams = [
     order: 32,
     picks: [32, 64, 96, 129, 162, 166, 169],
     drafted: [],
-    needs: "WR, IOL, ED, CB",
+    needs: "WR, DT, CB",
     test: [{r: 1,n: 32,p: ""},{r: 2,n: 64,p: ""},{r: 3,n: 96,p: ""},{r: 4,n: 129,p: ""},{r: 5,n: 162,p: ""},{r: 5,n: 166,p: ""},{r: 5,n: 169,p: ""}]
   }
 ];
