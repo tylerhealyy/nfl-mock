@@ -9,6 +9,14 @@ localStorage.setItem('otc', JSON.stringify(otc));
 let viewing;
 let selectedValue;
 let nameValue = '';
+let draftSpeed = 800;
+if (JSON.parse(localStorage.getItem('speedInput')) == 1) {
+  draftSpeed = 1500;
+} else if(JSON.parse(localStorage.getItem('speedInput')) == 2) {
+  draftSpeed = 800;
+} else {
+  draftSpeed = 100;
+}
 
 nflTeams.forEach((team) => { // Reset all picks on every refresh
   team.test.forEach((pick) => {
@@ -45,7 +53,7 @@ function startDraft() { // Close pre-draft settings and start draft
     nameValue = 'Anonymous';
   }
 
-  for (let i = 1; i < 310; i++) { // Build the list of all players
+  for (let i = 1; i < 500; i++) { // Build the list of all players
     playerData.forEach((player) => {
       if (player.rank === i) {
         buildPlayerList(player);
@@ -61,11 +69,13 @@ function startDraft() { // Close pre-draft settings and start draft
   
   tradeFunction(selectedValue);
 
-  document.querySelectorAll('.draft-order-item').forEach((panelItem) => {
+  singleAutoPick(selectedValue);
+
+  /*document.querySelectorAll('.draft-order-item').forEach((panelItem) => {
     panelItem.addEventListener("click", () => {
       singleAutoPick(selectedValue);
     });
-  });
+  });*/
 }
 
 function buildPlayerList(player) { // Goes through every player in the player data script and adds this html for each player
@@ -95,7 +105,7 @@ function positionSort() { // Add functionality to position buttons
   
       if (button.innerHTML === 'ALL') { // Show all players when 'ALL' button clicked
         playerList = '';
-        for (let i = 1; i < 301; i++) {
+        for (let i = 1; i < 500; i++) {
           playerData.forEach((player) => {
             if (player.rank === i) {
               buildPlayerList(player);
@@ -105,7 +115,7 @@ function positionSort() { // Add functionality to position buttons
       }
   
       
-      for (let i = 1; i < 301; i++) { // Any other button clicked, only add players of that position to the list
+      for (let i = 1; i < 500; i++) { // Any other button clicked, only add players of that position to the list
         playerData.forEach((player) => {
           if (player.rank === i) {
             if (player.position === button.innerHTML) {
@@ -180,7 +190,7 @@ function displayProfile(playerCard, selectedValue) { // Add event listeners to p
             </div>
           `;
           document.querySelector('.draft-button-js').addEventListener("click", () => { // Add functionality to the draft button
-            draftPlayer(selectedValue, player);
+            userDraftPlayer(selectedValue, player);
           });
         }
       });
@@ -268,7 +278,7 @@ export function draftPlayer(selectedValue, player) { // Read selected player to 
   
   playerList = ''; // Reset player list so it can be rebuilt without the just-selected player
 
-  for (let i = 1; i < 301; i++) {
+  for (let i = 1; i < 500; i++) {
     playerData.forEach((player) => {
       if (player.rank === i) {
         buildPlayerList(player); // Rebuild player list
@@ -294,6 +304,14 @@ export function draftPlayer(selectedValue, player) { // Read selected player to 
       break;
     }
   };
+}
+
+function userDraftPlayer(selectedValue, player) {
+  draftPlayer(selectedValue, player);
+
+  setTimeout(() => {
+    singleAutoPick(selectedValue);
+  }, draftSpeed);
 }
 
 function changeHeader() { // Change the display at top based on which team is now on the clock

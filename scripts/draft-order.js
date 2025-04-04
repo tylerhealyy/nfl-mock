@@ -72,7 +72,6 @@ function buildPanelItems(i, rounds) { // Build HTML for each pick
         <div class="draft-order-item" data-order="${i}" style="
           background-color: white;
           box-shadow: inset 0px 0px 80px ${team.color};
-          cursor: pointer;
         ">
           <div class="pick-number">${i}</div>
           <div class="pick-logo">
@@ -82,13 +81,6 @@ function buildPanelItems(i, rounds) { // Build HTML for each pick
           <div class="pick-player-logo" data-logo="${i}">${getLogo()}</div>
         </div>
       `;
-
-      /*document.querySelectorAll('.draft-order-item').forEach((panelItem) => {
-        panelItem.addEventListener("click", () => {
-          //autoDraft(rounds, team);
-          singleAutoPick(rounds);
-        });
-      });*/
     }
   });
 
@@ -215,78 +207,93 @@ export async function autoDraft(rounds) {
   }
 }
 
+
+let listOfUserTeams = JSON.parse(localStorage.getItem('teamsInput'));
 let autoPickTeam = '';
-export async function singleAutoPick(rounds) {
+export function singleAutoPick(rounds) {
+  let otc = JSON.parse(localStorage.getItem('otc'));
+  let team = nflTeams.find(t => t.test.some(y => y.n === otc));
 
-  let iterations;
-  switch(rounds) {
-    case "1":
-      iterations = 33;
-      break;
-    case "2":
-      iterations = 65;
-      break;
-    case "3":
-      iterations = 102;
-      break;
-    case "4":
-      iterations = 140;
-      break;
-    case "5":
-      iterations = 179;
-      break;
-    case "6":
-      iterations = 219;
-      break;
-    case "7":
-      iterations = 258;
-      break;
+  // If it's a user team, stop auto-picking
+  if (!team || listOfUserTeams.includes(team.name)) {
+    playOTCSound();
+    return;
   }
 
-  for (let i = 1; i < iterations; i++) {
-    nflTeams.forEach((team) => {
-      if (team.test.some(y => y.n === JSON.parse(localStorage.getItem('otc')))) {
-        autoPickTeam = team;
-      }
-    });
-  
-    let selectedPlayer = aiDraftPick(autoPickTeam);
-    if (selectedPlayer) {
-      draftPlayer(rounds, selectedPlayer);
+  // AI makes a pick
+  let selectedPlayer = aiDraftPick(team, otc);
+
+  if (selectedPlayer) {
+    draftPlayer(rounds, selectedPlayer);
+
+    if (team.needs.includes(selectedPlayer.position)) {
+      team.needs = team.needs.filter(pos => pos !== selectedPlayer.position);
     }
-    
-    console.log(autoPickTeam.needs, selectedPlayer.name, selectedPlayer.score, 301 - selectedPlayer.consensus);
-  
-    await new Promise(resolve => setTimeout(resolve, speed)); // Delay for next pick
+
+    team.drafted.push(selectedPlayer.position);
   }
+
+  // Move to next pick
+  otc += 1;
+  localStorage.setItem('otc', otc);
+
+  // Use setTimeout to create a delay before the next pick
+  setTimeout(() => {
+    singleAutoPick(rounds); // Recursively call with a delay
+  }, speed); // 1 second delay per pick (adjust as needed)
 }
 
-function aiDraftPick(team) {
+function aiDraftPick(team, otc) {
   return playerData
     .map(player => {
-      let score = 301 - player.consensus; // Base score on player rating
+      let score = 1000 - player.consensus; // Base score on player rating
       
       if (team.needs.includes(player.position)) {
         score += Math.floor(Math.random() * (15 - 5 + 1)) + 5; // Boost for positions of need
       }
 
-      if (player.name === 'Travis Hunter' || 'Abdul Carter' || 'Ashton Jeanty' || 'Tyler Warren') {
+      if (player.name === 'Ashton Jeanty' || 'Tyler Warren') {
         score += 5;
       }
 
       if (player.name === 'Abdul Carter') {
-        score += 5;
+        score += 10;
       }
 
-      if (Math.random() < 0.1) {
-        score += Math.floor(Math.random() * 5) + 1; // Occasionally throw in a "surprise pick"
+      if (player.name === 'Travis Hunter' || 'Cam Ward') {
+        score += 25;
       }
 
-      if (Math.random() < 0.1) {
+      if (player.name === 'Mason Graham') {
+        score -= 10;
+      }
+
+      if (team.drafted.includes(player.position)) {
         score -= 5;
+      }
+
+      if (team.nogo.includes(player.position)) {
+        score = 0;
+      }
+
+      if (Math.random() < 0.2) {
+        score += Math.floor(Math.random() * 17) - 8; // Occasionally throw in a "surprise pick"
+      }
+
+      if (otc > 5 && otc < 33 && Math.random() < 0.2) {
+        score += Math.floor(Math.random() * 31) - 15;
+      }
+
+      if (otc > 33 && Math.random() < 0.2) {
+        score += Math.floor(Math.random() * 61) - 30;
       }
 
       return { ...player, score };
     })
     .sort((a, b) => b.score - a.score)[0]; // Select best score
+}
+
+function playOTCSound() {
+  let audio = new Audio('../sounds/nfl-draft-chime.mp3');
+  audio.play().catch(error => console.error("Audio playback failed:", error));
 }
