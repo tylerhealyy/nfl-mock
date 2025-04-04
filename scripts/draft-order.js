@@ -2,6 +2,7 @@ import { nflTeams } from "./nfl-team-data.js";
 import { playerData } from "./player-data.js";
 import { draftPlayer } from "./index.js";
 
+
 export function buildDraftOrder2(rounds) { // Read the number of rounds to display the correct number of picks in the draft panel
   switch (rounds) {
     case "1":
@@ -124,90 +125,6 @@ if (JSON.parse(localStorage.getItem('speedInput')) == 1) {
   speed = 100;
 }
 
-export async function autoDraft(rounds) {
-  let iterations;
-  switch(rounds) {
-    case "1":
-      iterations = 33;
-      break;
-    case "2":
-      iterations = 65;
-      break;
-    case "3":
-      iterations = 102;
-      break;
-    case "4":
-      iterations = 140;
-      break;
-    case "5":
-      iterations = 179;
-      break;
-    case "6":
-      iterations = 219;
-      break;
-    case "7":
-      iterations = 258;
-      break;
-  }
-
-  let usedNumbers = new Set(); // Track used numbers
-
-  for (let i = 1; i < iterations; i++) {
-    let randomNumber;
-    
-    // Generate a unique random number
-    do {
-        randomNumber = Math.floor(Math.random() * 300) + 1;
-    } while (usedNumbers.has(randomNumber));
-
-    usedNumbers.add(randomNumber); // Store the used number
-
-    function draftRandom(ranNum) {
-      return playerData.find(player => player.rank === ranNum);
-    }
-    function draftBPA() {
-      return playerData.reduce((lowest, player) => 
-        player.rank < lowest.rank ? player : lowest, playerData[0]);
-    }
-    function draftByRandomTop() {
-      const lowest10 = [...playerData].sort((a, b) => a.rank - b.rank).slice(0, 5); // Step 1: Sort players by rank (ascending order)
-      return lowest10[Math.floor(Math.random() * lowest10.length)];// Step 2: Pick a random player from these 10
-    }
-    function draftByNeed() {
-      const wrPlayers = playerData.filter(player => player.position === "WR"); // Step 1: Filter players by position "WR"
-      const lowest10WR = wrPlayers.sort((a, b) => a.rank - b.rank).slice(0, 5); // Step 2: Sort these WR players by rank (ascending order)
-      return lowest10WR[Math.floor(Math.random() * lowest10WR.length)]; // Step 3: Pick a random player from these 10
-    }
-    function aiDraftPick() {
-      return playerData
-        .map(player => {
-          let score = 301 - player.rank; // Base score on player rating
-          
-          if (player.school === "Denver") {
-            score += 300; // Boost for positions of need
-          }
-
-          if (Math.random() < 0) {
-            score += 10; // Occasionally throw in a "surprise pick"
-          }
-
-          return { ...player, score };
-        })
-        .sort((a, b) => b.score - a.score)[0]; // Select best score
-  }
-  
-
-    let selectedPlayer = aiDraftPick();
-
-    if (selectedPlayer) {
-        draftPlayer(rounds, selectedPlayer);
-    }
-
-    await new Promise(resolve => setTimeout(resolve, speed)); // Delay for next pick
-  }
-}
-
-
 let listOfUserTeams = JSON.parse(localStorage.getItem('teamsInput'));
 let autoPickTeam = '';
 export function singleAutoPick(rounds) {
@@ -293,7 +210,13 @@ function aiDraftPick(team, otc) {
     .sort((a, b) => b.score - a.score)[0]; // Select best score
 }
 
+const otcAlertAudio = new Audio("../sounds/nfl-draft-chime2.mp3");
+otcAlertAudio.preload = "auto";
+otcAlertAudio.load();
+
 function playOTCSound() {
-  let audio = new Audio('../sounds/nfl-draft-chime.mp3');
-  audio.play().catch(error => console.error("Audio playback failed:", error));
+  otcAlertAudio.currentTime = 0; // Rewind to start
+  otcAlertAudio.play().catch((error) => {
+    console.error("Audio playback failed:", error);
+  });
 }
