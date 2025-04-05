@@ -1,5 +1,5 @@
 .settings-bar {
-  background-color: rgba(255, 255, 255, 0);
+  background-color: rgb(221, 183, 125);
   position: fixed;
   bottom: 15px;
   left: 24%;
@@ -8,6 +8,7 @@
   display: grid;
   column-gap: 8px;
   grid-template-columns: 1fr 1fr 1fr;
+  z-index: 200;
 }
 
 .settings-option {
@@ -21,6 +22,7 @@
   box-shadow: inset 0px 0px 20px rgba(0, 0, 0, 0.25);
   cursor: pointer;
   transition: 0.15s;
+  border: 1px solid black;
 }
 
 .settings-text {
@@ -37,11 +39,13 @@
 }
 
 .begin {
-  background-color: rgb(0, 255, 0);
+  background: linear-gradient(to right, #4A7244, #355231);
   color: white;
   text-shadow: 0px 0px 4px rgba(0, 0, 0, 1);
+  font-size: 24px;
+  font-weight: 700;
 }
 
-.begin-text {
-  font-size: 28px;
+.begin:hover {
+  background: linear-gradient(to right, #42663D, #304A2C);
 }

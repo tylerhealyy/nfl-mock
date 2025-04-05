@@ -9,14 +9,6 @@ localStorage.setItem('otc', JSON.stringify(otc));
 let viewing;
 let selectedValue;
 let nameValue = '';
-let draftSpeed = 800;
-if (JSON.parse(localStorage.getItem('speedInput')) == 1) {
-  draftSpeed = 1500;
-} else if(JSON.parse(localStorage.getItem('speedInput')) == 2) {
-  draftSpeed = 800;
-} else {
-  draftSpeed = 100;
-}
 
 nflTeams.forEach((team) => { // Reset all picks on every refresh
   team.test.forEach((pick) => {
@@ -35,14 +27,18 @@ window.addEventListener("DOMContentLoaded", () => {
   });
   selectedValue = JSON.parse(localStorage.getItem('roundsInput'));
   buildDraftOrder2(selectedValue); // Builds the draft order display on left side
+  tradeFunction(selectedValue);
+  changeHeader();
 });
 
 document.querySelector('.begin').addEventListener("click", () => {
   startDraft();
-  document.querySelector('.begin').innerHTML = '';
-  document.querySelector('.begin').style.backgroundColor = 'white';
+  document.querySelector('.begin').innerHTML = 'PAUSE';
+  document.querySelector('.begin').style.background = 'white';
   document.querySelector('.begin').style.color = 'black';
   document.querySelector('.begin').style.textShadow = 'none';
+  document.querySelector('.begin').addEventListener("mouseover", () => document.querySelector('.begin').style.backgroundColor = 'rgb(194, 194, 194)');
+  document.querySelector('.begin').addEventListener("mouseout", () => document.querySelector('.begin').style.backgroundColor = 'white');
 });
 
 function startDraft() { // Close pre-draft settings and start draft
@@ -51,11 +47,12 @@ function startDraft() { // Close pre-draft settings and start draft
   nameValue = JSON.parse(localStorage.getItem('nameInput'));
   if (nameValue === '') {
     nameValue = 'Anonymous';
+    localStorage.setItem('nameInput', JSON.stringify(nameValue));
   }
 
-  for (let i = 1; i < 500; i++) { // Build the list of all players
+  for (let i = 1; i < 1000; i++) { // Build the list of all players
     playerData.forEach((player) => {
-      if (player.rank === i) {
+      if (player.consensus === i) {
         buildPlayerList(player);
       }
     });
@@ -63,26 +60,16 @@ function startDraft() { // Close pre-draft settings and start draft
   document.querySelector('.players-player-js').innerHTML += playerList; // Display player list
 
   positionSort(); // Add functionality to position buttons
-  
   const playerCard = document.querySelectorAll('.player-card-js');
   displayProfile(playerCard, selectedValue); // Add event listeners to every player card on the screen that displays their profile
-  
-  tradeFunction(selectedValue);
-
   singleAutoPick(selectedValue);
-
-  /*document.querySelectorAll('.draft-order-item').forEach((panelItem) => {
-    panelItem.addEventListener("click", () => {
-      singleAutoPick(selectedValue);
-    });
-  });*/
 }
 
 function buildPlayerList(player) { // Goes through every player in the player data script and adds this html for each player
   playerList += `
-    <div class="players-player-card player-card-js" data-rank="${player.rank}">
+    <div class="players-player-card player-card-js" data-rank="${player.consensus}">
       <div class="players-player-card-rank">
-        ${player.rank}
+        ${player.consensus}
       </div>
       <div class="players-player-card-name">
         ${player.name}
@@ -105,9 +92,9 @@ function positionSort() { // Add functionality to position buttons
   
       if (button.innerHTML === 'ALL') { // Show all players when 'ALL' button clicked
         playerList = '';
-        for (let i = 1; i < 500; i++) {
+        for (let i = 1; i < 1000; i++) {
           playerData.forEach((player) => {
-            if (player.rank === i) {
+            if (player.consensus === i) {
               buildPlayerList(player);
             }
           });
@@ -115,9 +102,9 @@ function positionSort() { // Add functionality to position buttons
       }
   
       
-      for (let i = 1; i < 500; i++) { // Any other button clicked, only add players of that position to the list
+      for (let i = 1; i < 1000; i++) { // Any other button clicked, only add players of that position to the list
         playerData.forEach((player) => {
-          if (player.rank === i) {
+          if (player.consensus === i) {
             if (player.position === button.innerHTML) {
               buildPlayerList(player);
             }
@@ -142,7 +129,7 @@ function displayProfile(playerCard, selectedValue) { // Add event listeners to p
       profileHTML.innerHTML = null; // Clear profile so the new one can be added
 
       playerData.forEach((player) => {
-        if (player.rank === Number(playerRank)) { // Get the correct player data to display
+        if (player.consensus === Number(playerRank)) { // Get the correct player data to display
           profileHTML.innerHTML += `
             <div class="info">
               <div class="info-logo">
@@ -171,12 +158,12 @@ function displayProfile(playerCard, selectedValue) { // Add event listeners to p
                 <div class="measurable-value">${player.age}</div>
               </div>
               <div class="measurable-item">
-                <div class="measurable-text">PFF Rank</div>
-                <div class="measurable-value">${player.rank}</div>
+                <div class="measurable-text">Consensus</div>
+                <div class="measurable-value">${player.consensus}</div>
               </div>
               <div class="measurable-item">
-                <div class="measurable-text">Pos Rank</div>
-                <div class="measurable-value">${player.positionRank}</div>
+                <div class="measurable-text">PFF</div>
+                <div class="measurable-value">${player.rank}</div>
               </div>
             </div>
 
@@ -278,9 +265,9 @@ export function draftPlayer(selectedValue, player) { // Read selected player to 
   
   playerList = ''; // Reset player list so it can be rebuilt without the just-selected player
 
-  for (let i = 1; i < 500; i++) {
+  for (let i = 1; i < 1000; i++) {
     playerData.forEach((player) => {
-      if (player.rank === i) {
+      if (player.consensus === i) {
         buildPlayerList(player); // Rebuild player list
       }
     });
@@ -308,10 +295,7 @@ export function draftPlayer(selectedValue, player) { // Read selected player to 
 
 function userDraftPlayer(selectedValue, player) {
   draftPlayer(selectedValue, player);
-
-  setTimeout(() => {
-    singleAutoPick(selectedValue);
-  }, draftSpeed);
+  singleAutoPick(selectedValue);
 }
 
 function changeHeader() { // Change the display at top based on which team is now on the clock
@@ -360,87 +344,96 @@ function showTrade(selectedValue) {
   if (document.querySelector('.settings-popup')) return;
 
   document.body.insertAdjacentHTML('beforeend', `
-    <div class="settings-popup">
-      <div class="settings-content">
-        <div class="trade-team-section section-left">
-          <select class="trade-team-selector selectorA">
-            <option disabled selected>Choose Team 1</option>
-            <option value="Cardinals">Arizona Cardinals</option>
-            <option value="Falcons">Atlanta Falcons</option>
-            <option value="Ravens">Baltimore Ravens</option>
-            <option value="Bills">Buffalo Bills</option>
-            <option value="Panthers">Carolina Panthers</option>
-            <option value="Bears">Chicago Bears</option>
-            <option value="Bengals">Cincinnati Bengals</option>
-            <option value="Browns">Cleveland Browns</option>
-            <option value="Cowboys">Dallas Cowboys</option>
-            <option value="Broncos">Denver Broncos</option>
-            <option value="Lions">Detroit Lions</option>
-            <option value="Packers">Green Bay Packers</option>
-            <option value="Texans">Houston Texans</option>
-            <option value="Colts">Indianapolis Colts</option>
-            <option value="Jaguars">Jacksonville Jaguars</option>
-            <option value="Chiefs">Kansas City Chiefs</option>
-            <option value="Raiders">Las Vegas Raiders</option>
-            <option value="Chargers">Los Angeles Chargers</option>
-            <option value="Rams">Los Angeles Rams</option>
-            <option value="Dolphins">Miami Dolphins</option>
-            <option value="Vikings">Minnesota Vikings</option>
-            <option value="Patriots">New England Patriots</option>
-            <option value="Saints">New Orleans Saints</option>
-            <option value="Giants">New York Giants</option>
-            <option value="Jets">New York Jets</option>
-            <option value="Eagles">Philadelphia Eagles</option>
-            <option value="Steelers">Pittsburgh Steelers</option>
-            <option value="49ers">San Francisco 49ers</option>
-            <option value="Seahawks">Seattle Seahawks</option>
-            <option value="Buccaneers">Tampa Bay Buccaneers</option>
-            <option value="Titans">Tennessee Titans</option>
-            <option value="Commanders">Washington Commanders</option>
-          </select>
-          <ul id="teamA" class="trade-assets assets1"></ul>
-        </div>
-        <div class="trade-team-section">
-          <select class="trade-team-selector selectorB">
-            <option disabled selected>Choose Team 2</option>
-            <option value="Cardinals">Arizona Cardinals</option>
-            <option value="Falcons">Atlanta Falcons</option>
-            <option value="Ravens">Baltimore Ravens</option>
-            <option value="Bills">Buffalo Bills</option>
-            <option value="Panthers">Carolina Panthers</option>
-            <option value="Bears">Chicago Bears</option>
-            <option value="Bengals">Cincinnati Bengals</option>
-            <option value="Browns">Cleveland Browns</option>
-            <option value="Cowboys">Dallas Cowboys</option>
-            <option value="Broncos">Denver Broncos</option>
-            <option value="Lions">Detroit Lions</option>
-            <option value="Packers">Green Bay Packers</option>
-            <option value="Texans">Houston Texans</option>
-            <option value="Colts">Indianapolis Colts</option>
-            <option value="Jaguars">Jacksonville Jaguars</option>
-            <option value="Chiefs">Kansas City Chiefs</option>
-            <option value="Raiders">Las Vegas Raiders</option>
-            <option value="Chargers">Los Angeles Chargers</option>
-            <option value="Rams">Los Angeles Rams</option>
-            <option value="Dolphins">Miami Dolphins</option>
-            <option value="Vikings">Minnesota Vikings</option>
-            <option value="Patriots">New England Patriots</option>
-            <option value="Saints">New Orleans Saints</option>
-            <option value="Giants">New York Giants</option>
-            <option value="Jets">New York Jets</option>
-            <option value="Eagles">Philadelphia Eagles</option>
-            <option value="Steelers">Pittsburgh Steelers</option>
-            <option value="49ers">San Francisco 49ers</option>
-            <option value="Seahawks">Seattle Seahawks</option>
-            <option value="Buccaneers">Tampa Bay Buccaneers</option>
-            <option value="Titans">Tennessee Titans</option>
-            <option value="Commanders">Washington Commanders</option>
-          </select>
-          <ul id="teamB" class="trade-assets assets1"></ul>
+    <div class="closer">
+      <div class="shader"></div>
+      <div class="settings-popup">
+        <div class="settings-content">
+          <div class="trade-panel">
+            <div class="trade-team-section section-left">
+              <select class="trade-team-selector selectorA">
+                <option disabled selected>Choose Team 1</option>
+                <option value="Cardinals">Arizona Cardinals</option>
+                <option value="Falcons">Atlanta Falcons</option>
+                <option value="Ravens">Baltimore Ravens</option>
+                <option value="Bills">Buffalo Bills</option>
+                <option value="Panthers">Carolina Panthers</option>
+                <option value="Bears">Chicago Bears</option>
+                <option value="Bengals">Cincinnati Bengals</option>
+                <option value="Browns">Cleveland Browns</option>
+                <option value="Cowboys">Dallas Cowboys</option>
+                <option value="Broncos">Denver Broncos</option>
+                <option value="Lions">Detroit Lions</option>
+                <option value="Packers">Green Bay Packers</option>
+                <option value="Texans">Houston Texans</option>
+                <option value="Colts">Indianapolis Colts</option>
+                <option value="Jaguars">Jacksonville Jaguars</option>
+                <option value="Chiefs">Kansas City Chiefs</option>
+                <option value="Raiders">Las Vegas Raiders</option>
+                <option value="Chargers">Los Angeles Chargers</option>
+                <option value="Rams">Los Angeles Rams</option>
+                <option value="Dolphins">Miami Dolphins</option>
+                <option value="Vikings">Minnesota Vikings</option>
+                <option value="Patriots">New England Patriots</option>
+                <option value="Saints">New Orleans Saints</option>
+                <option value="Giants">New York Giants</option>
+                <option value="Jets">New York Jets</option>
+                <option value="Eagles">Philadelphia Eagles</option>
+                <option value="Steelers">Pittsburgh Steelers</option>
+                <option value="49ers">San Francisco 49ers</option>
+                <option value="Seahawks">Seattle Seahawks</option>
+                <option value="Buccaneers">Tampa Bay Buccaneers</option>
+                <option value="Titans">Tennessee Titans</option>
+                <option value="Commanders">Washington Commanders</option>
+              </select>
+              <ul id="teamA" class="trade-assets assets1"></ul>
+              <ul id="teamAFtr" class="trade-assets assets1"></ul>
+            </div>
+            <div class="trade-team-section">
+              <select class="trade-team-selector selectorB">
+                <option disabled selected>Choose Team 2</option>
+                <option value="Cardinals">Arizona Cardinals</option>
+                <option value="Falcons">Atlanta Falcons</option>
+                <option value="Ravens">Baltimore Ravens</option>
+                <option value="Bills">Buffalo Bills</option>
+                <option value="Panthers">Carolina Panthers</option>
+                <option value="Bears">Chicago Bears</option>
+                <option value="Bengals">Cincinnati Bengals</option>
+                <option value="Browns">Cleveland Browns</option>
+                <option value="Cowboys">Dallas Cowboys</option>
+                <option value="Broncos">Denver Broncos</option>
+                <option value="Lions">Detroit Lions</option>
+                <option value="Packers">Green Bay Packers</option>
+                <option value="Texans">Houston Texans</option>
+                <option value="Colts">Indianapolis Colts</option>
+                <option value="Jaguars">Jacksonville Jaguars</option>
+                <option value="Chiefs">Kansas City Chiefs</option>
+                <option value="Raiders">Las Vegas Raiders</option>
+                <option value="Chargers">Los Angeles Chargers</option>
+                <option value="Rams">Los Angeles Rams</option>
+                <option value="Dolphins">Miami Dolphins</option>
+                <option value="Vikings">Minnesota Vikings</option>
+                <option value="Patriots">New England Patriots</option>
+                <option value="Saints">New Orleans Saints</option>
+                <option value="Giants">New York Giants</option>
+                <option value="Jets">New York Jets</option>
+                <option value="Eagles">Philadelphia Eagles</option>
+                <option value="Steelers">Pittsburgh Steelers</option>
+                <option value="49ers">San Francisco 49ers</option>
+                <option value="Seahawks">Seattle Seahawks</option>
+                <option value="Buccaneers">Tampa Bay Buccaneers</option>
+                <option value="Titans">Tennessee Titans</option>
+                <option value="Commanders">Washington Commanders</option>
+              </select>
+              <ul id="teamB" class="trade-assets assets1"></ul>
+              <ul id="teamBFtr" class="trade-assets assets1"></ul>
+            </div>
+          </div>
+          <div class="buttons">
+            <button class="submit-trade">Submit Trade</button>
+            <button class="close-settings">Close</button>
+          </div>
         </div>
       </div>
-      <button class="close-settings">X</button>
-      <button class="submit-trade">Submit</button>
     </div>
   `);
 
@@ -451,21 +444,32 @@ function showTrade(selectedValue) {
 
   function renderTeams() {
     let teamAList = document.getElementById('teamA');
+    let teamAFtrList = document.getElementById('teamAFtr');
     let teamBList = document.getElementById('teamB');
+    let teamBFtrList = document.getElementById('teamBFtr');
     teamAList.innerHTML = '';
     teamBList.innerHTML = '';
 
     tradeTeamA.addEventListener("change", () => {
       selectedA = [];
       teamAList.replaceChildren();
+      teamAFtrList.replaceChildren();
       nflTeams.forEach((team) => {
         if (team.name === tradeTeamA.value) {
           team.test.forEach((pick) => {
             if (pick.n >= otc) {
               let li = document.createElement('li'); // Create <li> for each pick
-              li.textContent = `${pick.r}.${pick.n}`; // Fill in <li> content
+              li.textContent = `R${pick.r} #${pick.n}`; // Fill in <li> content
               li.onclick = () => selectItem(li, pick, `${team.name}`); // Add class to color the <li>, and save the pick so we can trade it and remove the class later
               teamAList.appendChild(li);
+            }
+          });
+          team.future.forEach((pick) => {
+            if (true) {
+              let li = document.createElement('li'); // Create <li> for each pick
+              li.textContent = `${pick}`; // Fill in <li> content
+              li.onclick = () => selectItem(li, pick, `${team.name}`); // Add class to color the <li>, and save the pick so we can trade it and remove the class later
+              teamAFtrList.appendChild(li);
             }
           });
         }
@@ -475,14 +479,23 @@ function showTrade(selectedValue) {
     tradeTeamB.addEventListener("change", () => {
       selectedB = [];
       teamBList.replaceChildren();
+      teamBFtrList.replaceChildren();
       nflTeams.forEach((team) => {
         if (team.name === tradeTeamB.value) {
           team.test.forEach((pick) => {
             if (pick.n >= otc) {
               let li = document.createElement('li'); // Create <li> for each pick
-              li.textContent = `${pick.r}.${pick.n}`; // Fill in <li> content
+              li.textContent = `R${pick.r} #${pick.n}`; // Fill in <li> content
               li.onclick = () => selectItem(li, pick, `${team.name}`); // Add class to color the <li>, and save the pick so we can trade it and remove the class later
               teamBList.appendChild(li);
+            }
+          });
+          team.future.forEach((pick) => {
+            if (true) {
+              let li = document.createElement('li'); // Create <li> for each pick
+              li.textContent = `${pick}`; // Fill in <li> content
+              li.onclick = () => selectItem(li, pick, `${team.name}`); // Add class to color the <li>, and save the pick so we can trade it and remove the class later
+              teamBFtrList.appendChild(li);
             }
           });
         }
@@ -522,12 +535,22 @@ function showTrade(selectedValue) {
       selectedA.forEach((apick) => {
         arrayTeamA.test = arrayTeamA.test.filter(asset => asset !== apick.asset);
         arrayTeamB.test.push(apick.asset);
+        arrayTeamA.future = arrayTeamA.future.filter(asset => asset !== apick.asset);
+        console.log(typeof(apick.asset));
+        if (typeof(apick.asset) === 'string') {
+          console.log('true');
+          arrayTeamB.future.push(apick.asset);
+        }
         apick.element.classList.remove('selected');
       });
   
       selectedB.forEach((bpick) => {
         arrayTeamB.test = arrayTeamB.test.filter(asset => asset !== bpick.asset);
         arrayTeamA.test.push(bpick.asset);
+        arrayTeamB.future = arrayTeamB.future.filter(asset => asset !== bpick.asset);
+        if (typeof(bpick.asset) === 'string') {
+          arrayTeamA.future.push(bpick.asset);
+        }
         bpick.element.classList.remove('selected');
       });
 
@@ -538,7 +561,7 @@ function showTrade(selectedValue) {
       selectedA = [];
       selectedB = [];
 
-      document.querySelector('.settings-popup').remove();
+      document.querySelector('.closer').remove();
     }
     document.querySelector('.draft-order-panel').innerHTML = '';
     buildDraftOrder2(rounds);
@@ -565,7 +588,7 @@ function attachCloseEvent() {
   const closeBtn = document.querySelector('.close-settings');
   if (closeBtn) {
     closeBtn.addEventListener("click", () => {
-      document.querySelector('.settings-popup').remove();
+      document.querySelector('.closer').remove();
     }, { once: true }); // Ensure this event fires only once
   }
 }

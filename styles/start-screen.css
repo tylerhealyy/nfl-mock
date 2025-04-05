@@ -4,7 +4,7 @@ body {
 }
 
 .apple {
-  background-color: rgb(210, 210, 210);
+  background-color: rgb(221, 183, 125);
   position: absolute;
   top: 0px;
   bottom: 0px;
@@ -25,6 +25,7 @@ body {
   align-items: center;
   justify-content: space-around;
   padding: 15px;
+  border: 1px solid black;
 }
 
 .smoked {
@@ -34,6 +35,7 @@ body {
   display: flex;
   flex-direction: column;
   padding: 15px;
+  border: 1px solid black;
 }
 
 .select-teams-header {
@@ -143,6 +145,9 @@ body {
   justify-content: space-between;
   width: 50%;
   min-width: 150px;
+}
+.speed-labels {
+  width: 55%;
 }
 
 .rounds-labels span,

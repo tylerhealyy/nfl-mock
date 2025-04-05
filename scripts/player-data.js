@@ -512,7 +512,7 @@ export const playerData = [
     age: "N/A",
     rank: 35,
     positionRank: 5,
-    consensus: 52,
+    consensus: 58,
     analysis: "Elic Ayomanor projects as a good number two Z-receiver for an NFL offense. He is alignment-versatile and makes plays from the slot with a two-way release. Adding his play strength, he will give smaller nickel defenders fits in man coverage by boxing them out for in-breaking passes. Ayomanor is a talented and reliable pass catcher who can start for multiple years and contracts. -- Dame Parson, Bleacher Report",
     stats: ""
   },
@@ -624,7 +624,7 @@ export const playerData = [
     age: "22.7",
     rank: 57,
     positionRank: 10,
-    consensus: 53,
+    consensus: 52,
     analysis: "Sawyer is a big, rugged edge defender with excellent production. Against the run, he’s a bully at the point of attack. He jolts blockers with his hands before discarding and pursuing the ball. He consistently collapses tight ends. He plays with excellent effort to chase plays from the back side. He will drop into coverage on occasion. He’s tight in his change of direction, but his instincts put him in position to make plays. As a pass rusher, he relies mostly on power. He runs his feet on contact, generating a push with his bull rush. He also has a violent club move. Overall, Sawyer is a dominant edge-setter in the run game and he will test the brakes of opposing tackles in the pass game. -- Daniel Jeremiah, NFL Network",
     stats: ""
   },
@@ -2009,7 +2009,7 @@ export const playerData = [
     age: "N/A",
     rank: 136,
     positionRank: 13,
-    consensus: 127,
+    consensus: 135,
     analysis: "Undersized running back who transferred from Miami and switched positions from wide receiver. Smith lacks ideal size and displays some hesitation in his early reads but is slippery over the first two levels, using quick cuts and spin moves to elude tacklers. He has a feel for finding soft spots along the interior but has average speed to turn the corner on wide runs. He could get pushed up a full round thanks to his ball skills and ability to run routes in space. Smith shined as a kick returner at Miami and will likely get that chance in the pros as a third-down back with room for development. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/brashard-smith-1.html"
   },
@@ -2586,6 +2586,20 @@ export const playerData = [
     consensus: 119,
     analysis: "Two-year starter with good height and length but lacking in play strength. He’s not physical from press but he plays long and with twitchy movements to match route breaks or break into the passing lane when reading the quarterback from zone. His instincts are above average and his ball skills are solid. Big, physical wideouts can create a mismatch against him inside the route, at the catch point and after the catch. Fortune is scheme-versatile but won’t offer help on special teams and is a liability as a run defender. Consistency and ball production will be critical for him. -- Lance Zierlein, NFL.com",
     stats: "https://www.sports-reference.com/cfb/players/odonnell-fortune-1.html"
+  },
+  {
+    name: "Vernon Broughton",
+    position: "DT",
+    school: "Texas",
+    schoolLogo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Texas_Longhorns_logo.svg/2560px-Texas_Longhorns_logo.svg.png",
+    height: "6'5",
+    weight: "311",
+    age: "N/A",
+    rank: 900,
+    positionRank: 19,
+    consensus: 121,
+    analysis: "Broughton has first-step quickness to penetrate and above-average range as a tackler. He has an adequate anchor but needs to improve his upper-body strength to press and shed downhill blocks. He’s an instinctive rusher with a diverse plan and is outstanding at causing havoc with his length and footwork. His rush alone creates rotational value as a three-technique or odd-front defensive end. -- Lance Zierlein, NFL.com",
+    stats: "https://www.espn.com/college-football/player/_/id/4429040/vernon-broughton"
   },
   {
     name: "Caden Prieskorn",
@@ -3479,7 +3493,7 @@ export const playerData = [
     age: "24.1",
     rank: 254,
     positionRank: 34,
-    consensus: 300,
+    consensus: 'N/A',
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/kyren-lacy-1.html"
   },
@@ -3731,7 +3745,7 @@ export const playerData = [
     age: "25.2",
     rank: 274,
     positionRank: 18,
-    consensus: 300,
+    consensus: 304,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/brant-kuithe-1.html"
   },
@@ -4165,7 +4179,7 @@ export const playerData = [
     age: "N/A",
     rank: 306,
     positionRank: 29,
-    consensus: 304,
+    consensus: 306,
     analysis: "",
     stats: "https://www.sports-reference.com/cfb/players/brandon-adams-2.html"
   },

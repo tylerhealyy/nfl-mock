@@ -121,19 +121,32 @@ if (JSON.parse(localStorage.getItem('speedInput')) == 1) {
   speed = 1500;
 } else if(JSON.parse(localStorage.getItem('speedInput')) == 2) {
   speed = 800;
-} else {
+} else if(JSON.parse(localStorage.getItem('speedInput')) == 3) {
   speed = 100;
+} else {
+  speed = 1;
 }
+
+let isPaused = true;
+document.querySelector('.begin').addEventListener("click", () => {
+  if (!isPaused) {
+    isPaused = true;
+  } else {
+    isPaused = false;
+  }
+});
 
 let listOfUserTeams = JSON.parse(localStorage.getItem('teamsInput'));
 let autoPickTeam = '';
 export function singleAutoPick(rounds) {
+  if (isPaused) return;
+
   let otc = JSON.parse(localStorage.getItem('otc'));
   let team = nflTeams.find(t => t.test.some(y => y.n === otc));
 
   // If it's a user team, stop auto-picking
   if (!team || listOfUserTeams.includes(team.name)) {
-    playOTCSound();
+    //playOTCSound();
     return;
   }
 
@@ -169,7 +182,7 @@ function aiDraftPick(team, otc) {
         score += Math.floor(Math.random() * (15 - 5 + 1)) + 5; // Boost for positions of need
       }
 
-      if (player.name === 'Ashton Jeanty' || 'Tyler Warren') {
+      if (player.name === 'Ashton Jeanty' || player.name === 'Tyler Warren') {
         score += 5;
       }
 
@@ -177,16 +190,20 @@ function aiDraftPick(team, otc) {
         score += 10;
       }
 
-      if (player.name === 'Travis Hunter' || 'Cam Ward') {
-        score += 25;
+      if (player.name === 'Travis Hunter' || player.name === 'Cam Ward') {
+        score += 15;
       }
 
-      if (player.name === 'Mason Graham') {
-        score -= 10;
+      if (player.position === 'OT' && otc < 4) {
+        score -= 15
       }
 
       if (team.drafted.includes(player.position)) {
         score -= 5;
+      }
+
+      if (team.drafted.includes(player.position) && player.position === 'QB') {
+        score = 0;
       }
 
       if (team.nogo.includes(player.position)) {
@@ -203,6 +220,10 @@ function aiDraftPick(team, otc) {
 
       if (otc > 33 && Math.random() < 0.2) {
         score += Math.floor(Math.random() * 61) - 30;
+      }
+
+      if (player.position === 'QB' && otc > 6 && otc < 33 && Math.random() < 0.05) {
+        score += 50
       }
 
       return { ...player, score };
