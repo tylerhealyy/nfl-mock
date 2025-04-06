@@ -186,6 +186,10 @@ function aiDraftPick(team, otc) {
         score += 5;
       }
 
+      if (player.name === 'Ashton Jeanty' && otc < 4) {
+        score -= 10;
+      }
+
       if (player.name === 'Abdul Carter') {
         score += 10;
       }
