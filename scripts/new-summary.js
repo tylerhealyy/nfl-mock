@@ -27,43 +27,61 @@ document.querySelector('.ts-team-select').addEventListener("change", () => {
   buildTeamSummary(draftee);
 });
 
+let roundsInput = JSON.parse(localStorage.getItem('roundsInput'));
+if (roundsInput === '1') {
+  hideNext();
+}
+
 let summaryViewing = 1;
 document.querySelector('.next-summary').addEventListener("click", () => {
   switch (String(summaryViewing)) {
     case '1':
       buildSummary(33, 65);
       summaryViewing += 1;
-      document.querySelector('.last-summary').style.opacity = 1;
-      document.querySelector('.last-summary').style.cursor = 'pointer';
+      showLast();
       document.querySelector('.rs-header-round').innerHTML = `Second `;
+      if (roundsInput === '2') {
+        hideNext();
+      }
       break;
     case '2':
       buildSummary(65, 102);
       summaryViewing += 1;
       document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(19, 54px)';
       document.querySelector('.rs-header-round').innerHTML = `Third `;
+      if (roundsInput === '3') {
+        hideNext();
+      }
       break;
     case '3':
       buildSummary(102, 140);
       summaryViewing += 1;
       document.querySelector('.rs-header-round').innerHTML = `Fourth `;
+      if (roundsInput === '4') {
+        hideNext();
+      }
       break;
     case '4':
       buildSummary(140, 179);
       summaryViewing += 1;
       document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(20, 54px)';
       document.querySelector('.rs-header-round').innerHTML = `Fifth `;
+      if (roundsInput === '5') {
+        hideNext();
+      }
       break;
     case '5':
       buildSummary(179, 219);
       summaryViewing += 1;
       document.querySelector('.rs-header-round').innerHTML = `Sixth `;
+      if (roundsInput === '6') {
+        hideNext();
+      }
       break;
     case '6':
       buildSummary(219, 258);
       summaryViewing += 1;
-      document.querySelector('.next-summary').style.opacity = 0;
-      document.querySelector('.next-summary').style.cursor = 'default';
+      hideNext();
       document.querySelector('.rs-header-round').innerHTML = `Seventh `;
       break;
   }
@@ -73,37 +91,40 @@ document.querySelector('.last-summary').addEventListener("click", () => {
     case '2':
       buildSummary(1, 33);
       summaryViewing -= 1;
-      document.querySelector('.last-summary').style.opacity = 0;
-      document.querySelector('.last-summary').style.cursor = 'default';
+      hideLast();
+      showNext();
       document.querySelector('.rs-header-round').innerHTML = `First `;
       break;
     case '3':
       buildSummary(33, 65);
       summaryViewing -= 1;
+      showNext();
       document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(16, 54px)';
       document.querySelector('.rs-header-round').innerHTML = `Second `;
       break;
     case '4':
       buildSummary(65, 102);
       summaryViewing -= 1;
+      showNext();
       document.querySelector('.rs-header-round').innerHTML = `Third `;
       break;
     case '5':
       buildSummary(102, 140);
       summaryViewing -= 1;
+      showNext();
       document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(19, 54px)';
       document.querySelector('.rs-header-round').innerHTML = `Fourth `;
       break;
     case '6':
       buildSummary(140, 179);
       summaryViewing -= 1;
+      showNext();
       document.querySelector('.rs-header-round').innerHTML = `Fifth `;
       break;
     case '7':
       buildSummary(179, 219);
       summaryViewing -= 1;
-      document.querySelector('.next-summary').style.opacity = 1;
-      document.querySelector('.next-summary').style.cursor = 'pointer';
+      showNext();
       document.querySelector('.rs-header-round').innerHTML = `Sixth `;
       break;
   }
@@ -273,4 +294,24 @@ function buildSummary2() {
       }
     });
   }
+}
+
+function hideNext() {
+  document.querySelector('.next-summary').style.opacity = 0;
+  document.querySelector('.next-summary').style.cursor = 'default';
+}
+
+function showNext() {
+  document.querySelector('.next-summary').style.opacity = 1;
+  document.querySelector('.next-summary').style.cursor = 'pointer';
+}
+
+function hideLast() {
+  document.querySelector('.last-summary').style.opacity = 0;
+  document.querySelector('.last-summary').style.cursor = 'default';
+}
+
+function showLast() {
+  document.querySelector('.last-summary').style.opacity = 1;
+  document.querySelector('.last-summary').style.cursor = 'pointer';
 }

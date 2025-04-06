@@ -162,7 +162,7 @@ body {
   font-family: Roboto;
   font-size: 20px;
   font-weight: 700;
-  background-color: green;
+  background: linear-gradient(45deg, #590586, #a431e2);
   color: white;
   box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 1);
   border: none;
@@ -172,5 +172,5 @@ body {
 }
 
 .start-button:hover {
-  background-color: rgb(0, 177, 0);
+  background: linear-gradient(45deg, #490370, #881bc3);
 }
