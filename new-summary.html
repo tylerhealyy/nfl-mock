@@ -17,7 +17,7 @@
       <img src="left-arrow.png" class="ns-icon">
     </div>
 
-    <div class="round-summary">
+    <div class="round-summary" id="rs-capture">
       <div class="rs-header">
         <div><span class="rs-header-round"></span>Round Mock Draft</div>
         <div class="rs-header-author">Made by<br><span class="rs-user"></span></div>
@@ -66,7 +66,7 @@
         <option value="Titans">Tennessee Titans</option>
         <option value="Commanders">Washington Commanders</option>
       </select>
-      <div class="ts-summary">
+      <div class="ts-summary" id="ts-capture">
         <div class="rs-header">
           <div><span class="ts-team"></span><span class="ts-rounds"></span>Round Mock Draft</div>
           <div class="rs-header-author">Made by<br><span class="rs-user"></span></div>
@@ -81,4 +81,5 @@
   </body>
 
   <script type="module" src="scripts/new-summary.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </html>

@@ -9,7 +9,7 @@ body {
 
 .round-summary,
 .ts-summary {
-  background-color: lightblue;
+  background-color: rgb(255, 255, 255);
   width: 700px;
   height: auto;
   display: flex;
