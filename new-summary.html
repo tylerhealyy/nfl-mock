@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Mock Draft Summary</title>
+    <link rel="stylesheet" href="styles/new-summary.css">
+    <!--<link rel="stylesheet" href="styles/summary.css">
+    <link rel="stylesheet" href="styles/draft-order.css">-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=chevron_right" />
+  </head>
+
+  <body>
+    <div class="last-summary">
+      <img src="left-arrow.png" class="ns-icon">
+    </div>
+
+    <div class="round-summary">
+      <div class="rs-header">
+        <div><span class="rs-header-round"></span>Round Mock Draft</div>
+        <div class="rs-header-author">Made by<br><span class="rs-user"></span></div>
+      </div>
+      <div class="rs-grid">
+        
+      </div>
+    </div>
+
+    <div class="next-summary">
+      <img src="right-arrow.png" class="ns-icon">
+    </div>
+    <div class="team-summary">
+      <select class="ts-team-select">
+        <option disabled selected>Select a team</option>
+        <option value="Cardinals">Arizona Cardinals</option>
+        <option value="Falcons">Atlanta Falcons</option>
+        <option value="Ravens">Baltimore Ravens</option>
+        <option value="Bills">Buffalo Bills</option>
+        <option value="Panthers">Carolina Panthers</option>
+        <option value="Bears">Chicago Bears</option>
+        <option value="Bengals">Cincinnati Bengals</option>
+        <option value="Browns">Cleveland Browns</option>
+        <option value="Cowboys">Dallas Cowboys</option>
+        <option value="Broncos">Denver Broncos</option>
+        <option value="Lions">Detroit Lions</option>
+        <option value="Packers">Green Bay Packers</option>
+        <option value="Texans">Houston Texans</option>
+        <option value="Colts">Indianapolis Colts</option>
+        <option value="Jaguars">Jacksonville Jaguars</option>
+        <option value="Chiefs">Kansas City Chiefs</option>
+        <option value="Raiders">Las Vegas Raiders</option>
+        <option value="Chargers">Los Angeles Chargers</option>
+        <option value="Rams">Los Angeles Rams</option>
+        <option value="Dolphins">Miami Dolphins</option>
+        <option value="Vikings">Minnesota Vikings</option>
+        <option value="Patriots">New England Patriots</option>
+        <option value="Saints">New Orleans Saints</option>
+        <option value="Giants">New York Giants</option>
+        <option value="Jets">New York Jets</option>
+        <option value="Eagles">Philadelphia Eagles</option>
+        <option value="Steelers">Pittsburgh Steelers</option>
+        <option value="49ers">San Francisco 49ers</option>
+        <option value="Seahawks">Seattle Seahawks</option>
+        <option value="Buccaneers">Tampa Bay Buccaneers</option>
+        <option value="Titans">Tennessee Titans</option>
+        <option value="Commanders">Washington Commanders</option>
+      </select>
+      <div class="ts-summary">
+        <div class="rs-header">
+          <div><span class="ts-team"></span><span class="ts-rounds"></span>Round Mock Draft</div>
+          <div class="rs-header-author">Made by<br><span class="rs-user"></span></div>
+        </div>
+        <div class="ts-pick-list">
+        </div>
+        <div class="ts-trades">
+
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script type="module" src="scripts/new-summary.js"></script>
+</html>

@@ -39,7 +39,7 @@
 }
 
 .begin {
-  background: linear-gradient(to right, #4A7244, #355231);
+  background: linear-gradient(to right, #590586, #a431e2);
   color: white;
   text-shadow: 0px 0px 4px rgba(0, 0, 0, 1);
   font-size: 24px;
@@ -47,5 +47,5 @@
 }
 
 .begin:hover {
-  background: linear-gradient(to right, #42663D, #304A2C);
+  background: linear-gradient(to right, #490370, #881bc3);
 }

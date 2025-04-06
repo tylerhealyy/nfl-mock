@@ -85,7 +85,7 @@ body {
   cursor: pointer;
   transition: 0.25s;
   padding: 4px;
-  max-height: 45px;
+  max-height: 62px;
 }
 
 .team-selected {

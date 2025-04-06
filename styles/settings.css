@@ -112,7 +112,7 @@ li:hover {
   display: block;
   width: 100%;
   margin-top: 10px;
-  background: linear-gradient(to right, #4A7244, #355231);
+  background: linear-gradient(to right, #590586, #a431e2);
   color: white;
   border: none;
   padding: 12px;
@@ -120,10 +120,10 @@ li:hover {
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: 0.3s ease;
 }
 
 .submit-trade:hover,
 .close-settings:hover {
-  background: linear-gradient(to right, #42663D, #304A2C);
+  background: linear-gradient(to right, #490370, #881bc3);
 }

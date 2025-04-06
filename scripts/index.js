@@ -223,37 +223,37 @@ export function draftPlayer(selectedValue, player) { // Read selected player to 
   switch(String(selectedValue)) { // Determine when to end draft and go to summary screen
     case "1": // Read which number of rounds was selected (selectedValue) and end the draft after the final pick in that round
       if (otc === 32) {
-        window.location.href='summary.html';
+        window.location.href='new-summary.html';
         break;
       }
     case "2":
       if (otc === 64) {
-        window.location.href='summary.html';
+        window.location.href='new-summary.html';
         break;
       }
     case "3":
       if (otc === 101) {
-        window.location.href='summary.html';
+        window.location.href='new-summary.html';
         break;
       }
     case "4":
       if (otc === 139) {
-        window.location.href='summary.html';
+        window.location.href='new-summary.html';
         break;
       }
     case "5":
       if (otc === 178) {
-        window.location.href='summary.html';
+        window.location.href='new-summary.html';
         break;
       }
     case "6":
       if (otc === 218) {
-        window.location.href='summary.html';
+        window.location.href='new-summary.html';
         break;
       }
     case "7":
       if (otc === 257) {
-        window.location.href='summary.html';
+        window.location.href='new-summary.html';
         break;
       }
   }
