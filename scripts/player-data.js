@@ -434,7 +434,7 @@ export const playerData = [
   },
   {
     name: "Jalon Walker",
-    position: "LB",
+    position: "ED",
     school: "Georgia",
     schoolLogo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Georgia_Athletics_logo.svg/1200px-Georgia_Athletics_logo.svg.png",
     height: "6'2",

@@ -73,43 +73,66 @@ document.querySelector('.next-summary').addEventListener("click", () => {
       }
       break;
     case '2':
-      buildSummary(65, 102);
+      buildSummary(65, 103);
       summaryViewing += 1;
       document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(19, 54px)';
+      document.querySelectorAll('.rs-pick:nth-child(n+17)').forEach(el => el.style.borderRight = '1px solid black');
+      document.querySelectorAll('.rs-pick:nth-child(n+20)').forEach(el => el.style.borderRight = 'none');
+      document.querySelectorAll('.rs-pick:nth-child(16n+16)').forEach(el => el.style.borderBottom = '1px solid black');
+      document.querySelectorAll('.rs-pick:nth-child(19n+19)').forEach(el => el.style.borderBottom = 'none');
       document.querySelector('.rs-header-round').innerHTML = `Third `;
       if (roundsInput === '3') {
         hideNext();
       }
       break;
     case '3':
-      buildSummary(102, 140);
+      buildSummary(103, 139);
       summaryViewing += 1;
+      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(18, 54px)';
+      document.querySelectorAll('.rs-pick:nth-child(n+17)').forEach(el => el.style.borderRight = '1px solid black');
+      document.querySelectorAll('.rs-pick:nth-child(n+19)').forEach(el => el.style.borderRight = 'none');
+      document.querySelectorAll('.rs-pick:nth-child(16n+16)').forEach(el => el.style.borderBottom = '1px solid black');
+      document.querySelectorAll('.rs-pick:nth-child(18n+18)').forEach(el => el.style.borderBottom = 'none');
       document.querySelector('.rs-header-round').innerHTML = `Fourth `;
       if (roundsInput === '4') {
         hideNext();
       }
       break;
     case '4':
-      buildSummary(140, 179);
+      buildSummary(139, 177);
       summaryViewing += 1;
-      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(20, 54px)';
+      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(19, 54px)';
+      document.querySelectorAll('.rs-pick:nth-child(n+17)').forEach(el => el.style.borderRight = '1px solid black');
+      document.querySelectorAll('.rs-pick:nth-child(n+20)').forEach(el => el.style.borderRight = 'none');
+      document.querySelectorAll('.rs-pick:nth-child(16n+16)').forEach(el => el.style.borderBottom = '1px solid black');
+      document.querySelectorAll('.rs-pick:nth-child(19n+19)').forEach(el => el.style.borderBottom = 'none');
       document.querySelector('.rs-header-round').innerHTML = `Fifth `;
       if (roundsInput === '5') {
         hideNext();
       }
       break;
     case '5':
-      buildSummary(179, 219);
+      buildSummary(177, 217);
       summaryViewing += 1;
+      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(20, 54px)';
+      document.querySelectorAll('.rs-pick:nth-child(n+17)').forEach(el => el.style.borderRight = '1px solid black');
+      document.querySelectorAll('.rs-pick:nth-child(n+21)').forEach(el => el.style.borderRight = 'none');
+      document.querySelectorAll('.rs-pick:nth-child(16n+16)').forEach(el => el.style.borderBottom = '1px solid black');
+      document.querySelectorAll('.rs-pick:nth-child(20n+20)').forEach(el => el.style.borderBottom = 'none');
       document.querySelector('.rs-header-round').innerHTML = `Sixth `;
       if (roundsInput === '6') {
         hideNext();
       }
       break;
     case '6':
-      buildSummary(219, 258);
+      buildSummary(217, 258);
       summaryViewing += 1;
       hideNext();
+      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(21, 54px)';
+      document.querySelectorAll('.rs-pick:nth-child(n+17)').forEach(el => el.style.borderRight = '1px solid black');
+      document.querySelectorAll('.rs-pick:nth-child(n+22)').forEach(el => el.style.borderRight = 'none');
+      document.querySelectorAll('.rs-pick:nth-child(16n+16)').forEach(el => el.style.borderBottom = '1px solid black');
+      document.querySelectorAll('.rs-pick:nth-child(21n+21)').forEach(el => el.style.borderBottom = 'none');
       document.querySelector('.rs-header-round').innerHTML = `Seventh `;
       break;
   }
@@ -128,31 +151,52 @@ document.querySelector('.last-summary').addEventListener("click", () => {
       summaryViewing -= 1;
       showNext();
       document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(16, 54px)';
+      document.querySelectorAll('.rs-pick:nth-child(n+17)').forEach(el => el.style.borderRight = 'none');
+      document.querySelectorAll('.rs-pick:nth-child(16n+16)').forEach(el => el.style.borderBottom = 'none');
       document.querySelector('.rs-header-round').innerHTML = `Second `;
       break;
     case '4':
-      buildSummary(65, 102);
-      summaryViewing -= 1;
-      showNext();
-      document.querySelector('.rs-header-round').innerHTML = `Third `;
-      break;
-    case '5':
-      buildSummary(102, 140);
+      buildSummary(65, 103);
       summaryViewing -= 1;
       showNext();
       document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(19, 54px)';
+      document.querySelectorAll('.rs-pick:nth-child(n+17)').forEach(el => el.style.borderRight = '1px solid black');
+      document.querySelectorAll('.rs-pick:nth-child(n+20)').forEach(el => el.style.borderRight = 'none');
+      document.querySelectorAll('.rs-pick:nth-child(16n+16)').forEach(el => el.style.borderBottom = '1px solid black');
+      document.querySelectorAll('.rs-pick:nth-child(19n+19)').forEach(el => el.style.borderBottom = 'none');
+      document.querySelector('.rs-header-round').innerHTML = `Third `;
+      break;
+    case '5':
+      buildSummary(103, 139);
+      summaryViewing -= 1;
+      showNext();
+      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(18, 54px)';
+      document.querySelectorAll('.rs-pick:nth-child(n+17)').forEach(el => el.style.borderRight = '1px solid black');
+      document.querySelectorAll('.rs-pick:nth-child(n+19)').forEach(el => el.style.borderRight = 'none');
+      document.querySelectorAll('.rs-pick:nth-child(16n+16)').forEach(el => el.style.borderBottom = '1px solid black');
+      document.querySelectorAll('.rs-pick:nth-child(18n+18)').forEach(el => el.style.borderBottom = 'none');
       document.querySelector('.rs-header-round').innerHTML = `Fourth `;
       break;
     case '6':
-      buildSummary(140, 179);
+      buildSummary(139, 177);
       summaryViewing -= 1;
       showNext();
+      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(19, 54px)';
+      document.querySelectorAll('.rs-pick:nth-child(n+17)').forEach(el => el.style.borderRight = '1px solid black');
+      document.querySelectorAll('.rs-pick:nth-child(n+20)').forEach(el => el.style.borderRight = 'none');
+      document.querySelectorAll('.rs-pick:nth-child(16n+16)').forEach(el => el.style.borderBottom = '1px solid black');
+      document.querySelectorAll('.rs-pick:nth-child(19n+19)').forEach(el => el.style.borderBottom = 'none');
       document.querySelector('.rs-header-round').innerHTML = `Fifth `;
       break;
     case '7':
-      buildSummary(179, 219);
+      buildSummary(177, 217);
       summaryViewing -= 1;
       showNext();
+      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(20, 54px)';
+      document.querySelectorAll('.rs-pick:nth-child(n+17)').forEach(el => el.style.borderRight = '1px solid black');
+      document.querySelectorAll('.rs-pick:nth-child(n+21)').forEach(el => el.style.borderRight = 'none');
+      document.querySelectorAll('.rs-pick:nth-child(16n+16)').forEach(el => el.style.borderBottom = '1px solid black');
+      document.querySelectorAll('.rs-pick:nth-child(20n+20)').forEach(el => el.style.borderBottom = 'none');
       document.querySelector('.rs-header-round').innerHTML = `Sixth `;
       break;
   }
@@ -220,16 +264,16 @@ function buildTeamSummary(draftee) {
       totalPicks = 65;
       break;
     case '3':
-      totalPicks = 102;
+      totalPicks = 103;
       break;
     case '4':
-      totalPicks = 140;
+      totalPicks = 139;
       break;
     case '5':
-      totalPicks = 179;
+      totalPicks = 177;
       break;
     case '6':
-      totalPicks = 219;
+      totalPicks = 217;
       break;
     case '7':
       totalPicks = 258;
@@ -237,6 +281,10 @@ function buildTeamSummary(draftee) {
   }
 
   document.querySelector('.ts-pick-list').innerHTML = '';
+  document.querySelector('.ts-trades').innerHTML = '';
+  document.querySelector('.ts-trades').style.paddingTop = '0px';
+  document.querySelector('.ts-trades').style.borderTop = 'none';
+  document.querySelector('.ts-trades').style.height = 'none';
   nflTeams.forEach((team) => {
     if (document.querySelector('.ts-team-select').value === team.name) {
 
@@ -271,57 +319,30 @@ function buildTeamSummary(draftee) {
           `;
         }
       }
-    }
-  });
-}
 
-function buildSummary2() {
-  document.querySelector('.rs-grid').innerHTML = '';
-  let draftee;
-  nflTeams.forEach((team) => {
-    let selectedTeams = JSON.parse(localStorage.getItem('teamsInput'));
-    if (selectedTeams.includes(team.name)) {
-      document.querySelector('.ts-team').innerHTML = team.name;
-      document.querySelector(`option[value="${team.name}"]`).selected = true;
-      let rounds = document.querySelector('.ts-rounds');
-      rounds.innerHTML = ` ${JSON.parse(localStorage.getItem('roundsInput'))} `;
-    }
-  });
-
-  for (let i = 33; i < 65; i++) { // Build first round summaries (horizontal and vertical)
-    nflTeams.forEach((team) => {
-      let newTest;
-      if (JSON.parse(localStorage.getItem(`${team.name}test`))) {
-        newTest = JSON.parse(localStorage.getItem(`${team.name}test`));
-      } else {
-        newTest = team.test;
+      let g = 1;
+      while (g < 20) {
+        if (localStorage.getItem(`${g}${team.name}received`)) {
+          document.querySelector('.ts-trades').innerHTML += `<div class="tst-header">Trades</div>`;
+          document.querySelector('.ts-trades').style.paddingTop = '5px';
+          document.querySelector('.ts-trades').style.borderTop = '1px solid black';
+          g = 20;
+        }
+        g += 1;
       }
 
-      if (newTest.some(obj => obj.n === i)) {
-        let example = JSON.parse(localStorage.getItem(`${i}${team.name}`)); // Get each pick that was saved when the draft button was clicked
-        playerData.forEach((player) => {
-          if (example.p === `${player.position} ${player.name}`) {
-            draftee = player; // access player data
-          }
-        });
-  
-        document.querySelector('.rs-grid').innerHTML += `
-          <div class="rs-pick" style="
-            background: linear-gradient(to left, white, white, ${team.color});
-            background: radial-gradient(ellipse 350px 100px, white, ${team.color});
-          ">
-            <div class="rs-pick-number">${i}</div>
-            <img src="${team.logo}" class="rs-pick-image">
-            <div class="rs-pick-player">
-              <div class="rs-pick-name">${draftee.name}</div>
-              <div class="rs-pick-info">${draftee.position} ${draftee.school}</div>
-            </div>
-            <img src="${draftee.schoolLogo}" class="rs-school-image">
-          </div>
-        `;
+      let h = 1;
+      while (h < 20) {
+        if (localStorage.getItem(`${h}${team.name}received`)) {
+          let partner = JSON.parse(localStorage.getItem(`${h}${team.name}partner`));
+          document.querySelector('.ts-trades').innerHTML += `
+            <div class="tst-item">${localStorage.getItem(`${h}${team.name}received`)}<br>${localStorage.getItem(`${h}${partner}received`)}</div>
+          `;
+        }
+        h += 1;
       }
-    });
-  }
+    }
+  });
 }
 
 function hideNext() {

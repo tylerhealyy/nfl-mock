@@ -18,25 +18,25 @@ export function buildDraftOrder2(rounds) { // Read the number of rounds to displ
       }
       break;
     case "3":
-      for (let i = 1; i < 102; i++) {
+      for (let i = 1; i < 103; i++) {
         buildPanelItems(i, rounds);
         addRoundDividers(i, rounds);
       }
       break;
     case "4":
-      for (let i = 1; i < 140; i++) {
+      for (let i = 1; i < 139; i++) {
         buildPanelItems(i, rounds);
         addRoundDividers(i, rounds);
       }
       break;
     case "5":
-      for (let i = 1; i < 179; i++) {
+      for (let i = 1; i < 177; i++) {
         buildPanelItems(i, rounds);
         addRoundDividers(i, rounds);
       }
       break;
     case "6":
-      for (let i = 1; i < 218; i++) {
+      for (let i = 1; i < 217; i++) {
         buildPanelItems(i, rounds);
         addRoundDividers(i, rounds);
       }
@@ -97,19 +97,19 @@ function addRoundDividers(i, rounds) { // Add round headers before the first pic
     document.querySelector('.draft-order-panel').innerHTML += `
       <div class="draft-order-round">Round 3</div>
     `;
-  } else if (i === 101 && rounds > 3) {
+  } else if (i === 102 && rounds > 3) {
     document.querySelector('.draft-order-panel').innerHTML += `
       <div class="draft-order-round">Round 4</div>
     `;
-  } else if (i === 139 && rounds > 4) {
+  } else if (i === 138 && rounds > 4) {
     document.querySelector('.draft-order-panel').innerHTML += `
       <div class="draft-order-round">Round 5</div>
     `;
-  } else if (i === 178 && rounds > 5) {
+  } else if (i === 176 && rounds > 5) {
     document.querySelector('.draft-order-panel').innerHTML += `
       <div class="draft-order-round">Round 6</div>
     `;
-  } else if (i === 218 && rounds > 6) {
+  } else if (i === 216 && rounds > 6) {
     document.querySelector('.draft-order-panel').innerHTML += `
       <div class="draft-order-round">Round 7</div>
     `;
@@ -190,7 +190,7 @@ function aiDraftPick(team, otc) {
         score -= 10;
       }
 
-      if (player.name === 'Abdul Carter') {
+      if (player.name === 'Abdul Carter' || player.name === 'Shedeur Sanders') {
         score += 10;
       }
 
@@ -226,8 +226,8 @@ function aiDraftPick(team, otc) {
         score += Math.floor(Math.random() * 61) - 30;
       }
 
-      if (player.position === 'QB' && otc > 6 && otc < 33 && Math.random() < 0.05) {
-        score += 50
+      if (player.position === 'QB' && otc > 6 && otc < 33 && Math.random() < 0.025) {
+        score += 30
       }
 
       return { ...player, score };

@@ -15,6 +15,15 @@ nflTeams.forEach((team) => { // Reset all picks on every refresh
     pick.p = "";
     localStorage.setItem(`${pick.n}${team.name}`, JSON.stringify(pick));
   });
+
+  let h = 1;
+  while (h < 20) {
+    if (localStorage.getItem(`${h}${team.name}received`)) {
+      localStorage.removeItem(`${h}${team.name}received`);
+      localStorage.removeItem(`${h}${team.name}partner`);
+    }
+    h += 1;
+  }
 });
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -232,22 +241,22 @@ export function draftPlayer(selectedValue, player) { // Read selected player to 
         break;
       }
     case "3":
-      if (otc === 101) {
+      if (otc === 102) {
         window.location.href='new-summary.html';
         break;
       }
     case "4":
-      if (otc === 139) {
+      if (otc === 138) {
         window.location.href='new-summary.html';
         break;
       }
     case "5":
-      if (otc === 178) {
+      if (otc === 176) {
         window.location.href='new-summary.html';
         break;
       }
     case "6":
-      if (otc === 218) {
+      if (otc === 216) {
         window.location.href='new-summary.html';
         break;
       }
@@ -327,8 +336,8 @@ function changeHeader() { // Change the display at top based on which team is no
           <div class="otc-previous"></div>
         </div>
       `;
-      team.test.forEach((pick) => { // If team is making their 2nd or later pick, this adds each of their previous picks to the header
-        if (pick.p !== "") { // If any of their picks contains a player, display that player in the header
+      newTest.forEach((pick) => { // If team is making their 2nd or later pick, this adds each of their previous picks to the header
+        if (pick.p !== "" && pick.p !== undefined) { // If any of their picks contains a player, display that player in the header
           document.querySelector('.otc-previous').innerHTML += `
             <div class="otc-previous-pick">${pick.p}</div>
           `;
@@ -338,7 +347,7 @@ function changeHeader() { // Change the display at top based on which team is no
   });
 }
 
-
+let tradeOrder = 0;
 function showTrade(selectedValue) {
   // Prevent multiple popups from being created
   if (document.querySelector('.settings-popup')) return;
@@ -528,6 +537,7 @@ function showTrade(selectedValue) {
   
   function trade(rounds) {
     if (selectedA.length !== 0 && selectedB.length !== 0) {
+      tradeOrder += 1;
 
       let arrayTeamA = nflTeams.find(team => team.name === tradeTeamA.value);
       let arrayTeamB = nflTeams.find(team => team.name === tradeTeamB.value);
@@ -536,9 +546,7 @@ function showTrade(selectedValue) {
         arrayTeamA.test = arrayTeamA.test.filter(asset => asset !== apick.asset);
         arrayTeamB.test.push(apick.asset);
         arrayTeamA.future = arrayTeamA.future.filter(asset => asset !== apick.asset);
-        console.log(typeof(apick.asset));
         if (typeof(apick.asset) === 'string') {
-          console.log('true');
           arrayTeamB.future.push(apick.asset);
         }
         apick.element.classList.remove('selected');
@@ -557,7 +565,48 @@ function showTrade(selectedValue) {
       // save each team.test
       localStorage.setItem(`${arrayTeamA.name}test`, JSON.stringify(arrayTeamA.test));
       localStorage.setItem(`${arrayTeamB.name}test`, JSON.stringify(arrayTeamB.test));
-        
+
+      // before clearing selected lists, save them to use in trade summary
+
+      let preTradeSummaryListA = [];
+      selectedA.forEach((item) => {
+        if (typeof(item.asset) === 'object') {
+          preTradeSummaryListA.push(`R${item.asset.r} #${item.asset.n}`);
+        } else {
+          preTradeSummaryListA.push(item.asset);
+        }
+      });
+      let tradeSummaryListA = `<span class="bold">${arrayTeamB.name}</span> get: `;
+      preTradeSummaryListA.forEach((item, index) => {
+        if (index === preTradeSummaryListA.length - 1) {
+          tradeSummaryListA += `${item}`;
+        } else {
+          tradeSummaryListA += `${item}, `;
+        }
+      });
+
+      let preTradeSummaryListB = [];
+      selectedB.forEach((item) => {
+        if (typeof(item.asset) === 'object') {
+          preTradeSummaryListB.push(`R${item.asset.r} #${item.asset.n}`);
+        } else {
+          preTradeSummaryListB.push(item.asset);
+        }
+      });
+      let tradeSummaryListB = `<span class="bold">${arrayTeamA.name}</span> get: `;
+      preTradeSummaryListB.forEach((item, index) => {
+        if (index === preTradeSummaryListB.length - 1) {
+          tradeSummaryListB += `${item}`;
+        } else {
+          tradeSummaryListB += `${item}, `;
+        }
+      });
+
+      localStorage.setItem(`${tradeOrder}${arrayTeamA.name}received`, tradeSummaryListB);
+      localStorage.setItem(`${tradeOrder}${arrayTeamA.name}partner`, JSON.stringify(arrayTeamB.name));
+      localStorage.setItem(`${tradeOrder}${arrayTeamB.name}received`, tradeSummaryListA);
+      localStorage.setItem(`${tradeOrder}${arrayTeamB.name}partner`, JSON.stringify(arrayTeamA.name));
+
       selectedA = [];
       selectedB = [];
 

@@ -198,3 +198,25 @@ option {
 .ts-pick:nth-last-child(-n + 1) {
   border-bottom: none;
 }
+
+.ts-trades {
+  height: auto;
+  background-color: white;
+}
+
+.tst-header {
+  height: 40px;
+  font-size: 26px;
+  padding-left: 10px;
+  text-decoration: underline;
+}
+
+.tst-item {
+  margin-bottom: 10px;
+  font-size: 18px;
+  padding-left: 10px;
+}
+
+.bold {
+  font-weight: 700;
+}
