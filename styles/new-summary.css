@@ -199,7 +199,8 @@ option {
   border-bottom: none;
 }
 
-.ts-trades {
+.ts-trades,
+.rs-trades {
   height: auto;
   background-color: white;
 }

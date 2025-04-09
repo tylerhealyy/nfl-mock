@@ -9,6 +9,7 @@ localStorage.setItem('otc', JSON.stringify(otc));
 let viewing;
 let selectedValue;
 let nameValue = '';
+let teamsValue = '';
 
 nflTeams.forEach((team) => { // Reset all picks on every refresh
   team.test.forEach((pick) => {
@@ -25,6 +26,15 @@ nflTeams.forEach((team) => { // Reset all picks on every refresh
     h += 1;
   }
 });
+
+let j = 1;
+while (j < 20) {
+  if (localStorage.getItem(`${j}tradeA`)) {
+    localStorage.removeItem(`${j}tradeA`);
+    localStorage.removeItem(`${j}tradeB`);
+  }
+  j += 1;
+}
 
 window.addEventListener("DOMContentLoaded", () => {
   for (let i = 1; i < 258; i++) {
@@ -56,6 +66,11 @@ function startDraft() { // Close pre-draft settings and start draft
   nameValue = JSON.parse(localStorage.getItem('nameInput'));
   if (nameValue === '') {
     nameValue = 'Anonymous';
+    localStorage.setItem('nameInput', JSON.stringify(nameValue));
+  }
+  teamsValue = JSON.parse(localStorage.getItem('teamsInput'));
+  if (teamsValue.length === 0 && nameValue === 'Anonymous') {
+    nameValue = 'Auto Draft';
     localStorage.setItem('nameInput', JSON.stringify(nameValue));
   }
 
@@ -606,6 +621,8 @@ function showTrade(selectedValue) {
       localStorage.setItem(`${tradeOrder}${arrayTeamA.name}partner`, JSON.stringify(arrayTeamB.name));
       localStorage.setItem(`${tradeOrder}${arrayTeamB.name}received`, tradeSummaryListA);
       localStorage.setItem(`${tradeOrder}${arrayTeamB.name}partner`, JSON.stringify(arrayTeamA.name));
+      localStorage.setItem(`${tradeOrder}tradeA`, tradeSummaryListA);
+      localStorage.setItem(`${tradeOrder}tradeB`, tradeSummaryListB);
 
       selectedA = [];
       selectedB = [];

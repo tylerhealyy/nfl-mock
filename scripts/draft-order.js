@@ -182,7 +182,7 @@ function aiDraftPick(team, otc) {
         score += Math.floor(Math.random() * (15 - 5 + 1)) + 5; // Boost for positions of need
       }
 
-      if (player.name === 'Ashton Jeanty' || player.name === 'Tyler Warren') {
+      if (player.name === 'Ashton Jeanty' || player.name === 'Tyler Warren' || player.name === 'Shedeur Sanders') {
         score += 5;
       }
 
@@ -190,7 +190,7 @@ function aiDraftPick(team, otc) {
         score -= 10;
       }
 
-      if (player.name === 'Abdul Carter' || player.name === 'Shedeur Sanders') {
+      if (player.name === 'Abdul Carter') {
         score += 10;
       }
 
@@ -226,8 +226,8 @@ function aiDraftPick(team, otc) {
         score += Math.floor(Math.random() * 61) - 30;
       }
 
-      if (player.position === 'QB' && otc > 6 && otc < 33 && Math.random() < 0.025) {
-        score += 30
+      if (player.position === 'QB' && otc > 6 && Math.random() < 0.05) {
+        score += 50
       }
 
       return { ...player, score };

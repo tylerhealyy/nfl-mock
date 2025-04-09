@@ -204,6 +204,7 @@ document.querySelector('.last-summary').addEventListener("click", () => {
 
 function buildSummary(low, high) {
   document.querySelector('.rs-grid').innerHTML = '';
+  document.querySelector('.rs-trades').innerHTML = '';
   let draftee;
   nflTeams.forEach((team) => {
     let selectedTeams = JSON.parse(localStorage.getItem('teamsInput'));
@@ -248,6 +249,59 @@ function buildSummary(low, high) {
         `;
       }
     });
+  }
+
+  /*let f = 1;
+  while (f < 20) {
+    if (localStorage.getItem(`${f}tradeA`)) {
+      document.querySelector('.round-summary').innerHTML += `
+        <div class="tst-item">${localStorage.getItem(`${f}tradeA`)}<br>${localStorage.getItem(`${f}tradeB`)}</div>
+      `;
+      f += 1;
+    } else {
+      f = 20;
+    }
+  }*/
+  let f = 1;
+  let addedAnything = false;
+  while (f < 20) {
+    const tradeA = localStorage.getItem(`${f}tradeA`);
+    const tradeB = localStorage.getItem(`${f}tradeB`);
+  
+    if (tradeA) {
+      const hasValidNumber = (str) => {
+        const matches = str.match(/#\d+/g); // get all #numbers like #1, #25, etc.
+        console.log(matches);
+        if (!matches) return false;
+  
+        return matches.some(match => {
+          const num = parseInt(match.slice(1)); // remove the '#' and convert to number
+          return num >= low && num <= high-1;
+        });
+      };
+  
+      if (hasValidNumber(tradeA) || hasValidNumber(tradeB)) {
+        document.querySelector('.rs-trades').innerHTML += `
+          <div class="tst-item">${tradeA}<br>${tradeB}</div>
+        `;
+        addedAnything = true;
+      }
+  
+      f += 1;
+    } else {
+      f = 20; // break the loop
+    }
+  }
+
+  if (addedAnything) {
+    document.querySelector('.rs-trades').insertAdjacentHTML('afterbegin', `
+      <div class="tst-header">Trades</div>
+    `);
+    document.querySelector('.rs-trades').style.paddingTop = '5px';
+    document.querySelector('.rs-trades').style.borderTop = '1px solid black';
+  } else {
+    document.querySelector('.rs-trades').style.paddingTop = '0px';
+    document.querySelector('.rs-trades').style.borderTop = 'none';
   }
   
   buildTeamSummary(draftee);
