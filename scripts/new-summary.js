@@ -1,5 +1,8 @@
 import { nflTeams } from "./nfl-team-data.js";
 import { playerData } from "./player-data.js";
+import { consensusData } from "./consensus-draft.js";
+
+let score = 0;
 
 localStorage.removeItem("functionExecuted");
 window.addEventListener("DOMContentLoaded", () => {
@@ -9,6 +12,8 @@ window.addEventListener("DOMContentLoaded", () => {
       buildSummary(1, 33); // Call your function
       localStorage.setItem(key, "true"); // Mark it as executed
   }
+  
+  getScore();
 });
 
 document.querySelector('.ts-summary').addEventListener("click", () => {
@@ -417,4 +422,34 @@ function hideLast() {
 function showLast() {
   document.querySelector('.last-summary').style.opacity = 1;
   document.querySelector('.last-summary').style.cursor = 'pointer';
+}
+
+function getScore() {
+  let userDraft = JSON.parse(localStorage.getItem(`scoringData`));
+  userDraft.forEach((userPick) => {
+    if (userPick.n < 33) {
+      let consensusPick = consensusData.find(u => u.n === userPick.n);
+
+      if (userPick.t === consensusPick.t) {
+        score += 2; // RIGHT team at RIGHT pick
+      }
+
+      if (userPick.t !== consensusPick.t) {
+        let teamPick = userDraft.find(u => u.t === consensusPick.t);
+        if (teamPick.p === consensusPick.p) {
+          score += 6; // RIGHT team, RIGHT player at WRONG pick
+        }
+      }
+
+      if (userPick.t === consensusPick.t && userPick.p === consensusPick.p) {
+        score += 8; // RIGHT team, RIGHT player, at RIGHT pick
+      }
+
+      if (userPick.t !== consensusPick.t && userPick.p === consensusPick.p) {
+        score += 4; // WRONG team, RIGHT player at RIGHT pick
+      }
+    }
+  });
+  console.log('Score: ', score, '/ 320');
+  document.querySelector('.rsh-score').innerHTML = `Score:&nbsp;<span class="score-bold">${score}</span>&nbsp;/ 320`;
 }

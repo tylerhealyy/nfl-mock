@@ -1,6 +1,9 @@
 body {
   background-color: rgb(221, 183, 125);
   font-family: Inter;
+}
+
+.everything {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -52,6 +55,25 @@ body {
   border-bottom: 1px solid #590586;
   white-space: nowrap;
   overflow: hidden;
+}
+
+.rsh-left {
+  display: flex;
+  flex-direction: row;
+}
+
+.rsh-score {
+  font-size: 14px;
+  display: flex;
+  align-items: end;
+  padding-left: 10px;
+  padding-bottom: 2px;
+  font-weight: 500;
+}
+
+.score-bold {
+  font-size: 18px;
+  font-weight: 800;
 }
 
 .rs-header-author {

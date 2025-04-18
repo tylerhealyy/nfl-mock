@@ -10,6 +10,7 @@ let viewing;
 let selectedValue;
 let nameValue = '';
 let teamsValue = '';
+let scoringData = [];
 
 nflTeams.forEach((team) => { // Reset all picks on every refresh
   team.test.forEach((pick) => {
@@ -212,6 +213,7 @@ function displayProfile(playerCard, selectedValue) { // Add event listeners to p
 }
 
 export function draftPlayer(selectedValue, player) { // Read selected player to add it correctly to team data and draft order display
+  let selectingTeam = '';
 
   const teamPick = document.querySelectorAll('.pick-player'); // This is built in buildDraftOrder2(), it is where the player's name and info go
   teamPick.forEach((pick) => {
@@ -240,9 +242,13 @@ export function draftPlayer(selectedValue, player) { // Read selected player to 
       if (pick.n === otc) { // Finds which team owns the pick number that is being made
         pick.p = `${player.position} ${player.name}`; // Set the player name for the pick that is being made
         localStorage.setItem(`${pick.n}${team.name}`, JSON.stringify(pick)); // Save the player selected at this pick number for it can be displayed in the summary
+        selectingTeam = team.name;
       }
     });
   });
+
+  scoringData.push({n: otc, t: selectingTeam, p: player.name});
+  localStorage.setItem(`scoringData`, JSON.stringify(scoringData));
 
   switch(String(selectedValue)) { // Determine when to end draft and go to summary screen
     case "1": // Read which number of rounds was selected (selectedValue) and end the draft after the final pick in that round
