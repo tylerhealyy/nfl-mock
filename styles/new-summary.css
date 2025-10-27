@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(221, 183, 125);
+  background-color: rgb(53, 21, 53);
   font-family: Inter;
 }
 
@@ -42,7 +42,7 @@ body {
 }
 
 .rs-header {
-  background: linear-gradient(to right, #590586, #a431e2);
+  background: linear-gradient(to right, rgb(6, 7, 12) 10%, rgb(32, 35, 54), rgb(6, 7, 12) 90%);
   padding: 5px;
   height: 35px;
   color: white;
@@ -52,7 +52,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #590586;
+  border-bottom: 1px solid rgb(6, 7, 12);
   white-space: nowrap;
   overflow: hidden;
 }
@@ -198,7 +198,7 @@ body {
   margin-bottom: 0px;
   height: 50px;
   width: 300px;
-  background: linear-gradient(to right, #590586, #a431e2);
+  background: linear-gradient(to right, rgb(6, 7, 12) 10%, rgb(32, 35, 54), rgb(6, 7, 12) 90%);
   color: white;
   border: none;
   border-radius: 10px;

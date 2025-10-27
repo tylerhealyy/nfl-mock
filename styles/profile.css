@@ -1,5 +1,6 @@
 .profile {
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(37, 0, 37);
+  color: rgb(223, 223, 223);
   position: fixed;
   left: 65%;
   top: 130px;
@@ -9,7 +10,7 @@
   grid-template-rows: 100px 60px 1fr;
   row-gap: 0px;
   border-radius: 5px;
-  border: 1px solid black;
+  border: none;
 }
 
 .info {

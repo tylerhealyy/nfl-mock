@@ -13,9 +13,15 @@
   border: 1px solid black;
 }
 
-.otc-image {
-  height: 85%;
+.otc-logo {
   margin: auto;
+  padding-top: 5px;
+  padding-left: 30px;
+}
+
+.otc-image {
+  max-height: 90px;
+  max-width: 170px;
 }
 
 .otc-middle {

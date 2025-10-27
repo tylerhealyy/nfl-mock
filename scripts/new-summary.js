@@ -3,18 +3,40 @@ import { playerData } from "./player-data.js";
 import { consensusData } from "./consensus-draft.js";
 
 let score = 0;
+//let version = JSON.parse(localStorage.getItem('version'));
 
-localStorage.removeItem("functionExecuted");
 window.addEventListener("DOMContentLoaded", () => {
   const key = "functionExecuted";
 
   if (!localStorage.getItem(key)) {
       buildSummary(1, 33); // Call your function
       localStorage.setItem(key, "true"); // Mark it as executed
+  } else {
+    document.querySelector('.round-summary').innerHTML = JSON.parse(localStorage.getItem('roundSummary'));
   }
   
-  getScore();
+  // getScore();
+
+  /*if (localStorage.getItem('functionExecuted')) {
+    saveRS();
+  }*/
 });
+
+function saveRS() {
+  let rsToSave = document.querySelector('.round-summary').outerHTML;
+
+  if (!localStorage.getItem(`${JSON.parse(localStorage.getItem('nameInput'))}${version}`)) {
+    localStorage.setItem('version', JSON.stringify(1));
+    localStorage.setItem(`${JSON.parse(localStorage.getItem('nameInput'))}${version}`, JSON.stringify(rsToSave));
+  } else {
+    version += 1;
+    localStorage.setItem('version', JSON.stringify(version));
+    localStorage.setItem(`${JSON.parse(localStorage.getItem('nameInput'))}${version}`, JSON.stringify(rsToSave));
+  }
+
+  //console.log(localStorage.getItem('nameInput'), version);
+  //console.log(JSON.parse(localStorage.getItem(`Auto Draft${version}`)));
+}
 
 document.querySelector('.ts-summary').addEventListener("click", () => {
   html2canvas(document.getElementById("ts-capture"), {
@@ -221,7 +243,7 @@ function buildSummary(low, high) {
     }
   });
 
-  for (let i = low; i < high; i++) { // Build first round summaries (horizontal and vertical)
+  for (let i = low; i < high; i++) {
     nflTeams.forEach((team) => {
       let newTest;
       if (JSON.parse(localStorage.getItem(`${team.name}test`))) {
@@ -256,17 +278,6 @@ function buildSummary(low, high) {
     });
   }
 
-  /*let f = 1;
-  while (f < 20) {
-    if (localStorage.getItem(`${f}tradeA`)) {
-      document.querySelector('.round-summary').innerHTML += `
-        <div class="tst-item">${localStorage.getItem(`${f}tradeA`)}<br>${localStorage.getItem(`${f}tradeB`)}</div>
-      `;
-      f += 1;
-    } else {
-      f = 20;
-    }
-  }*/
   let f = 1;
   let addedAnything = false;
   while (f < 20) {
@@ -308,6 +319,9 @@ function buildSummary(low, high) {
     document.querySelector('.rs-trades').style.paddingTop = '0px';
     document.querySelector('.rs-trades').style.borderTop = 'none';
   }
+
+  let yourMom = document.querySelector('.round-summary').innerHTML;
+  localStorage.setItem('roundSummary', JSON.stringify(yourMom));
   
   buildTeamSummary(draftee);
 }

@@ -1,4 +1,5 @@
 import { playerData } from "./player-data.js";
+import { playerData26 } from "./playerData26.js";
 import { nflTeams } from "./nfl-team-data.js";
 import { buildDraftOrder2 } from "./draft-order.js";
 import { singleAutoPick } from "./draft-order.js";
@@ -11,6 +12,7 @@ let selectedValue;
 let nameValue = '';
 let teamsValue = '';
 let scoringData = [];
+let dataForSave = [];
 
 nflTeams.forEach((team) => { // Reset all picks on every refresh
   team.test.forEach((pick) => {
@@ -49,6 +51,7 @@ window.addEventListener("DOMContentLoaded", () => {
   buildDraftOrder2(selectedValue); // Builds the draft order display on left side
   tradeFunction(selectedValue);
   changeHeader();
+  localStorage.removeItem("functionExecuted");
 });
 
 document.querySelector('.begin').addEventListener("click", () => {
@@ -250,6 +253,10 @@ export function draftPlayer(selectedValue, player) { // Read selected player to 
   scoringData.push({n: otc, t: selectingTeam, p: player.name});
   localStorage.setItem(`scoringData`, JSON.stringify(scoringData));
 
+  //dataForSave.push({team: selectingTeam, player: player.name});
+
+  //if (otc === 10) saveData();
+
   switch(String(selectedValue)) { // Determine when to end draft and go to summary screen
     case "1": // Read which number of rounds was selected (selectedValue) and end the draft after the final pick in that round
       if (otc === 32) {
@@ -347,7 +354,9 @@ function changeHeader() { // Change the display at top based on which team is no
           background-color: white;
             box-shadow: inset 0px 0px 150px ${team.color};
         ">
-          <img class="otc-image" src="${team.logo}">
+          <div class="otc-logo">
+            <img class="otc-image" src="${team.logo}">
+          </div>
           <div class="otc-middle">
             <div class="otc-text">ON THE CLOCK</div>
             <div class="otc-picks">Picks: ${listedPicks}</div>
@@ -681,3 +690,12 @@ function savePickLogo(n, pick) {
   localStorage.setItem(`${n}logo`, JSON.stringify(pick.innerHTML));
 }
 
+/*function saveData() {
+  const draft = {
+    drafter: nameValue,
+    picks: dataForSave,
+    timestamp: Date.now()
+  };
+  console.log(draft)
+  //db.ref("drafts").push(draft);
+}*/

@@ -1,7 +1,7 @@
 
 
 .players-positions {
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(83, 42, 83, 0);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   position: fixed;
@@ -9,7 +9,7 @@
   left: 24%;
   height: 70px;
   width: 40%;
-  border: 1px solid black;
+  border: 1px solid rgba(83, 42, 83, 0);
   border-bottom: none;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
@@ -17,44 +17,50 @@
 
 .players-positions-button {
   margin: 2px;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(37, 14, 36);
+  color: white;
   border-radius: 5px;
   box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.35);
   border: none;
   font-family: Roboto;
   font-weight: 700;
   padding-top: 0px;
-  font-size: 16px;
+  font-size: 18px;
   cursor: pointer;
   transition: 0.15s;
 }
 
 .offense {
-  background-color: rgb(233, 255, 233);
+  background-color: rgb(190, 85, 190);
+  color: rgb(66, 4, 66);
 }
 .offense:hover {
-  background-color: rgb(212, 255, 212);
+  background-color: rgb(207, 118, 207);
 }
 .offense:active {
-  background-color: rgb(146, 255, 146);
+  background-color: rgb(228, 169, 228);
 }
 
 .defense {
-  background-color: rgb(255, 244, 225);
+  background-color: rgb(126, 10, 126);
+  color: rgb(209, 96, 209);
 }
 .defense:hover {
-  background-color: rgb(255, 234, 198);
+  background-color: rgb(161, 39, 161);
 }
 .defense:active {
-  background-color: rgb(255, 213, 140);
+  background-color: rgb(194, 78, 194);
 }
 
 .special:hover {
-  background-color: rgb(239, 239, 239);
+  background-color: rgb(58, 2, 58);
+}
+.special:active {
+  background-color: rgb(73, 6, 94);
 }
 
 .players-players {
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(53, 21, 53, 0);
   border-bottom: 1px solid rgb(133, 133, 133);
   overflow: scroll;
   position: fixed;
@@ -62,7 +68,7 @@
   left: 24%;
   bottom: 70px;
   width: 40%;
-  border: 1px solid black;
+  border: none;
   border-top: none;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -70,10 +76,11 @@
 
 .players-player-card {
   height: 40px;
-  background-color: rgb(238, 238, 238);
+  background-color: rgb(37, 0, 37);
+  color: rgb(223, 223, 223);
   margin-bottom: 2px;
   margin-top: 2px;
-  border-bottom: 1px solid rgb(133, 133, 133);
+  border-bottom: 1px solid rgb(255, 255, 255);
   display: grid;
   grid-template-columns: 40px 1fr 45px 175px 45px;
   align-items: center;
@@ -84,10 +91,10 @@
   padding-right: 10px;
 }
 .players-player-card:hover {
-  background-color: rgb(210, 210, 210);
+  background-color: rgb(126, 69, 126);
 }
 .players-player-card:active {
-  background-color: rgb(188, 188, 188);
+  background-color: rgb(179, 96, 179);
 }
 
 .players-player-card-rank {
@@ -111,9 +118,9 @@
 }
 
 .labels {
-  color: rgb(101, 101, 101);
+  color: rgb(255, 255, 255);
   font-size: 16px;
-  background-color: white;
+  background-color: rgba(53, 21, 53, 0);
   grid-template-columns: 40px 1fr 45px 230px;
   cursor: default;
   position: fixed;
@@ -121,12 +128,12 @@
   left: 24%;
   width: 40%;
   height: 25px;
-  border-left: 1px solid black;
-  border-right: 1px solid black;
+  border-left: 1px solid rgb(53, 21, 53);
+  border-right: 1px solid rgb(53, 21, 53);
   padding-right: 0px;
 }
 .labels:hover {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0);
 }
 
 .college-image {
