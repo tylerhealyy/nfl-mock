@@ -1,5 +1,5 @@
 import { playerData } from "./player-data.js";
-import { playerData26 } from "./playerData26.js";
+//import { playerData26 } from "./playerData26.js";
 import { nflTeams } from "./nfl-team-data.js";
 import { buildDraftOrder2 } from "./draft-order.js";
 import { singleAutoPick } from "./draft-order.js";
