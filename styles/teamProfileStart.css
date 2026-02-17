@@ -1,0 +1,377 @@
+.teamPageStart {
+  background-color: #A5ACAF;
+  color: rgb(255, 255, 255);
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px 15px 0px 15px;
+  border: 1px solid black;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  transition: 0.1s ease;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 1);
+}
+
+.closeButton:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+}
+
+.teamHeader {
+  width: 100%;
+  height: 100px;
+  border-bottom: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.teamHeaderImage {
+  max-height: 80%;
+  max-width: 125px;
+}
+
+.teamHeaderName {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+  padding: 10px 0px 10px 0px;
+}
+
+.teamHeaderCity {
+  font-size: 25px;
+  font-weight: 400;
+  font-variant: small-caps;
+  height: 15px;
+  padding-left: 2px;
+  background-color: rgba(173, 216, 230, 0);
+}
+
+.teamHeaderMascot {
+  font-size: 65px;
+  font-weight: 700;
+  text-transform: uppercase;
+  height: 65px;
+  background-color: rgba(255, 182, 193, 0);
+}
+
+.seasonInfo {
+  width: 100%;
+  max-height: fit-content;
+  border-bottom: 1px solid black;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 5px 0px 5px 0px;
+}
+
+.seasonRecord,
+.gmAndHc {
+  padding-left: 50px;
+}
+
+.seasonCap,
+.coordinators {
+  padding-left: 10px;
+}
+
+.staffInfo {
+  width: 100%;
+  max-height: fit-content;
+  border-bottom: 1px solid black;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 5px 0px 5px 0px;
+}
+
+.teamNeeds {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid black;
+  padding: 10px 0px 10px 0px;
+  cursor: default;
+}
+
+.needsHeader {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0px 0px 0px 10px;
+}
+
+.needsContainer {
+  max-height: fit-content;
+  display: flex;
+  flex-direction: row;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.needPosition {
+  background-color: white;
+  color: black;
+  text-shadow: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  padding: 0px 5px 0px 5px;
+  margin: 0px 0px 0px 10px;
+  min-height: 30px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+  transition: 0.1s ease;
+}
+
+.needPosition:hover {
+  transform: scale(0.95);
+}
+
+.teamPicksHeader {
+  align-self: flex-start;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: start;
+  padding: 5px 0px 0px 10px;
+  height: fit-content;
+}
+
+.teamPickInfo {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid black;
+  padding: 5px 0px 5px 0px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  row-gap: 10px;
+}
+
+.tradePicks {
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.tradePicksF {
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.currentPicks {
+  border: none;
+  padding-bottom: 0px;
+}
+
+.futurePicks {
+  height: fit-content;
+  padding: 0px 0px 5px 0px;
+  row-gap: 0px;
+}
+
+.teamPickCard {
+  width: 72px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+  text-shadow: none;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 5px;
+  transition: 0.1s ease;
+  cursor: default;
+}
+
+.teamPickCard:hover {
+  transform: scale(0.96);
+}
+
+.pickCardTop {
+  background-color: white;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 2px 0px 2px 0px;
+  border-bottom: 1px solid black;
+}
+
+.pickCardBottom {
+  background-color: black;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.pickCardRound {
+  height: 15px;
+  font-size: 12px;
+  color: rgb(50, 50, 50);
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.pickCardOverall {
+  height: 35px;
+  font-size: 34px;
+  color: black;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pickCardTeam {
+  height: 20px;
+  background-color: #A5ACAF;
+  color: rgb(255, 255, 255);
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.futurePickCard {
+  width: 72px;
+  height: 20px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 5px;
+  transition: 0.10s ease;
+  cursor: default;
+  margin: 5px 0px 5px 0px;
+}
+
+.futurePickCard:hover {
+  transform: scale(0.95);
+}
+
+.futurePickCardRound {
+  width: 20px;
+  font-size: 18px;
+  font-weight: 700;
+  text-shadow: none;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  color: black;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.futurePickCardTeam {
+  width: 52px;
+  font-size: 18px;
+  font-weight: 700;
+  color: rgb(255, 255, 255);
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rosterHeader {
+  align-self: flex-start;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: start;
+  padding: 5px 0px 5px 10px;
+}
+
+.roster {
+  width: 100%;
+  border-bottom: 1px solid black;
+  margin-bottom: 10px;
+  padding: 0px 0px 10px 0px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  column-gap: 10px;
+  cursor: default;
+}
+
+.rosterOffense,
+.rosterDefense {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+
+.rosterOffense {
+  padding-left: 10px;
+}
+
+.rosterPositionGroup {
+  display: flex;
+  flex-direction: row;
+  column-gap: 5px;
+}
+
+.rosterPosition {
+  background-color: white;
+  color: black;
+  text-shadow: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  width: 30px;
+  min-height: 30px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+  transition: 0.1s ease;
+}
+
+.rosterPlayersBox {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+}
+
+.rosterPlayer {
+  background-color: #a5acaf00;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  height: fit-content;
+  min-height: 25px;
+  width: fit-content;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 5px;
+  padding: 0px 10px 0px 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+  transition: 0.1s ease;
+}
+
+.rosterPlayer:hover,
+.rosterPosition:hover {
+  transform: scale(0.95);
+}

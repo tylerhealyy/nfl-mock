@@ -5,10 +5,10 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   position: fixed;
-  top: 130px;
-  left: 24%;
-  height: 70px;
-  width: 40%;
+  top: 22%;
+  left: 32%;
+  height: 8%;
+  width: 32%;
   border: 1px solid rgba(83, 42, 83, 0);
   border-bottom: none;
   border-top-left-radius: 5px;
@@ -17,7 +17,7 @@
 
 .players-positions-button {
   margin: 2px;
-  background-color: rgb(37, 14, 36);
+  background-color: rgb(20, 20, 20);
   color: white;
   border-radius: 5px;
   box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.35);
@@ -31,43 +31,44 @@
 }
 
 .offense {
-  background-color: rgb(190, 85, 190);
-  color: rgb(66, 4, 66);
+  background-color: rgb(100, 100, 100);
+  color: rgb(223, 223, 223);
 }
 .offense:hover {
-  background-color: rgb(207, 118, 207);
+  background-color: rgb(255, 94, 0, 0.5);
 }
 .offense:active {
-  background-color: rgb(228, 169, 228);
+  background-color: rgb(255, 94, 0, 0.75);
 }
 
 .defense {
-  background-color: rgb(126, 10, 126);
-  color: rgb(209, 96, 209);
+  background-color: rgb(70, 70, 70);
+  color: rgb(223, 223, 223);
 }
 .defense:hover {
-  background-color: rgb(161, 39, 161);
+  background-color: rgb(255, 94, 0, 0.4);
 }
 .defense:active {
-  background-color: rgb(194, 78, 194);
+  background-color: rgb(255, 94, 0, 0.65);
 }
 
 .special:hover {
-  background-color: rgb(58, 2, 58);
+  background-color: rgb(255, 94, 0, 0.4);
 }
 .special:active {
-  background-color: rgb(73, 6, 94);
+  background-color: rgb(255, 94, 0, 0.65);
 }
 
 .players-players {
-  background-color: rgba(53, 21, 53, 0);
+  background-color: rgba(30, 30, 30, 0);
   border-bottom: 1px solid rgb(133, 133, 133);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
   overflow: scroll;
   position: fixed;
-  top: 227px;
-  left: 24%;
-  bottom: 70px;
-  width: 40%;
+  top: 34.2%;
+  left: 32%;
+  bottom: 12%;
+  width: 32%;
   border: none;
   border-top: none;
   border-bottom-left-radius: 5px;
@@ -75,14 +76,14 @@
 }
 
 .players-player-card {
-  height: 40px;
-  background-color: rgb(37, 0, 37);
+  height: 60px;
+  background-color: rgb(20, 20, 20);
   color: rgb(223, 223, 223);
   margin-bottom: 2px;
   margin-top: 2px;
   border-bottom: 1px solid rgb(255, 255, 255);
   display: grid;
-  grid-template-columns: 40px 1fr 45px 175px 45px;
+  grid-template-columns: 40px 1fr 45px 180px 45px;
   align-items: center;
   font-size: 20px;
   cursor: pointer;
@@ -91,10 +92,10 @@
   padding-right: 10px;
 }
 .players-player-card:hover {
-  background-color: rgb(126, 69, 126);
+  background-color: rgba(255, 94, 0, 0.5);
 }
 .players-player-card:active {
-  background-color: rgb(179, 96, 179);
+  background-color: rgb(255, 94, 0);
 }
 
 .players-player-card-rank {
@@ -109,7 +110,6 @@
 .players-player-card-name {
   padding-left: 15px;
   font-weight: 700;
-  white-space: nowrap;
 }
 .players-player-card-school {
   font-weight: 500;
@@ -121,13 +121,13 @@
   color: rgb(255, 255, 255);
   font-size: 16px;
   background-color: rgba(53, 21, 53, 0);
-  grid-template-columns: 40px 1fr 45px 230px;
+  grid-template-columns: 40px 1fr 45px 240px;
   cursor: default;
   position: fixed;
-  top: 199px;
-  left: 24%;
-  width: 40%;
-  height: 25px;
+  top: 30%;
+  left: 32%;
+  width: 32%;
+  height: 4%;
   border-left: 1px solid rgb(53, 21, 53);
   border-right: 1px solid rgb(53, 21, 53);
   padding-right: 0px;

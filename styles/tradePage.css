@@ -1,0 +1,204 @@
+.tradePage {
+  position: fixed;
+  top: 22%;
+  left: 32%;
+  bottom: 6%;
+  right: 5%;
+  z-index: 201;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+  display: grid;
+  grid-template-columns: 1fr 10px 1fr;
+  background-color: rgb(20,20,20);
+  font-family: Roboto;
+}
+
+.tradeHeader {
+  background-color: rgb(20,20,20);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+  position: fixed;
+  top: 6%;
+  left: 32%;
+  right: 5%;
+  height: 14%;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: 1fr 10px 1fr;
+}
+
+.headerDivider {
+  background-color: rgb(15, 15, 15);
+  border-right: 2px solid black;
+  border-left: 2px solid black;
+}
+
+.headerHalf {
+  display: flex;
+  flex-direction: row;
+  overflow: scroll;
+}
+
+.headerHalf1 {
+  padding: 10px 40px 10px 10px;
+}
+.headerHalf2 {
+  padding: 10px 10px 10px 40px;
+}
+
+.selectedCurrentPicks, .selectedFuturePicks, .selectedPlayers {
+  width: fit-content;
+}
+
+.selectedCurrentPicks {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  height: fit-content;
+  width: min-content;
+  gap: 5px;
+  margin-right: 5px;
+}
+
+.tpcSummary {
+  width: 50px;
+}
+
+.selectedFuturePicks {
+  display: flex;
+  flex-direction: column;
+  margin-right: 5px;
+}
+
+.fpcSummary {
+  margin: 0px 0px 5px 0px;
+  height: 22px;
+}
+
+.selectedPlayers {
+  display: flex;
+  flex-direction: column;
+}
+
+.rpSummary {
+  margin-bottom: 5px;
+  min-height: fit-content;
+  color: white;
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+  cursor: default;
+}
+
+.tradeSubmitBtn {
+  position: absolute;
+  align-self: start;
+  justify-self: center;
+  margin-top: 10px;
+  width: 40px;
+  border-radius: 10px;
+  padding: 0px 20px 0px 20px;
+  cursor: pointer;
+  transition: 0.1s ease;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 1);
+  background-color: rgb(255, 94, 0);
+}
+
+.tradeSubmitBtn:hover,
+.tradeValueCalc:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+}
+
+.tradeValueCalc {
+  position: absolute;
+  justify-self: center;
+  align-self: end;
+  height: 35px;
+  width: 80px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 1);
+  cursor: default;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: 0.1s ease;
+  padding: 2px 0px 2px 0px;
+}
+
+.tradeValueText {
+  color: rgb(39, 39, 39);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.tradeValueBalance {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.tradeCloseBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  transition: 0.1s ease;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 1);
+  background-color: black;
+}
+
+.tradeCloseBtn:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+}
+
+.tradeHalf {
+  padding: 10px 10px 0px 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+}
+
+.team1 {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.team2 {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.divider {
+  background-color: rgb(15, 15, 15);
+  border-radius: 0px;
+  border-right: 2px solid black;
+  border-left: 2px solid black;
+}
+
+.teamSelect {
+  min-height: 30px;
+  font-size: 16px;
+  font-weight: 500;
+  width: fit-content;
+  padding: 0px 10px 0px 10px;
+  background-color: rgb(255, 94, 0);
+  color: white;
+  border-radius: 15px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+  border: none;
+  cursor: default;
+  transition: 0.1s ease
+}
+
+.teamSelect:hover {
+  transform: scale(1.02);
+}
+
+.teamTradePage {
+  color: white;
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

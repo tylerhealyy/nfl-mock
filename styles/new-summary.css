@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(53, 21, 53);
+  background-color: rgb(30, 30, 30);
   font-family: Inter;
 }
 
@@ -12,7 +12,7 @@ body {
 
 .round-summary,
 .ts-summary {
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0);
   width: 700px;
   height: auto;
   display: flex;
@@ -96,15 +96,14 @@ body {
 
 .rs-pick,
 .ts-pick {
-  border-right: 1px solid black;
-  border-bottom: 1px solid black;
-  color: rgb(0, 0, 0);
+  border-right: 1px solid rgb(0, 0, 0);
+  border-bottom: 1px solid rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   font-size: 12px;
   font-weight: 700;
   display: grid;
   grid-template-columns: 35px 50px 1fr 50px;
-  background-color: white;
-  box-shadow: inset 0px 0px 40px lightblue;
+  background-color: rgb(0, 0, 0);
   align-items: center;
   padding-right: 5px;
 }
@@ -150,12 +149,12 @@ body {
 }
 
 .rs-pick-name {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .rs-pick-info {
   font-size: 14px;
-  color: rgb(92, 92, 92);
+  color: rgb(206, 206, 206);
 }
 
 .next-summary,
@@ -235,11 +234,34 @@ option {
 }
 
 .tst-item {
-  margin-bottom: 10px;
+  margin: 5px 10px 10px 10px;
   font-size: 18px;
-  padding-left: 10px;
+  padding: 0px;
+  line-height: 24px;
 }
 
 .bold {
   font-weight: 700;
+}
+
+.newDraftBtn {
+  min-height: 70px;
+  width: 50%;
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: 700;
+  background-color: rgb(255, 94, 0);
+  color: white;
+  box-shadow: 0px 0px 5px rgb(0, 0, 0);
+  border: 1px solid black;
+  border-radius: 100px;
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+  cursor: pointer;
+  margin: 0px 0px 0px 20px;
+  transition: 0.15s ease;
+  align-self: center;
+}
+
+.newDraftBtn:hover {
+  transform: scale(1.03);
 }

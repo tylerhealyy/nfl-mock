@@ -1,34 +1,122 @@
 .otc-panel {
   background-color: white;
-  box-shadow: inset 0px 0px 150px #4B92DB;
+  box-shadow: inset 0px 0px 150px #A5ACAF;
   color: white;
   position: fixed;
-  top: 15px;
-  left: 24%;
-  right: 15px;
+  top: 6%;
+  left: 32%;
+  right: 5%;
   display: grid;
-  grid-template-columns: 200px 550px 300px 1fr;
-  height: 100px;
+  grid-template-columns: 200px 550px 1fr;
+  height: 14%;
   border-radius: 5px;
   border: 1px solid black;
 }
 
-.otc-logo {
-  margin: auto;
-  padding-top: 5px;
-  padding-left: 30px;
+.otcPanel {
+  position: fixed;
+  top: 6%;
+  left: 32%;
+  right: 5%;
+  height: 14%;
+  border-radius: 5px;
+  border: 1px solid black;
+  display: grid;
+  grid-template-columns: 200px 1fr 1fr 150px;
 }
 
-.otc-image {
+.otc-logo, .otcLogo {
+  margin: auto;
+  padding-top: 0px;
+  padding-left: 0px;
+}
+
+.otc-image, .otcImage {
   max-height: 90px;
   max-width: 170px;
 }
 
+.otcInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  overflow: scroll;
+  padding: 10px 0px 10px 0px;
+}
+
+.otcInfoText {
+  font-size: 16px;
+  font-weight: 700;
+  align-self: end;
+  color: white;
+  text-shadow: 0px 0px 5px black;
+}
+
+.otcPicks, .otcNeeds {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.otcPickCard, .otcNeedCard, .otcPlayerOvr, .otcPlayerPos, .otcPlayerName {
+  background-color: white;
+  color: black;
+  height: fit-content;
+  width: fit-content;
+  padding: 2px 5px 2px 5px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: 0px 0px 5px black;
+  cursor: default;
+  transition: 0.1s ease;
+}
+
+.otcPickCard:hover, .otcNeedCard:hover, .otcPlayerOvr:hover, .otcPlayerPos:hover, .otcPlayerName:hover {
+  transform: scale(0.9)
+}
+
+.otcText {
+  font-size: 38px;
+  font-weight: 700;
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+  text-align: end;
+  align-self: center;
+  padding: 0px 5px 0px 0px;
+  color: white;
+  line-height: 32px;
+}
+
+.otcPlayers {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 5px;
+  overflow: scroll;
+}
+
+.otcPlayerDiv {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+
+
+
+
+
+
+
+
+
 .otc-middle {
   display: flex;
   flex-direction: column;
-  padding-left: 40px;
+  padding-left: 0px;
   max-height: 100px;
+  margin: auto;
 }
 
 .otc-text {

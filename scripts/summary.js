@@ -245,7 +245,7 @@ function buildSummary(draftee) {
     });
   }
 
-  for (let i = 65; i < 102; i++) { // Build third round summary
+  for (let i = 65; i < 100; i++) { // Build third round summary
     nflTeams.forEach((team) => {
       let newTest;
       if (JSON.parse(localStorage.getItem(`${team.name}test`))) {
@@ -287,7 +287,7 @@ function buildSummary(draftee) {
     });
   }
 
-  for (let i = 102; i < 140; i++) { // Build third round summary
+  for (let i = 100; i < 138; i++) { // Build third round summary
     nflTeams.forEach((team) => {
       let newTest;
       if (JSON.parse(localStorage.getItem(`${team.name}test`))) {
@@ -329,7 +329,7 @@ function buildSummary(draftee) {
     });
   }
 
-  for (let i = 140; i < 179; i++) { // Build third round summary
+  for (let i = 138; i < 180; i++) { // Build third round summary
     nflTeams.forEach((team) => {
       let newTest;
       if (JSON.parse(localStorage.getItem(`${team.name}test`))) {
@@ -371,7 +371,7 @@ function buildSummary(draftee) {
     });
   }
 
-  for (let i = 179; i < 219; i++) { // Build third round summary
+  for (let i = 180; i < 216; i++) { // Build third round summary
     nflTeams.forEach((team) => {
       let newTest;
       if (JSON.parse(localStorage.getItem(`${team.name}test`))) {
@@ -413,7 +413,7 @@ function buildSummary(draftee) {
     });
   }
 
-  for (let i = 219; i < 258; i++) { // Build third round summary
+  for (let i = 216; i < 257; i++) { // Build third round summary
     nflTeams.forEach((team) => {
       let newTest;
       if (JSON.parse(localStorage.getItem(`${team.name}test`))) {

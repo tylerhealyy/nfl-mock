@@ -1,22 +1,41 @@
 import { playerData } from "./player-data.js";
-//import { playerData26 } from "./playerData26.js";
+import { playerData26 } from "./playerData26.js";
 import { nflTeams } from "./nfl-team-data.js";
 import { buildDraftOrder2 } from "./draft-order.js";
 import { singleAutoPick } from "./draft-order.js";
+import { tradeValueData } from "./tradeValueData.js";
+import { futurePickValueData } from "./tradeValueData.js";
 
 let playerList = '';
 let otc = 1;
 localStorage.setItem('otc', JSON.stringify(otc));
+let tradeID = 0;
+localStorage.setItem('totalTrades', tradeID);
 let viewing;
 let selectedValue;
 let nameValue = '';
 let teamsValue = '';
+let selectedBoard;
+let rankUsed;
 let scoringData = [];
 let dataForSave = [];
+const offPositionList = ["QB", "RB", "WR", "TE", "OT", "IOL"];
+const defPositionList = ["ED", "DT", "LB", "CB", "S"];
+const allPositionList = ["QB", "RB", "WR", "TE", "OT", "IOL", "ED", "DT", "LB", "CB", "S"];
+const picksPerRound = [{round:1, picks:0},
+{round:2, picks:32},
+{round:3, picks:64},
+{round:4, picks:100},
+{round:5, picks:138},
+{round:6, picks:179},
+{round:7, picks:216}
+];
 
 nflTeams.forEach((team) => { // Reset all picks on every refresh
   team.test.forEach((pick) => {
     pick.p = "";
+    pick.pn = "";
+    pick.pos = "";
     localStorage.setItem(`${pick.n}${team.name}`, JSON.stringify(pick));
   });
 
@@ -30,13 +49,13 @@ nflTeams.forEach((team) => { // Reset all picks on every refresh
   }
 });
 
-let j = 1;
-while (j < 20) {
-  if (localStorage.getItem(`${j}tradeA`)) {
-    localStorage.removeItem(`${j}tradeA`);
-    localStorage.removeItem(`${j}tradeB`);
-  }
-  j += 1;
+for (let i = 1; i < 20; i++) {
+  if (localStorage.getItem(`trade${i}-1`)) {
+    localStorage.removeItem(`trade${i}-1`);
+    localStorage.removeItem(`trade${i}-1string`);
+    localStorage.removeItem(`trade${i}-2`);
+    localStorage.removeItem(`trade${i}-2string`);
+  } else break;
 }
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -49,7 +68,6 @@ window.addEventListener("DOMContentLoaded", () => {
   });
   selectedValue = JSON.parse(localStorage.getItem('roundsInput'));
   buildDraftOrder2(selectedValue); // Builds the draft order display on left side
-  tradeFunction(selectedValue);
   changeHeader();
   localStorage.removeItem("functionExecuted");
 });
@@ -60,8 +78,588 @@ document.querySelector('.begin').addEventListener("click", () => {
   document.querySelector('.begin').style.background = 'white';
   document.querySelector('.begin').style.color = 'black';
   document.querySelector('.begin').style.textShadow = 'none';
+  document.querySelector('.begin').style.boxShadow = 'inset 0px 0px 20px rgba(0, 0, 0, 0.25)';
   document.querySelector('.begin').addEventListener("mouseover", () => document.querySelector('.begin').style.backgroundColor = 'rgb(194, 194, 194)');
   document.querySelector('.begin').addEventListener("mouseout", () => document.querySelector('.begin').style.backgroundColor = 'white');
+  document.querySelector('.profile-js').setAttribute("style", `background-color: rgb(20, 20, 20);`);
+});
+
+document.querySelector('.trade').addEventListener("click", () => {
+  let team1;
+  let team2;
+  let team1Total, team2Total = 0;
+  let team1Abbv, team2Abbv = '';
+  let team1SelectedCurrent = [];
+  let team1SelectedFuture = [];
+  let team1SelectedPlayers = [];
+  let team2SelectedCurrent = [];
+  let team2SelectedFuture = [];
+  let team2SelectedPlayers = [];
+  let newTest1;
+  let newTest2;
+  const tradePage = document.createElement('div');
+  tradePage.classList.add('tradePage');
+  document.body.appendChild(tradePage);
+
+  tradePage.innerHTML = `
+    <img class="tradeCloseBtn" src="../images/closeIcon.png">
+    <div class="team1 tradeHalf"></div>
+    <div class="divider"></div>
+    <div class="team2 tradeHalf"></div>
+  `;
+
+  const otcHeaderElem = document.querySelector('.otc-header');
+  otcHeaderElem.innerHTML = `
+    <div class="tradeHeader">
+      <img class="tradeSubmitBtn" src="../images/tradeIcon.png">
+      <div class="tradeValueCalc">
+        <div class="tradeValueText">Fair</div>
+        <div class="tradeValueBalance">0</div>
+      </div>
+      <div class="team1 headerHalf headerHalf1"></div>
+      <div class="headerDivider"></div>
+      <div class="team2 headerHalf headerHalf2"></div>
+    </div>
+  `;
+
+  const headerHalfElems = document.querySelectorAll('.headerHalf');
+  headerHalfElems.forEach((headerHalf) => {
+    let teamNumber;
+    if (headerHalf.classList.contains('team1')) teamNumber = 1; else teamNumber = 2;
+    headerHalf.innerHTML = `
+      <div class="selectedCurrentPicks scp${teamNumber}"></div>
+      <div class="selectedFuturePicks sfp${teamNumber}"></div>
+      <div class="selectedPlayers sp${teamNumber}"></div>
+    `;
+  });
+
+  const tradeCloseBtn = document.querySelector('.tradeCloseBtn');
+  tradeCloseBtn.addEventListener("click", () => {
+    document.body.removeChild(tradePage);
+    otcHeaderElem.innerHTML = '';
+    changeHeader();
+  });
+
+  const tradeHalfElems = document.querySelectorAll('.tradeHalf');
+  tradeHalfElems.forEach((half) => {
+    half.innerHTML = `
+      <select class="teamSelect">
+        <option selected class="teamSelectOption" value="none">Choose Team</option>
+      </select>
+      <div class="teamTradePage"></div>
+    `;
+
+    const teamSelectInput = half.querySelector('.teamSelect');
+    const displayBoxElem = half.querySelector('.teamTradePage');
+
+    nflTeams
+      .sort((a, b) => a.city.localeCompare(b.city))
+      .forEach(team => {
+        teamSelectInput.innerHTML += `
+          <option value="${team.name}" style="
+            background-color: ${team.color};
+          ">${team.city} ${team.name}</option>
+        `;
+      });
+
+    teamSelectInput.addEventListener("change", () => {
+      if (teamSelectInput.parentElement.classList.contains('team1')) {
+        team1SelectedCurrent.length = 0; team1SelectedFuture.length = 0; team1SelectedPlayers.length = 0;
+      } else {
+        team2SelectedCurrent.length = 0; team2SelectedFuture.length = 0; team2SelectedPlayers.length = 0;
+      }
+      nflTeams.forEach((team) => {
+        let teamNumber;
+        if (team.name === teamSelectInput.value) {
+          if (half.classList.contains('team1')) {
+            team1 = team;
+            teamNumber = 1;
+            team1Total = 0;
+            team1Abbv = team.abbv;
+            if (team1Abbv === team2Abbv) {
+              half.setAttribute("style", `background-color: rgb(20,20,20); box-shadow: none;`);
+              document.querySelector('.headerHalf1').setAttribute("style", `background-color: rgb(20,20,20); box-shadow: none;`);
+              displayBoxElem.innerHTML = '';
+              teamSelectInput.value = "none";
+              alert("Can't trade between the same team buddy");
+              return;
+            }
+            document.querySelector('.headerHalf2').innerHTML = `
+              <div class="selectedCurrentPicks scp2"></div>
+              <div class="selectedFuturePicks sfp2"></div>
+              <div class="selectedPlayers sp2"></div>
+            `;
+            document.querySelector('.otc-header .team1').setAttribute("style", `
+              background-color: ${team.color};
+              box-shadow: inset 0px 0px 150px 10px black;
+            `);
+            if (team2Total !== 0) {
+              document.querySelector('.tradeValueText').textContent = `${team1Abbv} Owes:`;
+              document.querySelector('.tradeValueBalance').textContent = Math.abs(Math.round((team1Total-team2Total) * 10) / 10);
+            } else {
+              document.querySelector('.tradeValueText').textContent = `Fair!`;
+              document.querySelector('.tradeValueBalance').textContent = Math.abs(Math.round((team1Total-team2Total) * 10) / 10);
+            }
+
+            if (JSON.parse(localStorage.getItem(`${team1.name}test`))) {
+              newTest1 = JSON.parse(localStorage.getItem(`${team1.name}test`));
+            } else {
+              newTest1 = team1.test;
+            }
+
+          } else {
+            team2 = team;
+            teamNumber = 2;
+            team2Total = 0;
+            team2Abbv = team.abbv;
+            if (team1Abbv === team2Abbv) {
+              half.setAttribute("style", `background-color: rgb(20,20,20); box-shadow: none;`);
+              document.querySelector('.headerHalf2').setAttribute("style", `background-color: rgb(20,20,20); box-shadow: none;`);
+              displayBoxElem.innerHTML = '';
+              teamSelectInput.value = "none";
+              alert("Can't trade between the same team buddy");
+              return;
+            }
+            document.querySelector('.headerHalf1').innerHTML = `
+              <div class="selectedCurrentPicks scp1"></div>
+              <div class="selectedFuturePicks sfp1"></div>
+              <div class="selectedPlayers sp1"></div>
+            `;
+            document.querySelector('.otc-header .team2').setAttribute("style", `
+              background-color: ${team.color};
+              box-shadow: inset 0px 0px 150px 10px black;  
+            `);
+            if (team1Total !== 0) {
+              document.querySelector('.tradeValueText').textContent = `${team2Abbv} Owes:`;
+              document.querySelector('.tradeValueBalance').textContent = Math.abs(Math.round((team1Total-team2Total) * 10) / 10);
+            } else {
+              document.querySelector('.tradeValueText').textContent = `Fair!`;
+              document.querySelector('.tradeValueBalance').textContent = Math.abs(Math.round((team1Total-team2Total) * 10) / 10);
+            }
+  
+            if (JSON.parse(localStorage.getItem(`${team2.name}test`))) {
+              newTest2 = JSON.parse(localStorage.getItem(`${team2.name}test`));
+            } else {
+              newTest2 = team2.test;
+            }
+          }
+
+          half.setAttribute("style", `background-color: ${team.color};
+            box-shadow: inset 0px 0px 1000px 100px black;`);
+
+          displayBoxElem.innerHTML = '';
+          displayBoxElem.innerHTML = `
+            <div class="teamHeader">
+              <img class="teamHeaderImage" src="${team.logo}">
+              <div class="teamHeaderName">
+                <div class="teamHeaderCity">${team.city}</div>
+                <div class="teamHeaderMascot" style="font-size: 60px">${team.name}</div>
+              </div>
+            </div>
+
+            <div class="teamNeeds">
+              <div class="needsHeader">Team Needs:</div>
+              <div class="needsContainer"></div>
+            </div>
+  
+            <div class="teamPicksHeader">2026 Draft Picks</div>
+            <div class="teamPickInfo currentPicks tradePicks"></div>
+            <div class="teamPicksHeader">2027 Draft Picks</div>
+            <div class="teamPickInfo futurePicks"></div>
+  
+            <div class="rosterHeader">2026 Roster</div>
+            <div class="roster">
+              <div class="rosterOffense"></div>
+              <div class="rosterDefense"></div>
+            </div>
+          `;
+  
+          const teamNeedsElement = half.querySelector('.needsContainer');
+          const teamPickInfoElement = half.querySelector('.currentPicks');
+          const teamFuturePickInfoElement = half.querySelector('.futurePicks');
+          const rosterOffenseElement = half.querySelector('.rosterOffense');
+          const rosterDefenseElement = half.querySelector('.rosterDefense');
+          team.needs.forEach((need) => {
+            teamNeedsElement.innerHTML += `<div class="needPosition">${need}</div>`;
+          });
+  
+          let newTest;
+          if (JSON.parse(localStorage.getItem(`${team.name}test`))) {
+            newTest = JSON.parse(localStorage.getItem(`${team.name}test`));
+          } else {
+            newTest = team.test;
+          }
+          newTest
+            .sort((a, b) => a.n - b.n)
+            .forEach((pick) => {
+              const picksInThisRound = picksPerRound.find(r => r.round === pick.r).picks;
+              const roundPickNumber = pick.n - (picksInThisRound);
+    
+              teamPickInfoElement.innerHTML += `
+                <div class="teamPickCard team${teamNumber}pick" style="width: 50px; cursor: pointer;">
+                  <div class="pickCardTop"">
+                    <div class="pickCardRound">${tradeValueData[pick.n - 1]}</div>
+                    <div class="pickCardOverall" style="font-size: 24px; height: 25px;">${pick.n}</div>
+                  </div>
+                  <div class="pickCardBottom">
+                    <div class="pickCardTeam pickId${pick.n}">${pick.t}</div>
+                  </div>
+                </div>
+              `;
+
+              if (pick.p !== '') {
+                half.querySelector('.teamPickCard:last-child').setAttribute("style", `opacity: 0.25; width: 50px;`);
+              }
+    
+              const pickCardTeamElem = half.querySelector(`.pickId${pick.n}`);
+    
+              nflTeams.forEach((pickTeam) => {
+                if (pickTeam.abbv === pick.t) {
+                  pickCardTeamElem.setAttribute("style", `background-color: ${pickTeam.color}`);
+                }
+              });
+            });
+
+          team
+            .futurePicks.sort((a, b) => a.r - b.r)
+            .forEach((pick) => {
+              teamFuturePickInfoElement.innerHTML += `
+                <div class="futurePickCard team${teamNumber}pick" style="width: 65px; cursor: pointer;">
+                  <div class="futurePickCardRound">${pick.r}</div>
+                  <div class="futurePickCardTeam" style="width: 45px;">${pick.t}</div>
+                </div>
+              `;
+
+              const futurePickCardTeamElem = teamFuturePickInfoElement.lastElementChild.querySelector('.futurePickCardTeam');
+
+              nflTeams.forEach((pickTeam) => {
+                if (pickTeam.abbv === pick.t) {
+                  futurePickCardTeamElem.setAttribute("style", `background-color: ${pickTeam.color}`);
+                }
+              });
+            });
+  
+          offPositionList.forEach((position) => {
+            rosterOffenseElement.innerHTML += `
+              <div class="rosterPositionGroup">
+                <div class="rosterPosition">${position}</div>
+                <div class="rosterPlayersBox ${position}Box"></div>
+              </div>
+            `;
+            
+            team[position].forEach((player) => {
+              //const playerBoxElement = document.querySelector('.rosterPlayersBox');
+              half.querySelector(`.${position}Box`).innerHTML += `
+                <div class="rosterPlayer team${teamNumber}player" style="background-color: ${team.color}; cursor: pointer;">${player}</div>
+              `;
+            });
+          });
+  
+          defPositionList.forEach((position) => {
+            rosterDefenseElement.innerHTML += `
+              <div class="rosterPositionGroup">
+                <div class="rosterPosition">${position}</div>
+                <div class="rosterPlayersBox ${position}Box"></div>
+              </div>
+            `;
+            
+            team[position].forEach((player) => {
+              //const playerBoxElement = document.querySelector('.rosterPlayersBox');
+              half.querySelector(`.${position}Box`).innerHTML += `
+                <div class="rosterPlayer team${teamNumber}player" style="background-color: ${team.color}; cursor: pointer;">${player}</div>
+              `;
+            });
+          });
+
+          newTest.forEach((pick) => {
+            if (pick.p !== "") {
+              half.querySelector(`.${pick.pos}Box`).innerHTML += `
+                <div class="rosterPlayer team${teamNumber}player" style="
+                  background-color: rgb(0, 255, 0);
+                  color: black;
+                  text-shadow: none;
+                  border: 3px solid black;
+                  cursor: pointer;">(${pick.n}) ${pick.pn}</div>
+              `;
+            }
+          });
+          
+          const pickCardElem = half.querySelectorAll('.teamPickCard');
+          const futurePickCardElem = half.querySelectorAll('.futurePickCard');
+          const rosterPlayerElems = half.querySelectorAll('.rosterPlayer');
+
+          pickCardElem.forEach((card) => {
+            const teamNumber = card.classList.contains('team1pick') ? 2 : 1;
+            let selectedList = [];
+            let teamOfPick;
+            if (teamNumber === 1) {selectedList = team2SelectedCurrent; teamOfPick = team2;} else {selectedList = team1SelectedCurrent; teamOfPick = team1;}
+            const cardInfo = document.createElement('div');
+            cardInfo.classList.add('teamPickCard');
+            cardInfo.classList.add('tpcSummary');
+            cardInfo.innerHTML = card.innerHTML;
+
+            let newTest;
+            if (JSON.parse(localStorage.getItem(`${teamOfPick.name}test`))) {
+              newTest = JSON.parse(localStorage.getItem(`${teamOfPick.name}test`));
+            } else {
+              newTest = teamOfPick.test;
+            }
+
+            let overallPick = parseInt(card.querySelector('.pickCardOverall').textContent);
+            let value = tradeValueData[overallPick - 1];
+
+            card.addEventListener("click", () => {
+              let overallPickForList = parseInt(card.querySelector('.pickCardOverall').textContent);
+
+              if (card.style.opacity === "0.25") return;
+
+              const pick = newTest.find(p => p.n === overallPickForList);
+              const index = selectedList.indexOf(pick);
+
+              if (!card.style.border) {
+
+                selectedList.push(pick);
+
+                card.style.border = "4px solid rgb(0, 255, 0)";
+                document.querySelector(`.scp${teamNumber}`).appendChild(cardInfo);
+
+                if (teamNumber === 2) team1Total += value; else team2Total += value;
+                document.querySelector('.tradeValueBalance').textContent = Math.abs(Math.round((team1Total-team2Total) * 10) / 10);
+
+                if (team1Total > team2Total) {
+                  document.querySelector('.tradeValueText').textContent = `${team2Abbv} owes:`;
+                } else if (team2Total > team1Total) {
+                  document.querySelector('.tradeValueText').textContent = `${team1Abbv} owes:`;
+                } else {
+                  document.querySelector('.tradeValueText').textContent = `Fair!`;
+                }
+
+              } else {
+
+                selectedList.splice(index, 1);
+
+                card.style.border = "";
+                document.querySelector(`.scp${teamNumber}`).removeChild(cardInfo);
+
+                if (teamNumber === 2) team1Total -= value; else team2Total -= value;
+                document.querySelector('.tradeValueBalance').textContent = Math.abs(Math.round((team1Total-team2Total) * 10) / 10);
+
+                if (team1Total > team2Total) {
+                  document.querySelector('.tradeValueText').textContent = `${team2Abbv} owes:`;
+                } else if (team2Total > team1Total) {
+                  document.querySelector('.tradeValueText').textContent = `${team1Abbv} owes:`;
+                } else {
+                  document.querySelector('.tradeValueText').textContent = `Fair!`;
+                }
+
+              }
+
+            });
+          });
+          futurePickCardElem.forEach((card) => {
+            const teamNumber = card.classList.contains('team1pick') ? 2 : 1;
+            const pickInfo = {r: parseInt(card.querySelector('.futurePickCardRound').textContent), t: card.querySelector('.futurePickCardTeam').textContent};
+            let selectedList = [];
+            let teamOfPick;
+            if (teamNumber === 1) {selectedList = team2SelectedFuture; teamOfPick = team2;} else {selectedList = team1SelectedFuture; teamOfPick = team1;}
+            const cardInfo = document.createElement('div');
+            cardInfo.classList.add('futurePickCard');
+            cardInfo.classList.add('fpcSummary');
+            cardInfo.innerHTML = card.innerHTML;
+
+            let value = futurePickValueData[parseInt(card.querySelector('.futurePickCardRound').textContent) - 1].value;
+
+            card.addEventListener("click", () => {
+
+              const pick = teamOfPick.futurePicks.find(p => p.r === pickInfo.r && p.t === pickInfo.t);
+              const index = selectedList.indexOf(pick);
+
+              if (!card.style.border) {
+                selectedList.push(pick);
+                card.style.border = "4px solid rgb(0, 255, 0)";
+                document.querySelector(`.sfp${teamNumber}`).appendChild(cardInfo);
+                if (teamNumber === 2) team1Total += value; else team2Total += value;
+                document.querySelector('.tradeValueBalance').textContent = Math.abs(Math.round((team1Total-team2Total) * 10) / 10);
+                if (team1Total > team2Total) {
+                  document.querySelector('.tradeValueText').textContent = `${team2Abbv} owes:`;
+                } else if (team2Total > team1Total) {
+                  document.querySelector('.tradeValueText').textContent = `${team1Abbv} owes:`;
+                } else {
+                  document.querySelector('.tradeValueText').textContent = `Fair!`;
+                }
+              } else {
+                selectedList.splice(index, 1);
+                card.style.border = "";
+                document.querySelector(`.sfp${teamNumber}`).removeChild(cardInfo);
+                if (teamNumber === 2) team1Total -= value; else team2Total -= value;
+                document.querySelector('.tradeValueBalance').textContent = Math.abs(Math.round((team1Total-team2Total) * 10) / 10);
+                if (team1Total > team2Total) {
+                  document.querySelector('.tradeValueText').textContent = `${team2Abbv} owes:`;
+                } else if (team2Total > team1Total) {
+                  document.querySelector('.tradeValueText').textContent = `${team1Abbv} owes:`;
+                } else {
+                  document.querySelector('.tradeValueText').textContent = `Fair!`;
+                }
+              }
+            });
+          });
+          rosterPlayerElems.forEach((player) => {
+            const teamNumber = player.classList.contains('team1player') ? 2 : 1;
+            let selectedList = [];
+            let teamOfPlayer;
+            let positionOfPlayer = player.parentElement.previousElementSibling.textContent;
+            if (teamNumber === 1) {selectedList = team2SelectedPlayers; teamOfPlayer = team2;} else {selectedList = team1SelectedPlayers; teamOfPlayer = team1;}
+            const cardInfo = document.createElement('div');
+            cardInfo.classList.add('rosterPlayer');
+            cardInfo.classList.add(`team${teamNumber}player`);
+            cardInfo.classList.add('rpSummary');
+            cardInfo.innerHTML = player.innerHTML;
+            cardInfo.setAttribute("style", `background-color: ${team.color}`);
+
+            player.addEventListener("click", () => {
+
+              const playerName = player.textContent;
+              const playerInfo = teamOfPlayer[positionOfPlayer].find(p => p === playerName);
+              const index = selectedList.indexOf(playerInfo);
+
+              if (!player.style.border) {
+                selectedList.push(playerInfo);
+                player.style.border = "4px solid rgb(0,255,0)";
+                document.querySelector(`.sp${teamNumber}`).appendChild(cardInfo);
+              } else if (player.style.border === "3px solid black") return;
+              else {
+                player.style.border = "";
+                document.querySelector(`.sp${teamNumber}`).removeChild(cardInfo);
+                selectedList.splice(index, 1);
+              }
+            });
+          });
+
+        } else if (teamSelectInput.value === 'none') {
+          if (half.classList.contains('team1')) team1 = null; else team2 = null;
+          displayBoxElem.innerHTML = '';
+          half.setAttribute("style", `background-color: rgb(20,20,20);`);
+
+          if (teamSelectInput.parentElement.classList.contains('team1')) {
+            const teamNumberLocal = 2;
+            document.querySelector('.headerHalf2').innerHTML = `
+              <div class="selectedCurrentPicks scp${teamNumberLocal}"></div>
+              <div class="selectedFuturePicks sfp${teamNumberLocal}"></div>
+              <div class="selectedPlayers sp${teamNumberLocal}"></div>
+            `;
+            document.querySelector('.headerHalf1').setAttribute("style", `background-color: rgb(20,20,20);`);
+            team1Total = 0;
+            document.querySelector('.tradeValueBalance').textContent = Math.abs(Math.round((team1Total-team2Total) * 10) / 10);
+            document.querySelector('.tradeValueText').textContent = `Owes:`;
+          } else {
+            const teamNumberLocal = 1;
+            document.querySelector('.headerHalf1').innerHTML = `
+              <div class="selectedCurrentPicks scp${teamNumberLocal}"></div>
+              <div class="selectedFuturePicks sfp${teamNumberLocal}"></div>
+              <div class="selectedPlayers sp${teamNumberLocal}"></div>
+            `;
+            document.querySelector('.headerHalf2').setAttribute("style", `background-color: rgb(20,20,20);`);
+            team2Total = 0;
+            document.querySelector('.tradeValueBalance').textContent = Math.abs(Math.round((team1Total-team2Total) * 10) / 10);
+            document.querySelector('.tradeValueText').textContent = `Owes:`;
+          }
+        }
+      });
+    });
+  });
+
+  document.querySelector('.tradeSubmitBtn').addEventListener("click", () => {
+    if (!team1 || !team2) return; else {
+
+      tradeID += 1;
+      localStorage.setItem('totalTrades', tradeID);
+
+      let team1Assets = {team: team1.abbv, currentPicks: [], futurePicks: [], players: []};
+      let team2Assets = {team: team2.abbv, currentPicks: [], futurePicks: [], players: []};
+      let team1Strings = [];
+      let team2Strings = [];
+      let team1String = `<span style="
+        font-weight: 700;
+        background-color: ${team1.color};
+        color: white;
+        text-shadow: 0px 0px 3px black;
+        padding: 0px 5px 0px 5px;
+        border-radius: 3px;
+      ">${team1.abbv}</span> gets: `;
+      let team2String = `<span style="
+        font-weight: 700;
+        background-color: ${team2.color};
+        color: white;
+        text-shadow: 0px 0px 3px black;
+        padding: 0px 5px 0px 5px;
+        border-radius: 3px;
+      ">${team2.abbv}</span> gets: `;
+
+      team1SelectedCurrent.forEach((pick) => {
+        const index = newTest1.findIndex(p => p.n === pick.n);
+        if (index !== -1) newTest1.splice(index, 1);
+        newTest2.push(pick);
+        team2Assets.currentPicks.push(pick);
+        team2Strings.push(`${pick.n}`);
+      });
+      team1SelectedFuture.forEach((pick) => {
+        team1.futurePicks = team1.futurePicks.filter(p => !(p.r === pick.r && p.t === pick.t));
+        team2.futurePicks.push(pick);
+        team2Assets.futurePicks.push(pick);
+        team2Strings.push(`'27 ${pick.r}RP (${pick.t})`);
+      });
+      team1SelectedPlayers.forEach((player) => {
+        allPositionList.forEach((position) => {
+          if (team1[position].includes(player)) {
+            team1[position] = team1[position].filter(p => p !== player);
+            team2[position].push(player);
+            team2Assets.players.push(player);
+            team2Strings.push(`${player}`);
+          }
+        });
+      });
+      team2SelectedCurrent.forEach((pick) => {
+        const index = newTest2.findIndex(p => p.n === pick.n);
+        if (index !== -1) newTest2.splice(index, 1);
+        newTest1.push(pick);
+        team1Assets.currentPicks.push(pick);
+        team1Strings.push(`${pick.n}`);
+      });
+      team2SelectedFuture.forEach((pick) => {
+        team2.futurePicks = team2.futurePicks.filter(p => !(p.r === pick.r && p.t === pick.t));
+        team1.futurePicks.push(pick);
+        team1Assets.futurePicks.push(pick);
+        team1Strings.push(`'27 ${pick.r}RP (${pick.t})`);
+      });
+      team2SelectedPlayers.forEach((player) => {
+        allPositionList.forEach((position) => {
+          if (team2[position].includes(player)) {
+            team2[position] = team2[position].filter(p => p !== player);
+            team1[position].push(player);
+            team1Assets.players.push(player);
+            team1Strings.push(`${player}`);
+          }
+        });
+      });
+
+      team1Strings.forEach((item, index) => {if (index === team1Strings.length - 1) team1String += `${item}`; else team1String += `${item}, `;});
+      team2Strings.forEach((item, index) => {if (index === team2Strings.length - 1) team2String += `${item}`; else team2String += `${item}, `;});
+
+      localStorage.setItem(`${team1.name}test`, JSON.stringify(newTest1));
+      localStorage.setItem(`${team2.name}test`, JSON.stringify(newTest2));
+
+      localStorage.setItem(`trade${tradeID}-1`, JSON.stringify(team1Assets));
+      localStorage.setItem(`trade${tradeID}-1string`, team1String);
+      localStorage.setItem(`trade${tradeID}-2`, JSON.stringify(team2Assets));
+      localStorage.setItem(`trade${tradeID}-2string`, team2String);
+
+      document.body.removeChild(tradePage);
+      document.querySelector('.draft-order-panel').innerHTML = '';
+      buildDraftOrder2(selectedValue);
+      otcHeaderElem.innerHTML = '';
+      changeHeader();
+    }
+  });
 });
 
 function startDraft() { // Close pre-draft settings and start draft
@@ -77,15 +675,16 @@ function startDraft() { // Close pre-draft settings and start draft
     nameValue = 'Auto Draft';
     localStorage.setItem('nameInput', JSON.stringify(nameValue));
   }
+  selectedBoard = JSON.parse(localStorage.getItem('boardInput'));
 
-  for (let i = 1; i < 1000; i++) { // Build the list of all players
-    playerData.forEach((player) => {
-      if (player.consensus === i) {
-        buildPlayerList(player);
-      }
-    });
+  if (document.querySelector('.begin').innerHTML !== 'PAUSE') {
+    for (let i = 1; i < 1000; i++) { // Build the list of all players
+      playerData26.forEach((player) => {
+        if (player[`${selectedBoard}`] === i) {buildPlayerList(player)}
+      });
+    }
+    document.querySelector('.players-player-js').innerHTML += playerList; // Display player list
   }
-  document.querySelector('.players-player-js').innerHTML += playerList; // Display player list
 
   positionSort(); // Add functionality to position buttons
   const playerCard = document.querySelectorAll('.player-card-js');
@@ -94,10 +693,12 @@ function startDraft() { // Close pre-draft settings and start draft
 }
 
 function buildPlayerList(player) { // Goes through every player in the player data script and adds this html for each player
+  rankUsed = player[`${selectedBoard}`];
+
   playerList += `
-    <div class="players-player-card player-card-js" data-rank="${player.consensus}">
+    <div class="players-player-card player-card-js" data-rank="${rankUsed}">
       <div class="players-player-card-rank">
-        ${player.consensus}
+        ${rankUsed}
       </div>
       <div class="players-player-card-name">
         ${player.name}
@@ -121,21 +722,17 @@ function positionSort() { // Add functionality to position buttons
       if (button.innerHTML === 'ALL') { // Show all players when 'ALL' button clicked
         playerList = '';
         for (let i = 1; i < 1000; i++) {
-          playerData.forEach((player) => {
-            if (player.consensus === i) {
-              buildPlayerList(player);
-            }
+          playerData26.forEach((player) => {
+            if (player[`${selectedBoard}`] === i) {buildPlayerList(player)}
           });
         }
       }
   
       
       for (let i = 1; i < 1000; i++) { // Any other button clicked, only add players of that position to the list
-        playerData.forEach((player) => {
-          if (player.consensus === i) {
-            if (player.position === button.innerHTML) {
-              buildPlayerList(player);
-            }
+        playerData26.forEach((player) => {
+          if (player[`${selectedBoard}`] === i) {
+            if (player.position === button.innerHTML) buildPlayerList(player);
           }
         });
       }
@@ -156,8 +753,19 @@ function displayProfile(playerCard, selectedValue) { // Add event listeners to p
       const profileHTML = document.querySelector(".profile-js");
       profileHTML.innerHTML = null; // Clear profile so the new one can be added
 
-      playerData.forEach((player) => {
-        if (player.consensus === Number(playerRank)) { // Get the correct player data to display
+      playerData26.forEach((player) => {
+        rankUsed = player[`${selectedBoard}`];
+        if (rankUsed === Number(playerRank)) { // Get the correct player data to display
+          profileHTML.setAttribute("style", `
+            background-color: rgb(20, 20, 20);
+            text-shadow: none;
+            display: grid;
+            grid-template-rows: 90px 70px 1fr;
+            flex-direction: none;
+            align-items: none;
+            padding: 0px;
+          `);
+          
           profileHTML.innerHTML += `
             <div class="info">
               <div class="info-logo">
@@ -181,17 +789,13 @@ function displayProfile(playerCard, selectedValue) { // Add event listeners to p
                 <div class="measurable-text">Weight</div>
                 <div class="measurable-value">${player.weight}</div>
               </div>
-              <div class="age measurable-item">
-                <div class="measurable-text">Age</div>
-                <div class="measurable-value">${player.age}</div>
-              </div>
               <div class="measurable-item">
                 <div class="measurable-text">Consensus</div>
                 <div class="measurable-value">${player.consensus}</div>
               </div>
               <div class="measurable-item">
-                <div class="measurable-text">PFF</div>
-                <div class="measurable-value">${player.rank}</div>
+                <div class="measurable-text">SIS Projected Role</div>
+                <div class="measurable-value">${player.pffGrade}</div>
               </div>
             </div>
 
@@ -200,7 +804,7 @@ function displayProfile(playerCard, selectedValue) { // Add event listeners to p
                 <span class="heading">Pre-Draft Analysis</span><br>${player.analysis}
               </div>
               <button class="ref">
-                <a href="${player.stats}" target="_blank" class="fbref">Sports Reference</a>
+                <a href="${player.stats}" target="_blank" class="fbref">SIS Full Report</a>
               </button>
             </div>
           `;
@@ -215,15 +819,16 @@ function displayProfile(playerCard, selectedValue) { // Add event listeners to p
   });
 }
 
-export function draftPlayer(selectedValue, player) { // Read selected player to add it correctly to team data and draft order display
+export function draftPlayer(selectedValue, player) {
   let selectingTeam = '';
+  rankUsed = player[`${selectedBoard}`];
 
   const teamPick = document.querySelectorAll('.pick-player'); // This is built in buildDraftOrder2(), it is where the player's name and info go
   teamPick.forEach((pick) => {
     if (otc === Number(pick.dataset.info)) { // otc starts at 1. The player selected when the first Draft button is clicked will match with the first team card in the draft panel
       pick.innerHTML = ` 
         <div class="pick-name">${player.name}</div>
-        <div class="pick-info">${player.position} ${player.school}</div>
+        <div class="pick-info">${player.position} ${player.school} (${rankUsed})</div>
       `;
       savePickInfo(pick.dataset.info, pick);
     }
@@ -241,13 +846,27 @@ export function draftPlayer(selectedValue, player) { // Read selected player to 
   
 
   nflTeams.forEach((team) => {
-    team.test.forEach((pick) => {
+    let newTest;
+    if (JSON.parse(localStorage.getItem(`${team.name}test`))) {
+      newTest = JSON.parse(localStorage.getItem(`${team.name}test`));
+    } else {
+      newTest = team.test;
+    }
+    newTest.forEach((pick) => {
       if (pick.n === otc) { // Finds which team owns the pick number that is being made
+        if (team.needs.includes(player.position)) {
+          team.needs = team.needs.filter(pos => pos !== player.position);
+        }
+        team.drafted.push(player.position);
+
         pick.p = `${player.position} ${player.name}`; // Set the player name for the pick that is being made
+        pick.pn = `${player.name}`;
+        pick.pos = `${player.position}`;
         localStorage.setItem(`${pick.n}${team.name}`, JSON.stringify(pick)); // Save the player selected at this pick number for it can be displayed in the summary
         selectingTeam = team.name;
       }
     });
+    localStorage.setItem(`${team.name}test`, JSON.stringify(newTest));
   });
 
   scoringData.push({n: otc, t: selectingTeam, p: player.name});
@@ -269,7 +888,7 @@ export function draftPlayer(selectedValue, player) { // Read selected player to 
         break;
       }
     case "3":
-      if (otc === 102) {
+      if (otc === 100) {
         window.location.href='new-summary.html';
         break;
       }
@@ -279,7 +898,7 @@ export function draftPlayer(selectedValue, player) { // Read selected player to 
         break;
       }
     case "5":
-      if (otc === 176) {
+      if (otc === 180) {
         window.location.href='new-summary.html';
         break;
       }
@@ -295,18 +914,16 @@ export function draftPlayer(selectedValue, player) { // Read selected player to 
       }
   }
 
-  let indexToRemove = playerData.findIndex(obj => obj.name === player.name);
+  let indexToRemove = playerData26.findIndex(obj => obj.name === player.name);
   if (indexToRemove !== -1) {
-    playerData.splice(indexToRemove, 1); // Remove the selected player from the js file of all players' data
+    playerData26.splice(indexToRemove, 1); // Remove the selected player from the js file of all players' data
   }
   
   playerList = ''; // Reset player list so it can be rebuilt without the just-selected player
 
   for (let i = 1; i < 1000; i++) {
-    playerData.forEach((player) => {
-      if (player.consensus === i) {
-        buildPlayerList(player); // Rebuild player list
-      }
+    playerData26.forEach((player) => {
+      if (player[`${selectedBoard}`] === i) {buildPlayerList(player)}
     });
   }
   document.querySelector('.players-player-js').innerHTML = playerList; // display new player cards
@@ -335,7 +952,7 @@ function userDraftPlayer(selectedValue, player) {
   singleAutoPick(selectedValue);
 }
 
-function changeHeader() { // Change the display at top based on which team is now on the clock
+function changeHeader() {
   nflTeams.forEach((team) => {
     let newTest;
     if (JSON.parse(localStorage.getItem(`${team.name}test`))) {
@@ -344,28 +961,87 @@ function changeHeader() { // Change the display at top based on which team is no
       newTest = team.test;
     }
 
-    if (newTest.some(obj => obj.n === otc)) { // If a team is next in the draft order, display their header
-      let listedPicks = [];
-      newTest.forEach((pick) => {
-        listedPicks.push(pick.n);
-      });
+    if (newTest.some(obj => obj.n === otc)) {
+
       document.querySelector('.otc-header').innerHTML = `
-        <div class="otc-panel" style="
-          background-color: white;
-            box-shadow: inset 0px 0px 150px ${team.color};
+        <div class="otcPanel" style="
+          background-color: rgb(0,0,0);
+          box-shadow: inset 0px 0px 350px ${team.color};
         ">
-          <div class="otc-logo">
-            <img class="otc-image" src="${team.logo}">
+          <div class="otcLogo">
+            <img class="otcImage" src="${team.logo}">
           </div>
-          <div class="otc-middle">
-            <div class="otc-text">ON THE CLOCK</div>
-            <div class="otc-picks">Picks: ${listedPicks}</div>
-            <div class="otc-needs">Needs: ${team.needs}</div>
+          <div class="otcInfo">
+            <div class="otcPicks">
+              <div class="otcInfoText">Picks</div>
+            </div>
+            <div class="otcNeeds">
+              <div class="otcInfoText">Needs</div>
+            </div>
           </div>
-          <div class="otc-team">${team.city}<br>${team.name}</div>
-          <div class="otc-previous"></div>
+          <div class="otcPlayers"></div>
+          <div class="otcText">ON<br>THE<br>CLOCK</div>
         </div>
       `;
+
+      newTest
+        .sort((a, b) => a.n - b.n)
+        .forEach((pick) => {
+          let pickOpacity;
+          if (pick.p !== "") {pickOpacity = 0.25} else {pickOpacity = 1}
+          document.querySelector('.otcPicks').innerHTML += `
+            <div class="otcPickCard" style="opacity: ${pickOpacity};">${pick.n}</div>
+          `;
+
+          if (pick.p !== "") {
+            document.querySelector('.otcPlayers').innerHTML += `
+              <div class="otcPlayerDiv">
+                <div class="otcPlayerOvr">${pick.n}</div>
+                <div class="otcPlayerPos">${pick.pos}</div>
+                <div class="otcPlayerName">${pick.pn}</div>
+              </div>
+            `;
+          }
+        });
+
+      team.needs.forEach((need) => {
+        document.querySelector('.otcNeeds').innerHTML += `
+          <div class="otcNeedCard">${need}</div>
+        `;
+      });
+      /*
+        <div class="otcPanel" style="
+          background-color: rgb(0,0,0);
+          box-shadow: inset 0px 0px 350px ${team.color};
+        ">
+          <div class="otcLogo">
+            <img class="otcImage" src="${team.logo}">
+          </div>
+          <div class="otcInfo">
+            <div class="otcPicks"></div>
+            <div class="otcNeeds"></div>
+          </div>
+          <div class="otcPlayers"></div>
+          <div class="otcText">ON<br>THE<br>CLOCK</div>
+        </div>
+
+        newTest
+          .sort((a, b) => a.n - b.n)
+          .forEach((pick) => {
+            let pickOpacity;
+            if (pick.p !== "") {pickOpacity = 0.25} else {pickOpacity = 1}
+            document.querySelector('.otcPicks').innerHTML += `
+              <div class="otcPickCard" style="opacity: ${pickOpacity};">${pick.n}</div>
+            `;
+          });
+
+        team.needs.forEach((need) => {
+          document.querySelector('.otcNeeds').innerHTML += `
+            <div class="otcNeedCard">${need}</div>
+          `;
+        });
+
+      
       newTest.forEach((pick) => { // If team is making their 2nd or later pick, this adds each of their previous picks to the header
         if (pick.p !== "" && pick.p !== undefined) { // If any of their picks contains a player, display that player in the header
           document.querySelector('.otc-previous').innerHTML += `
@@ -373,308 +1049,10 @@ function changeHeader() { // Change the display at top based on which team is no
           `;
         }
       });
+      */
     }
   });
 }
-
-let tradeOrder = 0;
-function showTrade(selectedValue) {
-  // Prevent multiple popups from being created
-  if (document.querySelector('.settings-popup')) return;
-
-  document.body.insertAdjacentHTML('beforeend', `
-    <div class="closer">
-      <div class="shader"></div>
-      <div class="settings-popup">
-        <div class="settings-content">
-          <div class="trade-panel">
-            <div class="trade-team-section section-left">
-              <select class="trade-team-selector selectorA">
-                <option disabled selected>Choose Team 1</option>
-                <option value="Cardinals">Arizona Cardinals</option>
-                <option value="Falcons">Atlanta Falcons</option>
-                <option value="Ravens">Baltimore Ravens</option>
-                <option value="Bills">Buffalo Bills</option>
-                <option value="Panthers">Carolina Panthers</option>
-                <option value="Bears">Chicago Bears</option>
-                <option value="Bengals">Cincinnati Bengals</option>
-                <option value="Browns">Cleveland Browns</option>
-                <option value="Cowboys">Dallas Cowboys</option>
-                <option value="Broncos">Denver Broncos</option>
-                <option value="Lions">Detroit Lions</option>
-                <option value="Packers">Green Bay Packers</option>
-                <option value="Texans">Houston Texans</option>
-                <option value="Colts">Indianapolis Colts</option>
-                <option value="Jaguars">Jacksonville Jaguars</option>
-                <option value="Chiefs">Kansas City Chiefs</option>
-                <option value="Raiders">Las Vegas Raiders</option>
-                <option value="Chargers">Los Angeles Chargers</option>
-                <option value="Rams">Los Angeles Rams</option>
-                <option value="Dolphins">Miami Dolphins</option>
-                <option value="Vikings">Minnesota Vikings</option>
-                <option value="Patriots">New England Patriots</option>
-                <option value="Saints">New Orleans Saints</option>
-                <option value="Giants">New York Giants</option>
-                <option value="Jets">New York Jets</option>
-                <option value="Eagles">Philadelphia Eagles</option>
-                <option value="Steelers">Pittsburgh Steelers</option>
-                <option value="49ers">San Francisco 49ers</option>
-                <option value="Seahawks">Seattle Seahawks</option>
-                <option value="Buccaneers">Tampa Bay Buccaneers</option>
-                <option value="Titans">Tennessee Titans</option>
-                <option value="Commanders">Washington Commanders</option>
-              </select>
-              <ul id="teamA" class="trade-assets assets1"></ul>
-              <ul id="teamAFtr" class="trade-assets assets1"></ul>
-            </div>
-            <div class="trade-team-section">
-              <select class="trade-team-selector selectorB">
-                <option disabled selected>Choose Team 2</option>
-                <option value="Cardinals">Arizona Cardinals</option>
-                <option value="Falcons">Atlanta Falcons</option>
-                <option value="Ravens">Baltimore Ravens</option>
-                <option value="Bills">Buffalo Bills</option>
-                <option value="Panthers">Carolina Panthers</option>
-                <option value="Bears">Chicago Bears</option>
-                <option value="Bengals">Cincinnati Bengals</option>
-                <option value="Browns">Cleveland Browns</option>
-                <option value="Cowboys">Dallas Cowboys</option>
-                <option value="Broncos">Denver Broncos</option>
-                <option value="Lions">Detroit Lions</option>
-                <option value="Packers">Green Bay Packers</option>
-                <option value="Texans">Houston Texans</option>
-                <option value="Colts">Indianapolis Colts</option>
-                <option value="Jaguars">Jacksonville Jaguars</option>
-                <option value="Chiefs">Kansas City Chiefs</option>
-                <option value="Raiders">Las Vegas Raiders</option>
-                <option value="Chargers">Los Angeles Chargers</option>
-                <option value="Rams">Los Angeles Rams</option>
-                <option value="Dolphins">Miami Dolphins</option>
-                <option value="Vikings">Minnesota Vikings</option>
-                <option value="Patriots">New England Patriots</option>
-                <option value="Saints">New Orleans Saints</option>
-                <option value="Giants">New York Giants</option>
-                <option value="Jets">New York Jets</option>
-                <option value="Eagles">Philadelphia Eagles</option>
-                <option value="Steelers">Pittsburgh Steelers</option>
-                <option value="49ers">San Francisco 49ers</option>
-                <option value="Seahawks">Seattle Seahawks</option>
-                <option value="Buccaneers">Tampa Bay Buccaneers</option>
-                <option value="Titans">Tennessee Titans</option>
-                <option value="Commanders">Washington Commanders</option>
-              </select>
-              <ul id="teamB" class="trade-assets assets1"></ul>
-              <ul id="teamBFtr" class="trade-assets assets1"></ul>
-            </div>
-          </div>
-          <div class="buttons">
-            <button class="submit-trade">Submit Trade</button>
-            <button class="close-settings">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  `);
-
-  let selectedA = [];
-  let selectedB = [];
-  const tradeTeamA = document.querySelector('.selectorA');
-  const tradeTeamB = document.querySelector('.selectorB');
-
-  function renderTeams() {
-    let teamAList = document.getElementById('teamA');
-    let teamAFtrList = document.getElementById('teamAFtr');
-    let teamBList = document.getElementById('teamB');
-    let teamBFtrList = document.getElementById('teamBFtr');
-    teamAList.innerHTML = '';
-    teamBList.innerHTML = '';
-
-    tradeTeamA.addEventListener("change", () => {
-      selectedA = [];
-      teamAList.replaceChildren();
-      teamAFtrList.replaceChildren();
-      nflTeams.forEach((team) => {
-        if (team.name === tradeTeamA.value) {
-          team.test.forEach((pick) => {
-            if (pick.n >= otc) {
-              let li = document.createElement('li'); // Create <li> for each pick
-              li.textContent = `R${pick.r} #${pick.n}`; // Fill in <li> content
-              li.onclick = () => selectItem(li, pick, `${team.name}`); // Add class to color the <li>, and save the pick so we can trade it and remove the class later
-              teamAList.appendChild(li);
-            }
-          });
-          team.future.forEach((pick) => {
-            if (true) {
-              let li = document.createElement('li'); // Create <li> for each pick
-              li.textContent = `${pick}`; // Fill in <li> content
-              li.onclick = () => selectItem(li, pick, `${team.name}`); // Add class to color the <li>, and save the pick so we can trade it and remove the class later
-              teamAFtrList.appendChild(li);
-            }
-          });
-        }
-      });
-    });
-
-    tradeTeamB.addEventListener("change", () => {
-      selectedB = [];
-      teamBList.replaceChildren();
-      teamBFtrList.replaceChildren();
-      nflTeams.forEach((team) => {
-        if (team.name === tradeTeamB.value) {
-          team.test.forEach((pick) => {
-            if (pick.n >= otc) {
-              let li = document.createElement('li'); // Create <li> for each pick
-              li.textContent = `R${pick.r} #${pick.n}`; // Fill in <li> content
-              li.onclick = () => selectItem(li, pick, `${team.name}`); // Add class to color the <li>, and save the pick so we can trade it and remove the class later
-              teamBList.appendChild(li);
-            }
-          });
-          team.future.forEach((pick) => {
-            if (true) {
-              let li = document.createElement('li'); // Create <li> for each pick
-              li.textContent = `${pick}`; // Fill in <li> content
-              li.onclick = () => selectItem(li, pick, `${team.name}`); // Add class to color the <li>, and save the pick so we can trade it and remove the class later
-              teamBFtrList.appendChild(li);
-            }
-          });
-        }
-      });
-    });
-  }
-
-  function selectItem(item, asset, team) {
-    if (team === tradeTeamA.value) {
-      if (!selectedA.some(v => v.element === item && v.asset === asset)) { // If it's not already selected, select it and highlight
-        selectedA.push({ element: item, asset }); // Save the <li> and specific pick to switch the pick and move the <li> if it is traded
-        item.classList.remove('deselected');
-      } else { // If it is already selected, remove it from selected list and remove highlight
-        selectedA = selectedA.filter(v => !(v.element === item && v.asset === asset));
-        item.classList.add('deselected');
-      }
-    } else if (team === tradeTeamB.value) {
-      if (!selectedB.some(v => v.element === item && v.asset === asset)) {
-        selectedB.push({ element: item, asset });
-        item.classList.remove('deselected');
-      } else {
-        selectedB = selectedB.filter(v => !(v.element === item && v.asset === asset));
-        item.classList.add('deselected');
-      }
-    }
-    item.classList.add('selected'); // Add color to newly selected one
-  }
-
-  let rounds = selectedValue;
-  
-  function trade(rounds) {
-    if (selectedA.length !== 0 && selectedB.length !== 0) {
-      tradeOrder += 1;
-
-      let arrayTeamA = nflTeams.find(team => team.name === tradeTeamA.value);
-      let arrayTeamB = nflTeams.find(team => team.name === tradeTeamB.value);
-  
-      selectedA.forEach((apick) => {
-        arrayTeamA.test = arrayTeamA.test.filter(asset => asset !== apick.asset);
-        arrayTeamB.test.push(apick.asset);
-        arrayTeamA.future = arrayTeamA.future.filter(asset => asset !== apick.asset);
-        if (typeof(apick.asset) === 'string') {
-          arrayTeamB.future.push(apick.asset);
-        }
-        apick.element.classList.remove('selected');
-      });
-  
-      selectedB.forEach((bpick) => {
-        arrayTeamB.test = arrayTeamB.test.filter(asset => asset !== bpick.asset);
-        arrayTeamA.test.push(bpick.asset);
-        arrayTeamB.future = arrayTeamB.future.filter(asset => asset !== bpick.asset);
-        if (typeof(bpick.asset) === 'string') {
-          arrayTeamA.future.push(bpick.asset);
-        }
-        bpick.element.classList.remove('selected');
-      });
-
-      // save each team.test
-      localStorage.setItem(`${arrayTeamA.name}test`, JSON.stringify(arrayTeamA.test));
-      localStorage.setItem(`${arrayTeamB.name}test`, JSON.stringify(arrayTeamB.test));
-
-      // before clearing selected lists, save them to use in trade summary
-
-      let preTradeSummaryListA = [];
-      selectedA.forEach((item) => {
-        if (typeof(item.asset) === 'object') {
-          preTradeSummaryListA.push(`R${item.asset.r} #${item.asset.n}`);
-        } else {
-          preTradeSummaryListA.push(item.asset);
-        }
-      });
-      let tradeSummaryListA = `<span class="bold">${arrayTeamB.name}</span> get: `;
-      preTradeSummaryListA.forEach((item, index) => {
-        if (index === preTradeSummaryListA.length - 1) {
-          tradeSummaryListA += `${item}`;
-        } else {
-          tradeSummaryListA += `${item}, `;
-        }
-      });
-
-      let preTradeSummaryListB = [];
-      selectedB.forEach((item) => {
-        if (typeof(item.asset) === 'object') {
-          preTradeSummaryListB.push(`R${item.asset.r} #${item.asset.n}`);
-        } else {
-          preTradeSummaryListB.push(item.asset);
-        }
-      });
-      let tradeSummaryListB = `<span class="bold">${arrayTeamA.name}</span> get: `;
-      preTradeSummaryListB.forEach((item, index) => {
-        if (index === preTradeSummaryListB.length - 1) {
-          tradeSummaryListB += `${item}`;
-        } else {
-          tradeSummaryListB += `${item}, `;
-        }
-      });
-
-      localStorage.setItem(`${tradeOrder}${arrayTeamA.name}received`, tradeSummaryListB);
-      localStorage.setItem(`${tradeOrder}${arrayTeamA.name}partner`, JSON.stringify(arrayTeamB.name));
-      localStorage.setItem(`${tradeOrder}${arrayTeamB.name}received`, tradeSummaryListA);
-      localStorage.setItem(`${tradeOrder}${arrayTeamB.name}partner`, JSON.stringify(arrayTeamA.name));
-      localStorage.setItem(`${tradeOrder}tradeA`, tradeSummaryListA);
-      localStorage.setItem(`${tradeOrder}tradeB`, tradeSummaryListB);
-
-      selectedA = [];
-      selectedB = [];
-
-      document.querySelector('.closer').remove();
-    }
-    document.querySelector('.draft-order-panel').innerHTML = '';
-    buildDraftOrder2(rounds);
-    changeHeader();
-  }
-
-  renderTeams();
-
-  document.querySelector('.submit-trade').addEventListener("click", () => {
-    trade(rounds);
-  });
-  
-  attachCloseEvent(); // Attach close event after popup is added
-}
-
-function tradeFunction(selectedValue) {
-  document.querySelector('.trade').addEventListener("click", () => {
-    showTrade(selectedValue); // Ensure this function recreates .settings-popup
-    attachCloseEvent(); // Attach close event after .settings-popup is created
-  });
-}
-
-function attachCloseEvent() {
-  const closeBtn = document.querySelector('.close-settings');
-  if (closeBtn) {
-    closeBtn.addEventListener("click", () => {
-      document.querySelector('.closer').remove();
-    }, { once: true }); // Ensure this event fires only once
-  }
-}
-
-
 
 document.querySelector('.settings').addEventListener("click", () => { // Add functionality to restart button
   if(confirm("Are you sure you want to restart?")) {

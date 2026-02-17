@@ -1,0 +1,93 @@
+body {
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr 300px 700px 400px 1fr;
+  height: 100vh;
+}
+
+.left {
+  background-color: rgba(78, 35, 35, 0);
+  border-left: 1px solid rgba(103, 76, 116, 0);
+  border-right: 1px solid rgb(103, 76, 116);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.middle {
+  background-color: rgba(47, 78, 35, 0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.right {
+  background-color: rgba(35, 39, 78, 0);
+  border-left: 1px solid rgb(103, 76, 116);
+  border-right: 1px solid rgba(103, 76, 116, 0);
+}
+
+.logo {
+  width: 290px;
+  height: 109px;
+  box-shadow: 0px 5px 5px black;
+  margin-top: 5px;
+  border-radius: 10px;
+}
+
+.playersBtn {
+  margin-top: 10px;
+  background: linear-gradient(to right, rgb(6, 7, 12) 10%, rgb(32, 35, 54), rgb(6, 7, 12) 90%);
+  height: 50px;
+  width: 290px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 5px black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.playersBtn div {
+  color: rgb(185, 185, 185);
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.newDraft {
+  background: linear-gradient(to right, rgb(6, 7, 12) 10%, rgb(32, 35, 54), rgb(6, 7, 12) 90%);
+  box-shadow: 0px 5px 5px black;
+  width: 690px;
+  height: 109px;
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 60px;
+  font-weight: 700;
+  color: rgb(255, 255, 255);
+  transition: all 0.25s;
+}
+.newDraft:hover {
+  background: linear-gradient(to right, rgb(15, 16, 27) 10%, rgb(41, 44, 68), rgb(15, 16, 27) 90%);
+}
+
+.yourDrafts {
+  background-color: rgb(10, 3, 10);
+  background: linear-gradient(to bottom, rgb(10, 3, 10), transparent);
+  height: 100vh;
+  width: 700px;
+  margin-top: 10px;
+  border-top: 1px solid rgb(103, 76, 116);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: scroll;
+}
+
+.header {
+  font-size: 60px;
+  font-weight: 500;
+  margin-top: 50px;
+  text-decoration: underline 6px;
+}

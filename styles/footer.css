@@ -1,10 +1,10 @@
 .settings-bar {
-  background-color: rgb(53, 21, 53);
+  background-color: rgb(30, 30, 30);
   position: fixed;
-  bottom: 15px;
-  left: 24%;
-  right: 15px;
-  height: 50px;
+  bottom: 6%;
+  left: 32%;
+  right: 5%;
+  height: 6%;
   display: grid;
   column-gap: 8px;
   grid-template-columns: 1fr 1fr 1fr;
@@ -23,6 +23,7 @@
   cursor: pointer;
   transition: 0.15s;
   border: 1px solid black;
+  border-radius: 100px;
 }
 
 .settings-text {
@@ -32,6 +33,7 @@
 
 .settings-option:hover {
   background-color: rgb(194, 194, 194);
+  transform: scale(0.98);
 }
 
 .settings-option:active {
@@ -39,13 +41,14 @@
 }
 
 .begin {
-  background: linear-gradient(to right, #590586, #a431e2);
+  background-color: rgb(255, 94, 0);
   color: white;
   text-shadow: 0px 0px 4px rgba(0, 0, 0, 1);
   font-size: 24px;
   font-weight: 700;
+  box-shadow: none;
 }
 
 .begin:hover {
-  background: linear-gradient(to right, #490370, #881bc3);
+  background-color: rgb(230, 84, 0);
 }

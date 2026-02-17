@@ -1,9 +1,18 @@
 import { nflTeams } from "./nfl-team-data.js";
 import { playerData } from "./player-data.js";
+import { playerData26 } from "./playerData26.js";
 import { consensusData } from "./consensus-draft.js";
 
 let score = 0;
+let rankUsed;
+let selectedBoard = JSON.parse(localStorage.getItem('boardInput'));
 //let version = JSON.parse(localStorage.getItem('version'));
+
+document.querySelector('.newDraftBtn').addEventListener("click", () => { // Add functionality to restart button
+  if(confirm("Are you sure you want to start a new draft?")) {
+    window.location.href = 'index.html';
+  }
+});
 
 window.addEventListener("DOMContentLoaded", () => {
   const key = "functionExecuted";
@@ -100,9 +109,9 @@ document.querySelector('.next-summary').addEventListener("click", () => {
       }
       break;
     case '2':
-      buildSummary(65, 103);
+      buildSummary(65, 101);
       summaryViewing += 1;
-      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(19, 54px)';
+      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(18, 54px)';
       document.querySelectorAll('.rs-pick:nth-child(n+17)').forEach(el => el.style.borderRight = '1px solid black');
       document.querySelectorAll('.rs-pick:nth-child(n+20)').forEach(el => el.style.borderRight = 'none');
       document.querySelectorAll('.rs-pick:nth-child(16n+16)').forEach(el => el.style.borderBottom = '1px solid black');
@@ -113,9 +122,9 @@ document.querySelector('.next-summary').addEventListener("click", () => {
       }
       break;
     case '3':
-      buildSummary(103, 139);
+      buildSummary(101, 139);
       summaryViewing += 1;
-      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(18, 54px)';
+      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(19, 54px)';
       document.querySelectorAll('.rs-pick:nth-child(n+17)').forEach(el => el.style.borderRight = '1px solid black');
       document.querySelectorAll('.rs-pick:nth-child(n+19)').forEach(el => el.style.borderRight = 'none');
       document.querySelectorAll('.rs-pick:nth-child(16n+16)').forEach(el => el.style.borderBottom = '1px solid black');
@@ -126,9 +135,9 @@ document.querySelector('.next-summary').addEventListener("click", () => {
       }
       break;
     case '4':
-      buildSummary(139, 177);
+      buildSummary(139, 181);
       summaryViewing += 1;
-      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(19, 54px)';
+      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(21, 54px)';
       document.querySelectorAll('.rs-pick:nth-child(n+17)').forEach(el => el.style.borderRight = '1px solid black');
       document.querySelectorAll('.rs-pick:nth-child(n+20)').forEach(el => el.style.borderRight = 'none');
       document.querySelectorAll('.rs-pick:nth-child(16n+16)').forEach(el => el.style.borderBottom = '1px solid black');
@@ -139,9 +148,9 @@ document.querySelector('.next-summary').addEventListener("click", () => {
       }
       break;
     case '5':
-      buildSummary(177, 217);
+      buildSummary(181, 217);
       summaryViewing += 1;
-      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(20, 54px)';
+      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(18, 54px)';
       document.querySelectorAll('.rs-pick:nth-child(n+17)').forEach(el => el.style.borderRight = '1px solid black');
       document.querySelectorAll('.rs-pick:nth-child(n+21)').forEach(el => el.style.borderRight = 'none');
       document.querySelectorAll('.rs-pick:nth-child(16n+16)').forEach(el => el.style.borderBottom = '1px solid black');
@@ -183,10 +192,10 @@ document.querySelector('.last-summary').addEventListener("click", () => {
       document.querySelector('.rs-header-round').innerHTML = `Second `;
       break;
     case '4':
-      buildSummary(65, 103);
+      buildSummary(65, 101);
       summaryViewing -= 1;
       showNext();
-      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(19, 54px)';
+      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(18, 54px)';
       document.querySelectorAll('.rs-pick:nth-child(n+17)').forEach(el => el.style.borderRight = '1px solid black');
       document.querySelectorAll('.rs-pick:nth-child(n+20)').forEach(el => el.style.borderRight = 'none');
       document.querySelectorAll('.rs-pick:nth-child(16n+16)').forEach(el => el.style.borderBottom = '1px solid black');
@@ -194,10 +203,10 @@ document.querySelector('.last-summary').addEventListener("click", () => {
       document.querySelector('.rs-header-round').innerHTML = `Third `;
       break;
     case '5':
-      buildSummary(103, 139);
+      buildSummary(101, 139);
       summaryViewing -= 1;
       showNext();
-      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(18, 54px)';
+      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(19, 54px)';
       document.querySelectorAll('.rs-pick:nth-child(n+17)').forEach(el => el.style.borderRight = '1px solid black');
       document.querySelectorAll('.rs-pick:nth-child(n+19)').forEach(el => el.style.borderRight = 'none');
       document.querySelectorAll('.rs-pick:nth-child(16n+16)').forEach(el => el.style.borderBottom = '1px solid black');
@@ -205,10 +214,10 @@ document.querySelector('.last-summary').addEventListener("click", () => {
       document.querySelector('.rs-header-round').innerHTML = `Fourth `;
       break;
     case '6':
-      buildSummary(139, 177);
+      buildSummary(139, 181);
       summaryViewing -= 1;
       showNext();
-      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(19, 54px)';
+      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(21, 54px)';
       document.querySelectorAll('.rs-pick:nth-child(n+17)').forEach(el => el.style.borderRight = '1px solid black');
       document.querySelectorAll('.rs-pick:nth-child(n+20)').forEach(el => el.style.borderRight = 'none');
       document.querySelectorAll('.rs-pick:nth-child(16n+16)').forEach(el => el.style.borderBottom = '1px solid black');
@@ -216,10 +225,10 @@ document.querySelector('.last-summary').addEventListener("click", () => {
       document.querySelector('.rs-header-round').innerHTML = `Fifth `;
       break;
     case '7':
-      buildSummary(177, 217);
+      buildSummary(181, 217);
       summaryViewing -= 1;
       showNext();
-      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(20, 54px)';
+      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(18, 54px)';
       document.querySelectorAll('.rs-pick:nth-child(n+17)').forEach(el => el.style.borderRight = '1px solid black');
       document.querySelectorAll('.rs-pick:nth-child(n+21)').forEach(el => el.style.borderRight = 'none');
       document.querySelectorAll('.rs-pick:nth-child(16n+16)').forEach(el => el.style.borderBottom = '1px solid black');
@@ -254,22 +263,22 @@ function buildSummary(low, high) {
 
       if (newTest.some(obj => obj.n === i)) {
         let example = JSON.parse(localStorage.getItem(`${i}${team.name}`)); // Get each pick that was saved when the draft button was clicked
-        playerData.forEach((player) => {
+        playerData26.forEach((player) => {
           if (example.p === `${player.position} ${player.name}`) {
             draftee = player; // access player data
           }
         });
+        rankUsed = draftee[`${selectedBoard}`];
   
         document.querySelector('.rs-grid').innerHTML += `
           <div class="rs-pick" style="
-            background: linear-gradient(to left, white, white, ${team.color});
-            background: radial-gradient(ellipse 350px 100px, white, ${team.color});
+            background: radial-gradient(ellipse 350px 100px, ${team.color}, black);
           ">
             <div class="rs-pick-number">${i}</div>
             <img src="${team.logo}" class="rs-pick-image">
             <div class="rs-pick-player">
               <div class="rs-pick-name">${draftee.name}</div>
-              <div class="rs-pick-info">${draftee.position} ${draftee.school}</div>
+              <div class="rs-pick-info">${draftee.position} ${draftee.school} (${rankUsed})</div>
             </div>
             <img src="${draftee.schoolLogo}" class="rs-school-image">
           </div>
@@ -278,47 +287,35 @@ function buildSummary(low, high) {
     });
   }
 
-  let f = 1;
-  let addedAnything = false;
-  while (f < 20) {
-    const tradeA = localStorage.getItem(`${f}tradeA`);
-    const tradeB = localStorage.getItem(`${f}tradeB`);
-  
-    if (tradeA) {
-      const hasValidNumber = (str) => {
-        const matches = str.match(/#\d+/g); // get all #numbers like #1, #25, etc.
-        console.log(matches);
-        if (!matches) return false;
-  
-        return matches.some(match => {
-          const num = parseInt(match.slice(1)); // remove the '#' and convert to number
-          return num >= low && num <= high-1;
-        });
-      };
-  
-      if (hasValidNumber(tradeA) || hasValidNumber(tradeB)) {
-        document.querySelector('.rs-trades').innerHTML += `
-          <div class="tst-item">${tradeA}<br>${tradeB}</div>
-        `;
-        addedAnything = true;
-      }
-  
-      f += 1;
-    } else {
-      f = 20; // break the loop
+  const totalTrades = localStorage.getItem('totalTrades');
+  let tradesOnPage = 0;
+  for (let i = 1; i <= totalTrades; i++) {
+    const team1Assets = JSON.parse(localStorage.getItem(`trade${i}-1`));
+    const team1String = localStorage.getItem(`trade${i}-1string`);
+    const team2Assets = JSON.parse(localStorage.getItem(`trade${i}-2`));
+    const team2String = localStorage.getItem(`trade${i}-2string`);
+
+    if (team1Assets.currentPicks.some(p => p.n >= low && p.n <= high-1) || team2Assets.currentPicks.some(p => p.n >= low && p.n <= high-1)) {
+      document.querySelector('.rs-trades').innerHTML += `
+        <div class="tst-item roundSumItem" data-id="${i}">${team1String}<br>${team2String}</div>
+      `;
+      document.querySelector('.rs-trades').style.paddingTop = '5px';
+      document.querySelector('.rs-trades').style.borderTop = '1px solid black';
+      tradesOnPage += 1;
     }
   }
 
-  if (addedAnything) {
-    document.querySelector('.rs-trades').insertAdjacentHTML('afterbegin', `
-      <div class="tst-header">Trades</div>
-    `);
-    document.querySelector('.rs-trades').style.paddingTop = '5px';
-    document.querySelector('.rs-trades').style.borderTop = '1px solid black';
-  } else {
+  if (tradesOnPage === 0) {
     document.querySelector('.rs-trades').style.paddingTop = '0px';
     document.querySelector('.rs-trades').style.borderTop = 'none';
   }
+
+  document.querySelectorAll('.roundSumItem').forEach((item) => {
+    if (Number(item.dataset.id) !== Number(tradesOnPage)) {
+      item.style.borderBottom = '1px solid black';
+      item.style.padding = '0px 0px 10px 0px';
+    }
+  });
 
   let yourMom = document.querySelector('.round-summary').innerHTML;
   localStorage.setItem('roundSummary', JSON.stringify(yourMom));
@@ -337,13 +334,13 @@ function buildTeamSummary(draftee) {
       totalPicks = 65;
       break;
     case '3':
-      totalPicks = 103;
+      totalPicks = 101;
       break;
     case '4':
       totalPicks = 139;
       break;
     case '5':
-      totalPicks = 177;
+      totalPicks = 181;
       break;
     case '6':
       totalPicks = 217;
@@ -371,21 +368,22 @@ function buildTeamSummary(draftee) {
       for (let i = 1; i < totalPicks; i++) {
         if (newTest.some(obj => obj.n === i)) {
           let example = JSON.parse(localStorage.getItem(`${i}${team.name}`)); // Get each pick that was saved when the draft button was clicked
-          playerData.forEach((player) => {
+          playerData26.forEach((player) => {
             if (example.p === `${player.position} ${player.name}`) {
               draftee = player; // access player data
             }
           });
+          rankUsed = draftee[`${selectedBoard}`];
 
           document.querySelector('.ts-pick-list').innerHTML += `
             <div class="ts-pick" style="
-              background: radial-gradient(ellipse 1500px 100px, white, ${team.color});
+              background: radial-gradient(ellipse 1500px 100px, ${team.color}, black);
             ">
               <div class="rs-pick-number">${i}</div>
               <img src="${team.logo}" class="rs-pick-image">
               <div class="rs-pick-player">
                 <div class="rs-pick-name">${draftee.name}</div>
-                <div class="rs-pick-info">${draftee.position} ${draftee.school}</div>
+                <div class="rs-pick-info">${draftee.position} ${draftee.school} (${rankUsed})</div>
               </div>
               <img src="${draftee.schoolLogo}" class="rs-school-image">
             </div>
@@ -393,27 +391,30 @@ function buildTeamSummary(draftee) {
         }
       }
 
-      let g = 1;
-      while (g < 20) {
-        if (localStorage.getItem(`${g}${team.name}received`)) {
-          document.querySelector('.ts-trades').innerHTML += `<div class="tst-header">Trades</div>`;
+      const totalTrades = localStorage.getItem('totalTrades');
+      let tradesOnPage = 0;
+      for (let i = 1; i <= totalTrades; i++) {
+        const team1Assets = JSON.parse(localStorage.getItem(`trade${i}-1`));
+        const team1String = localStorage.getItem(`trade${i}-1string`);
+        const team2Assets = JSON.parse(localStorage.getItem(`trade${i}-2`));
+        const team2String = localStorage.getItem(`trade${i}-2string`);
+
+        if (team1Assets.team === team.abbv || team2Assets.team === team.abbv) {
+          document.querySelector('.ts-trades').innerHTML += `
+            <div class="tst-item teamSumItem" data-id="${i}">${team1String}<br>${team2String}</div>
+          `;
           document.querySelector('.ts-trades').style.paddingTop = '5px';
           document.querySelector('.ts-trades').style.borderTop = '1px solid black';
-          g = 20;
+          tradesOnPage += 1;
         }
-        g += 1;
       }
 
-      let h = 1;
-      while (h < 20) {
-        if (localStorage.getItem(`${h}${team.name}received`)) {
-          let partner = JSON.parse(localStorage.getItem(`${h}${team.name}partner`));
-          document.querySelector('.ts-trades').innerHTML += `
-            <div class="tst-item">${localStorage.getItem(`${h}${team.name}received`)}<br>${localStorage.getItem(`${h}${partner}received`)}</div>
-          `;
+      document.querySelectorAll('.teamSumItem').forEach((item) => {
+        if (Number(item.dataset.id) !== Number(tradesOnPage)) {
+          item.style.borderBottom = '1px solid black';
+          item.style.padding = '0px 0px 10px 0px';
         }
-        h += 1;
-      }
+      });
     }
   });
 }
