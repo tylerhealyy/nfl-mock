@@ -87,7 +87,7 @@ for (let i = 1; i <= 32; i++) {
       document.getElementById('teams').innerHTML += `
         <div class="team-block" id="team-block" data-team="${team.name}">
           <img src="${team.logo}" class="team-block-logo">  
-          <img src="../images/ellipsis.png" class="teamBlockEllipsis">
+          <img src="../images/left-arrow.png" class="teamBlockEllipsis">
         </div>
       `;
     }
