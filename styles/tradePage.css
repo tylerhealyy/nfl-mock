@@ -138,12 +138,13 @@
 
 .tradeCloseBtn {
   position: absolute;
+  height: 24px;
   top: 10px;
   right: 10px;
   cursor: pointer;
   transition: 0.1s ease;
   box-shadow: 0px 0px 3px rgba(0, 0, 0, 1);
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .tradeCloseBtn:hover {
