@@ -13,7 +13,7 @@ body {
 .round-summary,
 .ts-summary {
   background-color: rgba(255, 255, 255, 0);
-  width: 700px;
+  min-width: 700px;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -33,7 +33,7 @@ body {
 
 .ts-summary {
   height: auto;
-  width: 600px;
+  min-width: 600px;
 }
 
 .round-summary:hover,
