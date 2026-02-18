@@ -87,7 +87,7 @@ for (let i = 1; i <= 32; i++) {
       document.getElementById('teams').innerHTML += `
         <div class="team-block" id="team-block" data-team="${team.name}">
           <img src="${team.logo}" class="team-block-logo">  
-          <img src="../images/left-arrow.png" class="teamBlockEllipsis">
+          <img src="https://www.freeiconspng.com/uploads/white-down-arrow-png-2.png" class="teamBlockEllipsis">
         </div>
       `;
     }
@@ -136,7 +136,7 @@ document.querySelectorAll('.teamBlockEllipsis').forEach((ellipsis) => {
           `);
 
         displayBoxElem.innerHTML = `
-          <img class="closeButton" src="../images/closeIcon.png">
+          <img class="closeButton" src="https://img.icons8.com/ios_filled/512/FFFFFF/delete-sign--v2.png">
           <div class="teamHeader">
             <img class="teamHeaderImage" src="${team.logo}">
             <div class="teamHeaderName">

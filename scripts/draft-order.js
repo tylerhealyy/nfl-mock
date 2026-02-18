@@ -129,7 +129,7 @@ function buildPanelItems(i, rounds) { // Build HTML for each pick
                 `);
       
               displayBoxElem.innerHTML = `
-                <img class="closeButton" src="../images/closeIcon.png">
+                <img class="closeButton" src="https://img.icons8.com/ios_filled/512/FFFFFF/delete-sign--v2.png">
                 <div class="teamHeader">
                   <img class="teamHeaderImage" src="${team.logo}">
                   <div class="teamHeaderName">

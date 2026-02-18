@@ -102,7 +102,7 @@ document.querySelector('.trade').addEventListener("click", () => {
   document.body.appendChild(tradePage);
 
   tradePage.innerHTML = `
-    <img class="tradeCloseBtn" src="../images/closeIcon.png">
+    <img class="tradeCloseBtn" src="https://img.icons8.com/ios_filled/512/FFFFFF/delete-sign--v2.png">
     <div class="team1 tradeHalf"></div>
     <div class="divider"></div>
     <div class="team2 tradeHalf"></div>
@@ -111,7 +111,7 @@ document.querySelector('.trade').addEventListener("click", () => {
   const otcHeaderElem = document.querySelector('.otc-header');
   otcHeaderElem.innerHTML = `
     <div class="tradeHeader">
-      <img class="tradeSubmitBtn" src="../images/tradeIcon.png">
+      <img class="tradeSubmitBtn" src="https://static.vecteezy.com/system/resources/previews/049/440/373/non_2x/swap-icon-logo-set-vector.jpg">
       <div class="tradeValueCalc">
         <div class="tradeValueText">Fair</div>
         <div class="tradeValueBalance">0</div>
