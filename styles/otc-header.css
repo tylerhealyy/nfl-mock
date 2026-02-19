@@ -19,6 +19,7 @@
   left: 32%;
   right: 5%;
   height: 14%;
+  min-height: 100px;
   border-radius: 5px;
   border: 1px solid black;
   display: grid;
@@ -39,9 +40,10 @@
 .otcInfo {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   overflow: scroll;
-  padding: 10px 0px 10px 0px;
+  padding: 0px 0px 2px 0px;
+  row-gap: 5px;
 }
 
 .otcInfoText {
@@ -78,20 +80,20 @@
 }
 
 .otcText {
-  font-size: 38px;
+  font-size: 34px;
   font-weight: 700;
   text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
   text-align: end;
   align-self: center;
   padding: 0px 5px 0px 0px;
   color: white;
-  line-height: 32px;
+  line-height: 28px;
 }
 
 .otcPlayers {
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: 7px 10px 10px 10px;
   gap: 5px;
   overflow: scroll;
 }
@@ -100,75 +102,4 @@
   display: flex;
   flex-direction: row;
   gap: 5px;
-}
-
-
-
-
-
-
-
-
-
-
-.otc-middle {
-  display: flex;
-  flex-direction: column;
-  padding-left: 0px;
-  max-height: 100px;
-  margin: auto;
-}
-
-.otc-text {
-  display: flex;
-  align-items: start;
-  font-size: 66px;
-  font-weight: 700;
-  white-space: nowrap;
-  text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
-  height: 60px;
-  line-height: 60px;
-}
-
-.otc-picks {
-  font-size: 18px;
-  font-weight: 700;
-  padding-left: 5px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
-  line-height: 18px;
-}
-
-.otc-needs {
-  font-size: 16px;
-  font-weight: 700;
-  padding-left: 5px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
-}
-
-.otc-team {
-  font-size: 40px;
-  font-weight: 700;
-  line-height: 40px;
-  display: flex;
-  align-items: center;
-  text-align: start;
-  justify-content: start;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
-}
-
-.otc-previous {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding-right: 50px;
-  padding-top: 10px;
-  padding-bottom: 5px;
-  overflow: scroll;
-}
-
-.otc-previous-pick {
-  font-size: 16px;
-  font-weight: 500;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
-  padding-right: 5px;
-  padding-bottom: 5px;
 }

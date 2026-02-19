@@ -414,6 +414,7 @@ function aiDraftPick(team, otc) {
           if (team.needs.includes(player.position)) score += Math.floor(Math.random() * (5 - 1 + 1)) + 1;
           if (player.position === 'RB' && otc <= 5) score -= 2;
           if (player.position === 'WR' && otc <= 4) score -= 2;
+          if (player.position === 'CB' && otc <= 3) score -= 2;
           if (player.position === 'OT' && otc <= 32) score += 2;
           if (player.position === 'ED' && otc <= 10) score += 1;
           if (player.position === 'K' || player.position === 'P' || player.position === 'LS') score -= 10;
@@ -456,6 +457,7 @@ function aiDraftPick(team, otc) {
       function standardPositionalAdjustments() {
         if (player.position === 'RB' && otc <= 5) score -= 5;
         if (player.position === 'WR' && otc <= 4) score -= 5;
+        if (player.position === 'CB' && otc <= 3) score -= 5;
         if (player.position === 'OT' && otc <= 32) score += 5;
         if (player.position === 'ED' && otc <= 10) score += 3;
         if (player.position === 'K' || player.position === 'P' || player.position === 'LS') score -= 30;

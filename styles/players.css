@@ -1,7 +1,7 @@
 
 
 .players-positions {
-  background-color: rgba(83, 42, 83, 0);
+  background-color: rgb(30, 30, 30);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   position: fixed;
@@ -128,8 +128,6 @@
   left: 32%;
   width: 32%;
   height: 4%;
-  border-left: 1px solid rgb(53, 21, 53);
-  border-right: 1px solid rgb(53, 21, 53);
   padding-right: 0px;
 }
 .labels:hover {

@@ -80,7 +80,7 @@
 
 .seasonRecord,
 .gmAndHc {
-  padding-left: 50px;
+  padding-left: 10px;
 }
 
 .seasonCap,
@@ -113,15 +113,16 @@
 .needsHeader {
   font-size: 18px;
   font-weight: 700;
-  margin: 0px 0px 0px 10px;
+  margin: 0px 10px 0px 10px;
 }
 
 .needsContainer {
   max-height: fit-content;
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   font-size: 18px;
   font-weight: 700;
+  gap: 10px;
 }
 
 .needPosition {
@@ -133,7 +134,6 @@
   align-items: center;
   width: fit-content;
   padding: 0px 5px 0px 5px;
-  margin: 0px 0px 0px 10px;
   min-height: 30px;
   font-size: 16px;
   font-weight: 700;
@@ -160,19 +160,15 @@
   height: auto;
   border-bottom: 1px solid black;
   padding: 5px 0px 5px 0px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  display: flex;
+  flex-flow: row wrap;
   align-items: center;
   justify-items: center;
-  row-gap: 10px;
+  gap: 10px;
 }
 
 .tradePicks {
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-}
-
-.tradePicksF {
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  flex-flow: row wrap;
 }
 
 .currentPicks {

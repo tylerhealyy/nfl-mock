@@ -55,6 +55,7 @@ body {
   padding: 0px 10px 0px 10px;
   border: 1px solid black;
   overflow: scroll;
+  min-width: 340px;
 }
 
 .smoked {
