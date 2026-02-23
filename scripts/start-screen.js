@@ -19,9 +19,9 @@ displayBoxElem.innerHTML = `
       Select Big Board
     </div>
     <select class="board-input">
-      <option value="consensus">Consensus (Rec. for 3+ Rounds)</option>
-      <option value="pff">PFF (Top 100)</option>
-      <option value="sis">SIS (Top 100)</option>
+      <option value="consensus">Consensus</option>
+      <option value="pff">PFF</option>
+      <option value="sis">SIS</option>
     </select>
   </div>
   <div class="pick-rounds optionBox">

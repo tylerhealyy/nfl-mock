@@ -31,6 +31,8 @@ const picksPerRound = [{round:1, picks:0},
 {round:7, picks:216}
 ];
 
+loadCSV();
+
 nflTeams.forEach((team) => { // Reset all picks on every refresh
   team.test.forEach((pick) => {
     pick.p = "";
@@ -790,8 +792,8 @@ function displayProfile(playerCard, selectedValue) { // Add event listeners to p
                 <div class="measurable-value">${player.weight}</div>
               </div>
               <div class="measurable-item">
-                <div class="measurable-text">Consensus</div>
-                <div class="measurable-value">${player.consensus}</div>
+                <div class="measurable-text">RAS</div>
+                <div class="measurable-value">N/A</div>
               </div>
               <div class="measurable-item">
                 <div class="measurable-text">SIS Projected Role</div>
@@ -1066,6 +1068,27 @@ function savePickInfo(n, pick) {
 
 function savePickLogo(n, pick) {
   localStorage.setItem(`${n}logo`, JSON.stringify(pick.innerHTML));
+}
+
+async function loadCSV() {
+  const selectedBoard = JSON.parse(localStorage.getItem('boardInput'));
+  const response = await fetch(`../rankings/${selectedBoard}.csv`);
+  const text = await response.text();
+
+  const lines = text.trim().split("\n");
+  const headers = lines[0].split(",");
+
+  const result = lines.slice(1).map(line => {
+    const [Player, Rank] = line.split(",");
+    return { name: Player, rank: Number(Rank) };
+  });
+
+  playerData26.forEach((player) => {
+    const found = result.find(item => item.name === player.name);
+    if (found) {
+      player[selectedBoard] = found.rank;
+    }
+  });
 }
 
 /*function saveData() {
