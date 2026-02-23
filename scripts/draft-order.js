@@ -478,7 +478,7 @@ function aiDraftPick(team, otc) {
     .sort((a, b) => b.score - a.score)[0]; // Select best score
 }
 
-const otcAlertAudio = new Audio("../sounds/nfl-draft-chime2.mp3");
+const otcAlertAudio = new Audio("sounds/nfl-draft-chime2.mp3");
 otcAlertAudio.preload = "auto";
 otcAlertAudio.load();
 
