@@ -31,8 +31,6 @@ const picksPerRound = [{round:1, picks:0},
 {round:7, picks:216}
 ];
 
-loadCSV();
-
 nflTeams.forEach((team) => { // Reset all picks on every refresh
   team.test.forEach((pick) => {
     pick.p = "";
@@ -75,8 +73,7 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 document.querySelector('.begin').addEventListener("click", () => {
-  startDraft();
-  document.querySelector('.begin').innerHTML = 'PAUSE';
+  init();
   document.querySelector('.begin').style.background = 'white';
   document.querySelector('.begin').style.color = 'black';
   document.querySelector('.begin').style.textShadow = 'none';
@@ -687,7 +684,8 @@ function startDraft() { // Close pre-draft settings and start draft
     }
     document.querySelector('.players-player-js').innerHTML += playerList; // Display player list
   }
-
+  
+  document.querySelector('.begin').innerHTML = 'PAUSE';
   positionSort(); // Add functionality to position buttons
   const playerCard = document.querySelectorAll('.player-card-js');
   displayProfile(playerCard, selectedValue); // Add event listeners to every player card on the screen that displays their profile
@@ -1089,6 +1087,11 @@ async function loadCSV() {
       player[selectedBoard] = found.rank;
     }
   });
+}
+
+async function init() {
+  await loadCSV();
+  startDraft(); // only runs after rankings are loaded
 }
 
 /*function saveData() {
