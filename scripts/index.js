@@ -1070,7 +1070,7 @@ function savePickLogo(n, pick) {
 
 async function loadCSV() {
   const selectedBoard = JSON.parse(localStorage.getItem('boardInput'));
-  const response = await fetch(`../rankings/${selectedBoard}.csv`);
+  const response = await fetch(`rankings/${selectedBoard}.csv`);
   const text = await response.text();
 
   const lines = text.trim().split("\n");
