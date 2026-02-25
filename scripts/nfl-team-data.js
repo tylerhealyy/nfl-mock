@@ -554,7 +554,7 @@ export const nflTeams = [
     QB: ["Michael Penix Jr", "Kirk Cousins"],
     RB: ["Bijan Robinson", "Nate Carter", "Carlos Washington Jr"],
     WR: ["Drake London", "Darnell Mooney", "Khadarel Hodge", "Deven Thompkins", "Casey Washington", "Chris Blair", "Dylan Drummond"],
-    TE: ["Charlie Woerner", "Joshua Simon"],
+    TE: ["Kyle Pitts", "Charlie Woerner", "Joshua Simon"],
     OT: ["Jake Matthews", "Kaleb McGary", "Storm Norton", "Andrew Stueber", "Jack Nelson", "Michael Jerrell"],
     IOL: ["Chris Lindstrom", "Ryan Neuzil", "Matthew Bergeron", "Kyle Hinton"],
     ED: ["Jalon Walker", "James Pearce Jr", "Bralen Trice"],
