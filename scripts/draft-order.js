@@ -350,6 +350,7 @@ document.querySelector('.begin').addEventListener("click", () => {
 
 let listOfUserTeams = JSON.parse(localStorage.getItem('teamsInput'));
 let autoPickTeam = '';
+
 export function singleAutoPick(rounds) {
   if (isPaused) return;
 
@@ -401,9 +402,9 @@ function aiDraftPick(team, otc) {
   return playerData26
     .map(player => {
       rankUsed = player[`${selectedBoard}`];
+      if (rankUsed === null) return null;
       let score = 1000 - rankUsed; // Base score on player rating
 
-      if (rankUsed === null) score = 0;
       if (player.name === 'Fernando Mendoza') score += 500;
 
       switch (autoDraftEmphasis) {
@@ -464,6 +465,7 @@ function aiDraftPick(team, otc) {
         if (team.drafted.includes(player.position) && player.position === 'QB') score = 0;
         if (team.nogo.includes(player.position)) score = 0;
         if (team.drafted.includes(player.position)) score -= 5;
+        if (player.name === 'Ty Simpson' && otc <= 3) score -= 10;
       }
 
       function variability(chance, qbChance, genWhole, genHalf, firstWhole, firstHalf, lateWhole, lateHalf, qb) {
@@ -475,6 +477,7 @@ function aiDraftPick(team, otc) {
       
       return { ...player, score };
     })
+    .filter(player => player !== null)
     .sort((a, b) => b.score - a.score)[0]; // Select best score
 }
 

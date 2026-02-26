@@ -1065,21 +1065,6 @@ export const playerData26 = [
     stats: ""
   },
   {
-    name: "Brett Norfleet",
-    position: "TE",
-    school: "Missouri",
-    schoolLogo: "https://upload.wikimedia.org/wikipedia/en/thumb/2/2c/Missouri_Tigers_logo.svg/1200px-Missouri_Tigers_logo.svg.png",
-    height: "6'6",
-    weight: "263",
-    age: "",
-    pff: null,
-    pffGrade: "N/A",
-    consensus: 384,
-    sis: null,
-    analysis: "",
-    stats: ""
-  },
-  {
     name: "Robert Henry Jr",
     position: "RB",
     school: "UTSA",
@@ -1914,22 +1899,7 @@ export const playerData26 = [
     age: "",
     pff: null,
     pffGrade: "N/A",
-    consensus: null,
-    sis: null,
-    analysis: "",
-    stats: ""
-  },
-  {
-    name: "Trevor Lauck",
-    position: "OT",
-    school: "Iowa",
-    schoolLogo: "https://upload.wikimedia.org/wikipedia/en/thumb/7/7b/Iowa_Hawkeyes_logo.svg/1200px-Iowa_Hawkeyes_logo.svg.png",
-    height: "6'5",
-    weight: "310",
-    age: "",
-    pff: null,
-    pffGrade: "N/A",
-    consensus: 339,
+    consensus: 999,
     sis: null,
     analysis: "",
     stats: ""
@@ -2064,7 +2034,7 @@ export const playerData26 = [
     age: "",
     pff: null,
     pffGrade: "N/A",
-    consensus: null,
+    consensus: 999,
     sis: null,
     analysis: "",
     stats: ""
@@ -2332,7 +2302,7 @@ export const playerData26 = [
     height: "5'11",
     weight: "180",
     age: "",
-    pff: null,
+    pff: 102,
     pffGrade: "N/A",
     consensus: 247,
     sis: null,
@@ -2820,21 +2790,6 @@ export const playerData26 = [
     stats: ""
   },
   {
-    name: "Jaden Greathouse",
-    position: "WR",
-    school: "Notre Dame",
-    schoolLogo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Notre_Dame_Fighting_Irish_logo.svg/2276px-Notre_Dame_Fighting_Irish_logo.svg.png",
-    height: "6'1",
-    weight: "212",
-    age: "",
-    pff: null,
-    pffGrade: "N/A",
-    consensus: 364,
-    sis: null,
-    analysis: "",
-    stats: ""
-  },
-  {
     name: "Hank Beatty",
     position: "WR",
     school: "Illinois",
@@ -3010,21 +2965,6 @@ export const playerData26 = [
     pff: null,
     pffGrade: "N/A",
     consensus: 180,
-    sis: null,
-    analysis: "",
-    stats: ""
-  },
-  {
-    name: "Sheridan Wilson",
-    position: "IOL",
-    school: "Texas Tech",
-    schoolLogo: "schoolLogos/texas-tech.png",
-    height: "6'5",
-    weight: "300",
-    age: "",
-    pff: null,
-    pffGrade: "N/A",
-    consensus: 397,
     sis: null,
     analysis: "",
     stats: ""
@@ -3325,21 +3265,6 @@ export const playerData26 = [
     pff: null,
     pffGrade: "N/A",
     consensus: 137,
-    sis: null,
-    analysis: "",
-    stats: ""
-  },
-  {
-    name: "Braelin Moore",
-    position: "IOL",
-    school: "LSU",
-    schoolLogo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/LSU_Athletics_logo.svg/2560px-LSU_Athletics_logo.svg.png",
-    height: "6'2",
-    weight: "300",
-    age: "",
-    pff: null,
-    pffGrade: "N/A",
-    consensus: 377,
     sis: null,
     analysis: "",
     stats: ""
@@ -4020,7 +3945,7 @@ export const playerData26 = [
     stats: ""
   },
   {
-    name: "Harold Perkins",
+    name: "Harold Perkins Jr",
     position: "LB",
     school: "LSU",
     schoolLogo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/LSU_Athletics_logo.svg/2560px-LSU_Athletics_logo.svg.png",
@@ -4409,7 +4334,7 @@ export const playerData26 = [
     analysis: "6.4 - Kilgore is a long and versatile defensive back with good range and ball skills in coverage, and if he plays with more physicality he can be a consistent contributor for a defense at the next level. (SIS)",
     stats: "https://nfldraft.sportsinfosolutions.com/players/3330"
   },
-  {
+  /*{
     name: "Xavier Scott",
     position: "S",
     school: "Illinois",
@@ -4419,11 +4344,11 @@ export const playerData26 = [
     age: "",
     pff: null,
     pffGrade: "N/A",
-    consensus: null,
+    consensus: 999,
     sis: null,
     analysis: "",
     stats: ""
-  },
+  },*/
   {
     name: "Michael Taaffe",
     position: "S",
@@ -5130,21 +5055,6 @@ export const playerData26 = [
     stats: ""
   },
   {
-    name: "Andrew Gentry",
-    position: "OT",
-    school: "BYU",
-    schoolLogo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/BYU_Cougars_logo.svg/2560px-BYU_Cougars_logo.svg.png",
-    height: "6'8",
-    weight: "315",
-    age: "",
-    pff: null,
-    pffGrade: "N/A",
-    consensus: 293,
-    sis: null,
-    analysis: "",
-    stats: ""
-  },
-  {
     name: "Keyshaun Elliott",
     position: "LB",
     school: "Arizona State",
@@ -5512,7 +5422,7 @@ export const playerData26 = [
     height: "6'2",
     weight: "274",
     age: "",
-    pff: null,
+    pff: 101,
     pffGrade: "N/A",
     consensus: 146,
     sis: null,

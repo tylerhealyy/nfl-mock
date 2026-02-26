@@ -6,6 +6,7 @@ import { consensusData } from "./consensus-draft.js";
 let score = 0;
 let rankUsed;
 let selectedBoard = JSON.parse(localStorage.getItem('boardInput'));
+loadCSV();
 //let version = JSON.parse(localStorage.getItem('version'));
 
 document.querySelector('.newDraftBtn').addEventListener("click", () => { // Add functionality to restart button
@@ -269,6 +270,7 @@ function buildSummary(low, high) {
           }
         });
         rankUsed = draftee[`${selectedBoard}`];
+        const storedInfo = JSON.parse(localStorage.getItem(`${i}info`));
   
         document.querySelector('.rs-grid').innerHTML += `
           <div class="rs-pick" style="
@@ -467,4 +469,25 @@ function getScore() {
   });
   console.log('Score: ', score, '/ 320');
   document.querySelector('.rsh-score').innerHTML = `Score:&nbsp;<span class="score-bold">${score}</span>&nbsp;/ 320`;
+}
+
+async function loadCSV() {
+  const selectedBoard = JSON.parse(localStorage.getItem('boardInput'));
+  const response = await fetch(`rankings/${selectedBoard}.csv`);
+  const text = await response.text();
+
+  const lines = text.trim().split("\n");
+  const headers = lines[0].split(",");
+
+  const result = lines.slice(1).map(line => {
+    const [Player, Rank] = line.split(",");
+    return { name: Player, rank: Number(Rank) };
+  });
+
+  playerData26.forEach((player) => {
+    const found = result.find(item => item.name === player.name);
+    if (found) {
+      player[selectedBoard] = found.rank;
+    }
+  });
 }
