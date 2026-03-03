@@ -378,7 +378,7 @@ document.querySelector('.trade').addEventListener("click", () => {
                   color: black;
                   text-shadow: none;
                   border: 3px solid black;
-                  cursor: pointer;">(${pick.n}) ${pick.pn}</div>
+                  cursor: pointer;">${pick.n}. ${pick.pn}</div>
               `;
             }
           });
@@ -795,7 +795,7 @@ function displayProfile(playerCard, selectedValue) { // Add event listeners to p
               </div>
               <div class="measurable-item">
                 <div class="measurable-text">SIS Projected Role</div>
-                <div class="measurable-value">${player.pffGrade}</div>
+                <div class="measurable-value">${player.sisRole}</div>
               </div>
             </div>
 
@@ -940,7 +940,7 @@ export function draftPlayer(selectedValue, player) {
 
   const pickItem = document.querySelectorAll('.draft-order-item');
   for (let item of pickItem) {
-    if (otc === Number(item.dataset.order)+4) {
+    if (otc === Number(item.dataset.order)+3) {
       item.scrollIntoView(); // Auto-scroll when enough picks are made to move down the draft order panel
       break;
     }

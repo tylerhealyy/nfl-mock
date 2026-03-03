@@ -286,7 +286,7 @@ function buildPanelItems(i, rounds) { // Build HTML for each pick
                       background-color: rgb(0, 255, 0);
                       color: black;
                       text-shadow: none;
-                      border: 3px solid black">(${pick.n}) ${pick.pn}</div>
+                      border: 3px solid black">${pick.n}. ${pick.pn}</div>
                   `;
                 }
               });
