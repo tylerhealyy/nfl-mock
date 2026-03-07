@@ -207,7 +207,7 @@ export const nflTeams = [
     TE: ["Brock Bowers", "Michael Mayer", "Albert Okwuegbunam", "Carter Runyon", "Justin Shorter"],
     OT: ["Kolton Miller", "Demlar Glaze", "Charles Grant", "Dalton Wagner", "Joshua Miles"],
     IOL: ["Jackson Powers-Johnson", "Caleb Rogers", "Antonio Mafi", "McClendon Curtis", "Layden Robinson"],
-    ED: ["Maxx Crosby", "Tyree Wilson", "Tonka Hemingway", "Jahfari Harvey"],
+    ED: ["Tyree Wilson", "Tonka Hemingway", "Jahfari Harvey"],
     DT: ["Adam Butler", "Jonah Laulu", "JJ Pegues", "Laki Tasi", "Treven Ma'ae", "Brodric Martin"],
     LB: ["Tommy Eichenberg", "Cody Lindenberg", "Jamin Davis", "Brennan Jackson"],
     CB: ["Darien Porter", "Decamerion Richardson", "Chigozie Anusiem", "Greedy Vance Jr"],
@@ -217,6 +217,7 @@ export const nflTeams = [
     needs: ['QB', 'WR', 'IOL', 'OT', 'DT', 'LB', 'CB'],
     nogo: [],
     test: [{r: 1,n: 1,p: "", pn: "", pos: "",t: "LV"},
+      {r: 1,n: 14,p: "", pn: "", pos: "",t: "BAL"},
       {r: 2,n: 36,p: "", pn: "", pos: "",t: "LV"},
       {r: 3,n: 67,p: "", pn: "", pos: "",t: "LV"},
       {r: 4,n: 102,p: "", pn: "", pos: "",t: "LV"},
@@ -226,7 +227,7 @@ export const nflTeams = [
       {r: 6,n: 181,p: "", pn: "", pos: "",t: "NYJ"},
       {r: 6,n: 184,p: "", pn: "", pos: "",t: "LV"},
       {r: 7,n: 219,p: "", pn: "", pos: "",t: "LV"}],
-    futurePicks: [{r: 1,t: "LV"},{r: 2,t: "LV"},{r: 3,t: "LV"},{r: 4,t: "LV"},{r: 5,t: "LV"},{r: 6,t: "LV"},{r: 7,t: "LV"}]
+    futurePicks: [{r: 1,t: "LV"},{r: 1,t: "BAL"},{r: 2,t: "LV"},{r: 3,t: "LV"},{r: 4,t: "LV"},{r: 5,t: "LV"},{r: 6,t: "LV"},{r: 7,t: "LV"}]
   },
   {
     name: "Jets",
@@ -978,7 +979,7 @@ export const nflTeams = [
     TE: ["Mark Andrews"],
     OT: ["Ronnie Stanley", "Roger Rosengarten", "Carson Vinson", "Gerad Christian-Lichtenhan", "Lucas Scott"],
     IOL: ["Andrew Vorhees", "Emery Jones Jr", "Jared Penning"],
-    ED: ["Tavius Robinson", "Mike Green", "Adisa Isaac", "Kaimon Rucker"],
+    ED: ["Maxx Crosby", "Tavius Robinson", "Mike Green", "Adisa Isaac", "Kaimon Rucker"],
     DT: ["Nnamdi Madubuike", "Broderick Washington", "Travis Jones", "John Jenkins", "Aeneas Peebles", "David Olajiga"],
     LB: ["Trenton Simpson", "Teddye Buchanan", "Jay Higgins"],
     CB: ["Marlon Humphrey", "Nate Wiggins", "TJ Tampa", "Amani Oruwariye", "Robert Longerbeam", "Bilhal Kone", "Marquise Robinson"],
@@ -987,8 +988,7 @@ export const nflTeams = [
     drafted: [],
     needs: ['WR', 'IOL', 'DT', 'ED'],
     nogo: ['QB'],
-    test: [{r: 1,n: 14,p: "", pn: "", pos: "",t: "BAL"},
-      {r: 2,n: 45,p: "", pn: "", pos: "",t: "BAL"},
+    test: [{r: 2,n: 45,p: "", pn: "", pos: "",t: "BAL"},
       {r: 3,n: 80,p: "", pn: "", pos: "",t: "BAL"},
       {r: 4,n: 115,p: "", pn: "", pos: "",t: "BAL"},
       {r: 5,n: 152,p: "", pn: "", pos: "",t: "BAL"},
@@ -998,7 +998,7 @@ export const nflTeams = [
       {r: 6,n: 210,p: "", pn: "", pos: "",t: "DEN"},
       {r: 7,n: 249,p: "", pn: "", pos: "",t: "BAL"},
       {r: 7,n: 252,p: "", pn: "", pos: "",t: "BAL"}],
-    futurePicks: [{r: 1,t: "BAL"},{r: 2,t: "BAL"},{r: 3,t: "BAL"},{r: 4,t: "BAL"},{r: 5,t: "BAL"},{r: 6,t: "BAL"}]
+    futurePicks: [{r: 2,t: "BAL"},{r: 3,t: "BAL"},{r: 4,t: "BAL"},{r: 5,t: "BAL"},{r: 6,t: "BAL"}]
   },
   {
     name: "Lions",
