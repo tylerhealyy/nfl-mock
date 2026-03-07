@@ -30,7 +30,7 @@ body {
 }
 
 .apple {
-  background-color: rgb(30, 30, 30, 0);
+  background-color: rgb(30, 30, 30);
   position: absolute;
   top: 15vh;
   bottom: 5vh;
@@ -45,6 +45,7 @@ body {
 
 .hickory {
   color: white;
+  background-color: rgb(20, 20, 20);
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
   border-radius: 10px;
   display: flex;
@@ -233,7 +234,6 @@ body {
 
 input[type="range"] {
   -moz-appearance: none;
-  appearance: none;
   background: transparent;
 }
 
