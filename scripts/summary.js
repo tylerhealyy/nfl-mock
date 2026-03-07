@@ -1,40 +1,47 @@
-import { nflTeams } from "./nfl-team-data.js";
-import { playerData } from "./player-data.js";
+import { nflTeams } from "../data/nflTeamData.js";
+import { playerData26 } from "../data/playerData26.js";
 
-let draftee;
+let rankUsed;
+let selectedBoard = JSON.parse(localStorage.getItem('boardInput'));
 
-document.querySelector(".screenshot-btn-h").addEventListener("click", () => { // add function to download buttons
-  html2canvas(document.getElementById("capture"), {
+document.querySelector('.newDraftBtn').addEventListener("click", () => { // Add functionality to restart button
+  if(confirm("Are you sure you want to start a new draft?")) {
+    window.location.href = 'index.html';
+  }
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+  const key = "functionExecuted";
+
+  async function buildInitialSummary() {
+    await loadCSV();
+    if (!localStorage.getItem(key)) {
+        buildSummary(1, 33); // Call your function
+        localStorage.setItem(key, "true"); // Mark it as executed
+    } else {
+      document.querySelector('.round-summary').innerHTML = JSON.parse(localStorage.getItem('roundSummary'));
+    }
+  }
+
+  buildInitialSummary();
+});
+
+document.querySelector('.ts-summary').addEventListener("click", () => {
+  html2canvas(document.getElementById("ts-capture"), {
     useCORS: true, // Allows cross-origin images
     allowTaint: true,
-    scale: 2, // Increases rendering resolution
+    scale: 3, // Increases rendering resolution
     backgroundColor: null // Ensures transparency is preserved
   }).then((canvas) => {
     let image = canvas.toDataURL("image/png"); // Convert canvas to image
     let link = document.createElement("a");
     link.href = image;
-    link.download = "my-mock-draft.png"; // Download as PNG
+    link.download = "my-team-mock-draft.png"; // Download as PNG
     link.click();
   });
 });
-
-document.querySelector(".btnv").addEventListener("click", () => {
-  html2canvas(document.getElementById("capture2"), {
-    useCORS: true, // Allows cross-origin images
-    allowTaint: true,
-    scale: 2, // Increases rendering resolution
-    backgroundColor: null // Ensures transparency is preserved
-  }).then((canvas) => {
-    let image = canvas.toDataURL("image/png"); // Convert canvas to image
-    let link = document.createElement("a");
-    link.href = image;
-    link.download = "my-mock-draft.png"; // Download as PNG
-    link.click();
-  });
-});
-
-document.querySelector(".btn2").addEventListener("click", () => {
-  html2canvas(document.getElementById("capture3"), {
+document.querySelector('.round-summary').addEventListener("click", () => {
+  html2canvas(document.getElementById("rs-capture"), {
     useCORS: true, // Allows cross-origin images
     allowTaint: true,
     scale: 3, // Increases rendering resolution
@@ -48,103 +55,184 @@ document.querySelector(".btn2").addEventListener("click", () => {
   });
 });
 
-document.querySelector(".btn3").addEventListener("click", () => {
-  html2canvas(document.getElementById("capture4"), {
-    useCORS: true, // Allows cross-origin images
-    allowTaint: true,
-    scale: 3.5, // Increases rendering resolution
-    backgroundColor: null // Ensures transparency is preserved
-  }).then((canvas) => {
-    let image = canvas.toDataURL("image/png"); // Convert canvas to image
-    let link = document.createElement("a");
-    link.href = image;
-    link.download = "my-mock-draft.png"; // Download as PNG
-    link.click();
-  });
-});
-document.querySelector(".btn4").addEventListener("click", () => {
-  html2canvas(document.getElementById("capture5"), {
-    useCORS: true, // Allows cross-origin images
-    allowTaint: true,
-    scale: 4.5, // Increases rendering resolution
-    backgroundColor: null // Ensures transparency is preserved
-  }).then((canvas) => {
-    let image = canvas.toDataURL("image/png"); // Convert canvas to image
-    let link = document.createElement("a");
-    link.href = image;
-    link.download = "my-mock-draft.png"; // Download as PNG
-    link.click();
-  });
-});
-document.querySelector(".btn5").addEventListener("click", () => {
-  html2canvas(document.getElementById("capture6"), {
-    useCORS: true, // Allows cross-origin images
-    allowTaint: true,
-    scale: 4.5, // Increases rendering resolution
-    backgroundColor: null // Ensures transparency is preserved
-  }).then((canvas) => {
-    let image = canvas.toDataURL("image/png"); // Convert canvas to image
-    let link = document.createElement("a");
-    link.href = image;
-    link.download = "my-mock-draft.png"; // Download as PNG
-    link.click();
-  });
-});
-document.querySelector(".btn6").addEventListener("click", () => {
-  html2canvas(document.getElementById("capture7"), {
-    useCORS: true, // Allows cross-origin images
-    allowTaint: true,
-    scale: 4.5, // Increases rendering resolution
-    backgroundColor: null // Ensures transparency is preserved
-  }).then((canvas) => {
-    let image = canvas.toDataURL("image/png"); // Convert canvas to image
-    let link = document.createElement("a");
-    link.href = image;
-    link.download = "my-mock-draft.png"; // Download as PNG
-    link.click();
-  });
-});
-document.querySelector(".btn7").addEventListener("click", () => {
-  html2canvas(document.getElementById("capture8"), {
-    useCORS: true, // Allows cross-origin images
-    allowTaint: true,
-    scale: 4.5, // Increases rendering resolution
-    backgroundColor: null // Ensures transparency is preserved
-  }).then((canvas) => {
-    let image = canvas.toDataURL("image/png"); // Convert canvas to image
-    let link = document.createElement("a");
-    link.href = image;
-    link.download = "my-mock-draft.png"; // Download as PNG
-    link.click();
-  });
-});
+document.querySelector('.rs-header-round').innerHTML = `First `;
 
-document.querySelector('.grid2').innerHTML = ''; // Clear rounds 2 and 3 summaries (will be filled if they were completed)
-document.querySelector('.grid3').innerHTML = '';
-document.querySelector('.grid4').innerHTML = '';
-document.querySelector('.grid5').innerHTML = '';
-document.querySelector('.grid6').innerHTML = '';
-document.querySelector('.grid7').innerHTML = '';
-
-document.querySelectorAll('.user').forEach((user) => {
+document.querySelectorAll('.rs-user').forEach((user) => {
   user.innerHTML = JSON.parse(localStorage.getItem("nameInput"));
-})
+});
 
-localStorage.removeItem("functionExecuted");
+document.querySelector('.ts-team-select').addEventListener("change", () => {
+  let team = document.querySelector('.ts-team');
+  let rounds = document.querySelector('.ts-rounds');
+  team.innerHTML = document.querySelector('.ts-team-select').value;
+  rounds.innerHTML = ` ${JSON.parse(localStorage.getItem('roundsInput'))} `;
+  let draftee;
+  buildTeamSummary(draftee);
+});
 
-window.addEventListener("DOMContentLoaded", (draftee) => {
-  const key = "functionExecuted";
+let roundsInput = JSON.parse(localStorage.getItem('roundsInput'));
+if (roundsInput === '1') {
+  hideNext();
+}
 
-  if (!localStorage.getItem(key)) {
-      buildSummary(draftee); // Call your function
-      localStorage.setItem(key, "true"); // Mark it as executed
+let summaryViewing = 1;
+document.querySelector('.next-summary').addEventListener("click", () => {
+  switch (String(summaryViewing)) {
+    case '1':
+      buildSummary(33, 65);
+      summaryViewing += 1;
+      showLast();
+      document.querySelector('.rs-header-round').innerHTML = `Second `;
+      if (roundsInput === '2') {
+        hideNext();
+      }
+      break;
+    case '2':
+      buildSummary(65, 101);
+      summaryViewing += 1;
+      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(18, 54px)';
+      document.querySelectorAll('.rs-pick:nth-child(n+17)').forEach(el => el.style.borderRight = '1px solid black');
+      document.querySelectorAll('.rs-pick:nth-child(n+20)').forEach(el => el.style.borderRight = 'none');
+      document.querySelectorAll('.rs-pick:nth-child(16n+16)').forEach(el => el.style.borderBottom = '1px solid black');
+      document.querySelectorAll('.rs-pick:nth-child(19n+19)').forEach(el => el.style.borderBottom = 'none');
+      document.querySelector('.rs-header-round').innerHTML = `Third `;
+      if (roundsInput === '3') {
+        hideNext();
+      }
+      break;
+    case '3':
+      buildSummary(101, 139);
+      summaryViewing += 1;
+      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(19, 54px)';
+      document.querySelectorAll('.rs-pick:nth-child(n+17)').forEach(el => el.style.borderRight = '1px solid black');
+      document.querySelectorAll('.rs-pick:nth-child(n+19)').forEach(el => el.style.borderRight = 'none');
+      document.querySelectorAll('.rs-pick:nth-child(16n+16)').forEach(el => el.style.borderBottom = '1px solid black');
+      document.querySelectorAll('.rs-pick:nth-child(18n+18)').forEach(el => el.style.borderBottom = 'none');
+      document.querySelector('.rs-header-round').innerHTML = `Fourth `;
+      if (roundsInput === '4') {
+        hideNext();
+      }
+      break;
+    case '4':
+      buildSummary(139, 181);
+      summaryViewing += 1;
+      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(21, 54px)';
+      document.querySelectorAll('.rs-pick:nth-child(n+17)').forEach(el => el.style.borderRight = '1px solid black');
+      document.querySelectorAll('.rs-pick:nth-child(n+20)').forEach(el => el.style.borderRight = 'none');
+      document.querySelectorAll('.rs-pick:nth-child(16n+16)').forEach(el => el.style.borderBottom = '1px solid black');
+      document.querySelectorAll('.rs-pick:nth-child(19n+19)').forEach(el => el.style.borderBottom = 'none');
+      document.querySelector('.rs-header-round').innerHTML = `Fifth `;
+      if (roundsInput === '5') {
+        hideNext();
+      }
+      break;
+    case '5':
+      buildSummary(181, 217);
+      summaryViewing += 1;
+      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(18, 54px)';
+      document.querySelectorAll('.rs-pick:nth-child(n+17)').forEach(el => el.style.borderRight = '1px solid black');
+      document.querySelectorAll('.rs-pick:nth-child(n+21)').forEach(el => el.style.borderRight = 'none');
+      document.querySelectorAll('.rs-pick:nth-child(16n+16)').forEach(el => el.style.borderBottom = '1px solid black');
+      document.querySelectorAll('.rs-pick:nth-child(20n+20)').forEach(el => el.style.borderBottom = 'none');
+      document.querySelector('.rs-header-round').innerHTML = `Sixth `;
+      if (roundsInput === '6') {
+        hideNext();
+      }
+      break;
+    case '6':
+      buildSummary(217, 258);
+      summaryViewing += 1;
+      hideNext();
+      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(21, 54px)';
+      document.querySelectorAll('.rs-pick:nth-child(n+17)').forEach(el => el.style.borderRight = '1px solid black');
+      document.querySelectorAll('.rs-pick:nth-child(n+22)').forEach(el => el.style.borderRight = 'none');
+      document.querySelectorAll('.rs-pick:nth-child(16n+16)').forEach(el => el.style.borderBottom = '1px solid black');
+      document.querySelectorAll('.rs-pick:nth-child(21n+21)').forEach(el => el.style.borderBottom = 'none');
+      document.querySelector('.rs-header-round').innerHTML = `Seventh `;
+      break;
+  }
+});
+document.querySelector('.last-summary').addEventListener("click", () => {
+  switch (String(summaryViewing)) {
+    case '2':
+      buildSummary(1, 33);
+      summaryViewing -= 1;
+      hideLast();
+      showNext();
+      document.querySelector('.rs-header-round').innerHTML = `First `;
+      break;
+    case '3':
+      buildSummary(33, 65);
+      summaryViewing -= 1;
+      showNext();
+      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(16, 54px)';
+      document.querySelectorAll('.rs-pick:nth-child(n+17)').forEach(el => el.style.borderRight = 'none');
+      document.querySelectorAll('.rs-pick:nth-child(16n+16)').forEach(el => el.style.borderBottom = 'none');
+      document.querySelector('.rs-header-round').innerHTML = `Second `;
+      break;
+    case '4':
+      buildSummary(65, 101);
+      summaryViewing -= 1;
+      showNext();
+      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(18, 54px)';
+      document.querySelectorAll('.rs-pick:nth-child(n+17)').forEach(el => el.style.borderRight = '1px solid black');
+      document.querySelectorAll('.rs-pick:nth-child(n+20)').forEach(el => el.style.borderRight = 'none');
+      document.querySelectorAll('.rs-pick:nth-child(16n+16)').forEach(el => el.style.borderBottom = '1px solid black');
+      document.querySelectorAll('.rs-pick:nth-child(19n+19)').forEach(el => el.style.borderBottom = 'none');
+      document.querySelector('.rs-header-round').innerHTML = `Third `;
+      break;
+    case '5':
+      buildSummary(101, 139);
+      summaryViewing -= 1;
+      showNext();
+      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(19, 54px)';
+      document.querySelectorAll('.rs-pick:nth-child(n+17)').forEach(el => el.style.borderRight = '1px solid black');
+      document.querySelectorAll('.rs-pick:nth-child(n+19)').forEach(el => el.style.borderRight = 'none');
+      document.querySelectorAll('.rs-pick:nth-child(16n+16)').forEach(el => el.style.borderBottom = '1px solid black');
+      document.querySelectorAll('.rs-pick:nth-child(18n+18)').forEach(el => el.style.borderBottom = 'none');
+      document.querySelector('.rs-header-round').innerHTML = `Fourth `;
+      break;
+    case '6':
+      buildSummary(139, 181);
+      summaryViewing -= 1;
+      showNext();
+      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(21, 54px)';
+      document.querySelectorAll('.rs-pick:nth-child(n+17)').forEach(el => el.style.borderRight = '1px solid black');
+      document.querySelectorAll('.rs-pick:nth-child(n+20)').forEach(el => el.style.borderRight = 'none');
+      document.querySelectorAll('.rs-pick:nth-child(16n+16)').forEach(el => el.style.borderBottom = '1px solid black');
+      document.querySelectorAll('.rs-pick:nth-child(19n+19)').forEach(el => el.style.borderBottom = 'none');
+      document.querySelector('.rs-header-round').innerHTML = `Fifth `;
+      break;
+    case '7':
+      buildSummary(181, 217);
+      summaryViewing -= 1;
+      showNext();
+      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(18, 54px)';
+      document.querySelectorAll('.rs-pick:nth-child(n+17)').forEach(el => el.style.borderRight = '1px solid black');
+      document.querySelectorAll('.rs-pick:nth-child(n+21)').forEach(el => el.style.borderRight = 'none');
+      document.querySelectorAll('.rs-pick:nth-child(16n+16)').forEach(el => el.style.borderBottom = '1px solid black');
+      document.querySelectorAll('.rs-pick:nth-child(20n+20)').forEach(el => el.style.borderBottom = 'none');
+      document.querySelector('.rs-header-round').innerHTML = `Sixth `;
+      break;
   }
 });
 
-function buildSummary(draftee) {
-  for (let i = 1; i < 33; i++) { // Build first round summaries (horizontal and vertical)
-    nflTeams.forEach((team) => {
+function buildSummary(low, high) {
+  document.querySelector('.rs-grid').innerHTML = '';
+  document.querySelector('.rs-trades').innerHTML = '';
+  let draftee;
+  nflTeams.forEach((team) => {
+    let selectedTeams = JSON.parse(localStorage.getItem('teamsInput'));
+    if (selectedTeams.includes(team.name)) {
+      document.querySelector('.ts-team').innerHTML = team.name;
+      document.querySelector(`option[value="${team.name}"]`).selected = true;
+      let rounds = document.querySelector('.ts-rounds');
+      rounds.innerHTML = ` ${JSON.parse(localStorage.getItem('roundsInput'))} `;
+    }
+  });
 
+  for (let i = low; i < high; i++) {
+    nflTeams.forEach((team) => {
       let newTest;
       if (JSON.parse(localStorage.getItem(`${team.name}test`))) {
         newTest = JSON.parse(localStorage.getItem(`${team.name}test`));
@@ -154,310 +242,200 @@ function buildSummary(draftee) {
 
       if (newTest.some(obj => obj.n === i)) {
         let example = JSON.parse(localStorage.getItem(`${i}${team.name}`)); // Get each pick that was saved when the draft button was clicked
-        playerData.forEach((player) => {
+        playerData26.forEach((player) => {
           if (example.p === `${player.position} ${player.name}`) {
             draftee = player; // access player data
           }
         });
+        rankUsed = draftee[`${selectedBoard}`];
+        const storedInfo = JSON.parse(localStorage.getItem(`${i}info`));
   
-        document.querySelector('.grid').innerHTML += `
-          <div class="pick" style="
-            background-color: white;
-            box-shadow: inset 0px 0px 50px ${team.color};
+        document.querySelector('.rs-grid').innerHTML += `
+          <div class="rs-pick" style="
+            background: radial-gradient(ellipse 350px 100px, ${team.color}, black);
           ">
-            <div class="summary-pick-number">${i}</div>
-            <div class="summary-pick-logo">
-              <img src="${team.logo}" class="summary-nfl-pick-image">
+            <div class="rs-pick-number">${i}</div>
+            <img src="${team.logo}" class="rs-pick-image">
+            <div class="rs-pick-player">
+              <div class="rs-pick-name">${draftee.name}</div>
+              <div class="rs-pick-info">${draftee.position} ${draftee.school} (${rankUsed})</div>
             </div>
-            <div class="summary-pick-player">
-              <div class="pick-name">${draftee.name}</div>
-              <div class="summary-pick-info">${draftee.position} ${draftee.school}</div>
-            </div>
-            <div class="pick-player-logo">
-              <img src="${draftee.schoolLogo}" class="summary-pick-image">
-            </div>
-          </div>
-        `;
-  
-        document.querySelector('.v-grid').innerHTML += `
-          <div class="v-pick" style="
-            background-color: white;
-            box-shadow: inset 0px 0px 50px ${team.color};
-          ">
-            <div class="summary-pick-number">${i}</div>
-            <div class="pick-logo">
-              <img src="${team.logo}" class="pick-image">
-            </div>
-            <div class="summary-pick-player">
-              <div class="pick-name">${draftee.name}</div>
-              <div class="summary-pick-info">${draftee.position} ${draftee.school}</div>
-            </div>
-            <div class="pick-player-logo">
-              <img src="${draftee.schoolLogo}" class="v-summary-pick-image">
-            </div>
+            <img src="${draftee.schoolLogo}" class="rs-school-image">
           </div>
         `;
       }
     });
   }
 
-  for (let i = 33; i < 65; i++) { // Build second round summary
-    nflTeams.forEach((team) => {
+  const totalTrades = localStorage.getItem('totalTrades');
+  let tradesOnPage = 0;
+  for (let i = 1; i <= totalTrades; i++) {
+    const team1Assets = JSON.parse(localStorage.getItem(`trade${i}-1`));
+    const team1String = localStorage.getItem(`trade${i}-1string`);
+    const team2Assets = JSON.parse(localStorage.getItem(`trade${i}-2`));
+    const team2String = localStorage.getItem(`trade${i}-2string`);
 
-      let newTest;
-      if (JSON.parse(localStorage.getItem(`${team.name}test`))) {
-        newTest = JSON.parse(localStorage.getItem(`${team.name}test`));
-      } else {
-        newTest = team.test;
-      }
-
-      if (newTest.some(obj => obj.n === i)) {
-        let example = JSON.parse(localStorage.getItem(`${i}${team.name}`));
-        if (example.p === "") { // If there are no second round picks, keep the summary empty
-          document.querySelector('.grid2').innerHTML += '';
-        } else { // If there are second round picks, add them to the summary
-          playerData.forEach((player) => {
-            if (example.p === `${player.position} ${player.name}`) {
-              draftee = player;
-            }
-          });
-      
-          document.querySelector('.grid2').innerHTML += `
-            <div class="v-pick" style="
-              background-color: white;
-              box-shadow: inset 0px 0px 50px ${team.color};
-            ">
-              <div class="summary-pick-number">${i}</div>
-              <div class="pick-logo">
-                <img src="${team.logo}" class="pick-image">
-              </div>
-              <div class="summary-pick-player">
-                <div class="pick-name">${draftee.name}</div>
-                <div class="summary-pick-info">${draftee.position} ${draftee.school}</div>
-              </div>
-              <div class="pick-player-logo">
-                <img src="${draftee.schoolLogo}" class="v-summary-pick-image">
-              </div>
-            </div>
-          `;
-        }
-      }
-    });
+    if (team1Assets.currentPicks.some(p => p.n >= low && p.n <= high-1) || team2Assets.currentPicks.some(p => p.n >= low && p.n <= high-1)) {
+      document.querySelector('.rs-trades').innerHTML += `
+        <div class="tst-item roundSumItem" data-id="${i}">${team1String}<br>${team2String}</div>
+      `;
+      document.querySelector('.rs-trades').style.paddingTop = '5px';
+      document.querySelector('.rs-trades').style.borderTop = '1px solid black';
+      tradesOnPage += 1;
+    }
   }
 
-  for (let i = 65; i < 100; i++) { // Build third round summary
-    nflTeams.forEach((team) => {
-      let newTest;
-      if (JSON.parse(localStorage.getItem(`${team.name}test`))) {
-        newTest = JSON.parse(localStorage.getItem(`${team.name}test`));
-      } else {
-        newTest = team.test;
-      }
-      if (newTest.some(obj => obj.n === i)) {
-        let example = JSON.parse(localStorage.getItem(`${i}${team.name}`));
-        if (example.p === "") { // If there are no third round picks, keep the summary empty
-          document.querySelector('.grid3').innerHTML += '';
-        } else { // If there are third round picks, add them to the summary
-          playerData.forEach((player) => {
-            if (example.p === `${player.position} ${player.name}`) {
-              draftee = player;
-            }
-          });
-    
-          document.querySelector('.grid3').innerHTML += `
-            <div class="v-pick" style="
-              background-color: white;
-              box-shadow: inset 0px 0px 50px ${team.color};
-            ">
-              <div class="summary-pick-number">${i}</div>
-              <div class="pick-logo">
-                <img src="${team.logo}" class="pick-image">
-              </div>
-              <div class="summary-pick-player">
-                <div class="pick-name">${draftee.name}</div>
-                <div class="summary-pick-info">${draftee.position} ${draftee.school}</div>
-              </div>
-              <div class="pick-player-logo">
-                <img src="${draftee.schoolLogo}" class="v-summary-pick-image">
-              </div>
-            </div>
-          `;
-        }
-      }
-    });
+  if (tradesOnPage === 0) {
+    document.querySelector('.rs-trades').style.paddingTop = '0px';
+    document.querySelector('.rs-trades').style.borderTop = 'none';
   }
 
-  for (let i = 100; i < 138; i++) { // Build third round summary
-    nflTeams.forEach((team) => {
-      let newTest;
-      if (JSON.parse(localStorage.getItem(`${team.name}test`))) {
-        newTest = JSON.parse(localStorage.getItem(`${team.name}test`));
-      } else {
-        newTest = team.test;
-      }
-      if (newTest.some(obj => obj.n === i)) {
-        let example = JSON.parse(localStorage.getItem(`${i}${team.name}`));
-        if (example.p === "") { // If there are no third round picks, keep the summary empty
-          document.querySelector('.grid4').innerHTML += '';
-        } else { // If there are third round picks, add them to the summary
-          playerData.forEach((player) => {
-            if (example.p === `${player.position} ${player.name}`) {
-              draftee = player;
-            }
-          });
-    
-          document.querySelector('.grid4').innerHTML += `
-            <div class="v-pick" style="
-              background-color: white;
-              box-shadow: inset 0px 0px 50px ${team.color};
-            ">
-              <div class="summary-pick-number">${i}</div>
-              <div class="idaho">
-                <img src="${team.logo}" class="pick-image7">
-              </div>
-              <div class="summary-pick-player">
-                <div class="pick-name">${draftee.name}</div>
-                <div class="summary-pick-info">${draftee.position} ${draftee.school}</div>
-              </div>
-              <div class="pick-player-logo">
-                <img src="${draftee.schoolLogo}" class="v-summary-pick-image">
-              </div>
-            </div>
-          `;
-        }
-      }
-    });
-  }
+  document.querySelectorAll('.roundSumItem').forEach((item) => {
+    if (Number(item.dataset.id) !== Number(tradesOnPage)) {
+      item.style.borderBottom = '1px solid black';
+      item.style.padding = '0px 0px 10px 0px';
+    }
+  });
 
-  for (let i = 138; i < 180; i++) { // Build third round summary
-    nflTeams.forEach((team) => {
-      let newTest;
-      if (JSON.parse(localStorage.getItem(`${team.name}test`))) {
-        newTest = JSON.parse(localStorage.getItem(`${team.name}test`));
-      } else {
-        newTest = team.test;
-      }
-      if (newTest.some(obj => obj.n === i)) {
-        let example = JSON.parse(localStorage.getItem(`${i}${team.name}`));
-        if (example.p === "") { // If there are no third round picks, keep the summary empty
-          document.querySelector('.grid5').innerHTML += '';
-        } else { // If there are third round picks, add them to the summary
-          playerData.forEach((player) => {
-            if (example.p === `${player.position} ${player.name}`) {
-              draftee = player;
-            }
-          });
-    
-          document.querySelector('.grid5').innerHTML += `
-            <div class="v-pick" style="
-              background-color: white;
-              box-shadow: inset 0px 0px 50px ${team.color};
-            ">
-              <div class="summary-pick-number">${i}</div>
-              <div class="idaho">
-                <img src="${team.logo}" class="pick-image7">
-              </div>
-              <div class="summary-pick-player">
-                <div class="pick-name">${draftee.name}</div>
-                <div class="summary-pick-info">${draftee.position} ${draftee.school}</div>
-              </div>
-              <div class="pick-player-logo">
-                <img src="${draftee.schoolLogo}" class="v-summary-pick-image">
-              </div>
-            </div>
-          `;
-        }
-      }
-    });
-  }
-
-  for (let i = 180; i < 216; i++) { // Build third round summary
-    nflTeams.forEach((team) => {
-      let newTest;
-      if (JSON.parse(localStorage.getItem(`${team.name}test`))) {
-        newTest = JSON.parse(localStorage.getItem(`${team.name}test`));
-      } else {
-        newTest = team.test;
-      }
-      if (newTest.some(obj => obj.n === i)) {
-        let example = JSON.parse(localStorage.getItem(`${i}${team.name}`));
-        if (example.p === "") { // If there are no third round picks, keep the summary empty
-          document.querySelector('.grid6').innerHTML += '';
-        } else { // If there are third round picks, add them to the summary
-          playerData.forEach((player) => {
-            if (example.p === `${player.position} ${player.name}`) {
-              draftee = player;
-            }
-          });
-    
-          document.querySelector('.grid6').innerHTML += `
-            <div class="v-pick" style="
-              background-color: white;
-              box-shadow: inset 0px 0px 50px ${team.color};
-            ">
-              <div class="summary-pick-number">${i}</div>
-              <div class="idaho">
-                <img src="${team.logo}" class="pick-image7">
-              </div>
-              <div class="summary-pick-player">
-                <div class="pick-name">${draftee.name}</div>
-                <div class="summary-pick-info">${draftee.position} ${draftee.school}</div>
-              </div>
-              <div class="pick-player-logo">
-                <img src="${draftee.schoolLogo}" class="v-summary-pick-image">
-              </div>
-            </div>
-          `;
-        }
-      }
-    });
-  }
-
-  for (let i = 216; i < 257; i++) { // Build third round summary
-    nflTeams.forEach((team) => {
-      let newTest;
-      if (JSON.parse(localStorage.getItem(`${team.name}test`))) {
-        newTest = JSON.parse(localStorage.getItem(`${team.name}test`));
-      } else {
-        newTest = team.test;
-      }
-      if (newTest.some(obj => obj.n === i)) {
-        let example = JSON.parse(localStorage.getItem(`${i}${team.name}`));
-        if (example.p === "") { // If there are no third round picks, keep the summary empty
-          document.querySelector('.grid7').innerHTML += '';
-        } else { // If there are third round picks, add them to the summary
-          playerData.forEach((player) => {
-            if (example.p === `${player.position} ${player.name}`) {
-              draftee = player;
-            }
-          });
-    
-          document.querySelector('.grid7').innerHTML += `
-            <div class="v-pick" style="
-              background-color: white;
-              box-shadow: inset 0px 0px 50px ${team.color};
-            ">
-              <div class="summary-pick-number">${i}</div>
-              <div class="idaho">
-                <img src="${team.logo}" class="pick-image7">
-              </div>
-              <div class="summary-pick-player">
-                <div class="pick-name">${draftee.name}</div>
-                <div class="summary-pick-info">${draftee.position} ${draftee.school}</div>
-              </div>
-              <div class="pick-player-logo">
-                <img src="${draftee.schoolLogo}" class="v-summary-pick-image">
-              </div>
-            </div>
-          `;
-        }
-      }
-    });
-  }
+  let yourMom = document.querySelector('.round-summary').innerHTML;
+  localStorage.setItem('roundSummary', JSON.stringify(yourMom));
+  
+  buildTeamSummary(draftee);
 }
 
+function buildTeamSummary(draftee) {
+  let rounds = JSON.parse(localStorage.getItem('roundsInput'));
+  let totalPicks;
+  switch (String(rounds)) {
+    case '1':
+      totalPicks = 33;
+      break;
+    case '2':
+      totalPicks = 65;
+      break;
+    case '3':
+      totalPicks = 101;
+      break;
+    case '4':
+      totalPicks = 139;
+      break;
+    case '5':
+      totalPicks = 181;
+      break;
+    case '6':
+      totalPicks = 217;
+      break;
+    case '7':
+      totalPicks = 258;
+      break;
+  }
 
+  document.querySelector('.ts-pick-list').innerHTML = '';
+  document.querySelector('.ts-trades').innerHTML = '';
+  document.querySelector('.ts-trades').style.paddingTop = '0px';
+  document.querySelector('.ts-trades').style.borderTop = 'none';
+  document.querySelector('.ts-trades').style.height = 'none';
+  nflTeams.forEach((team) => {
+    if (document.querySelector('.ts-team-select').value === team.name) {
 
+      let newTest;
+      if (JSON.parse(localStorage.getItem(`${team.name}test`))) {
+        newTest = JSON.parse(localStorage.getItem(`${team.name}test`));
+      } else {
+        newTest = team.test;
+      }
 
+      for (let i = 1; i < totalPicks; i++) {
+        if (newTest.some(obj => obj.n === i)) {
+          let example = JSON.parse(localStorage.getItem(`${i}${team.name}`)); // Get each pick that was saved when the draft button was clicked
+          playerData26.forEach((player) => {
+            if (example.p === `${player.position} ${player.name}`) {
+              draftee = player; // access player data
+            }
+          });
+          rankUsed = draftee[`${selectedBoard}`];
 
+          document.querySelector('.ts-pick-list').innerHTML += `
+            <div class="ts-pick" style="
+              background: radial-gradient(ellipse 1500px 100px, ${team.color}, black);
+            ">
+              <div class="rs-pick-number">${i}</div>
+              <img src="${team.logo}" class="rs-pick-image">
+              <div class="rs-pick-player">
+                <div class="rs-pick-name">${draftee.name}</div>
+                <div class="rs-pick-info">${draftee.position} ${draftee.school} (${rankUsed})</div>
+              </div>
+              <img src="${draftee.schoolLogo}" class="rs-school-image">
+            </div>
+          `;
+        }
+      }
 
+      const totalTrades = localStorage.getItem('totalTrades');
+      let tradesOnPage = 0;
+      for (let i = 1; i <= totalTrades; i++) {
+        const team1Assets = JSON.parse(localStorage.getItem(`trade${i}-1`));
+        const team1String = localStorage.getItem(`trade${i}-1string`);
+        const team2Assets = JSON.parse(localStorage.getItem(`trade${i}-2`));
+        const team2String = localStorage.getItem(`trade${i}-2string`);
+
+        if (team1Assets.team === team.abbv || team2Assets.team === team.abbv) {
+          document.querySelector('.ts-trades').innerHTML += `
+            <div class="tst-item teamSumItem" data-id="${i}">${team1String}<br>${team2String}</div>
+          `;
+          document.querySelector('.ts-trades').style.paddingTop = '5px';
+          document.querySelector('.ts-trades').style.borderTop = '1px solid black';
+          tradesOnPage += 1;
+        }
+      }
+
+      document.querySelectorAll('.teamSumItem').forEach((item) => {
+        if (Number(item.dataset.id) !== Number(tradesOnPage)) {
+          item.style.borderBottom = '1px solid black';
+          item.style.padding = '0px 0px 10px 0px';
+        }
+      });
+    }
+  });
+}
+
+function hideNext() {
+  document.querySelector('.next-summary').style.opacity = 0;
+  document.querySelector('.next-summary').style.cursor = 'default';
+}
+
+function showNext() {
+  document.querySelector('.next-summary').style.opacity = 1;
+  document.querySelector('.next-summary').style.cursor = 'pointer';
+}
+
+function hideLast() {
+  document.querySelector('.last-summary').style.opacity = 0;
+  document.querySelector('.last-summary').style.cursor = 'default';
+}
+
+function showLast() {
+  document.querySelector('.last-summary').style.opacity = 1;
+  document.querySelector('.last-summary').style.cursor = 'pointer';
+}
+
+async function loadCSV() {
+  const selectedBoard = JSON.parse(localStorage.getItem('boardInput'));
+  const response = await fetch(`rankings/${selectedBoard}.csv`);
+  const text = await response.text();
+
+  const lines = text.trim().split("\n");
+  const headers = lines[0].split(",");
+
+  const result = lines.slice(1).map(line => {
+    const [Player, Rank] = line.split(",");
+    return { name: Player, rank: Number(Rank) };
+  });
+
+  playerData26.forEach((player) => {
+    const found = result.find(item => item.name === player.name);
+    if (found) {
+      player[selectedBoard] = found.rank;
+    }
+  });
+}

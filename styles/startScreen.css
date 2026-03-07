@@ -30,7 +30,7 @@ body {
 }
 
 .apple {
-  background-color: rgb(30, 30, 30);
+  background-color: rgb(30, 30, 30, 0);
   position: absolute;
   top: 15vh;
   bottom: 5vh;
@@ -44,7 +44,6 @@ body {
 }
 
 .hickory {
-  background-color: rgb(20, 20, 20);
   color: white;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
   border-radius: 10px;
@@ -234,24 +233,22 @@ body {
 
 input[type="range"] {
   -moz-appearance: none;
+  appearance: none;
   background: transparent;
 }
 
-/* Unfilled track */
 input[type="range"]::-moz-range-track {
   height: 6px;
-  background: rgb(81, 81, 81);          /* dark gray for black UI */
+  background: rgb(81, 81, 81);
   border-radius: 3px;
 }
 
-/* Filled portion */
 input[type="range"]::-moz-range-progress {
   height: 6px;
   background: rgb(255, 94, 0);
   border-radius: 3px;
 }
 
-/* Thumb */
 input[type="range"]::-moz-range-thumb {
   height: 16px;
   width: 16px;

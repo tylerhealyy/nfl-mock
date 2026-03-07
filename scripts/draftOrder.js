@@ -1,7 +1,6 @@
-import { nflTeams } from "./nfl-team-data.js";
-import { playerData } from "./player-data.js";
-import { playerData26 } from "./playerData26.js";
-import { draftPlayer } from "./index.js";
+import { nflTeams } from "../data/nflTeamData.js";
+import { playerData26 } from "../data/playerData26.js";
+import { draftPlayer } from "./sim.js";
 
 let rankUsed;
 let selectedBoard = JSON.parse(localStorage.getItem('boardInput'));
@@ -256,7 +255,6 @@ function buildPanelItems(i, rounds) { // Build HTML for each pick
                 `;
                 
                 team[position].forEach((player) => {
-                  //const playerBoxElement = document.querySelector('.rosterPlayersBox');
                   document.querySelector(`.${position}Box`).innerHTML += `
                     <div class="rosterPlayer" style="background-color: ${team.color}">${player}</div>
                   `;
@@ -272,7 +270,6 @@ function buildPanelItems(i, rounds) { // Build HTML for each pick
                 `;
                 
                 team[position].forEach((player) => {
-                  //const playerBoxElement = document.querySelector('.rosterPlayersBox');
                   document.querySelector(`.${position}Box`).innerHTML += `
                     <div class="rosterPlayer" style="background-color: ${team.color}">${player}</div>
                   `;
@@ -481,7 +478,7 @@ function aiDraftPick(team, otc) {
     .sort((a, b) => b.score - a.score)[0]; // Select best score
 }
 
-const otcAlertAudio = new Audio("sounds/nfl-draft-chime2.mp3");
+const otcAlertAudio = new Audio("sounds/draftChime.mp3");
 otcAlertAudio.preload = "auto";
 otcAlertAudio.load();
 

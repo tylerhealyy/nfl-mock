@@ -4319,21 +4319,6 @@ export const playerData26 = [
     analysis: "6.4 - Kilgore is a long and versatile defensive back with good range and ball skills in coverage, and if he plays with more physicality he can be a consistent contributor for a defense at the next level. (SIS)",
     stats: "https://nfldraft.sportsinfosolutions.com/players/3330"
   },
-  /*{
-    name: "Xavier Scott",
-    position: "S",
-    school: "Illinois",
-    schoolLogo: "schoolLogos/illinois.png",
-    height: "5'11",
-    weight: "190",
-    ras: null,
-    pff: null,
-    sisRole: "N/A",
-    consensus: 999,
-    sis: null,
-    analysis: "",
-    stats: ""
-  },*/
   {
     name: "Michael Taaffe",
     position: "S",
@@ -4829,21 +4814,6 @@ export const playerData26 = [
     analysis: "",
     stats: ""
   },
-  /*{
-    name: "Jermaine Matthews Jr",
-    position: "CB",
-    school: "Ohio State",
-    schoolLogo: "schoolLogos/ohio-state.png",
-    height: "5'11",
-    weight: "190",
-    ras: null,
-    pff: null,
-    sisRole: "N/A",
-    consensus: 217,
-    sis: null,
-    analysis: "",
-    stats: ""
-  },*/
   {
     name: "Devon Marshall",
     position: "CB",
