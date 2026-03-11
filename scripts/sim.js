@@ -25,8 +25,8 @@ const picksPerRound = [{round:1, picks:0},
 {round:2, picks:32},
 {round:3, picks:64},
 {round:4, picks:100},
-{round:5, picks:138},
-{round:6, picks:179},
+{round:5, picks:140},
+{round:6, picks:181},
 {round:7, picks:216}
 ];
 
@@ -890,12 +890,12 @@ export function draftPlayer(selectedValue, player) {
         break;
       }
     case "4":
-      if (otc === 138) {
+      if (otc === 140) {
         window.location.href='summary.html';
         break;
       }
     case "5":
-      if (otc === 180) {
+      if (otc === 181) {
         window.location.href='summary.html';
         break;
       }

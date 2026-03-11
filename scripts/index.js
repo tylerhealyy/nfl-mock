@@ -7,8 +7,8 @@ const picksPerRound = [{round:1, picks:0},
 {round:2, picks:32},
 {round:3, picks:64},
 {round:4, picks:100},
-{round:5, picks:138},
-{round:6, picks:179},
+{round:5, picks:140},
+{round:6, picks:181},
 {round:7, picks:216}
 ];
 
@@ -147,7 +147,6 @@ document.querySelectorAll('.teamBlockEllipsis').forEach((ellipsis) => {
 
           <div class="seasonInfo">
             <div class="seasonRecord">2025 Record: ${team.record}</div>
-            <div class="seasonCap">2026 Cap Space: ${team.capSpace}</div>
           </div>
 
           <div class="staffInfo">

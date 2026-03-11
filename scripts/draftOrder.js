@@ -12,8 +12,8 @@ const picksPerRound = [{round:1, picks:0},
 {round:2, picks:32},
 {round:3, picks:64},
 {round:4, picks:100},
-{round:5, picks:138},
-{round:6, picks:179},
+{round:5, picks:140},
+{round:6, picks:181},
 {round:7, picks:216}
 ];
 
@@ -139,7 +139,6 @@ function buildPanelItems(i, rounds) { // Build HTML for each pick
       
                 <div class="seasonInfo">
                   <div class="seasonRecord" style="padding-left: 20px">2025 Record: ${team.record}</div>
-                  <div class="seasonCap">2026 Cap Space: ${team.capSpace}</div>
                 </div>
       
                 <div class="staffInfo">
@@ -310,11 +309,11 @@ function addRoundDividers(i, rounds) { // Add round headers before the first pic
     document.querySelector('.draft-order-panel').innerHTML += `
       <div class="draft-order-round">Round 4</div>
     `;
-  } else if (i === 138 && rounds > 4) {
+  } else if (i === 140 && rounds > 4) {
     document.querySelector('.draft-order-panel').innerHTML += `
       <div class="draft-order-round">Round 5</div>
     `;
-  } else if (i === 180 && rounds > 5) {
+  } else if (i === 181 && rounds > 5) {
     document.querySelector('.draft-order-panel').innerHTML += `
       <div class="draft-order-round">Round 6</div>
     `;
@@ -453,16 +452,17 @@ function aiDraftPick(team, otc) {
       }
 
       function standardPositionalAdjustments() {
-        if (player.position === 'RB' && otc <= 5) score -= 5;
-        if (player.position === 'WR' && otc <= 4) score -= 5;
+        if (player.position === 'RB' && otc <= 3) score -= 5;
+        if (player.position === 'WR' && otc <= 3) score -= 5;
         if (player.position === 'CB' && otc <= 3) score -= 5;
-        if (player.position === 'OT' && otc <= 32) score += 5;
+        if (player.position === 'OT' && otc <= 32) score += 2;
         if (player.position === 'ED' && otc <= 10) score += 3;
         if (player.position === 'K' || player.position === 'P' || player.position === 'LS') score -= 30;
         if (team.drafted.includes(player.position) && player.position === 'QB') score = 0;
         if (team.nogo.includes(player.position)) score = 0;
         if (team.drafted.includes(player.position)) score -= 5;
         if (player.name === 'Ty Simpson' && otc <= 3) score -= 10;
+        if (player.name === 'Sonny Styles') score += 3;
       }
 
       function variability(chance, qbChance, genWhole, genHalf, firstWhole, firstHalf, lateWhole, lateHalf, qb) {
