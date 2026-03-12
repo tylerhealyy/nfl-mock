@@ -90,50 +90,34 @@ document.querySelector('.next-summary').addEventListener("click", () => {
     case '2':
       buildSummary(65, 101);
       summaryViewing += 1;
-      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(18, 54px)';
-      document.querySelectorAll('.rs-pick:nth-child(n+17)').forEach(el => el.style.borderRight = '1px solid black');
-      document.querySelectorAll('.rs-pick:nth-child(n+20)').forEach(el => el.style.borderRight = 'none');
-      document.querySelectorAll('.rs-pick:nth-child(16n+16)').forEach(el => el.style.borderBottom = '1px solid black');
-      document.querySelectorAll('.rs-pick:nth-child(19n+19)').forEach(el => el.style.borderBottom = 'none');
+      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(18, 1fr)';
       document.querySelector('.rs-header-round').innerHTML = `Third `;
       if (roundsInput === '3') {
         hideNext();
       }
       break;
     case '3':
-      buildSummary(101, 139);
+      buildSummary(101, 141);
       summaryViewing += 1;
-      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(19, 54px)';
-      document.querySelectorAll('.rs-pick:nth-child(n+17)').forEach(el => el.style.borderRight = '1px solid black');
-      document.querySelectorAll('.rs-pick:nth-child(n+19)').forEach(el => el.style.borderRight = 'none');
-      document.querySelectorAll('.rs-pick:nth-child(16n+16)').forEach(el => el.style.borderBottom = '1px solid black');
-      document.querySelectorAll('.rs-pick:nth-child(18n+18)').forEach(el => el.style.borderBottom = 'none');
+      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(20, 1fr)';
       document.querySelector('.rs-header-round').innerHTML = `Fourth `;
       if (roundsInput === '4') {
         hideNext();
       }
       break;
     case '4':
-      buildSummary(139, 181);
+      buildSummary(141, 182);
       summaryViewing += 1;
-      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(21, 54px)';
-      document.querySelectorAll('.rs-pick:nth-child(n+17)').forEach(el => el.style.borderRight = '1px solid black');
-      document.querySelectorAll('.rs-pick:nth-child(n+20)').forEach(el => el.style.borderRight = 'none');
-      document.querySelectorAll('.rs-pick:nth-child(16n+16)').forEach(el => el.style.borderBottom = '1px solid black');
-      document.querySelectorAll('.rs-pick:nth-child(19n+19)').forEach(el => el.style.borderBottom = 'none');
+      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(21, 1fr)';
       document.querySelector('.rs-header-round').innerHTML = `Fifth `;
       if (roundsInput === '5') {
         hideNext();
       }
       break;
     case '5':
-      buildSummary(181, 217);
+      buildSummary(182, 217);
       summaryViewing += 1;
-      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(18, 54px)';
-      document.querySelectorAll('.rs-pick:nth-child(n+17)').forEach(el => el.style.borderRight = '1px solid black');
-      document.querySelectorAll('.rs-pick:nth-child(n+21)').forEach(el => el.style.borderRight = 'none');
-      document.querySelectorAll('.rs-pick:nth-child(16n+16)').forEach(el => el.style.borderBottom = '1px solid black');
-      document.querySelectorAll('.rs-pick:nth-child(20n+20)').forEach(el => el.style.borderBottom = 'none');
+      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(18, 1fr)';
       document.querySelector('.rs-header-round').innerHTML = `Sixth `;
       if (roundsInput === '6') {
         hideNext();
@@ -143,11 +127,7 @@ document.querySelector('.next-summary').addEventListener("click", () => {
       buildSummary(217, 258);
       summaryViewing += 1;
       hideNext();
-      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(21, 54px)';
-      document.querySelectorAll('.rs-pick:nth-child(n+17)').forEach(el => el.style.borderRight = '1px solid black');
-      document.querySelectorAll('.rs-pick:nth-child(n+22)').forEach(el => el.style.borderRight = 'none');
-      document.querySelectorAll('.rs-pick:nth-child(16n+16)').forEach(el => el.style.borderBottom = '1px solid black');
-      document.querySelectorAll('.rs-pick:nth-child(21n+21)').forEach(el => el.style.borderBottom = 'none');
+      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(21, 1fr)';
       document.querySelector('.rs-header-round').innerHTML = `Seventh `;
       break;
   }
@@ -165,53 +145,35 @@ document.querySelector('.last-summary').addEventListener("click", () => {
       buildSummary(33, 65);
       summaryViewing -= 1;
       showNext();
-      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(16, 54px)';
-      document.querySelectorAll('.rs-pick:nth-child(n+17)').forEach(el => el.style.borderRight = 'none');
-      document.querySelectorAll('.rs-pick:nth-child(16n+16)').forEach(el => el.style.borderBottom = 'none');
+      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(16, 1fr)';
       document.querySelector('.rs-header-round').innerHTML = `Second `;
       break;
     case '4':
       buildSummary(65, 101);
       summaryViewing -= 1;
       showNext();
-      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(18, 54px)';
-      document.querySelectorAll('.rs-pick:nth-child(n+17)').forEach(el => el.style.borderRight = '1px solid black');
-      document.querySelectorAll('.rs-pick:nth-child(n+20)').forEach(el => el.style.borderRight = 'none');
-      document.querySelectorAll('.rs-pick:nth-child(16n+16)').forEach(el => el.style.borderBottom = '1px solid black');
-      document.querySelectorAll('.rs-pick:nth-child(19n+19)').forEach(el => el.style.borderBottom = 'none');
+      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(18, 1fr)';
       document.querySelector('.rs-header-round').innerHTML = `Third `;
       break;
     case '5':
-      buildSummary(101, 139);
+      buildSummary(101, 141);
       summaryViewing -= 1;
       showNext();
-      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(19, 54px)';
-      document.querySelectorAll('.rs-pick:nth-child(n+17)').forEach(el => el.style.borderRight = '1px solid black');
-      document.querySelectorAll('.rs-pick:nth-child(n+19)').forEach(el => el.style.borderRight = 'none');
-      document.querySelectorAll('.rs-pick:nth-child(16n+16)').forEach(el => el.style.borderBottom = '1px solid black');
-      document.querySelectorAll('.rs-pick:nth-child(18n+18)').forEach(el => el.style.borderBottom = 'none');
+      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(20, 1fr)';
       document.querySelector('.rs-header-round').innerHTML = `Fourth `;
       break;
     case '6':
-      buildSummary(139, 181);
+      buildSummary(141, 182);
       summaryViewing -= 1;
       showNext();
-      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(21, 54px)';
-      document.querySelectorAll('.rs-pick:nth-child(n+17)').forEach(el => el.style.borderRight = '1px solid black');
-      document.querySelectorAll('.rs-pick:nth-child(n+20)').forEach(el => el.style.borderRight = 'none');
-      document.querySelectorAll('.rs-pick:nth-child(16n+16)').forEach(el => el.style.borderBottom = '1px solid black');
-      document.querySelectorAll('.rs-pick:nth-child(19n+19)').forEach(el => el.style.borderBottom = 'none');
+      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(21, 1fr)';
       document.querySelector('.rs-header-round').innerHTML = `Fifth `;
       break;
     case '7':
-      buildSummary(181, 217);
+      buildSummary(182, 217);
       summaryViewing -= 1;
       showNext();
-      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(18, 54px)';
-      document.querySelectorAll('.rs-pick:nth-child(n+17)').forEach(el => el.style.borderRight = '1px solid black');
-      document.querySelectorAll('.rs-pick:nth-child(n+21)').forEach(el => el.style.borderRight = 'none');
-      document.querySelectorAll('.rs-pick:nth-child(16n+16)').forEach(el => el.style.borderBottom = '1px solid black');
-      document.querySelectorAll('.rs-pick:nth-child(20n+20)').forEach(el => el.style.borderBottom = 'none');
+      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(18, 1fr)';
       document.querySelector('.rs-header-round').innerHTML = `Sixth `;
       break;
   }
