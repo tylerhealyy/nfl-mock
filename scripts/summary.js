@@ -28,30 +28,36 @@ window.addEventListener("DOMContentLoaded", () => {
 
 document.querySelector('.ts-summary').addEventListener("click", () => {
   html2canvas(document.getElementById("ts-capture"), {
-    useCORS: true, // Allows cross-origin images
-    allowTaint: true,
-    scale: 3, // Increases rendering resolution
-    backgroundColor: null // Ensures transparency is preserved
+    useCORS: true,
+    scale: 3, // super sharp
+    backgroundColor: "#000000"
   }).then((canvas) => {
-    let image = canvas.toDataURL("image/png"); // Convert canvas to image
-    let link = document.createElement("a");
+
+    // convert to compressed format
+    const image = canvas.toDataURL("image/webp", 0.85);
+
+    const link = document.createElement("a");
     link.href = image;
-    link.download = "my-team-mock-draft.png"; // Download as PNG
+    link.download = `team-mock-draft-${Date.now()}.webp`;
     link.click();
+
   });
 });
 document.querySelector('.round-summary').addEventListener("click", () => {
   html2canvas(document.getElementById("rs-capture"), {
-    useCORS: true, // Allows cross-origin images
-    allowTaint: true,
-    scale: 3, // Increases rendering resolution
-    backgroundColor: null // Ensures transparency is preserved
+    useCORS: true,
+    scale: 3, // super sharp
+    backgroundColor: "#000000"
   }).then((canvas) => {
-    let image = canvas.toDataURL("image/png"); // Convert canvas to image
-    let link = document.createElement("a");
+
+    // convert to compressed format
+    const image = canvas.toDataURL("image/webp", 0.85);
+
+    const link = document.createElement("a");
     link.href = image;
-    link.download = "my-mock-draft.png"; // Download as PNG
+    link.download = `mock-draft-${Date.now()}.webp`;
     link.click();
+
   });
 });
 

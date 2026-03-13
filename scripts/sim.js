@@ -10,14 +10,12 @@ let otc = 1;
 localStorage.setItem('otc', JSON.stringify(otc));
 let tradeID = 0;
 localStorage.setItem('totalTrades', tradeID);
-let viewing;
 let selectedValue;
 let nameValue = '';
 let teamsValue = '';
 let selectedBoard;
 let rankUsed;
-let scoringData = [];
-let dataForSave = [];
+let dataForLog = {};
 const offPositionList = ["QB", "RB", "WR", "TE", "OT", "IOL"];
 const defPositionList = ["ED", "DT", "LB", "CB", "S"];
 const allPositionList = ["QB", "RB", "WR", "TE", "OT", "IOL", "ED", "DT", "LB", "CB", "S"];
@@ -29,6 +27,7 @@ const picksPerRound = [{round:1, picks:0},
 {round:6, picks:181},
 {round:7, picks:216}
 ];
+
 
 nflTeams.forEach((team) => { // Reset all picks on every refresh
   team.test.forEach((pick) => {
@@ -66,6 +65,10 @@ window.addEventListener("DOMContentLoaded", () => {
     localStorage.removeItem(`${team.name}test`);
   });
   selectedValue = JSON.parse(localStorage.getItem('roundsInput'));
+
+  let draftID = `${JSON.parse(localStorage.getItem('nameInput'))}_${Date.now()}`;
+  localStorage.setItem('draftID', draftID);
+
   buildDraftOrder2(selectedValue); // Builds the draft order display on left side
   changeHeader();
   localStorage.removeItem("functionExecuted");
@@ -745,7 +748,6 @@ function positionSort() { // Add functionality to position buttons
 function displayProfile(playerCard, selectedValue) { // Add event listeners to player cards that display their profile
   playerCard.forEach((card) => {
     card.addEventListener("click", () => {
-      viewing = card.dataset.rank; // Read which player card is clicked
       const playerRank = card.dataset.rank; // Read which player card is clicked
       const profileHTML = document.querySelector(".profile-js");
       profileHTML.innerHTML = null; // Clear profile so the new one can be added
@@ -866,12 +868,8 @@ export function draftPlayer(selectedValue, player) {
     localStorage.setItem(`${team.name}test`, JSON.stringify(newTest));
   });
 
-  scoringData.push({n: otc, t: selectingTeam, p: player.name});
-  localStorage.setItem(`scoringData`, JSON.stringify(scoringData));
-
-  //dataForSave.push({team: selectingTeam, player: player.name});
-
-  //if (otc === 10) saveData();
+  dataForLog = {n: otc, t: selectingTeam, p: player.name};
+  localStorage.setItem(`dataForLog`, JSON.stringify(dataForLog));
 
   switch(String(selectedValue)) { // Determine when to end draft and go to summary screen
     case "1": // Read which number of rounds was selected (selectedValue) and end the draft after the final pick in that round
@@ -946,7 +944,39 @@ export function draftPlayer(selectedValue, player) {
 
 function userDraftPlayer(selectedValue, player) {
   draftPlayer(selectedValue, player);
-  singleAutoPick(selectedValue);
+
+  let data = JSON.parse(localStorage.getItem('dataForLog'));
+  logPick(data.n, data.t, data.p);
+
+  setTimeout(() => {
+    singleAutoPick(selectedValue);
+  }, speed);
+}
+
+let speed = 800;
+if (JSON.parse(localStorage.getItem('speedInput')) == 1) {
+  speed = 1500;
+} else if(JSON.parse(localStorage.getItem('speedInput')) == 2) {
+  speed = 800;
+} else if(JSON.parse(localStorage.getItem('speedInput')) == 3) {
+  speed = 100;
+} else {
+  speed = 1;
+}
+
+function logPick(pick, team, player) {
+
+  fetch("https://script.google.com/macros/s/AKfycbz958_sRaComp2LvbJ_HLqFk9Jvi5IoZXFaG4VgzaxmjmUJmt4me3hKjd4h2JH4oDAIzg/exec", {
+    method: "POST",
+    mode: "no-cors",
+    body: JSON.stringify({
+      draftId: localStorage.getItem('draftID'),
+      pick: pick,
+      team: team,
+      player: player
+    })
+  });
+
 }
 
 function changeHeader() {
