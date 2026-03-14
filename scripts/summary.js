@@ -30,15 +30,15 @@ document.querySelector('.ts-summary').addEventListener("click", () => {
   html2canvas(document.getElementById("ts-capture"), {
     useCORS: true,
     scale: 3, // super sharp
-    backgroundColor: "#000000"
+    backgroundColor: null
   }).then((canvas) => {
 
     // convert to compressed format
-    const image = canvas.toDataURL("image/webp", 0.85);
+    const image = canvas.toDataURL("image/png");
 
     const link = document.createElement("a");
     link.href = image;
-    link.download = `team-mock-draft-${Date.now()}.webp`;
+    link.download = `team-mock-draft-${Date.now()}.png`;
     link.click();
 
   });
@@ -47,15 +47,15 @@ document.querySelector('.round-summary').addEventListener("click", () => {
   html2canvas(document.getElementById("rs-capture"), {
     useCORS: true,
     scale: 3, // super sharp
-    backgroundColor: "#000000"
+    backgroundColor: null
   }).then((canvas) => {
 
     // convert to compressed format
-    const image = canvas.toDataURL("image/webp", 0.85);
+    const image = canvas.toDataURL("image/png");
 
     const link = document.createElement("a");
     link.href = image;
-    link.download = `mock-draft-${Date.now()}.webp`;
+    link.download = `mock-draft-${Date.now()}.png`;
     link.click();
 
   });
