@@ -219,9 +219,8 @@ function buildSummary(low, high) {
         const storedInfo = JSON.parse(localStorage.getItem(`${i}info`));
   
         document.querySelector('.rs-grid').innerHTML += `
-          <div class="rs-pick" style="
-            background: radial-gradient(ellipse 350px 100px, ${team.color}, black);
-          ">
+          <div class="rs-pick">
+            <div class="rs-pick-colorBar" style="background-color: ${team.color};"></div>
             <div class="rs-pick-number">${i}</div>
             <img src="${team.logo}" class="rs-pick-image">
             <div class="rs-pick-player">
@@ -324,9 +323,8 @@ function buildTeamSummary(draftee) {
           rankUsed = draftee[`${selectedBoard}`];
 
           document.querySelector('.ts-pick-list').innerHTML += `
-            <div class="ts-pick" style="
-              background: radial-gradient(ellipse 1500px 100px, ${team.color}, black);
-            ">
+            <div class="ts-pick">
+              <div class="rs-pick-colorBar" style="background-color: ${team.color};"></div>
               <div class="rs-pick-number">${i}</div>
               <img src="${team.logo}" class="rs-pick-image">
               <div class="rs-pick-player">

@@ -4,7 +4,7 @@ export const nflTeams = [
     city: "Tennessee",
     abbv: "TEN",
     logo: "teamLogos/titans.png",
-    color: "#4B92DB",
+    color: "#4495D2",
     record: "3-14",
     capSpace: "$99.0M",
     gm: "Mike Borgonzi",

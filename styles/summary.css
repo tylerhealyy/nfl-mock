@@ -1,11 +1,11 @@
 body {
-  background-color: rgb(30, 30, 30);
+  background-color: rgb(20, 20, 20);
   font-family: Inter;
 }
 
 .summaryHeaderText {
   position: absolute;
-  top: 10px;
+  top: 20px;
   left: 10px;
   right: 10px;
   text-align: center;
@@ -18,7 +18,7 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 .round-summary,
@@ -52,10 +52,10 @@ body {
 }
 
 .rs-header {
-  background: linear-gradient(to right, rgb(6, 7, 12) 10%, rgb(32, 35, 54), rgb(6, 7, 12) 90%);
+  background-color: rgb(31, 31, 31);
   padding: 5px;
   height: 35px;
-  color: white;
+  color: rgb(255, 255, 255);
   font-size: 28px;
   font-weight: 700;
   padding-left: 15px;
@@ -103,35 +103,33 @@ body {
   grid-auto-flow: column;
   list-style-type: none;
   column-gap: 2px;
-  background-color: black;
+  background-color: rgb(0, 0, 0);
 }
 
 .rs-pick,
 .ts-pick {
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
   font-size: 12px;
   font-weight: 700;
   height: 54px;
   display: grid;
-  grid-template-columns: 35px 50px 1fr 50px;
-  background-color: rgb(0, 0, 0);
+  grid-template-columns: 10px 45px 50px 1fr 50px;
   align-items: center;
   padding-right: 5px;
   margin: 0px 0px 0px 0px;
-  border-top: 1px solid black;
+  border-top: 1px solid rgb(0, 0, 0);
 }
 
 .ts-pick {
   border-right: none;
   height: 54px;
-  grid-template-columns: 50px 50px 1fr 50px;
+  grid-template-columns: 10px 50px 50px 1fr 50px;
 }
 
-.rs-pick:nth-child(n + 17) {
-  border-right: none;
-}
-.rs-pick:nth-child(16n + 16) {
-  border-bottom: none;
+.rs-pick-colorBar {
+  width: 10px;
+  height: 100%;
 }
 
 .rs-pick-number {
@@ -163,19 +161,20 @@ body {
 
 .rs-pick-name {
   font-size: 18px;
+  padding-right: 5px;
 }
 
 .rs-pick-info {
   font-size: 14px;
-  color: rgb(206, 206, 206);
+  color: rgb(109, 109, 109);
 }
 
 .rs-footer {
-  background: linear-gradient(to right, rgb(6, 7, 12) 10%, rgb(32, 35, 54), rgb(6, 7, 12) 90%);
+  background-color: white;
+  color: black;
   padding: 5px;
   height: 20px;
   border-top: 1px solid black;
-  color: white;
   font-size: 14px;
   font-weight: 500;
   padding-left: 15px;
@@ -224,8 +223,8 @@ body {
   margin-bottom: 0px;
   height: 50px;
   width: 300px;
-  background: linear-gradient(to right, rgb(6, 7, 12) 10%, rgb(32, 35, 54), rgb(6, 7, 12) 90%);
-  color: white;
+  background-color: rgb(29, 29, 29);
+  color: rgb(255, 255, 255);
   border: none;
   border-radius: 10px;
   padding-left: 15px;
@@ -236,7 +235,7 @@ body {
 }
 
 option {
-  color: black;
+  color: rgb(255, 255, 255);
 }
 
 .ts-team-select:hover {
