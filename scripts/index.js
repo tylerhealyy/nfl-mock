@@ -22,6 +22,7 @@ displayBoxElem.innerHTML = `
       <option value="consensus">Consensus</option>
       <option value="pff">PFF</option>
       <option value="sis">SIS</option>
+      <option value="pfsn">PFSN</option>
     </select>
   </div>
   <div class="pick-rounds optionBox">
@@ -194,6 +195,7 @@ document.querySelectorAll('.teamBlockEllipsis').forEach((ellipsis) => {
                 <option value="consensus">Consensus</option>
                 <option value="pff">PFF</option>
                 <option value="sis">SIS</option>
+                <option value="pfsn">PFSN</option>
               </select>
             </div>
             <div class="pick-rounds optionBox">

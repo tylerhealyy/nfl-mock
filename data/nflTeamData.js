@@ -33,7 +33,8 @@ export const nflTeams = [
       {r: 5,n: 142,p: "", pn: "", pos: "",t: "NYJ"},
       {r: 5,n: 144,p: "", pn: "", pos: "",t: "TEN"},
       {r: 6,n: 184,p: "", pn: "", pos: "",t: "TEN"},
-      {r: 7,n: 238,p: "", pn: "", pos: "",t: "LAC"}],
+      {r: 6,n: 194,p: "", pn: "", pos: "",t: "BAL"},
+      {r: 7,n: 225,p: "", pn: "", pos: "",t: "KC"}],
     futurePicks: [{r: 1,t: "TEN"},{r: 2,t: "TEN"},{r: 3,t: "TEN"},{r: 4,t: "TEN"},{r: 5,t: "TEN"},{r: 6,t: "TEN"},{r: 7,t: "TEN"}]
   },
   {
@@ -68,6 +69,7 @@ export const nflTeams = [
       {r: 2,n: 39,p: "", pn: "", pos: "",t: "CLE"},
       {r: 3,n: 70,p: "", pn: "", pos: "",t: "CLE"},
       {r: 4,n: 107,p: "", pn: "", pos: "",t: "CLE"},
+      {r: 5,n: 141,p: "", pn: "", pos: "",t: "LV"},
       {r: 5,n: 146,p: "", pn: "", pos: "",t: "CLE"},
       {r: 5,n: 149,p: "", pn: "", pos: "",t: "CLE"},
       {r: 6,n: 206,p: "", pn: "", pos: "",t: "CHI"},
@@ -144,8 +146,8 @@ export const nflTeams = [
       {r: 4,n: 131,p: "", pn: "", pos: "",t: "NE"},
       {r: 5,n: 171,p: "", pn: "", pos: "",t: "NE"},
       {r: 6,n: 191,p: "", pn: "", pos: "",t: "KC"},
+      {r: 6,n: 198,p: "", pn: "", pos: "",t: "MIN"},
       {r: 6,n: 202,p: "", pn: "", pos: "",t: "PIT"},
-      {r: 6,n: 209,p: "", pn: "", pos: "",t: "SF"},
       {r: 6,n: 212,p: "", pn: "", pos: "",t: "NE"},
       {r: 7,n: 247,p: "", pn: "", pos: "",t: "NE"}],
     futurePicks: [{r: 1,t: "NE"},{r: 2,t: "NE"},{r: 3,t: "NE"},{r: 4,t: "NE"},{r: 5,t: "NE"},{r: 5,t: "CHI"},{r: 6,t: "NE"},{r: 6,t: "NO"},{r: 7,t: "NE"}]
@@ -186,6 +188,7 @@ export const nflTeams = [
       {r: 5,n: 166,p: "", pn: "", pos: "",t: "SF"},
       {r: 6,n: 203,p: "", pn: "", pos: "",t: "PHI"},
       {r: 7,n: 233,p: "", pn: "", pos: "",t: "DET"},
+      {r: 7,n: 240,p: "", pn: "", pos: "",t: "JAX"},
       {r: 7,n: 245,p: "", pn: "", pos: "",t: "LAR"}],
     futurePicks: [{r: 1,t: "JAX"},{r: 2,t: "JAX"},{r: 3,t: "JAX"},{r: 4,t: "JAX"},{r: 5,t: "JAX"},{r: 6,t: "JAX"},{r: 7,t: "JAX"}]
   },
@@ -223,6 +226,7 @@ export const nflTeams = [
       {r: 4,n: 117,p: "", pn: "", pos: "",t: "MIN"},
       {r: 4,n: 134,p: "", pn: "", pos: "",t: "LV"},
       {r: 5,n: 175,p: "", pn: "", pos: "",t: "LV"},
+      {r: 6,n: 182,p: "", pn: "", pos: "",t: "NYJ"},
       {r: 6,n: 185,p: "", pn: "", pos: "",t: "LV"},
       {r: 6,n: 208,p: "", pn: "", pos: "",t: "BUF"},
       {r: 7,n: 219,p: "", pn: "", pos: "",t: "LV"}],
@@ -262,8 +266,6 @@ export const nflTeams = [
       {r: 4,n: 103,p: "", pn: "", pos: "",t: "NYJ"},
       {r: 4,n: 140,p: "", pn: "", pos: "",t: "NYJ"},
       {r: 5,n: 179,p: "", pn: "", pos: "",t: "NYJ"},
-      {r: 6,n: 194,p: "", pn: "", pos: "",t: "BAL"},
-      {r: 7,n: 218,p: "", pn: "", pos: "",t: "TEN"},
       {r: 7,n: 228,p: "", pn: "", pos: "",t: "DAL"},
       {r: 7,n: 242,p: "", pn: "", pos: "",t: "BUF"}],
     futurePicks: [{r: 1,t: "NYJ"},{r: 1,t: "IND"},{r: 1,t: "DAL"},{r: 2,t: "NYJ"},{r: 3,t: "NYJ"},{r: 4,t: "NYJ"},{r: 5,t: "NYJ"},{r: 6,t: "NYJ"},{r: 6,t: "GB"}]
@@ -301,8 +303,7 @@ export const nflTeams = [
       {r: 4,n: 119,p: "", pn: "", pos: "",t: "CAR"},
       {r: 5,n: 158,p: "", pn: "", pos: "",t: "MIN"},
       {r: 5,n: 159,p: "", pn: "", pos: "",t: "CAR"},
-      {r: 6,n: 200,p: "", pn: "", pos: "",t: "CAR"},
-      {r: 7,n: 235,p: "", pn: "", pos: "",t: "CAR"}],
+      {r: 6,n: 200,p: "", pn: "", pos: "",t: "CAR"}],
     futurePicks: [{r: 1,t: "CAR"},{r: 2,t: "CAR"},{r: 3,t: "CAR"},{r: 4,t: "CAR"},{r: 4,t: "MIN"},{r: 6,t: "CAR"},{r: 7,t: "CAR"}]
   },
   {
@@ -407,7 +408,6 @@ export const nflTeams = [
     nogo: ['QB'],
     test: [{r: 1,n: 27,p: "", pn: "", pos: "",t: "SF"},
       {r: 2,n: 58,p: "", pn: "", pos: "",t: "SF"},
-      {r: 3,n: 92,p: "", pn: "", pos: "",t: "SF"},
       {r: 4,n: 127,p: "", pn: "", pos: "",t: "SF"},
       {r: 4,n: 133,p: "", pn: "", pos: "",t: "SF"},
       {r: 4,n: 138,p: "", pn: "", pos: "",t: "SF"},
@@ -443,12 +443,12 @@ export const nflTeams = [
     nogo: ['QB'],
     test: [{r: 1,n: 12,p: "", pn: "", pos: "",t: "DAL"},
       {r: 1,n: 20,p: "", pn: "", pos: "",t: "GB"},
+      {r: 3,n: 92,p: "", pn: "", pos: "",t: "SF"},
       {r: 4,n: 112,p: "", pn: "", pos: "",t: "DAL"},
       {r: 5,n: 152,p: "", pn: "", pos: "",t: "DAL"},
       {r: 5,n: 177,p: "", pn: "", pos: "",t: "DAL"},
       {r: 5,n: 180,p: "", pn: "", pos: "",t: "DAL"},
-      {r: 7,n: 221,p: "", pn: "", pos: "",t: "NYG"},
-      {r: 7,n: 225,p: "", pn: "", pos: "",t: "KC"}],
+      {r: 7,n: 218,p: "", pn: "", pos: "",t: "TEN"}],
     futurePicks: [{r: 1,t: "GB"},{r: 2,t: "DAL"},{r: 3,t: "DAL"},{r: 4,t: "DAL"},{r: 6,t: "DAL"},{r: 6,t: "PIT"},{r: 7,t: "DAL"}]
   },
   {
@@ -465,7 +465,7 @@ export const nflTeams = [
     dc: "Sean Duggan",
     QB: ["Tua Tagovailoa", "Zach Wilson", "Quinn Ewers", "Cam Miller"],
     RB: ["Devon Achane", "Jaylen Wright", "Ollie Gordon II", "Donovan Edwards"],
-    WR: ["Jaylen Waddle", "Nick Westbrook", "Malik Washington", "Tahj Washington", "Theo Wease Jr", "AJ Henning"],
+    WR: ["Nick Westbrook", "Malik Washington", "Tahj Washington", "Theo Wease Jr", "AJ Henning"],
     TE: ["Cole Turner", "Jalin Conyers"],
     OT: ["Austin Jackson", "Patrick Paul", "Carter Warren", "Braeden Daniels"],
     IOL: ["Aaron Brewer", "James Daniels", "Jonah Savaiinaea", "Kion Smith", "Andrew Meyer", "Josh Priebe"],
@@ -479,13 +479,16 @@ export const nflTeams = [
     needs: ['TE', 'WR', 'IOL', 'ED', 'S', 'CB'],
     nogo: [],
     test: [{r: 1,n: 11,p: "", pn: "", pos: "",t: "MIA"},
+      {r: 1,n: 30,p: "", pn: "", pos: "",t: "DEN"},
       {r: 2,n: 43,p: "", pn: "", pos: "",t: "MIA"},
       {r: 3,n: 75,p: "", pn: "", pos: "",t: "MIA"},
       {r: 3,n: 87,p: "", pn: "", pos: "",t: "PHI"},
       {r: 3,n: 90,p: "", pn: "", pos: "",t: "HOU"},
-      {r: 4,n: 111,p: "", pn: "", pos: "",t: "MIA"},
+      {r: 3,n: 94,p: "", pn: "", pos: "",t: "DEN"},
+      {r: 4,n: 130,p: "", pn: "", pos: "",t: "DEN"},
       {r: 5,n: 151,p: "", pn: "", pos: "",t: "MIA"},
-      {r: 7,n: 227,p: "", pn: "", pos: "",t: "MIA"}],
+      {r: 7,n: 227,p: "", pn: "", pos: "",t: "MIA"},
+      {r: 7,n: 238,p: "", pn: "", pos: "",t: "LAC"}],
     futurePicks: [{r: 1,t: "MIA"},{r: 2,t: "MIA"},{r: 3,t: "MIA"},{r: 4,t: "MIA"},{r: 5,t: "MIA"},{r: 5,t: "PIT"},{r: 6,t: "MIA"},{r: 7,t: "NYG"}]
   },
   {
@@ -519,7 +522,7 @@ export const nflTeams = [
       {r: 3,n: 78,p: "", pn: "", pos: "",t: "IND"},
       {r: 4,n: 113,p: "", pn: "", pos: "",t: "IND"},
       {r: 5,n: 156,p: "", pn: "", pos: "",t: "IND"},
-      {r: 7,n: 230,p: "", pn: "", pos: "",t: "IND"},
+      {r: 6,n: 214,p: "", pn: "", pos: "",t: "PIT"},
       {r: 7,n: 249,p: "", pn: "", pos: "",t: "IND"},
       {r: 7,n: 254,p: "", pn: "", pos: "",t: "IND"}],
     futurePicks: [{r: 2,t: "IND"},{r: 3,t: "IND"},{r: 4,t: "IND"},{r: 5,t: "IND"},{r: 6,t: "IND"},{r: 7,t: "IND"}]
@@ -627,6 +630,7 @@ export const nflTeams = [
       {r: 4,n: 110,p: "", pn: "", pos: "",t: "CIN"},
       {r: 6,n: 189,p: "", pn: "", pos: "",t: "CIN"},
       {r: 6,n: 199,p: "", pn: "", pos: "",t: "DET"},
+      {r: 7,n: 221,p: "", pn: "", pos: "",t: "NYG"},
       {r: 7,n: 226,p: "", pn: "", pos: "",t: "CIN"}],
     futurePicks: [{r: 1,t: "CIN"},{r: 2,t: "CIN"},{r: 3,t: "CIN"},{r: 4,t: "CIN"},{r: 5,t: "CIN"},{r: 6,t: "CIN"},{r: 7,t: "CIN"}]
   },
@@ -660,7 +664,7 @@ export const nflTeams = [
     test: [{r: 1,n: 32,p: "", pn: "", pos: "",t: "SEA"},
       {r: 2,n: 64,p: "", pn: "", pos: "",t: "SEA"},
       {r: 3,n: 96,p: "", pn: "", pos: "",t: "SEA"},
-      {r: 6,n: 213,p: "", pn: "", pos: "",t: "SEA"}],
+      {r: 6,n: 188,p: "", pn: "", pos: "",t: "CLE"}],
     futurePicks: [{r: 1,t: "SEA"},{r: 2,t: "SEA"},{r: 3,t: "SEA"},{r: 4,t: "SEA"},{r: 5,t: "SEA"},{r: 6,t: "SEA"},{r: 7,t: "SEA"},{r: 7,t: "ATL"}]
   },
   {
@@ -713,7 +717,7 @@ export const nflTeams = [
     dc: "Vance Joseph",
     QB: ["Bo Nix", "Jarrett Stidham"],
     RB: ["RJ Harvey", "Cody Schrader", "Deuce Vaughn"],
-    WR: ["Courtland Sutton", "Marvin Mims", "Pat Bryant", "Troy Franklin"],
+    WR: ["Jaylen Waddle", "Courtland Sutton", "Marvin Mims", "Pat Bryant", "Troy Franklin"],
     TE: ["Evan Engram", "Caleb Lohner"],
     OT: ["Mike McGlinchey", "Garett Bolles", "Matt Peart", "Frank Crum"],
     IOL: ["Quinn Meinerz", "Ben Powers", "Luke Wattenberg", "Alex Palczewski", "Alex Forsyth", "Michael Deiter", "Calvin Throckmorton", "Nick Gargiulo"],
@@ -726,11 +730,9 @@ export const nflTeams = [
     drafted: [],
     needs: ['TE', 'DT', 'LB'],
     nogo: ['QB'],
-    test: [{r: 1,n: 30,p: "", pn: "", pos: "",t: "DEN"},
-      {r: 2,n: 62,p: "", pn: "", pos: "",t: "DEN"},
-      {r: 3,n: 94,p: "", pn: "", pos: "",t: "DEN"},
+    test: [{r: 2,n: 62,p: "", pn: "", pos: "",t: "DEN"},
       {r: 4,n: 108,p: "", pn: "", pos: "",t: "NO"},
-      {r: 4,n: 130,p: "", pn: "", pos: "",t: "DEN"},
+      {r: 4,n: 111,p: "", pn: "", pos: "",t: "MIA"},
       {r: 5,n: 170,p: "", pn: "", pos: "",t: "DEN"},
       {r: 7,n: 246,p: "", pn: "", pos: "",t: "DEN"},
       {r: 7,n: 256,p: "", pn: "", pos: "",t: "DEN"},
@@ -772,9 +774,9 @@ export const nflTeams = [
       {r: 4,n: 121,p: "", pn: "", pos: "",t: "PIT"},
       {r: 4,n: 135,p: "", pn: "", pos: "",t: "PIT"},
       {r: 5,n: 161,p: "", pn: "", pos: "",t: "PIT"},
-      {r: 6,n: 214,p: "", pn: "", pos: "",t: "PIT"},
       {r: 6,n: 216,p: "", pn: "", pos: "",t: "PIT"},
       {r: 7,n: 224,p: "", pn: "", pos: "",t: "NO"},
+      {r: 7,n: 230,p: "", pn: "", pos: "",t: "IND"},
       {r: 7,n: 237,p: "", pn: "", pos: "",t: "PIT"}],
     futurePicks: [{r: 1,t: "PIT"},{r: 2,t: "PIT"},{r: 3,t: "PIT"},{r: 4,t: "PIT"},{r: 5,t: "DAL"},{r: 7,t: "PIT"},{r: 7,t: "MIA"}]
   },
@@ -882,7 +884,8 @@ export const nflTeams = [
       {r: 5,n: 163,p: "", pn: "", pos: "",t: "PHI"},
       {r: 6,n: 196,p: "", pn: "", pos: "",t: "IND"},
       {r: 7,n: 234,p: "", pn: "", pos: "",t: "MIN"},
-      {r: 7,n: 240,p: "", pn: "", pos: "",t: "JAX"}],
+      {r: 7,n: 235,p: "", pn: "", pos: "",t: "CAR"},
+      {r: 7,n: 244,p: "", pn: "", pos: "",t: "HOU"}],
     futurePicks: [{r: 1,t: "MIN"},{r: 2,t: "MIN"},{r: 3,t: "MIN"},{r: 5,t: "MIN"},{r: 5,t: "CAR"},{r: 6,t: "KC"},{r: 6,t: "MIN"},{r: 7,t: "PHI"}]
   },
   {
@@ -917,10 +920,8 @@ export const nflTeams = [
       {r: 2,n: 59,p: "", pn: "", pos: "",t: "HOU"},
       {r: 3,n: 69,p: "", pn: "", pos: "",t: "NYG"},
       {r: 4,n: 106,p: "", pn: "", pos: "",t: "WAS"},
-      {r: 5,n: 141,p: "", pn: "", pos: "",t: "LV"},
       {r: 5,n: 167,p: "", pn: "", pos: "",t: "HOU"},
-      {r: 7,n: 243,p: "", pn: "", pos: "",t: "SF"},
-      {r: 7,n: 244,p: "", pn: "", pos: "",t: "HOU"}],
+      {r: 7,n: 243,p: "", pn: "", pos: "",t: "SF"}],
     futurePicks: [{r: 1,t: "HOU"},{r: 2,t: "HOU"},{r: 3,t: "HOU"},{r: 4,t: "HOU"},{r: 6,t: "HOU"},{r: 6,t: "CLE"},{r: 7,t: "SF"}]
   },
   {
@@ -1032,8 +1033,8 @@ export const nflTeams = [
       {r: 4,n: 128,p: "", pn: "", pos: "",t: "HOU"},
       {r: 5,n: 157,p: "", pn: "", pos: "",t: "DET"},
       {r: 5,n: 181,p: "", pn: "", pos: "",t: "DET"},
-      {r: 6,n: 188,p: "", pn: "", pos: "",t: "CLE"},
       {r: 6,n: 205,p: "", pn: "", pos: "",t: "JAX"},
+      {r: 6,n: 213,p: "", pn: "", pos: "",t: "SEA"},
       {r: 7,n: 222,p: "", pn: "", pos: "",t: "CLE"}],
     futurePicks: [{r: 1,t: "DET"},{r: 2,t: "DET"},{r: 3,t: "DET"},{r: 4,t: "DET"},{r: 5,t: "DET"},{r: 6,t: "DET"},{r: 7,t: "DET"},{r: 7,t: "LAC"}]
   },
@@ -1068,7 +1069,7 @@ export const nflTeams = [
       {r: 3,n: 71,p: "", pn: "", pos: "",t: "WAS"},
       {r: 5,n: 147,p: "", pn: "", pos: "",t: "WAS"},
       {r: 6,n: 187,p: "", pn: "", pos: "",t: "WAS"},
-      {r: 6,n: 198,p: "", pn: "", pos: "",t: "MIN"},
+      {r: 6,n: 209,p: "", pn: "", pos: "",t: "SF"},
       {r: 7,n: 223,p: "", pn: "", pos: "",t: "WAS"}],
     futurePicks: [{r: 1,t: "WAS"},{r: 2,t: "WAS"},{r: 3,t: "WAS"},{r: 4,t: "WAS"},{r: 5,t: "WAS"},{r: 6,t: "WAS"},{r: 7,t: "WAS"}]
   },
@@ -1104,7 +1105,6 @@ export const nflTeams = [
       {r: 4,n: 126,p: "", pn: "", pos: "",t: "BUF"},
       {r: 5,n: 165,p: "", pn: "", pos: "",t: "CHI"},
       {r: 5,n: 168,p: "", pn: "", pos: "",t: "BUF"},
-      {r: 6,n: 182,p: "", pn: "", pos: "",t: "NYJ"},
       {r: 7,n: 220,p: "", pn: "", pos: "",t: "NYJ"}],
     futurePicks: [{r: 1,t: "BUF"},{r: 2,t: "BUF"},{r: 3,t: "BUF"},{r: 4,t: "BUF"},{r: 5,t: "BUF"},{r: 6,t: "BUF"},{r: 7,t: "BUF"}]
   },
