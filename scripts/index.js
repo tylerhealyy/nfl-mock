@@ -410,5 +410,11 @@ document.querySelector('.start-button').addEventListener("click", () => {
   localStorage.setItem('autoDraftEmphasisInput', JSON.stringify(autoDraftEmphasisInput.value));
   localStorage.setItem('autoDraftVariabilityInput', JSON.stringify(autoDraftVariabilityInput.value));
 
-  window.location.href='sim.html';
+  if (JSON.parse(localStorage.getItem('nameInput')) === "standings") {
+    window.location.href='standings.html';
+  } else {
+    window.location.href='sim.html';
+  }
+
+  
 });
