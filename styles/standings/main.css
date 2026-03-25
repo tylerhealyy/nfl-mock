@@ -80,6 +80,15 @@ body {
   cursor: pointer;
 }
 
+.modeButton.mock {
+  width: fit-content;
+}
+
+.modeButton.league {
+  pointer-events: none;
+  opacity: 0.4;
+}
+
 .modeButton:hover {
   border: 1px solid black;
 }
@@ -98,6 +107,11 @@ body {
 .modeButtonIcon {
   max-height: 90%;
   max-width: 90%;
+}
+
+.modeButtonIcon.mock {
+  max-height: 70%;
+  border-radius: 8px;
 }
 
 .modeButtonText {
@@ -122,8 +136,7 @@ body {
 
 .teamOptions {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
 }
 

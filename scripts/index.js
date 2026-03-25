@@ -14,6 +14,7 @@ const picksPerRound = [{round:1, picks:0},
 
 displayBoxElem.innerHTML = `
   <button class="start-button" id="start-btn">Start Draft</button>
+  <button class="schedule-button" id="start-btn">Schedule Predictor</button>
   <div class="pick-board optionBox">
     <div class="pick-board-text optionBoxText">
       Select Big Board
@@ -187,6 +188,7 @@ document.querySelectorAll('.teamBlockEllipsis').forEach((ellipsis) => {
 
           displayBoxElem.innerHTML = `
             <button class="start-button" id="start-btn">Start Draft</button>
+            <button class="schedule-button" id="start-btn">Schedule Predictor</button>
             <div class="pick-board optionBox">
               <div class="pick-board-text optionBoxText">
                 Select Big Board
@@ -415,6 +417,8 @@ document.querySelector('.start-button').addEventListener("click", () => {
   } else {
     window.location.href='sim.html';
   }
+});
 
-  
+document.querySelector('.schedule-button').addEventListener("click", () => {
+  window.location.href = 'standings.html';
 });
