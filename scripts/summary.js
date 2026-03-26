@@ -4,8 +4,13 @@ import { playerData26 } from "../data/playerData26.js";
 let rankUsed;
 let selectedBoard = JSON.parse(localStorage.getItem('boardInput'));
 
-document.querySelector('.newDraftBtn').addEventListener("click", () => { // Add functionality to restart button
+document.getElementById('newDraftBtn').addEventListener("click", () => { // Add functionality to restart button
   if(confirm("Are you sure you want to start a new draft?")) {
+    window.location.href = 'simSettings.html';
+  }
+});
+document.getElementById('homeBtn').addEventListener("click", () => { // Add functionality to restart button
+  if(confirm("Are you sure you want to leave this draft?")) {
     window.location.href = 'index.html';
   }
 });

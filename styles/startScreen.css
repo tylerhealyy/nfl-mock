@@ -282,7 +282,7 @@ input[type="range"]::-moz-range-thumb {
   text-align: center;
 }
 
-.start-button, .schedule-button {
+.start-button {
   min-height: 70px;
   width: 50%;
   font-family: Roboto;
@@ -298,18 +298,6 @@ input[type="range"]::-moz-range-thumb {
   margin: 15px 0px 5px 0px;
 }
 
-.start-button:hover, .schedule-button:hover {
+.start-button:hover {
   transform: scale(1.05);
-}
-
-.schedule-button {
-  min-height: 30px;
-  background-color: rgb(255, 255, 255);
-  color: rgb(255, 94, 0);
-  text-shadow: none;
-  font-size: 16px;
-  font-weight: 700;
-  width: 40%;
-  margin: 0 0 5px 0;
-  border: none;
 }

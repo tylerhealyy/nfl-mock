@@ -1,36 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>NFL Mock Draft Simulator | MockParadox</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="robots" content="index, follow">
-    <meta property="og:type" content="website">
-    <meta name="description" content="A free, comprehensive tool for creating NFL mock drafts. Explore prospect profiles, built-in trade value calculator, and custom auto-draft settings.">
-    <meta property="og:title" content="NFL Mock Draft Simulator | MockParadox">
-    <meta property="og:description" content="Create free NFL mock drafts with prospect profiles, a built-in trade value calculator, and custom auto-draft settings.">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
 
-    <link rel="stylesheet" href="styles/home.css">
-
+    <link rel="stylesheet" href="styles/startScreen.css">
+    <link rel="stylesheet" href="styles/teamProfileStart.css">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
   </head>
 
   <body>
-    <img class="backgroundImg" src="photos/stadium.jpg">
-    <img class="logo" src="icons/textLogo.png">
-    <a class="author" href="https://x.com/tylerhealyy" target="_blank"><img class="xLogo" src="icons/xLogo.png">tylerhealyy</a>
-    <div class="menu">
-      <div class="modeBtn" id="mock">Mock Draft Simulator</div>
-      <div class="modeBtn" id="schedule">Schedule Predictor</div>
-    </div>
+    <section>
+      <div class="startHeaderBox">
+        <div class="topText">
+          MockParadox | NFL Mock Draft Machine
+        </div>
+        <div class="bottomText">
+          Made by Tyler Healy
+        </div>
+      </div>
+    </section>
+    <section class="pre-draft-options">
+      <div class="apple">
+        <div class="smoked">
+          <div class="select-teams-header">
+            <div class="select-main-text">
+              Select team(s) to make picks for
+            </div>
+            <div class="select-all" id="select-all">
+              Select All
+            </div>
+          </div>
+          <div class="team-picker" id="teams">
+
+          </div>
+        </div>
+        
+        <div class="hickory"></div>
+      </div>
+      
+    </section>
   </body>
 
-  <script type="module" src="scripts/index.js"></script>
+  <script type="module" src="scripts/simSettings.js"></script>
 </html>

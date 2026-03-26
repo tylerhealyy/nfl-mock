@@ -286,6 +286,7 @@ option {
   margin: 0px 0px 0px 20px;
   transition: 0.15s ease;
   align-self: center;
+  margin-bottom: 10px;
 }
 
 .newDraftBtn:hover {

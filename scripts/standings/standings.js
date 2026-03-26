@@ -104,7 +104,7 @@ function backToHome() {
           <div class="modeButtonIconBox">
             <img class="modeButtonIcon mock" src="apple-touch-icon.png">
           </div>
-          <div class="modeButtonText">Back To Mock</div>
+          <div class="modeButtonText">Back To Home</div>
         </div>
       </div>
     </div>

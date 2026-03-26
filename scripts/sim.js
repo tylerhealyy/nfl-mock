@@ -1042,7 +1042,7 @@ function changeHeader() {
 
 document.querySelector('.restart').addEventListener("click", () => { // Add functionality to restart button
   if(confirm("Are you sure you want to restart?")) {
-    window.location.href = 'index.html';
+    window.location.href = 'simSettings.html';
   }
 });
 
