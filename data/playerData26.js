@@ -16,7 +16,7 @@ export const playerData26 = [
   },
   {
     name: "Arvell Reese",
-    position: "ED",
+    position: "LB",
     school: "Ohio State",
     schoolLogo: "schoolLogos/ohio-state.png",
     height: "6'4",

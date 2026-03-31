@@ -2,6 +2,8 @@ import { nflTeams } from "../data/nflTeamData.js";
 import { playerData26 } from "../data/playerData26.js";
 import { draftPlayer } from "./sim.js";
 
+initializeData();
+
 let rankUsed;
 let selectedBoard = JSON.parse(localStorage.getItem('boardInput'));
 let autoDraftEmphasis = JSON.parse(localStorage.getItem('autoDraftEmphasisInput'));
@@ -38,13 +40,13 @@ export function buildDraftOrder2(rounds) { // Read the number of rounds to displ
       }
       break;
     case "4":
-      for (let i = 1; i < 139; i++) {
+      for (let i = 1; i < 141; i++) {
         buildPanelItems(i, rounds);
         addRoundDividers(i, rounds);
       }
       break;
     case "5":
-      for (let i = 1; i < 181; i++) {
+      for (let i = 1; i < 182; i++) {
         buildPanelItems(i, rounds);
         addRoundDividers(i, rounds);
       }
@@ -65,6 +67,7 @@ export function buildDraftOrder2(rounds) { // Read the number of rounds to displ
 }
 
 function buildPanelItems(i, rounds) { // Build HTML for each pick
+  /*let pickTeam;
   nflTeams.forEach((team) => {
     let newTest;
     if (JSON.parse(localStorage.getItem(`${team.name}test`))) {
@@ -72,225 +75,237 @@ function buildPanelItems(i, rounds) { // Build HTML for each pick
     } else {
       newTest = team.test;
     }
-    if (newTest.some(v => v.n === i)) { // If a team owns a pick, display that team's card in that spot on the panel
-      const storedInfo = JSON.parse(localStorage.getItem(`${i}info`));
-      const storedLogo = JSON.parse(localStorage.getItem(`${i}logo`));
-      function getInfo() {
-        if (storedInfo) {
-          return storedInfo;
-        } else {
-          return '';
-        }
-      }
-      function getLogo() {
-        if (storedLogo) {
-          return storedLogo;
-        } else {
-          return '';
-        }
-      }
+    console.log('hi', i, newTest);
+    if (newTest.some(v => v.n === i)) {
+      pickTeam = team;
+    }
+  });*/
 
-      const draftOrderPanelElem = document.querySelector('.draft-order-panel');
+  const pickTeam = nflTeams.find(team => {
+    const stored = JSON.parse(localStorage.getItem(`${team.name}test`));
+    const newTest = Array.isArray(stored) ? stored : stored?.test || team.test;
 
-      draftOrderPanelElem.innerHTML += `
-        <div class="draft-order-item" data-team="${team.name}" data-order="${i}" style="
-          background-color: rgb(0, 0, 0);
-          box-shadow: inset 0px 0px 180px ${team.color};
-        ">
-          <div class="pick-number">${i}</div>
-          <div class="pick-logo">
-            <img src="${team.logo}" class="pick-image">
-          </div>
-          <div class="pick-player" data-info="${i}">${getInfo()}</div>
-          <div class="pick-player-logo" data-logo="${i}">${getLogo()}</div>
-        </div>
-      `;
+    return newTest.some(p => p.n === i);
+  });
 
-      const draftOrderItems = document.querySelectorAll(`.draft-order-item`);
-      const displayBoxElem = document.querySelector('.profile-js');
+  console.log(pickTeam.name);
 
-      draftOrderItems.forEach((item) => {
-        item.addEventListener("click", () => {
-          displayBoxElem.innerHTML = '';
+  const storedInfo = JSON.parse(localStorage.getItem(`${i}info`));
+  const storedLogo = JSON.parse(localStorage.getItem(`${i}logo`));
+  function getInfo() {
+    if (storedInfo) {
+      return storedInfo;
+    } else {
+      return '';
+    }
+  }
+  function getLogo() {
+    if (storedLogo) {
+      return storedLogo;
+    } else {
+      return '';
+    }
+  }
 
-          nflTeams.forEach((team) => { // block is undefined somewhere
-            if (team.name === item.dataset.team) {
-              displayBoxElem.setAttribute("style", `
-                background-color: ${team.color};
-                box-shadow: inset 0px 0px 500px 10px black;
-                color: white;
-                text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                padding: 0px 15px 0px 15px;
-                overflow: scroll;
-                `);
-      
-              displayBoxElem.innerHTML = `
-                <img class="closeButton" src="https://img.icons8.com/ios_filled/512/FFFFFF/delete-sign--v2.png">
-                <div class="teamHeader">
-                  <img class="teamHeaderImage" src="${team.logo}">
-                  <div class="teamHeaderName">
-                    <div class="teamHeaderCity">${team.city}</div>
-                    <div class="teamHeaderMascot" style="font-size: 60px">${team.name}</div>
+  const draftOrderPanelElem = document.querySelector('.draft-order-panel');
+
+  draftOrderPanelElem.innerHTML += `
+    <div class="draft-order-item" data-team="${pickTeam.name}" data-order="${i}" style="
+      background-color: rgb(0, 0, 0);
+      box-shadow: inset 0px 0px 180px ${pickTeam.color};
+    ">
+      <div class="pick-number">${i}</div>
+      <div class="pick-logo">
+        <img src="${pickTeam.logo}" class="pick-image">
+      </div>
+      <div class="pick-player" data-info="${i}">${getInfo()}</div>
+      <div class="pick-player-logo" data-logo="${i}">${getLogo()}</div>
+    </div>
+  `;
+
+  const draftOrderItems = document.querySelectorAll(`.draft-order-item`);
+  const displayBoxElem = document.querySelector('.profile-js');
+
+  draftOrderItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      displayBoxElem.innerHTML = '';
+
+      nflTeams.forEach((team) => { // block is undefined somewhere
+        if (team.name === item.dataset.team) {
+          displayBoxElem.setAttribute("style", `
+            background-color: ${team.color};
+            box-shadow: inset 0px 0px 500px 10px black;
+            color: white;
+            text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0px 15px 0px 15px;
+            overflow: scroll;
+            `);
+  
+          displayBoxElem.innerHTML = `
+            <img class="closeButton" src="https://img.icons8.com/ios_filled/512/FFFFFF/delete-sign--v2.png">
+            <div class="teamHeader">
+              <img class="teamHeaderImage" src="${team.logo}">
+              <div class="teamHeaderName">
+                <div class="teamHeaderCity">${team.city}</div>
+                <div class="teamHeaderMascot" style="font-size: 60px">${team.name}</div>
+              </div>
+            </div>
+  
+            <div class="seasonInfo">
+              <div class="seasonRecord" style="padding-left: 20px">2025 Record: ${team.record}</div>
+            </div>
+  
+            <div class="staffInfo">
+              <div class="gmAndHc" style="padding-left: 20px">GM: ${team.gm}<br>HC: ${team.hc}</div>
+              <div class="coordinators">OC: ${team.oc}<br>DC: ${team.dc}</div>
+            </div>
+
+            <div class="teamNeeds">
+              <div class="needsHeader">Team Needs:</div>
+              <div class="needsContainer"></div>
+            </div>
+  
+            <div class="teamPicksHeader">2026 Draft Picks</div>
+            <div class="teamPickInfo currentPicks"></div>
+            <div class="teamPicksHeader">2027 Draft Picks</div>
+            <div class="teamPickInfo futurePicks"></div>
+  
+            <div class="rosterHeader">2026 Roster</div>
+            <div class="roster">
+              <div class="rosterOffense"></div>
+              <div class="rosterDefense"></div>
+            </div>
+          `;
+  
+          const closeButtonElement = document.querySelector('.closeButton');
+          const teamNeedsElement = document.querySelector('.needsContainer');
+          const teamPickInfoElement = document.querySelector('.currentPicks');
+          const teamFuturePickInfoElement = document.querySelector('.futurePicks');
+          const rosterOffenseElement = document.querySelector('.rosterOffense');
+          const rosterDefenseElement = document.querySelector('.rosterDefense');
+  
+          closeButtonElement.addEventListener("click", () => {
+            displayBoxElem.setAttribute("style", `
+              background-color: rgb(20, 20, 20);
+              color: rgb(223, 223, 223);
+              text-shadow: none;
+              display: grid;
+              grid-template-rows: 90px 70px 1fr;
+              flex-direction: none;
+              align-items: none;
+              padding: 0px;
+            `);
+  
+            displayBoxElem.innerHTML = ``;
+          });
+
+          team.needs.forEach((need) => {
+            teamNeedsElement.innerHTML += `<div class="needPosition">${need}</div>`;
+          });
+          
+          let newTest;
+          if (JSON.parse(localStorage.getItem(`${team.name}test`))) {
+            newTest = JSON.parse(localStorage.getItem(`${team.name}test`));
+          } else {
+            newTest = team.test;
+          }
+          newTest
+            .sort((a, b) => a.n - b.n)
+            .forEach((pick) => {
+              const picksInThisRound = picksPerRound.find(r => r.round === pick.r).picks;
+              const roundPickNumber = pick.n - (picksInThisRound);
+    
+              teamPickInfoElement.innerHTML += `
+                <div class="teamPickCard">
+                  <div class="pickCardTop">
+                    <div class="pickCardRound">${pick.r}.${roundPickNumber}</div>
+                    <div class="pickCardOverall">${pick.n}</div>
                   </div>
-                </div>
-      
-                <div class="seasonInfo">
-                  <div class="seasonRecord" style="padding-left: 20px">2025 Record: ${team.record}</div>
-                </div>
-      
-                <div class="staffInfo">
-                  <div class="gmAndHc" style="padding-left: 20px">GM: ${team.gm}<br>HC: ${team.hc}</div>
-                  <div class="coordinators">OC: ${team.oc}<br>DC: ${team.dc}</div>
-                </div>
-
-                <div class="teamNeeds">
-                  <div class="needsHeader">Team Needs:</div>
-                  <div class="needsContainer"></div>
-                </div>
-      
-                <div class="teamPicksHeader">2026 Draft Picks</div>
-                <div class="teamPickInfo currentPicks"></div>
-                <div class="teamPicksHeader">2027 Draft Picks</div>
-                <div class="teamPickInfo futurePicks"></div>
-      
-                <div class="rosterHeader">2026 Roster</div>
-                <div class="roster">
-                  <div class="rosterOffense"></div>
-                  <div class="rosterDefense"></div>
+                  <div class="pickCardBottom">
+                    <div class="pickCardTeam pickId${pick.n}">${pick.t}</div>
+                  </div>
                 </div>
               `;
-      
-              const closeButtonElement = document.querySelector('.closeButton');
-              const teamNeedsElement = document.querySelector('.needsContainer');
-              const teamPickInfoElement = document.querySelector('.currentPicks');
-              const teamFuturePickInfoElement = document.querySelector('.futurePicks');
-              const rosterOffenseElement = document.querySelector('.rosterOffense');
-              const rosterDefenseElement = document.querySelector('.rosterDefense');
-      
-              closeButtonElement.addEventListener("click", () => {
-                displayBoxElem.setAttribute("style", `
-                  background-color: rgb(20, 20, 20);
-                  color: rgb(223, 223, 223);
-                  text-shadow: none;
-                  display: grid;
-                  grid-template-rows: 90px 70px 1fr;
-                  flex-direction: none;
-                  align-items: none;
-                  padding: 0px;
-                `);
-      
-                displayBoxElem.innerHTML = ``;
-              });
 
-              team.needs.forEach((need) => {
-                teamNeedsElement.innerHTML += `<div class="needPosition">${need}</div>`;
-              });
-              
-              let newTest;
-              if (JSON.parse(localStorage.getItem(`${team.name}test`))) {
-                newTest = JSON.parse(localStorage.getItem(`${team.name}test`));
-              } else {
-                newTest = team.test;
+              if (pick.p !== '') {
+                document.querySelector('.teamPickCard:last-child').setAttribute("style", `opacity: 0.25`);
               }
-              newTest
-                .sort((a, b) => a.n - b.n)
-                .forEach((pick) => {
-                  const picksInThisRound = picksPerRound.find(r => r.round === pick.r).picks;
-                  const roundPickNumber = pick.n - (picksInThisRound);
-        
-                  teamPickInfoElement.innerHTML += `
-                    <div class="teamPickCard">
-                      <div class="pickCardTop">
-                        <div class="pickCardRound">${pick.r}.${roundPickNumber}</div>
-                        <div class="pickCardOverall">${pick.n}</div>
-                      </div>
-                      <div class="pickCardBottom">
-                        <div class="pickCardTeam pickId${pick.n}">${pick.t}</div>
-                      </div>
-                    </div>
-                  `;
-
-                  if (pick.p !== '') {
-                    document.querySelector('.teamPickCard:last-child').setAttribute("style", `opacity: 0.25`);
-                  }
-        
-                  const pickCardTeamElem = document.querySelector(`.pickId${pick.n}`);
-        
-                  nflTeams.forEach((pickTeam) => {
-                    if (pickTeam.abbv === pick.t) {
-                      pickCardTeamElem.setAttribute("style", `background-color: ${pickTeam.color}`);
-                    }
-                  });
-                });
-
-              team
-                .futurePicks.sort((a, b) => a.r - b.r)
-                .forEach((pick) => {
-                  teamFuturePickInfoElement.innerHTML += `
-                    <div class="futurePickCard">
-                      <div class="futurePickCardRound">${pick.r}</div>
-                      <div class="futurePickCardTeam">${pick.t}</div>
-                    </div>
-                  `;
-
-                  const futurePickCardTeamElem = teamFuturePickInfoElement.lastElementChild.querySelector('.futurePickCardTeam');
-
-                  nflTeams.forEach((pickTeam) => {
-                    if (pickTeam.abbv === pick.t) {
-                      futurePickCardTeamElem.setAttribute("style", `background-color: ${pickTeam.color}`);
-                    }
-                  });
-                });
-      
-              offPositionList.forEach((position) => {
-                rosterOffenseElement.innerHTML += `
-                  <div class="rosterPositionGroup">
-                    <div class="rosterPosition">${position}</div>
-                    <div class="rosterPlayersBox ${position}Box"></div>
-                  </div>
-                `;
-                
-                team[position].forEach((player) => {
-                  document.querySelector(`.${position}Box`).innerHTML += `
-                    <div class="rosterPlayer" style="background-color: ${team.color}">${player}</div>
-                  `;
-                });
-              });
-      
-              defPositionList.forEach((position) => {
-                rosterDefenseElement.innerHTML += `
-                  <div class="rosterPositionGroup">
-                    <div class="rosterPosition">${position}</div>
-                    <div class="rosterPlayersBox ${position}Box"></div>
-                  </div>
-                `;
-                
-                team[position].forEach((player) => {
-                  document.querySelector(`.${position}Box`).innerHTML += `
-                    <div class="rosterPlayer" style="background-color: ${team.color}">${player}</div>
-                  `;
-                });
-              });
-
-              newTest.forEach((pick) => {
-                if (pick.p !== "") {
-                  document.querySelector(`.${pick.pos}Box`).innerHTML += `
-                    <div class="rosterPlayer" style="
-                      background-color: rgb(0, 255, 0);
-                      color: black;
-                      text-shadow: none;
-                      border: 3px solid black">${pick.n}. ${pick.pn}</div>
-                  `;
+    
+              const pickCardTeamElem = document.querySelector(`.pickId${pick.n}`);
+    
+              nflTeams.forEach((pickTeam) => {
+                if (pickTeam.abbv === pick.t) {
+                  pickCardTeamElem.setAttribute("style", `background-color: ${pickTeam.color}`);
                 }
               });
+            });
+
+          team
+            .futurePicks.sort((a, b) => a.r - b.r)
+            .forEach((pick) => {
+              teamFuturePickInfoElement.innerHTML += `
+                <div class="futurePickCard">
+                  <div class="futurePickCardRound">${pick.r}</div>
+                  <div class="futurePickCardTeam">${pick.t}</div>
+                </div>
+              `;
+
+              const futurePickCardTeamElem = teamFuturePickInfoElement.lastElementChild.querySelector('.futurePickCardTeam');
+
+              nflTeams.forEach((pickTeam) => {
+                if (pickTeam.abbv === pick.t) {
+                  futurePickCardTeamElem.setAttribute("style", `background-color: ${pickTeam.color}`);
+                }
+              });
+            });
+  
+          offPositionList.forEach((position) => {
+            rosterOffenseElement.innerHTML += `
+              <div class="rosterPositionGroup">
+                <div class="rosterPosition">${position}</div>
+                <div class="rosterPlayersBox ${position}Box"></div>
+              </div>
+            `;
+            
+            team[position].forEach((player) => {
+              document.querySelector(`.${position}Box`).innerHTML += `
+                <div class="rosterPlayer" style="background-color: ${team.color}">${player}</div>
+              `;
+            });
+          });
+  
+          defPositionList.forEach((position) => {
+            rosterDefenseElement.innerHTML += `
+              <div class="rosterPositionGroup">
+                <div class="rosterPosition">${position}</div>
+                <div class="rosterPlayersBox ${position}Box"></div>
+              </div>
+            `;
+            
+            team[position].forEach((player) => {
+              document.querySelector(`.${position}Box`).innerHTML += `
+                <div class="rosterPlayer" style="background-color: ${team.color}">${player}</div>
+              `;
+            });
+          });
+
+          newTest.forEach((pick) => {
+            if (pick.p !== "") {
+              document.querySelector(`.${pick.pos}Box`).innerHTML += `
+                <div class="rosterPlayer" style="
+                  background-color: rgb(0, 255, 0);
+                  color: black;
+                  text-shadow: none;
+                  border: 3px solid black">${pick.n}. ${pick.pn}</div>
+              `;
             }
           });
-        });
+        }
       });
-    }
+    });
   });
 
   
@@ -487,4 +502,63 @@ function playOTCSound() {
   otcAlertAudio.play().catch((error) => {
     console.error("Audio playback failed:", error);
   });
+}
+
+async function populateRosters() {
+  const csv = await fetch('data/nflRosters.csv');
+  const csvText = await csv.text();
+  const lines = csvText.trim().split("\n");
+
+  // Remove header row
+  const rows = lines.slice(1);
+
+  rows.forEach(row => {
+    const [teamName, playerName, position, starter] = row
+      .split(",")
+      .map(val => val.trim());
+
+    // Find the team object
+    const team = nflTeams.find(t => t.name === teamName);
+
+    if (!team) return;
+
+    // If position doesn't exist yet, create it
+    if (!team[position]) {
+      team[position] = [];
+    }
+
+    // Push player into correct position array
+    team[position].push(`${playerName}${starter === "TRUE" ? "*" : ""}`);
+  });
+}
+
+async function populatePicks() {
+  const csv = await fetch('data/picks.csv');
+  const csvText = await csv.text();
+  const lines = csvText.trim().split("\n");
+
+  const rows = lines.slice(1);
+
+  rows.forEach(row => {
+    const [round, overall, team, fromTeam] = row
+      .split(",")
+      .map(val => val.trim());
+
+    const teamObj = nflTeams.find(t => t.name === team);
+    const ownerAbbv = nflTeams.find(t => t.name === fromTeam).abbv;
+
+    teamObj.test.push({
+      r: parseInt(round),
+      n: parseInt(overall),
+      p: "",
+      pn: "",
+      pos: "",
+      t: ownerAbbv
+    });
+  });
+}
+
+async function initializeData() {
+  //await populatePicks();
+  await populateRosters();
 }

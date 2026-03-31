@@ -28,7 +28,6 @@ const picksPerRound = [{round:1, picks:0},
 {round:7, picks:216}
 ];
 
-
 nflTeams.forEach((team) => { // Reset all picks on every refresh
   team.test.forEach((pick) => {
     pick.p = "";
@@ -36,15 +35,6 @@ nflTeams.forEach((team) => { // Reset all picks on every refresh
     pick.pos = "";
     localStorage.setItem(`${pick.n}${team.name}`, JSON.stringify(pick));
   });
-
-  let h = 1;
-  while (h < 20) {
-    if (localStorage.getItem(`${h}${team.name}received`)) {
-      localStorage.removeItem(`${h}${team.name}received`);
-      localStorage.removeItem(`${h}${team.name}partner`);
-    }
-    h += 1;
-  }
 });
 
 for (let i = 1; i < 20; i++) {

@@ -2,7 +2,7 @@ import { nflTeams } from "../data/nflTeamData.js";
 
 const displayBoxElem = document.querySelector('.hickory');
 const offPositionList = ["QB", "RB", "WR", "TE", "OT", "IOL"];
-const defPositionList = ["ED", "DT", "LB", "CB", "S"];
+const defPositionList = ["ED", "DT", "LB", "CB", "S", "K", "P", "LS"];
 const picksPerRound = [{round:1, picks:0},
 {round:2, picks:32},
 {round:3, picks:64},
@@ -94,6 +94,9 @@ for (let i = 1; i <= 32; i++) {
     }
   });
 }
+
+populateRosters();
+//populatePicks();
 
 document.querySelectorAll('.team-block').forEach((block) => {
   block.addEventListener("click", () => {
@@ -416,3 +419,65 @@ document.querySelector('.start-button').addEventListener("click", () => {
     window.location.href='sim.html';
   }
 });
+
+async function populateRosters() {
+  const csv = await fetch('data/nflRosters.csv');
+  const csvText = await csv.text();
+  const lines = csvText.trim().split("\n");
+
+  // Remove header row
+  const rows = lines.slice(1);
+
+  rows.forEach(row => {
+    const [teamName, playerName, position, starter] = row
+      .split(",")
+      .map(val => val.trim());
+
+    // Find the team object
+    const team = nflTeams.find(t => t.name === teamName);
+
+    if (!team) return;
+
+    // If position doesn't exist yet, create it
+    if (!team[position]) {
+      team[position] = [];
+    }
+
+    // Push player into correct position array
+    team[position].push(`${playerName}${starter === "TRUE" ? "*" : ""}`);
+  });
+}
+
+async function populatePicks() {
+  const csv = await fetch('data/picks.csv');
+  const csvText = await csv.text();
+  const lines = csvText.trim().split("\n");
+
+  const rows = lines.slice(1);
+
+  rows.forEach(row => {
+    const [round, overall, team, fromTeam] = row
+      .split(",")
+      .map(val => val.trim());
+
+    const teamObj = nflTeams.find(t => t.name === team);
+    const ownerAbbv = nflTeams.find(t => t.name === fromTeam).abbv;
+
+    teamObj.test.push({
+      r: Number(round),
+      n: Number(overall),
+      p: "",
+      pn: "",
+      pos: "",
+      t: ownerAbbv
+    });
+  });
+
+  nflTeams.forEach((team) => {
+    let string = "";
+    team.test.forEach((p) => {
+      string += `{r: ${p.r}, n: ${p.n}, p: "", pn: "", pos: "", t: "${p.t}"},`;
+    });
+    console.log(string);
+  });
+}
