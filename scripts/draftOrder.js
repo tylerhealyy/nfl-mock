@@ -88,8 +88,6 @@ function buildPanelItems(i, rounds) { // Build HTML for each pick
     return newTest.some(p => p.n === i);
   });
 
-  console.log(pickTeam.name);
-
   const storedInfo = JSON.parse(localStorage.getItem(`${i}info`));
   const storedLogo = JSON.parse(localStorage.getItem(`${i}logo`));
   function getInfo() {
@@ -111,8 +109,7 @@ function buildPanelItems(i, rounds) { // Build HTML for each pick
 
   draftOrderPanelElem.innerHTML += `
     <div class="draft-order-item" data-team="${pickTeam.name}" data-order="${i}" style="
-      background-color: rgb(0, 0, 0);
-      box-shadow: inset 0px 0px 180px ${pickTeam.color};
+      --team-color: ${pickTeam.color};
     ">
       <div class="pick-number">${i}</div>
       <div class="pick-logo">
@@ -133,15 +130,14 @@ function buildPanelItems(i, rounds) { // Build HTML for each pick
       nflTeams.forEach((team) => { // block is undefined somewhere
         if (team.name === item.dataset.team) {
           displayBoxElem.setAttribute("style", `
-            background-color: ${team.color};
-            box-shadow: inset 0px 0px 500px 10px black;
-            color: white;
-            text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+            background-color: rgba(255, 255, 255, 0.5);
+            color: black;
             display: flex;
+            width: 100%;
+            height: 100%;
             flex-direction: column;
             align-items: center;
-            padding: 0px 15px 0px 15px;
-            overflow: scroll;
+            padding: 0 10px;
             `);
   
           displayBoxElem.innerHTML = `
@@ -149,8 +145,7 @@ function buildPanelItems(i, rounds) { // Build HTML for each pick
             <div class="teamHeader">
               <img class="teamHeaderImage" src="${team.logo}">
               <div class="teamHeaderName">
-                <div class="teamHeaderCity">${team.city}</div>
-                <div class="teamHeaderMascot" style="font-size: 60px">${team.name}</div>
+                ${team.city} ${team.name}<br><span class="teamProfileText">Team Profile</span>
               </div>
             </div>
   
@@ -189,7 +184,7 @@ function buildPanelItems(i, rounds) { // Build HTML for each pick
   
           closeButtonElement.addEventListener("click", () => {
             displayBoxElem.setAttribute("style", `
-              background-color: rgb(20, 20, 20);
+              background-color: rgba(255, 255, 255, 0.5);
               color: rgb(223, 223, 223);
               text-shadow: none;
               display: grid;

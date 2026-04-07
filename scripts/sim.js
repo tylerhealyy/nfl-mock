@@ -27,6 +27,9 @@ const picksPerRound = [{round:1, picks:0},
 {round:6, picks:181},
 {round:7, picks:216}
 ];
+const settingButtons = document.querySelector('.chicken');
+const wideContainer = document.querySelector('.wide');
+const vertContainer = document.querySelector('.vert');
 
 nflTeams.forEach((team) => { // Reset all picks on every refresh
   team.test.forEach((pick) => {
@@ -46,6 +49,9 @@ for (let i = 1; i < 20; i++) {
   } else break;
 }
 
+window.addEventListener('resize', moveButtons);
+moveButtons();
+
 window.addEventListener("DOMContentLoaded", () => {
   for (let i = 1; i < 258; i++) {
     localStorage.removeItem(`${i}info`);
@@ -63,16 +69,12 @@ window.addEventListener("DOMContentLoaded", () => {
   changeHeader();
   localStorage.removeItem("functionExecuted");
 });
-
 document.querySelector('.begin').addEventListener("click", () => {
   init();
   document.querySelector('.begin').style.background = 'white';
   document.querySelector('.begin').style.color = 'black';
-  document.querySelector('.begin').style.textShadow = 'none';
-  document.querySelector('.begin').style.boxShadow = 'inset 0px 0px 20px rgba(0, 0, 0, 0.25)';
-  document.querySelector('.begin').addEventListener("mouseover", () => document.querySelector('.begin').style.backgroundColor = 'rgb(194, 194, 194)');
-  document.querySelector('.begin').addEventListener("mouseout", () => document.querySelector('.begin').style.backgroundColor = 'white');
-  document.querySelector('.profile-js').setAttribute("style", `background-color: rgb(20, 20, 20);`);
+  document.querySelector('.begin').style.borderLeftColor = 'rgb(255, 94, 0)';
+  document.querySelector('.profile-js').setAttribute("style", `background-color: rgba(255, 255, 255, 0.5);`);
 });
 
 document.querySelector('.trade').addEventListener("click", () => {
@@ -88,21 +90,15 @@ document.querySelector('.trade').addEventListener("click", () => {
   let team2SelectedPlayers = [];
   let newTest1;
   let newTest2;
+  const container2 = document.querySelector('.container2');
+  container2.style.display = 'none';
   const tradePage = document.createElement('div');
   tradePage.classList.add('tradePage');
   document.body.appendChild(tradePage);
 
   tradePage.innerHTML = `
-    <img class="tradeCloseBtn" src="icons/closeIcon.png">
-    <div class="team1 tradeHalf"></div>
-    <div class="divider"></div>
-    <div class="team2 tradeHalf"></div>
-  `;
-
-  const otcHeaderElem = document.querySelector('.otc-header');
-  otcHeaderElem.innerHTML = `
     <div class="tradeHeader">
-      <img class="tradeSubmitBtn" src="icons/tradeIcon.png">
+      <div class="tradeSubmitBtn">Submit</div>
       <div class="tradeValueCalc">
         <div class="tradeValueText">Fair</div>
         <div class="tradeValueBalance">0</div>
@@ -111,7 +107,14 @@ document.querySelector('.trade').addEventListener("click", () => {
       <div class="headerDivider"></div>
       <div class="team2 headerHalf headerHalf2"></div>
     </div>
+    <div class="tradeBottom">
+      <img class="tradeCloseBtn" src="icons/closeIcon.png">
+      <div class="team1 tradeHalf"></div>
+      <div class="divider"></div>
+      <div class="team2 tradeHalf"></div>
+    </div>
   `;
+  
 
   const headerHalfElems = document.querySelectorAll('.headerHalf');
   headerHalfElems.forEach((headerHalf) => {
@@ -126,8 +129,8 @@ document.querySelector('.trade').addEventListener("click", () => {
 
   const tradeCloseBtn = document.querySelector('.tradeCloseBtn');
   tradeCloseBtn.addEventListener("click", () => {
+    container2.style.display = 'flex';
     document.body.removeChild(tradePage);
-    otcHeaderElem.innerHTML = '';
     changeHeader();
   });
 
@@ -147,9 +150,7 @@ document.querySelector('.trade').addEventListener("click", () => {
       .sort((a, b) => a.city.localeCompare(b.city))
       .forEach(team => {
         teamSelectInput.innerHTML += `
-          <option value="${team.name}" style="
-            background-color: ${team.color};
-          ">${team.city} ${team.name}</option>
+          <option value="${team.name}">${team.city} ${team.name}</option>
         `;
       });
 
@@ -180,10 +181,10 @@ document.querySelector('.trade').addEventListener("click", () => {
               <div class="selectedFuturePicks sfp2"></div>
               <div class="selectedPlayers sp2"></div>
             `;
-            document.querySelector('.otc-header .team1').setAttribute("style", `
-              background-color: ${team.color};
-              box-shadow: inset 0px 0px 150px 10px black;
+            document.querySelector('.team1').setAttribute("style", `
+              border-right: 10px solid ${team.color};
             `);
+            half.setAttribute('style', `border-right: 10px solid ${team.color};`);
             if (team2Total !== 0) {
               document.querySelector('.tradeValueText').textContent = `${team1Abbv} Owes:`;
               document.querySelector('.tradeValueBalance').textContent = Math.abs(Math.round((team1Total-team2Total) * 10) / 10);
@@ -216,10 +217,10 @@ document.querySelector('.trade').addEventListener("click", () => {
               <div class="selectedFuturePicks sfp1"></div>
               <div class="selectedPlayers sp1"></div>
             `;
-            document.querySelector('.otc-header .team2').setAttribute("style", `
-              background-color: ${team.color};
-              box-shadow: inset 0px 0px 150px 10px black;  
+            document.querySelector('.team2').setAttribute("style", `
+              border-left: 10px solid ${team.color};
             `);
+            half.setAttribute('style', `border-left: 10px solid ${team.color};`);
             if (team1Total !== 0) {
               document.querySelector('.tradeValueText').textContent = `${team2Abbv} Owes:`;
               document.querySelector('.tradeValueBalance').textContent = Math.abs(Math.round((team1Total-team2Total) * 10) / 10);
@@ -235,16 +236,12 @@ document.querySelector('.trade').addEventListener("click", () => {
             }
           }
 
-          half.setAttribute("style", `background-color: ${team.color};
-            box-shadow: inset 0px 0px 1000px 100px black;`);
-
           displayBoxElem.innerHTML = '';
           displayBoxElem.innerHTML = `
             <div class="teamHeader">
               <img class="teamHeaderImage" src="${team.logo}">
               <div class="teamHeaderName">
-                <div class="teamHeaderCity">${team.city}</div>
-                <div class="teamHeaderMascot" style="font-size: 60px">${team.name}</div>
+                ${team.city} ${team.name}<br><span class="teamProfileText">Team Profile</span>
               </div>
             </div>
 
@@ -527,7 +524,7 @@ document.querySelector('.trade').addEventListener("click", () => {
         } else if (teamSelectInput.value === 'none') {
           if (half.classList.contains('team1')) team1 = null; else team2 = null;
           displayBoxElem.innerHTML = '';
-          half.setAttribute("style", `background-color: rgb(20,20,20);`);
+          half.setAttribute("style", `background-color: rgba(255, 255, 255, 0.5);`);
 
           if (teamSelectInput.parentElement.classList.contains('team1')) {
             const teamNumberLocal = 2;
@@ -536,7 +533,7 @@ document.querySelector('.trade').addEventListener("click", () => {
               <div class="selectedFuturePicks sfp${teamNumberLocal}"></div>
               <div class="selectedPlayers sp${teamNumberLocal}"></div>
             `;
-            document.querySelector('.headerHalf1').setAttribute("style", `background-color: rgb(20,20,20);`);
+            document.querySelector('.headerHalf1').setAttribute("style", `background-color: rgba(255, 255, 255, 0.5);`);
             team1Total = 0;
             document.querySelector('.tradeValueBalance').textContent = Math.abs(Math.round((team1Total-team2Total) * 10) / 10);
             document.querySelector('.tradeValueText').textContent = `Owes:`;
@@ -547,7 +544,7 @@ document.querySelector('.trade').addEventListener("click", () => {
               <div class="selectedFuturePicks sfp${teamNumberLocal}"></div>
               <div class="selectedPlayers sp${teamNumberLocal}"></div>
             `;
-            document.querySelector('.headerHalf2').setAttribute("style", `background-color: rgb(20,20,20);`);
+            document.querySelector('.headerHalf2').setAttribute("style", `background-color: rgba(255, 255, 255, 0.5);`);
             team2Total = 0;
             document.querySelector('.tradeValueBalance').textContent = Math.abs(Math.round((team1Total-team2Total) * 10) / 10);
             document.querySelector('.tradeValueText').textContent = `Owes:`;
@@ -643,10 +640,10 @@ document.querySelector('.trade').addEventListener("click", () => {
       localStorage.setItem(`trade${tradeID}-2string`, team2String);
 
       document.body.removeChild(tradePage);
-      document.querySelector('.draft-order-panel').innerHTML = '';
+      document.querySelector('.draft-order-panel').innerHTML = `<div class="draft-order-header">Draft Order</div>`;
       buildDraftOrder2(selectedValue);
-      otcHeaderElem.innerHTML = '';
       changeHeader();
+      container2.style.display = 'flex';
     }
   });
 });
@@ -666,7 +663,7 @@ function startDraft() { // Close pre-draft settings and start draft
   }
   selectedBoard = JSON.parse(localStorage.getItem('boardInput'));
 
-  if (document.querySelector('.begin').innerHTML !== 'PAUSE') {
+  if (document.querySelector('.begin').innerHTML !== 'Pause') {
     for (let i = 1; i < 1000; i++) { // Build the list of all players
       playerData26.forEach((player) => {
         if (player[`${selectedBoard}`] === i) {buildPlayerList(player)}
@@ -675,7 +672,7 @@ function startDraft() { // Close pre-draft settings and start draft
     document.querySelector('.players-player-js').innerHTML += playerList; // Display player list
   }
   
-  document.querySelector('.begin').innerHTML = 'PAUSE';
+  document.querySelector('.begin').innerHTML = 'Pause';
   positionSort(); // Add functionality to position buttons
   const playerCard = document.querySelectorAll('.player-card-js');
   displayProfile(playerCard, selectedValue); // Add event listeners to every player card on the screen that displays their profile
@@ -746,13 +743,13 @@ function displayProfile(playerCard, selectedValue) { // Add event listeners to p
         rankUsed = player[`${selectedBoard}`];
         if (rankUsed === Number(playerRank)) { // Get the correct player data to display
           profileHTML.setAttribute("style", `
-            background-color: rgb(20, 20, 20);
+            background-color: rgba(255, 255, 255, 0.5);
             text-shadow: none;
-            display: grid;
-            grid-template-rows: 90px 70px 1fr;
-            flex-direction: none;
+            display: flex;
+            flex-direction: column;
             align-items: none;
             padding: 0px;
+            overflow: scroll;
           `);
           
           profileHTML.innerHTML += `
@@ -779,8 +776,8 @@ function displayProfile(playerCard, selectedValue) { // Add event listeners to p
                 <div class="measurable-value">${player.weight}</div>
               </div>
               <div class="measurable-item">
-                <div class="measurable-text">RAS</div>
-                <div class="measurable-value">N/A</div>
+                <div class="measurable-text">SIS Grade</div>
+                <div class="measurable-value">${player.ras}</div>
               </div>
               <div class="measurable-item">
                 <div class="measurable-text">SIS Projected Role</div>
@@ -790,7 +787,7 @@ function displayProfile(playerCard, selectedValue) { // Add event listeners to p
 
             <div class="stats">
               <div class="analysis">
-                <span class="heading">Pre-Draft Analysis</span><br>${player.analysis}
+                <span class="heading">Pre-Draft Analysis (SIS)</span><br>${player.analysis}
               </div>
               <button class="ref">
                 <a href="${player.stats}" target="_blank" class="fbref">SIS Full Report</a>
@@ -924,9 +921,14 @@ export function draftPlayer(selectedValue, player) {
   document.querySelector(".profile-js").innerHTML = null; // Clear the profile of the player that was just drafted
 
   const pickItem = document.querySelectorAll('.draft-order-item');
+  let increment;
+  if (window.innerWidth <= 849) increment = 0; else increment = 3;
   for (let item of pickItem) {
-    if (otc === Number(item.dataset.order)+3) {
-      item.scrollIntoView(); // Auto-scroll when enough picks are made to move down the draft order panel
+    if (otc === Number(item.dataset.order)+increment) {
+      item.scrollIntoView({
+        inline: 'center',  // aligns to left
+        behavior: 'smooth'
+      });
       break;
     }
   };
@@ -989,15 +991,16 @@ function changeHeader() {
             <img class="otcImage" src="${team.logo}">
           </div>
           <div class="otcInfo">
-            <div class="otcPicks">
-              <div class="otcInfoText">Picks</div>
-            </div>
             <div class="otcNeeds">
               <div class="otcInfoText">Needs</div>
+              <div class="otcNeedsRow"></div>
+            </div>
+            <div class="otcPicks">
+              <div class="otcInfoText">Picks</div>
+              <div class="otcPicksRow"></div>
             </div>
           </div>
-          <div class="otcPlayers"></div>
-          <div class="otcText">ON<br>THE<br>CLOCK</div>
+          <div class="otcPlayers">Selections</div>
         </div>
       `;
 
@@ -1006,7 +1009,7 @@ function changeHeader() {
         .forEach((pick) => {
           let pickOpacity;
           if (pick.p !== "") {pickOpacity = 0.25} else {pickOpacity = 1}
-          document.querySelector('.otcPicks').innerHTML += `
+          document.querySelector('.otcPicksRow').innerHTML += `
             <div class="otcPickCard" style="opacity: ${pickOpacity};">${pick.n}</div>
           `;
 
@@ -1022,7 +1025,7 @@ function changeHeader() {
         });
 
       team.needs.forEach((need) => {
-        document.querySelector('.otcNeeds').innerHTML += `
+        document.querySelector('.otcNeedsRow').innerHTML += `
           <div class="otcNeedCard">${need}</div>
         `;
       });
@@ -1063,9 +1066,35 @@ async function loadCSV() {
       player[selectedBoard] = found.rank;
     }
   });
+
+  const sisBoard = await fetch('rankings/sis.csv');
+  const sisText = await sisBoard.text();
+  const sisLines = sisText.trim().split("\n");
+  const sisResult = sisLines.slice(1).map(line => {
+    const [Player, Rank, Grade, Analysis] = line.split(",");
+    return { name: Player, rank: Number(Rank), grade: Grade, analysis: Analysis };
+  });
+  playerData26.forEach((player) => {
+    const found = sisResult.find(item => item.name === player.name);
+    if (found) {
+      player.ras = found.grade;
+      player.analysis = found.analysis;
+    } else {
+      player.ras = 'N/A';
+      player.analysis = 'N/A';
+    }
+  });
 }
 
 async function init() {
   await loadCSV();
   startDraft(); // only runs after rankings are loaded
+}
+
+function moveButtons() {
+  if (window.innerWidth <= 849) {
+    vertContainer.appendChild(settingButtons);
+  } else {
+    wideContainer.appendChild(settingButtons);
+  }
 }

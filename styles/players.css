@@ -1,91 +1,45 @@
-
-
 .players-positions {
-  background-color: rgb(30, 30, 30);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  position: fixed;
-  top: 22%;
-  left: 32%;
-  height: 8%;
-  width: 32%;
-  border: 1px solid rgba(83, 42, 83, 0);
-  border-bottom: none;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  height: fit-content;
+  gap: 2px;
+  margin: 5px;
 }
 
 .players-positions-button {
-  margin: 2px;
-  background-color: rgb(20, 20, 20);
-  color: white;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   border-radius: 5px;
-  box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.35);
-  border: none;
+  box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgb(163, 163, 163);
   font-family: Roboto;
-  font-weight: 700;
-  padding-top: 0px;
-  font-size: 18px;
+  font-weight: 500;
+  font-size: 1rem;
   cursor: pointer;
-  transition: 0.15s;
+  transition: all 0.15s ease;
 }
-
-.offense {
-  background-color: rgb(100, 100, 100);
-  color: rgb(223, 223, 223);
+.players-positions-button:hover {
+  box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.3);
 }
-.offense:hover {
-  background-color: rgb(255, 94, 0, 0.5);
-}
-.offense:active {
-  background-color: rgb(255, 94, 0, 0.75);
-}
-
-.defense {
-  background-color: rgb(70, 70, 70);
-  color: rgb(223, 223, 223);
-}
-.defense:hover {
-  background-color: rgb(255, 94, 0, 0.4);
-}
-.defense:active {
-  background-color: rgb(255, 94, 0, 0.65);
-}
-
-.special:hover {
-  background-color: rgb(255, 94, 0, 0.4);
-}
-.special:active {
-  background-color: rgb(255, 94, 0, 0.65);
+.players-positions-button:active {
+  box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.5);
 }
 
 .players-players {
   background-color: rgba(30, 30, 30, 0);
-  border-bottom: 1px solid rgb(133, 133, 133);
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
   overflow: scroll;
-  position: fixed;
-  top: 34.2%;
-  left: 32%;
-  bottom: 12%;
-  width: 32%;
-  border: none;
-  border-top: none;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
 }
 
 .players-player-card {
-  height: 60px;
-  background-color: rgb(20, 20, 20);
-  color: rgb(223, 223, 223);
+  height: 55px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   margin-bottom: 2px;
-  margin-top: 2px;
-  border-bottom: 1px solid rgb(255, 255, 255);
+  border-bottom: 1px solid rgb(163, 163, 163);
   display: grid;
   grid-template-columns: 40px 1fr 45px 180px 45px;
   align-items: center;
-  font-size: 20px;
+  font-size: 1.2rem;
   cursor: pointer;
   box-shadow: inset 0px -3px 5px rgba(0, 0, 0, 0.15);
   transition: 0.15s;
@@ -118,24 +72,70 @@
 }
 
 .labels {
-  color: rgb(255, 255, 255);
-  font-size: 16px;
+  color: rgb(0, 0, 0);
+  font-size: 1rem;
   background-color: rgba(53, 21, 53, 0);
-  grid-template-columns: 40px 1fr 45px 240px;
+  grid-template-columns: 40px 1fr 45px 180px 45px;
   cursor: default;
-  position: fixed;
-  top: 30%;
-  left: 32%;
-  width: 32%;
-  height: 4%;
-  padding-right: 0px;
+  height: fit-content;
+  padding-right: 10px;
+  box-shadow: none;
 }
 .labels:hover {
   background-color: rgba(255, 255, 255, 0);
 }
 
 .college-image {
-  max-height: 35px;
-  max-width: 40px;
-  margin: auto;
+  max-height: 45px;
+  max-width: 70%;
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
+  align-self: center;
+  justify-self: center;
+}
+
+@media (max-width: 849px) {
+  .players-positions {
+    margin: 0;
+    padding: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  .players-players {
+    flex: 1;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top: 1px solid rgb(163, 163, 163);
+  }
+
+  .players-player-card {
+    font-size: 1rem;
+    grid-template-columns: 10% 30% 10% 30% 20%;
+    padding-right: 0px;
+    margin: 0;
+  }
+
+  .labels {
+    font-size: 1rem;
+    grid-template-columns: 10% 30% 10% 50%;
+    padding-right: 0px;
+    display: none;
+  }
+
+  .players-player-card-rank {
+    padding-left: 5px;
+  }
+
+  .players-player-card-name {
+    overflow: scroll;
+  }
+
+  .players-player-card-position {
+    text-align: end;
+    padding-left: 5px;
+  }
+
+  .college-image {
+    max-height: 45px;
+    max-width: 50%;
+  }
 }

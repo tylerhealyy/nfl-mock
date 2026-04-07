@@ -1,108 +1,102 @@
 body {
   font-family: Roboto;
-  background-color: rgb(30, 30, 30);
+  margin: 5vh;
+  overflow: scroll;
+  position: relative;
 }
 
-.startHeaderBox {
-  background-color: rgb(20, 20, 20);
-  position: absolute;
-  top: 2vh;
-  left: 5vw;
-  right: 5vw;
-  bottom: 87vh;
-  border-radius: 10px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
-  border: 1px solid black;
-  color: rgb(223, 223, 223);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
+body::before {
+  content: "";
+  position: fixed; /* or absolute */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 
-.topText {
-  font-size: 5vh;
-  font-weight: 700;
-}
-.bottomText {
-  font-size: 2vh;
-  font-weight: 500;
+  background-image: url('../photos/noise6.jpg');
+  background-size: cover;
+  background-position: center;
+
+  opacity: 0.3; /* adjust here */
+  z-index: -1;
 }
 
 .apple {
-  background-color: rgb(30, 30, 30);
-  position: absolute;
-  top: 15vh;
-  bottom: 5vh;
-  left: 5vw;
-  right: 5vw;
-  display: grid;
-  margin: 0px 0px 0px 0px;
-  grid-template-columns: 60% 1fr;
+  background-color: rgba(30, 30, 30, 0);
+  max-height: 90vh;
+
+  display: flex;
   column-gap: 25px;
-  height: 80vh;
 }
 
 .hickory {
-  color: white;
-  background-color: rgb(20, 20, 20);
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  padding: 0px 10px 0px 10px;
-  border: 1px solid black;
+  padding: 0px 10px;
+  border: 1px solid rgb(163, 163, 163);
   overflow: scroll;
-  min-width: 340px;
+  flex: 1;
+
+  position: relative;
 }
 
 .smoked {
-  background-color: rgb(20, 20, 20);
-  color: white;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
+  background-color: rgba(255, 255, 255, 0.5);
+  color: rgb(0, 0, 0);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  border: 1px solid black;
+  border: 1px solid rgb(163, 163, 163);
+
+  width: fit-content;
+  min-width: 50%;
+  height: fit-content;
 }
 
 .select-teams-header {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 2vh 0px 2vh 0px;
+  justify-content: space-between;
+  margin: 0.5rem 1.5rem;
   height: 4vh;
 }
 
 .select-main-text {
-  font-size: 20px;
-  margin-right: 20px;
+  font-size: 1rem;
+  margin-right: 5px;
 }
 
 .select-all {
-  font-size: 18px;
-  background-color: rgb(255, 94, 0);
-  color: rgb(231, 231, 231);
-  text-shadow: 0px 0px 4px rgba(0, 0, 0, 1);
-  padding: 2px 10px 2px 10px;
-  border-radius: 100px;
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: rgb(250, 250, 250);
+  color: rgb(0, 0, 0);
+  text-shadow: 0px 0px 2px rgba(0, 0, 0, 0);
+  padding: 2px 0.5rem;
+  border-left: 5px solid rgb(255, 94, 0);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
   cursor: pointer;
   text-decoration: underline;
   transition: 0.15s;
 }
 .select-all:hover {
-  transform: scale(1.05);
+  border-left: 10px solid rgb(255, 94, 0);
 }
 
 .team-picker {
-  background-color: rgb(20, 20, 20);
+  background-color: rgb(250, 250, 250);
   width: 90%;
-  height: 68vh;
+  height: fit-content;
   border-radius: 10px;
-  border: 1px solid rgb(81, 81, 81);
+  border: 1px solid rgb(163, 163, 163);
   box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.25);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -110,19 +104,22 @@ body {
   column-gap: 5px;
   margin: 0px 0px 2vh 0px;
   padding: 1vh;
+
+  align-self: center;
 }
 
 .team-block {
-  background-color: rgb(30, 30, 30);
+  background-color: rgb(245, 245, 245);
   border-radius: 5px;
+  padding: 0 0px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgb(81, 81, 81);
+  border: 1px solid rgb(163, 163, 163);
   box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.25);
   cursor: pointer;
   transition: 0.1s ease;
-  height: 7.7vh;
+  height: 50px;
   position: relative;
 }
 
@@ -131,28 +128,29 @@ body {
 }
 
 .team-block:hover {
-  background-color: rgb(50, 50, 50);
+  background-color: rgb(206, 206, 206);
   transform: scale(0.95);
 }
 .team-block:active {
-  background-color: rgb(100, 100, 100);
+  background-color: rgb(192, 192, 192);
 }
 
 .team-block-logo {
-  max-height: 90%;
-  max-width: 95%;
+  max-height: 80%;
+  max-width: 80%;
   object-fit: cover;
 }
 
 .teamBlockEllipsis {
   position: absolute;
   top: 2px;
-  right: 2px;
+  right: 0px;
   max-height: 20px;
   width: 20px;
+  filter: drop-shadow(0 0 2px black);
 }
 .teamBlockEllipsis:hover {
-  background-color: rgba(100, 100, 100, 0.75);
+  background-color: rgba(255, 255, 255, 0.75);
   border-radius: 50%;
   padding: 1px;
 }
@@ -166,12 +164,12 @@ body {
   align-items: center;
   justify-content: center;
   width: 95%;
-  border-bottom: 1px solid rgba(82, 82, 82, 0.5);
-  border-top: 1px solid rgba(82, 82, 82, 0.5);
-  border-radius: 100px;
+  border: 1px solid rgba(163, 163, 163, 1);
+  border-radius: 10px;
   padding: 10px;
-  box-shadow: inset 0px 0px 60px rgba(30, 30, 30, 1);
+  box-shadow: inset 0px 0px 60px rgb(212, 212, 212);
   margin: 5px 0px 5px 0px;
+  color: black;
 }
 .optionBox:hover {
   transform: scale(1.02);
@@ -190,22 +188,23 @@ body {
 .board-input {
   height: 35px;
   width: 125px;
-  font-size: 16px;
-  border-radius: 8px;
-  background-color: rgb(255, 94, 0);
-  color: white;
-  box-shadow: 0px 0px 5px rgb(0, 0, 0);
-  border: 1px solid black;
-  border-radius: 100px;
-  text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+  font-size: 1rem;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  border: none;
+  border-left: 5px solid rgb(163, 163, 163);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
   padding-left: 10px;
+  transition: all 0.15s ease;
 }
 .board-input:hover {
-  transform: scale(1.05);
+  border-left: 10px solid rgb(163, 163, 163);
 }
 
 .optionBoxText {
-  font-size: 20px;
+  font-size: 1rem;
   text-align: center;
 }
 
@@ -216,20 +215,25 @@ body {
 .autoDraftVariability-input {
   width: 50%;
   min-width: 150px;
-  margin: 10px 0px;
+  margin: 4px 0px;
   cursor: pointer;
 }
 .user-name-input {
   cursor: text;
   text-align: center;
-  height: 40px;
-  font-size: 18px;
-  border-radius: 100px;
+  height: fit-content;
+  padding: 0.5rem 0;
+  font-size: 1rem;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  width: fit-content;
   border: none;
-  box-shadow: 0px 0px 5px rgb(0, 0, 0);
+  border-left: 5px solid rgb(163, 163, 163);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  transition: all 0.15s ease;
 }
 .user-name-input:hover {
-  transform: scale(1.02);
+  border-left: 10px solid rgb(163, 163, 163);
 }
 
 input[type="range"] {
@@ -239,7 +243,7 @@ input[type="range"] {
 
 input[type="range"]::-moz-range-track {
   height: 6px;
-  background: rgb(81, 81, 81);
+  background: rgb(201, 201, 201);
   border-radius: 3px;
 }
 
@@ -258,6 +262,9 @@ input[type="range"]::-moz-range-thumb {
   cursor: pointer;
 }
 
+input[type="range"]::-moz-range-thumb:hover {
+  transform: scale(1.2);
+}
 
 .rounds-labels,
 .speed-labels,
@@ -278,26 +285,55 @@ input[type="range"]::-moz-range-thumb {
 .speed-labels span,
 .autoDraftEmphasis-labels span,
 .autoDraftVariability-labels span {
-  font-size: 20px;
+  font-size: 1rem;
   text-align: center;
 }
 
 .start-button {
-  min-height: 70px;
-  width: 50%;
+  height: fit-content;
+  padding: 0.5rem;
+  width: fit-content;
   font-family: Roboto;
-  font-size: 20px;
-  font-weight: 700;
-  background-color: rgb(255, 94, 0);
-  color: white;
-  box-shadow: 0px 0px 5px rgb(0, 0, 0);
-  border: 1px solid black;
-  border-radius: 100px;
-  text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+  font-size: 1.5rem;
+  font-weight: 500;
+  background-color: rgb(250, 250, 250);
+  color: rgb(0, 0, 0);
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0);
+  border: none;
+  border-left: 5px solid rgb(255, 94, 0);
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0);
   cursor: pointer;
-  margin: 15px 0px 5px 0px;
+  margin: 15px 0px 5px 15px;
+
+  transition: all 0.15s ease;
+  align-self: start;
 }
 
 .start-button:hover {
-  transform: scale(1.05);
+  border-left: 10px solid rgb(255, 94, 0);
+}
+
+@media (max-width: 849px) {
+  .apple {
+    flex-direction: column;
+    row-gap: 25px;
+    height: fit-content;
+    max-height: none;
+  }
+
+  body {
+    margin: 20px;
+  }
+
+  .smoked {
+    width: 100%;
+  }
+
+  .team-block {
+    height: 35px;
+  }
+
+  .optionBox {
+    width: 90%;
+  }
 }

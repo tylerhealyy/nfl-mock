@@ -1,41 +1,42 @@
 .tradePage {
-  position: fixed;
-  top: 22%;
-  left: 32%;
-  bottom: 6%;
-  right: 5%;
-  z-index: 201;
-  border-radius: 5px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
-  display: grid;
+  height: 90vh;
+  flex: 1;
+  background-color: rgba(240, 128, 128, 0);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
   grid-template-columns: 1fr 10px 1fr;
-  background-color: rgb(20,20,20);
-  font-family: Roboto;
 }
 
 .tradeHeader {
-  background-color: rgb(20,20,20);
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
-  position: fixed;
-  top: 6%;
-  left: 32%;
-  right: 5%;
-  height: 14%;
+  width: 100%;
+  height: 100px;
   border-radius: 5px;
   display: grid;
+  grid-template-columns: 1fr 10px 1fr;
+  gap: 5px;
+}
+
+.tradeBottom {
+  width: 100%;
+  flex: 1;
+  display: grid;
+  gap: 5px;
+  overflow: hidden;
   grid-template-columns: 1fr 10px 1fr;
 }
 
 .headerDivider {
-  background-color: rgb(15, 15, 15);
-  border-right: 2px solid black;
-  border-left: 2px solid black;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgb(163, 163, 163);
 }
 
 .headerHalf {
   display: flex;
   flex-direction: row;
   overflow: scroll;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgb(163, 163, 163);
 }
 
 .headerHalf1 {
@@ -91,21 +92,23 @@
   align-self: start;
   justify-self: center;
   margin-top: 10px;
-  width: 40px;
-  border-radius: 10px;
-  padding: 0px 20px 0px 20px;
+  width: 80px;
+  height: 35px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
   cursor: pointer;
-  transition: 0.1s ease;
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 1);
-  background-color: rgb(255, 94, 0);
-  color: white;
-  
+  transition: all 0.15s ease;
+  background-color: rgb(250, 250, 250);
+  border: 1px solid rgb(163, 163, 163);
+  border-left: 5px solid rgb(255, 94, 0);
+  color: rgb(0, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.tradeSubmitBtn:hover,
-.tradeValueCalc:hover {
-  transform: scale(1.1);
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+.tradeSubmitBtn:hover{
+  border-left-width: 10px;
 }
 
 .tradeValueCalc {
@@ -114,9 +117,9 @@
   align-self: end;
   height: 35px;
   width: 80px;
-  border-radius: 10px;
-  background-color: white;
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 1);
+  border-radius: 5px;
+  background-color: rgb(250, 250, 250);
+  border: 1px solid rgb(163, 163, 163);
   cursor: default;
   margin-bottom: 10px;
   display: flex;
@@ -145,7 +148,8 @@
   right: 10px;
   cursor: pointer;
   transition: 0.1s ease;
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 1);
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
   background-color: rgba(0, 0, 0, 0);
 }
 
@@ -159,6 +163,8 @@
   display: flex;
   flex-direction: column;
   overflow: scroll;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgb(163, 163, 163);
 }
 
 .team1 {
@@ -172,10 +178,8 @@
 }
 
 .divider {
-  background-color: rgb(15, 15, 15);
-  border-radius: 0px;
-  border-right: 2px solid black;
-  border-left: 2px solid black;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgb(163, 163, 163);
 }
 
 .teamSelect {
@@ -184,24 +188,34 @@
   font-weight: 500;
   width: fit-content;
   padding: 0px 10px 0px 10px;
-  background-color: rgb(255, 94, 0);
-  color: white;
-  border-radius: 15px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
-  text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
-  border: none;
-  cursor: default;
-  transition: 0.1s ease
+  background-color: rgb(250, 250, 250);
+  color: rgb(0, 0, 0);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border: 1px solid rgb(163, 163, 163);
+  border-left: 5px solid rgb(255, 94, 0);
+  cursor: pointer;
+  transition: all 0.15s ease
 }
 
 .teamSelect:hover {
-  transform: scale(1.02);
+  border-left-width: 10px;
 }
 
 .teamTradePage {
-  color: white;
-  text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+  color: rgb(0, 0, 0);
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+@media (max-width: 849px) {
+  .tradeBottom {
+    grid-template-columns: none;
+    grid-template-rows: 1fr 10px 1fr;
+  }
+
+  .tradeCloseBtn {
+    top: 45px;
+  }
 }

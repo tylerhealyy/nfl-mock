@@ -1,16 +1,33 @@
 body {
-  background-color: rgb(20, 20, 20);
-  font-family: Inter;
+  font-family: Roboto;
+  overflow: scroll;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+}
+
+body::before {
+  content: "";
+  position: fixed; /* or absolute */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-image: url('../photos/noise6.jpg');
+  background-size: cover;
+  background-position: center;
+
+  opacity: 0.3; /* adjust here */
+  z-index: -1;
 }
 
 .summaryHeaderText {
-  position: absolute;
-  top: 20px;
-  left: 10px;
-  right: 10px;
   text-align: center;
-  font-size: 16px;
-  color: white;
+  font-size: 1rem;
+  color: rgb(0, 0, 0);
+  margin-bottom: 10px;
 }
 
 .everything {
@@ -18,19 +35,18 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-top: 40px;
 }
 
 .round-summary,
 .ts-summary {
-  background-color: rgba(255, 255, 255, 0);
-  min-width: 700px;
-  height: auto;
+  background-color: rgb(31, 31, 31);
+  min-width: 600px;
+  height: fit-content;
   display: flex;
   flex-direction: column;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
-  margin: 20px;
+  margin: 0 10px;
   cursor: default;
   transition: transform 0.15s ease;
 }
@@ -43,20 +59,20 @@ body {
 
 .ts-summary {
   height: auto;
-  min-width: 600px;
+  min-width: 450px;
 }
 
 .round-summary:hover,
 .ts-summary:hover {
-  transform: scale(1.01);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .rs-header {
   background-color: rgb(31, 31, 31);
   padding: 5px;
-  height: 35px;
+  height: 30px;
   color: rgb(255, 255, 255);
-  font-size: 28px;
+  font-size: 1.75rem;
   font-weight: 700;
   padding-left: 15px;
   display: flex;
@@ -66,6 +82,11 @@ body {
   overflow: hidden;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+}
+
+.ts-header {
+  font-size: 1.5rem;
+  height: 25px;
 }
 
 .rsh-left {
@@ -88,12 +109,17 @@ body {
 }
 
 .rs-header-author {
-  font-size: 14px;
+  font-size: 0.9rem;
   text-align: end;
   line-height: 16px;
   padding-right: 10px;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   overflow: hidden;
+}
+
+.ts-author {
+  font-size: 0.8rem;
+  line-height: 0.9rem;
 }
 
 .rs-grid {
@@ -103,27 +129,26 @@ body {
   grid-auto-flow: column;
   list-style-type: none;
   column-gap: 2px;
-  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .rs-pick,
 .ts-pick {
   color: rgb(0, 0, 0);
   background-color: rgb(255, 255, 255);
-  font-size: 12px;
+  font-size: 1rem;
   font-weight: 700;
-  height: 54px;
+  height: 45px;
   display: grid;
-  grid-template-columns: 10px 45px 50px 1fr 50px;
+  grid-template-columns: 10px 35px 30px 1fr 30px;
   align-items: center;
   padding-right: 5px;
-  margin: 0px 0px 0px 0px;
   border-top: 1px solid rgb(0, 0, 0);
 }
 
 .ts-pick {
   border-right: none;
-  height: 54px;
+  height: 50px;
   grid-template-columns: 10px 50px 50px 1fr 50px;
 }
 
@@ -136,18 +161,17 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 18px;
 }
 
 .rs-pick-image {
   max-width: 100%;
-  max-height: 45px;
+  max-height: 40px;
   justify-self: center;
 }
 
 .rs-school-image {
   max-width: 100%;
-  max-height: 45px;
+  max-height: 35px;
   justify-self: center;
 }
 
@@ -160,13 +184,12 @@ body {
 }
 
 .rs-pick-name {
-  font-size: 18px;
   padding-right: 5px;
 }
 
 .rs-pick-info {
-  font-size: 14px;
   color: rgb(109, 109, 109);
+  font-size: 0.9rem;
 }
 
 .rs-footer {
@@ -185,7 +208,7 @@ body {
 
 .next-summary,
 .last-summary {
-  background-color: rgba(255, 255, 255, 0.175);
+  background-color: rgba(0, 0, 0, 0.175);
   height: 100px;
   width: 70px;
   border-radius: 10px;
@@ -219,27 +242,28 @@ body {
 }
 
 .ts-team-select {
-  margin: 20px;
-  margin-bottom: 0px;
-  height: 50px;
+  margin: 10px;
+  margin-top: 0;
+  height: 40px;
   width: 300px;
-  background-color: rgb(29, 29, 29);
-  color: rgb(255, 255, 255);
-  border: none;
-  border-radius: 10px;
+  background-color: rgba(250, 250, 250, 1);
+  border: 1px solid rgb(163, 163, 163);
+  border-left: 5px solid rgb(255, 94, 0);
+  color: rgb(0, 0, 0);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
   padding-left: 15px;
-  font-size: 20px;
+  font-size: 1.25rem;
   transition: 0.15s ease;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   cursor: pointer;
 }
 
 option {
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
 }
 
 .ts-team-select:hover {
-  transform: scale(1.03);
+  border-left-width: 10px;
 }
 
 .ts-pick:nth-last-child(-n + 1) {
@@ -271,24 +295,24 @@ option {
 }
 
 .newDraftBtn {
-  min-height: 70px;
-  width: 50%;
+  height: fit-content;
+  width: fit-content;
+  padding: 0.5rem 1rem;
   font-family: Roboto;
-  font-size: 20px;
+  font-size: 1rem;
   font-weight: 700;
-  background-color: rgb(255, 94, 0);
-  color: white;
-  box-shadow: 0px 0px 5px rgb(0, 0, 0);
-  border: 1px solid black;
-  border-radius: 100px;
-  text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+  background-color: rgb(250, 250, 250);
+  color: rgb(0, 0, 0);
+  border: 1px solid rgb(163, 163, 163);
+  border-left: 5px solid rgb(255, 94, 0);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
   cursor: pointer;
-  margin: 0px 0px 0px 20px;
   transition: 0.15s ease;
-  align-self: center;
-  margin-bottom: 10px;
+  margin: 0 0 5px 10px;
+  align-self: end;
 }
 
 .newDraftBtn:hover {
-  transform: scale(1.03);
+  border-left-width: 10px;
 }

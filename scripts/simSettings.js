@@ -87,7 +87,7 @@ for (let i = 1; i <= 32; i++) {
     if (team.order === i) {
       document.getElementById('teams').innerHTML += `
         <div class="team-block" id="team-block" data-team="${team.name}">
-          <img src="${team.logo}" class="team-block-logo">  
+          <img src="${team.logo}" class="team-block-logo" style="filter: drop-shadow(0px 0px 1px rgba(0, 0, 0, 1))">  
           <img src="icons/ellipsis.png" class="teamBlockEllipsis">
         </div>
       `;
@@ -133,19 +133,13 @@ document.querySelectorAll('.teamBlockEllipsis').forEach((ellipsis) => {
 
     nflTeams.forEach((team) => {
       if (team.name === block.dataset.team) {
-        displayBoxElem.setAttribute("style", `
-          background-color: ${team.color};
-          box-shadow: inset 0px 0px 500px 50px black;
-          text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
-          `);
 
         displayBoxElem.innerHTML = `
           <img class="closeButton" src="icons/closeIcon.png">
           <div class="teamHeader">
             <img class="teamHeaderImage" src="${team.logo}">
             <div class="teamHeaderName">
-              <div class="teamHeaderCity">${team.city}</div>
-              <div class="teamHeaderMascot">${team.name}</div>
+              ${team.city} ${team.name}<br><span class="teamProfileText">Team Profile</span>
             </div>
           </div>
 
@@ -184,7 +178,7 @@ document.querySelectorAll('.teamBlockEllipsis').forEach((ellipsis) => {
 
         closeButtonElement.addEventListener("click", () => {
           displayBoxElem.setAttribute("style", `
-            background-color: rgb(20, 20, 20);
+            background-color: rgba(255, 255, 255, 0.5);
             text-shadow: none;
           `);
 
