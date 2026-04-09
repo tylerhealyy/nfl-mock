@@ -15,6 +15,7 @@
   display: grid;
   grid-template-columns: 1fr 10px 1fr;
   gap: 5px;
+  position: relative;
 }
 
 .tradeBottom {
@@ -24,6 +25,7 @@
   gap: 5px;
   overflow: hidden;
   grid-template-columns: 1fr 10px 1fr;
+  position: relative;
 }
 
 .headerDivider {
