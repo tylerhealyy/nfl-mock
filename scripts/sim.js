@@ -5,6 +5,17 @@ import { singleAutoPick } from "./draftOrder.js";
 import { tradeValueData } from "../data/tradeValueData.js";
 import { futurePickValueData } from "../data/tradeValueData.js";
 
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme) {
+  document.documentElement.setAttribute("data-theme", savedTheme);
+} else {
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  document.documentElement.setAttribute(
+    "data-theme",
+    prefersDark ? "dark" : "light"
+  );
+}
+
 let playerList = '';
 let otc = 1;
 localStorage.setItem('otc', JSON.stringify(otc));
@@ -74,7 +85,7 @@ document.querySelector('.begin').addEventListener("click", () => {
   document.querySelector('.begin').style.background = 'white';
   document.querySelector('.begin').style.color = 'black';
   document.querySelector('.begin').style.borderLeftColor = 'rgb(255, 94, 0)';
-  document.querySelector('.profile-js').setAttribute("style", `background-color: rgba(255, 255, 255, 0.5);`);
+  document.querySelector('.profile-js').setAttribute("style", `background-color: var(--secondary);`);
 });
 
 document.querySelector('.trade').addEventListener("click", () => {
@@ -743,7 +754,7 @@ function displayProfile(playerCard, selectedValue) { // Add event listeners to p
         rankUsed = player[`${selectedBoard}`];
         if (rankUsed === Number(playerRank)) { // Get the correct player data to display
           profileHTML.setAttribute("style", `
-            background-color: rgba(255, 255, 255, 0.5);
+            background-color: var(--secondary);
             text-shadow: none;
             display: flex;
             flex-direction: column;

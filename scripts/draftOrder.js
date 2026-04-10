@@ -67,19 +67,6 @@ export function buildDraftOrder2(rounds) { // Read the number of rounds to displ
 }
 
 function buildPanelItems(i, rounds) { // Build HTML for each pick
-  /*let pickTeam;
-  nflTeams.forEach((team) => {
-    let newTest;
-    if (JSON.parse(localStorage.getItem(`${team.name}test`))) {
-      newTest = JSON.parse(localStorage.getItem(`${team.name}test`));
-    } else {
-      newTest = team.test;
-    }
-    console.log('hi', i, newTest);
-    if (newTest.some(v => v.n === i)) {
-      pickTeam = team;
-    }
-  });*/
 
   const pickTeam = nflTeams.find(team => {
     const stored = JSON.parse(localStorage.getItem(`${team.name}test`));
@@ -130,8 +117,8 @@ function buildPanelItems(i, rounds) { // Build HTML for each pick
       nflTeams.forEach((team) => { // block is undefined somewhere
         if (team.name === item.dataset.team) {
           displayBoxElem.setAttribute("style", `
-            background-color: rgba(255, 255, 255, 0.5);
-            color: black;
+            background-color: var(--secondary);
+            color: var(--text);
             display: flex;
             width: 100%;
             height: 100%;
@@ -184,7 +171,7 @@ function buildPanelItems(i, rounds) { // Build HTML for each pick
   
           closeButtonElement.addEventListener("click", () => {
             displayBoxElem.setAttribute("style", `
-              background-color: rgba(255, 255, 255, 0.5);
+              background-color: var(--secondary);
               color: rgb(223, 223, 223);
               text-shadow: none;
               display: grid;

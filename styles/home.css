@@ -5,9 +5,23 @@
   scrollbar-width: none;
 }
 
+:root {
+  --bg: #ffffff;
+  --bgopc: 0.5;
+  --text: #111111;
+  --primary: rgb(255, 255, 255);
+}
+
+[data-theme="dark"] {
+  --bg: #111111;
+  --bgopc: 0.1;
+  --text: #ffffff;
+  --primary: rgb(0, 0, 0);
+}
+
 body {
   margin: 0;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--bg);
   font-family: 'Roboto';
 
   position: relative;
@@ -21,7 +35,7 @@ body {
   width: 100vw;
   height: 100vh;
   object-fit: cover;
-  opacity: 0.5;
+  opacity: var(--bgopc);
   filter: blur(0px);
 }
 
@@ -68,14 +82,14 @@ body {
   top: 40vh;
   transform: translateX(-50%);
   
-  background-color: rgb(255, 255, 255);
-  border-left: 10px solid rgb(255, 255, 255);
-  border-right: 10px solid rgb(255, 255, 255);
+  background-color: white;
+  border-left: 10px solid white;
+  border-right: 10px solid white;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
   padding: 1rem;
   border-radius: 10px;
 
-  color: rgb(0, 0, 0);
+  color: black;
   font-weight: 500;
   font-size: 1.3rem;
   text-align: center;
@@ -83,34 +97,6 @@ body {
   transition: all 0.15s ease;
   
   cursor: pointer;
-
-  /* animation: pulse 1.1s cubic-bezier(0.4, 0, 0.2, 1) infinite; */
-}
-
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 15px rgb(0, 0, 0);
-  }
-
-  10% {
-    box-shadow: 0 0 35px rgb(0, 0, 0);
-  }
-
-  20% {
-    box-shadow: 0 0 18px rgb(0, 0, 0);
-  }
-
-  30% {
-    box-shadow: 0 0 55px rgb(0, 0, 0);
-  }
-
-  40% {
-    box-shadow: 0 0 20px rgb(0, 0, 0);
-  }
-
-  100% {
-    box-shadow: 0 0 15px rgb(0, 0, 0);
-  }
 }
 
 .mockBtn:hover {
@@ -124,7 +110,7 @@ body {
   top: 70vh;
   transform: translateX(-50%);
   
-  color: rgb(0, 0, 0);
+  color: var(--text);
   font-weight: 400;
   font-size: 16px;
   text-align: center;
@@ -174,4 +160,43 @@ body {
 .modeBtn:hover {
   box-shadow: -5px 0px 0 rgb(255, 94, 0);
   font-weight: 700;
+}
+
+.themeOptions {
+  display: flex;
+  flex-direction: row;
+  height: fit-content;
+
+  position: absolute;
+  left: 50vw;
+  top: 30vh;
+  transform: translate(-50%, -50%);
+}
+
+.themeBtn {
+  width: 40px;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.25rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgb(255, 94, 0);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.lightTheme {
+  background-color: white;
+  border-top-left-radius: 5px;
+}
+
+.darkTheme {
+  background-color: rgb(0, 0, 0);
+  color: white;
+  border-top-right-radius: 5px;
+}
+
+.themeBtn:hover {
+  border-bottom: 5px solid rgb(255, 94, 0);
 }

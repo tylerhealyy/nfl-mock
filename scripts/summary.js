@@ -4,6 +4,17 @@ import { playerData26 } from "../data/playerData26.js";
 let rankUsed;
 let selectedBoard = JSON.parse(localStorage.getItem('boardInput'));
 
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme) {
+  document.documentElement.setAttribute("data-theme", savedTheme);
+} else {
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  document.documentElement.setAttribute(
+    "data-theme",
+    prefersDark ? "dark" : "light"
+  );
+}
+
 document.getElementById('newDraftBtn').addEventListener("click", () => { // Add functionality to restart button
   if(confirm("Are you sure you want to start a new draft?")) {
     window.location.href = 'simSettings.html';

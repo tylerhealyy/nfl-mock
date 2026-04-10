@@ -32,7 +32,7 @@
 .teamHeader {
   width: 100%;
   height: 60px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--border);
   display: flex;
   flex-direction: row;
   gap: 15px;
@@ -68,7 +68,7 @@
 .seasonInfo {
   width: 100%;
   max-height: fit-content;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--border);
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
@@ -89,7 +89,7 @@
 .staffInfo {
   width: 100%;
   max-height: fit-content;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--border);
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
@@ -102,7 +102,7 @@
   flex-direction: row;
   align-items: center;
   width: 100%;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--border);
   padding: 10px 0px 10px 0px;
   cursor: default;
 }
@@ -151,7 +151,7 @@
 .teamPickInfo {
   width: 100%;
   height: auto;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--border);
   padding: 5px 0px 5px 0px;
   display: flex;
   flex-flow: row wrap;
@@ -196,7 +196,7 @@
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   padding: 0px 0px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--border);
 }
 
 .pickCardBottom {
@@ -293,7 +293,7 @@
 
 .roster {
   width: 100%;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--border);
   margin-bottom: 10px;
   padding: 0px 0px 10px 0px;
   display: grid;

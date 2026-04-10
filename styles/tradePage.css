@@ -29,16 +29,16 @@
 }
 
 .headerDivider {
-  background-color: rgba(255, 255, 255, 0.5);
-  border: 1px solid rgb(163, 163, 163);
+  background-color: var(--primary);
+  border: 1px solid var(--border);
 }
 
 .headerHalf {
   display: flex;
   flex-direction: row;
   overflow: scroll;
-  background-color: rgba(255, 255, 255, 0.5);
-  border: 1px solid rgb(163, 163, 163);
+  background-color: var(--primary);
+  border: 1px solid var(--border);
 }
 
 .headerHalf1 {
@@ -165,8 +165,8 @@
   display: flex;
   flex-direction: column;
   overflow: scroll;
-  background-color: rgba(255, 255, 255, 0.5);
-  border: 1px solid rgb(163, 163, 163);
+  background-color: var(--primary);
+  border: 1px solid var(--border);
 }
 
 .team1 {
@@ -180,8 +180,8 @@
 }
 
 .divider {
-  background-color: rgba(255, 255, 255, 0.5);
-  border: 1px solid rgb(163, 163, 163);
+  background-color: var(--primary);
+  border: 1px solid var(--border);
 }
 
 .teamSelect {
@@ -205,7 +205,7 @@
 }
 
 .teamTradePage {
-  color: rgb(0, 0, 0);
+  color: var(--text);
   display: flex;
   flex-direction: column;
   align-items: center;

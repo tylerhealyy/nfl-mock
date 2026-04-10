@@ -1,5 +1,16 @@
 import { nflTeams } from "../data/nflTeamData.js";
 
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme) {
+  document.documentElement.setAttribute("data-theme", savedTheme);
+} else {
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  document.documentElement.setAttribute(
+    "data-theme",
+    prefersDark ? "dark" : "light"
+  );
+}
+
 const displayBoxElem = document.querySelector('.hickory');
 const offPositionList = ["QB", "RB", "WR", "TE", "OT", "IOL"];
 const defPositionList = ["ED", "DT", "LB", "CB", "S", "K", "P", "LS"];
@@ -178,7 +189,7 @@ document.querySelectorAll('.teamBlockEllipsis').forEach((ellipsis) => {
 
         closeButtonElement.addEventListener("click", () => {
           displayBoxElem.setAttribute("style", `
-            background-color: rgba(255, 255, 255, 0.5);
+            background-color: var(--primary);
             text-shadow: none;
           `);
 

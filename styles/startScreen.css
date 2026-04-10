@@ -5,11 +5,37 @@
   scrollbar-width: none;
 }
 
+:root {
+  --bg: #ffffff;
+  --bgopc: 0.5;
+  --text: #111111;
+  --primary: rgba(255, 255, 255, 0.5);
+  --bgurl: url('../photos/noise6.jpg');
+  --secondary: rgb(250, 250, 250);
+  --tertiary: rgb(245, 245, 245);
+  --border: rgb(163, 163, 163);
+  --hover: rgb(206, 206, 206);
+}
+
+[data-theme="dark"] {
+  --bg: #111111;
+  --bgopc: 0.05;
+  --text: #ffffff;
+  --primary: rgba(0, 0, 0, 0.5);
+  --bgurl: url('../photos/darkNoise.jpg');
+  --secondary: rgb(0, 0, 0);
+  --tertiary: rgb(15, 15, 15);
+  --border: rgb(25, 25, 25);
+  --hover: rgb(50, 50, 50);
+}
+
 body {
   font-family: Roboto;
   margin: 5vh;
   overflow: scroll;
   position: relative;
+
+  background-color: var(--bg);
 }
 
 body::before {
@@ -20,11 +46,11 @@ body::before {
   width: 100%;
   height: 100%;
 
-  background-image: url('../photos/noise6.jpg');
+  background-image: var(--bgurl);
   background-size: cover;
   background-position: center;
 
-  opacity: 0.3; /* adjust here */
+  opacity: var(--bgopc); /* adjust here */
   z-index: -1;
 }
 
@@ -37,7 +63,8 @@ body::before {
 }
 
 .hickory {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: var(--primary);
+  color: var(--text);
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   display: flex;
@@ -45,7 +72,7 @@ body::before {
   align-items: center;
   justify-content: space-around;
   padding: 0px 10px;
-  border: 1px solid rgb(163, 163, 163);
+  border: 1px solid var(--border);
   overflow: scroll;
   flex: 1;
 
@@ -53,13 +80,13 @@ body::before {
 }
 
 .smoked {
-  background-color: rgba(255, 255, 255, 0.5);
-  color: rgb(0, 0, 0);
+  background-color: var(--primary);
+  color: var(--text);
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  border: 1px solid rgb(163, 163, 163);
+  border: 1px solid var(--border);
 
   width: fit-content;
   min-width: 50%;
@@ -83,8 +110,8 @@ body::before {
 .select-all {
   font-size: 1rem;
   font-weight: 500;
-  background-color: rgb(250, 250, 250);
-  color: rgb(0, 0, 0);
+  background-color: var(--secondary);
+  color: var(--text);
   text-shadow: 0px 0px 2px rgba(0, 0, 0, 0);
   padding: 2px 0.5rem;
   border-left: 5px solid rgb(255, 94, 0);
@@ -99,11 +126,11 @@ body::before {
 }
 
 .team-picker {
-  background-color: rgb(250, 250, 250);
+  background-color: var(--secondary);
   width: 90%;
   height: fit-content;
   border-radius: 10px;
-  border: 1px solid rgb(163, 163, 163);
+  border: 1px solid var(--border);
   box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.25);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -116,13 +143,13 @@ body::before {
 }
 
 .team-block {
-  background-color: rgb(245, 245, 245);
+  background-color: var(--tertiary);
   border-radius: 5px;
   padding: 0 0px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgb(163, 163, 163);
+  border: 1px solid var(--border);
   box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.25);
   cursor: pointer;
   transition: 0.1s ease;
@@ -130,16 +157,9 @@ body::before {
   position: relative;
 }
 
-.team-selected {
-  background-color: rgb(204, 204, 204);
-}
-
 .team-block:hover {
-  background-color: rgb(206, 206, 206);
+  background-color: var(--hover);
   transform: scale(0.95);
-}
-.team-block:active {
-  background-color: rgb(192, 192, 192);
 }
 
 .team-block-logo {
@@ -171,12 +191,12 @@ body::before {
   align-items: center;
   justify-content: center;
   width: 95%;
-  border: 1px solid rgba(163, 163, 163, 1);
+  border: 1px solid var(--border);
   border-radius: 10px;
   padding: 10px;
-  box-shadow: inset 0px 0px 60px rgb(212, 212, 212);
+  background-color: var(--secondary);
   margin: 5px 0px 5px 0px;
-  color: black;
+  color: var(--text);
 }
 .optionBox:hover {
   transform: scale(1.02);
@@ -207,7 +227,7 @@ body::before {
   transition: all 0.15s ease;
 }
 .board-input:hover {
-  border-left: 10px solid rgb(163, 163, 163);
+  border-left-width: 10px;
 }
 
 .optionBoxText {
@@ -240,7 +260,7 @@ body::before {
   transition: all 0.15s ease;
 }
 .user-name-input:hover {
-  border-left: 10px solid rgb(163, 163, 163);
+  border-left-width: 10px;
 }
 
 input[type="range"] {
@@ -250,7 +270,7 @@ input[type="range"] {
 
 input[type="range"]::-moz-range-track {
   height: 6px;
-  background: rgb(201, 201, 201);
+  background: var(--hover);
   border-radius: 3px;
 }
 
@@ -303,14 +323,16 @@ input[type="range"]::-moz-range-thumb:hover {
   font-family: Roboto;
   font-size: 1.5rem;
   font-weight: 500;
-  background-color: rgb(250, 250, 250);
-  color: rgb(0, 0, 0);
+  background-color: var(--secondary);
+  color: var(--text);
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0);
   border: none;
   border-left: 5px solid rgb(255, 94, 0);
   text-shadow: 0px 0px 5px rgba(0, 0, 0, 0);
   cursor: pointer;
   margin: 15px 0px 5px 15px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 
   transition: all 0.15s ease;
   align-self: start;
