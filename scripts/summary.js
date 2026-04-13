@@ -94,7 +94,7 @@ document.querySelector('.ts-team-select').addEventListener("change", () => {
 
 let roundsInput = JSON.parse(localStorage.getItem('roundsInput'));
 if (roundsInput === '1') {
-  hideNext();
+  document.querySelector('.nextLastBtns').style.display = 'none';
 }
 
 let summaryViewing = 1;
@@ -340,14 +340,14 @@ function buildTeamSummary(draftee) {
 
           document.querySelector('.ts-pick-list').innerHTML += `
             <div class="ts-pick">
-              <div class="rs-pick-colorBar" style="background-color: ${team.color};"></div>
-              <div class="rs-pick-number">${i}</div>
-              <img src="${team.logo}" class="rs-pick-image">
-              <div class="rs-pick-player">
-                <div class="rs-pick-name">${draftee.name}</div>
-                <div class="rs-pick-info">${draftee.position} ${draftee.school} (${rankUsed})</div>
+              <div class="rs-pick-colorBar ts" style="background-color: ${team.color};"></div>
+              <div class="rs-pick-number ts">${i}</div>
+              <img src="${team.logo}" class="rs-pick-image ts">
+              <div class="rs-pick-player ts">
+                <div class="rs-pick-name ts">${draftee.name}</div>
+                <div class="rs-pick-info ts">${draftee.position} ${draftee.school} (${rankUsed})</div>
               </div>
-              <img src="${draftee.schoolLogo}" class="rs-school-image">
+              <img src="${draftee.schoolLogo}" class="rs-school-image ts">
             </div>
           `;
         }

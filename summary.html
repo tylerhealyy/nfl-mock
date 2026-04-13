@@ -20,36 +20,38 @@
   </head>
 
   <body>
+    <div class="optionBtns">
+      <button class="newDraftBtn" id="homeBtn">Home</button>
+      <button class="newDraftBtn" id="newDraftBtn">New Draft</button>
+    </div>
+    
     <div class="summaryHeaderText">Click a summary to download image</div>
     <div class="summaryThemeOption"></div>
     <div class="everything">
-      <div class="last-summary">
-        <img src="icons/left-arrow.png" class="ns-icon">
-      </div>
+      
+      <div class="roundSumContainer">
 
-      <div class="round-summary" id="rs-capture">
-        <div class="rs-header">
-          <div class="rsh-left">
-            <div><span class="rs-header-round"></span>Round Mock Draft</div>
-            <div class="rsh-score"></div>
-          </div>
-          <div class="rs-header-author">Made by<br><span class="rs-user"></span></div>
+        <div class="nextLastBtns">
+          <div class="last-summary">Last Round</div>
+          <div class="next-summary">Next Round</div>
         </div>
-        <div class="rs-grid"></div>
-        <div class="rs-trades"></div>
-        <div class="rs-footer">Draft at MockParadox.com</div>
+
+        <div class="round-summary" id="rs-capture">
+          <div class="rs-header">
+            <div class="rsh-left">
+              <div><span class="rs-header-round"></span>Round Mock Draft</div>
+              <div class="rsh-score"></div>
+            </div>
+            <div class="rs-header-author">Made by<br><span class="rs-user"></span></div>
+          </div>
+          <div class="rs-grid"></div>
+          <div class="rs-trades"></div>
+          <div class="rs-footer">Draft at MockParadox.com</div>
+        </div>
+
       </div>
 
-      <div class="next-summary">
-        <img src="icons/right-arrow.png" class="ns-icon">
-      </div>
       <div class="team-summary">
-        <button class="newDraftBtn" id="homeBtn">
-          Home
-        </button>
-        <button class="newDraftBtn" id="newDraftBtn">
-          New Draft
-        </button>
         <select class="ts-team-select">
           <option disabled selected>Select a team</option>
           <option value="Cardinals">Arizona Cardinals</option>

@@ -19,7 +19,7 @@
 
 [data-theme="dark"] {
   --bg: #111111;
-  --bgopc: 0.05;
+  --bgopc: 0.2;
   --text: #ffffff;
   --primary: rgba(0, 0, 0, 0.5);
   --bgurl: url('../photos/darkNoise.jpg');
