@@ -64,7 +64,7 @@ export const nflTeams = [
     drafted: [],
     needs: ['WR', 'RB', 'LB', 'S'],
     nogo: ['QB'],
-    test: [{r: 1, n: 5, p: "", pn: "", pos: "", t: "NYG"},{r: 2, n: 37, p: "", pn: "", pos: "", t: "NYG"},{r: 4, n: 105, p: "", pn: "", pos: "", t: "NYG"},{r: 5, n: 145, p: "", pn: "", pos: "", t: "NYG"},{r: 6, n: 186, p: "", pn: "", pos: "", t: "NYG"},{r: 6, n: 192, p: "", pn: "", pos: "", t: "MIA"},{r: 6, n: 193, p: "", pn: "", pos: "", t: "DAL"}],
+    test: [{r: 1, n: 5, p: "", pn: "", pos: "", t: "NYG"},{r: 1, n: 10, p: "", pn: "", pos: "", t: "CIN"},{r: 2, n: 37, p: "", pn: "", pos: "", t: "NYG"},{r: 4, n: 105, p: "", pn: "", pos: "", t: "NYG"},{r: 5, n: 145, p: "", pn: "", pos: "", t: "NYG"},{r: 6, n: 186, p: "", pn: "", pos: "", t: "NYG"},{r: 6, n: 192, p: "", pn: "", pos: "", t: "MIA"},{r: 6, n: 193, p: "", pn: "", pos: "", t: "DAL"}],
     futurePicks: [{r: 1,t: "NYG"},{r: 2,t: "NYG"},{r: 3,t: "NYG"},{r: 4,t: "NYG"},{r: 5,t: "NYG"},{r: 6,t: "NYG"}]
   },
   {
@@ -344,7 +344,7 @@ export const nflTeams = [
     drafted: [],
     needs: ['LB', 'ED', 'S', 'CB'],
     nogo: ['QB'],
-    test: [{r: 1, n: 10, p: "", pn: "", pos: "", t: "CIN"},{r: 2, n: 41, p: "", pn: "", pos: "", t: "CIN"},{r: 3, n: 72, p: "", pn: "", pos: "", t: "CIN"},{r: 4, n: 110, p: "", pn: "", pos: "", t: "CIN"},{r: 6, n: 189, p: "", pn: "", pos: "", t: "CIN"},{r: 6, n: 199, p: "", pn: "", pos: "", t: "DET"},{r: 7, n: 221, p: "", pn: "", pos: "", t: "NYG"},{r: 7, n: 226, p: "", pn: "", pos: "", t: "CIN"}],
+    test: [{r: 2, n: 41, p: "", pn: "", pos: "", t: "CIN"},{r: 3, n: 72, p: "", pn: "", pos: "", t: "CIN"},{r: 4, n: 110, p: "", pn: "", pos: "", t: "CIN"},{r: 6, n: 189, p: "", pn: "", pos: "", t: "CIN"},{r: 6, n: 199, p: "", pn: "", pos: "", t: "DET"},{r: 7, n: 221, p: "", pn: "", pos: "", t: "NYG"},{r: 7, n: 226, p: "", pn: "", pos: "", t: "CIN"}],
     futurePicks: [{r: 1,t: "CIN"},{r: 2,t: "CIN"},{r: 3,t: "CIN"},{r: 4,t: "CIN"},{r: 5,t: "CIN"},{r: 6,t: "CIN"},{r: 7,t: "CIN"}]
   },
   {
@@ -464,7 +464,7 @@ export const nflTeams = [
     drafted: [],
     needs: ['OT', 'DT', 'CB', 'ED'],
     nogo: ['QB'],
-    test: [{r: 2, n: 52, p: "", pn: "", pos: "", t: "GB"},{r: 3, n: 84, p: "", pn: "", pos: "", t: "GB"},{r: 4, n: 120, p: "", pn: "", pos: "", t: "GB"},{r: 5, n: 160, p: "", pn: "", pos: "", t: "GB"},{r: 6, n: 201, p: "", pn: "", pos: "", t: "GB"},{r: 7, n: 236, p: "", pn: "", pos: "", t: "GB"},{r: 7, n: 255, p: "", pn: "", pos: "", t: "GB"}],
+    test: [{r: 2, n: 52, p: "", pn: "", pos: "", t: "GB"},{r: 3, n: 84, p: "", pn: "", pos: "", t: "GB"},{r: 4, n: 120, p: "", pn: "", pos: "", t: "GB"},{r: 5, n: 153, p: "", pn: "", pos: "", t: "ATL"},{r: 5, n: 160, p: "", pn: "", pos: "", t: "GB"},{r: 6, n: 201, p: "", pn: "", pos: "", t: "GB"},{r: 7, n: 236, p: "", pn: "", pos: "", t: "GB"},{r: 7, n: 255, p: "", pn: "", pos: "", t: "GB"}],
     futurePicks: [{r: 2,t: "GB"},{r: 3,t: "GB"},{r: 4,t: "GB"},{r: 5,t: "GB"},{r: 7,t: "GB"}]
   },
   {
@@ -644,7 +644,7 @@ export const nflTeams = [
     drafted: [],
     needs: ['TE', 'OT', 'ED', 'WR'],
     nogo: ['QB'],
-    test: [{r: 1, n: 23, p: "", pn: "", pos: "", t: "PHI"},{r: 2, n: 54, p: "", pn: "", pos: "", t: "PHI"},{r: 3, n: 68, p: "", pn: "", pos: "", t: "NYJ"},{r: 3, n: 98, p: "", pn: "", pos: "", t: "PHI"},{r: 4, n: 114, p: "", pn: "", pos: "", t: "ATL"},{r: 4, n: 137, p: "", pn: "", pos: "", t: "PHI"},{r: 5, n: 153, p: "", pn: "", pos: "", t: "ATL"},{r: 5, n: 178, p: "", pn: "", pos: "", t: "PHI"},{r: 6, n: 197, p: "", pn: "", pos: "", t: "ATL"}],
+    test: [{r: 1, n: 23, p: "", pn: "", pos: "", t: "PHI"},{r: 2, n: 54, p: "", pn: "", pos: "", t: "PHI"},{r: 3, n: 68, p: "", pn: "", pos: "", t: "NYJ"},{r: 3, n: 98, p: "", pn: "", pos: "", t: "PHI"},{r: 4, n: 114, p: "", pn: "", pos: "", t: "ATL"},{r: 4, n: 137, p: "", pn: "", pos: "", t: "PHI"},{r: 5, n: 178, p: "", pn: "", pos: "", t: "PHI"},{r: 6, n: 197, p: "", pn: "", pos: "", t: "ATL"}],
     futurePicks: [{r: 1,t: "PHI"},{r: 2,t: "PHI"},{r: 3,t: "PHI"},{r: 4,t: "PHI"},{r: 5,t: "PHI"},{r: 6,t: "PHI"},{r: 7,t: "NYJ"},{r: 7,t: "BAL"}]
   }
 ];

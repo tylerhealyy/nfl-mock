@@ -23,6 +23,7 @@ Team,Player,Position,Starter
 49ers,Ricky Pearsall,WR,TRUE
 49ers,Darrell Luter Jr.,CB,
 49ers,Eli Apple,CB,
+49ers,Jack Jones,CB,
 49ers,Jakob Robinson,CB,
 49ers,Nate Hobbs,CB,
 49ers,Siran Neal,CB,
@@ -39,6 +40,7 @@ Team,Player,Position,Starter
 49ers,Drake Nugent,IOL,
 49ers,Nick Zakelj,IOL,
 49ers,Rob Jones,IOL,
+49ers,Zach Thomas,IOL,
 49ers,Eddy Piñeiro,K,
 49ers,Dre Greenlaw,LB,
 49ers,Garret Wallow,LB,
@@ -48,7 +50,6 @@ Team,Player,Position,Starter
 49ers,Nick Martin,LB,
 49ers,Tatum Bethune,LB,
 49ers,Jon Weeks,LS,
-49ers,Zach Thomas,IOL,
 49ers,Austen Pleasants,OT,
 49ers,Brandon Parker,OT,
 49ers,Isaac Alarcon,OT,
@@ -78,7 +79,7 @@ Bears,Kyler Gordon,CB,TRUE
 Bears,Tyrique Stevenson,CB,TRUE
 Bears,Gervon Dexter Sr.,DT,TRUE
 Bears,Grady Jarrett,DT,TRUE
-Bears,Dayo Odeyingbo (Motivated?),ED,TRUE
+Bears,Dayo Odeyingbo,ED,TRUE
 Bears,Montez Sweat,ED,TRUE
 Bears,Garrett Bradbury,IOL,TRUE
 Bears,Joe Thuney,IOL,TRUE
@@ -111,6 +112,7 @@ Bears,Jamree Kromah,ED,
 Bears,Jeremiah Martin,ED,
 Bears,Jonathan Garvin,ED,
 Bears,Jordan McFadden,IOL,
+Bears,Kiran Amegadjie,IOL,
 Bears,Kyle Hergel,IOL,
 Bears,Luke Newman,IOL,
 Bears,Cairo Santos,K,
@@ -121,7 +123,6 @@ Bears,Nephi Sewell,LB,
 Bears,Noah Sewell,LB,
 Bears,Ruben Hyppolite II,LB,
 Bears,Luke Elkin,LS,
-Bears,Kiran Amegadjie,IOL,
 Bears,Braxton Jones,OT,
 Bears,Jedrick Wills Jr.,OT,
 Bears,Ozzy Trapilo,OT,
@@ -144,7 +145,7 @@ Bears,Maurice Alexander,WR,
 Bengals,Dax Hill,CB,TRUE
 Bengals,DJ Turner II,CB,TRUE
 Bengals,Jalen Davis,CB,TRUE
-Bengals,B.J. Hill,DT,TRUE
+Bengals,Dexter Lawrence II,DT,TRUE
 Bengals,Jonathan Allen,DT,TRUE
 Bengals,Boye Mafe,ED,TRUE
 Bengals,Myles Murphy,ED,TRUE
@@ -167,6 +168,7 @@ Bengals,Bralyn Lux,CB,
 Bengals,DJ Ivey,CB,
 Bengals,Jalen Kimber,CB,
 Bengals,Josh Newton,CB,
+Bengals,B.J. Hill,DT,
 Bengals,Howard Cross III,DT,
 Bengals,Jordan Jefferson,DT,
 Bengals,Kris Jenkins Jr.,DT,
@@ -219,10 +221,10 @@ Bills,Ed Oliver,DT,TRUE
 Bills,Bradley Chubb,ED,TRUE
 Bills,Greg Rousseau,ED,TRUE
 Bills,T.J. Sanders,ED,TRUE
+Bills,Alec Anderson,IOL,TRUE
 Bills,Connor McGovern,IOL,TRUE
 Bills,O'Cyrus Torrence,IOL,TRUE
 Bills,Terrel Bernard,LB,TRUE
-Bills,Alec Anderson,IOL,TRUE
 Bills,Dion Dawkins,OT,TRUE
 Bills,Spencer Brown,OT,TRUE
 Bills,Josh Allen,QB,TRUE
@@ -248,6 +250,7 @@ Bills,Austin Corbett,IOL,
 Bills,Lloyd Cushenberry III,IOL,
 Bills,Nick Broeker,IOL,
 Bills,Sedrick Van Pran-Granger,IOL,
+Bills,Tylan Grable,IOL,
 Bills,Maddux Trujillo,K,
 Bills,Tyler Bass,K,
 Bills,Dorian Williams,LB,
@@ -255,7 +258,6 @@ Bills,Jimmy Ciarlo,LB,
 Bills,Joe Andreessen,LB,
 Bills,Keonta Jenkins,LB,
 Bills,Reid Ferguson,LS,
-Bills,Tylan Grable,IOL,
 Bills,Chase Lundt,OT,
 Bills,Travis Clayton,OT,
 Bills,Mitch Wishnowsky,P,
@@ -317,7 +319,9 @@ Broncos,Que Robinson,ED,
 Broncos,Sai'vion Jones,ED,
 Broncos,Adam Prentice,FB,
 Broncos,Alex Forsyth,IOL,
+Broncos,Alex Palczewski,IOL,
 Broncos,Calvin Throckmorton,IOL,
+Broncos,Matt Peart,IOL,
 Broncos,Michael Deiter,IOL,
 Broncos,Nash Jones,IOL,
 Broncos,Nick Gargiulo,IOL,
@@ -327,8 +331,6 @@ Broncos,Jordan Turner,LB,
 Broncos,Karene Reid,LB,
 Broncos,Levelle Bailey,LB,
 Broncos,Mitchell Fraboni,LS,
-Broncos,Alex Palczewski,IOL,
-Broncos,Matt Peart,IOL,
 Broncos,Frank Crum,OT,
 Broncos,Marques Cox,OT,
 Broncos,Jeremy Crawshaw,P,
@@ -362,8 +364,8 @@ Browns,Teven Jenkins,IOL,TRUE
 Browns,Zion Johnson,IOL,TRUE
 Browns,Carson Schwesinger,LB,TRUE
 Browns,Quincy Williams,LB,TRUE
-Browns,Tytus Howard,OT,TRUE
 Browns,Dawand Jones,OT,TRUE
+Browns,Tytus Howard,OT,TRUE
 Browns,Shedeur Sanders,QB,TRUE
 Browns,Quinshon Judkins,RB,TRUE
 Browns,Grant Delpit,S,TRUE
@@ -382,9 +384,11 @@ Browns,Sam Kamara,DT,
 Browns,A.J. Epenesa,ED,
 Browns,Isaiah McGuire,ED,
 Browns,Julian Okwara,ED,
+Browns,Jack Conley,IOL,
 Browns,Kendrick Green,IOL,
 Browns,Kingsley Eguakun,IOL,
 Browns,Luke Wypler,IOL,
+Browns,Tyre Phillips,IOL,
 Browns,Zak Zinter,IOL,
 Browns,Andre Szmyt,K,
 Browns,Easton Mascarenas-Arnold,LB,
@@ -393,8 +397,6 @@ Browns,Jeremiah Owusu-Koramoah,LB,
 Browns,Nathaniel Watson,LB,
 Browns,Winston Reid,LB,
 Browns,Rex Sunahara,LS,
-Browns,Jack Conley,IOL,
-Browns,Tyre Phillips,IOL,
 Browns,Jeremiah Byers,OT,
 Browns,KT Leveston,OT,
 Browns,Corey Bojorquez,P,
@@ -455,11 +457,11 @@ Buccaneers,Nash Hutmacher,ED,
 Buccaneers,Ben Scott,IOL,
 Buccaneers,Dan Feeney,IOL,
 Buccaneers,Elijah Klein,IOL,
+Buccaneers,Luke Haggard,IOL,
 Buccaneers,Chase McLaughlin,K,
 Buccaneers,Christian Rozeboom,LB,
 Buccaneers,Nick Jackson,LB,
 Buccaneers,Evan Deckers,LS,
-Buccaneers,Luke Haggard,IOL,
 Buccaneers,Benjamin Chukwuma,OT,
 Buccaneers,Marshall Foerner,OT,
 Buccaneers,Riley Dixon,P,
@@ -525,13 +527,13 @@ Cardinals,L.J. Collier,ED,
 Cardinals,Zachary Carter,ED,
 Cardinals,Hayden Conner,IOL,
 Cardinals,Jon Gaines II,IOL,
+Cardinals,Matt Pryor,IOL,
 Cardinals,Chad Ryland,K,
 Cardinals,Joshua Karty,K,
 Cardinals,Austin Keys,LB,
 Cardinals,Jack Gibbens,LB,
 Cardinals,Owen Pappoe,LB,
 Cardinals,Casey Kreiter,LS,
-Cardinals,Matt Pryor,IOL,
 Cardinals,Christian Jones,OT,
 Cardinals,Demontrey Jacobs,OT,
 Cardinals,Josh Fryar,OT,
@@ -567,10 +569,10 @@ Chargers,Teair Tart,DT,TRUE
 Chargers,Khalil Mack,ED,TRUE
 Chargers,Tuli Tuipulotu,ED,TRUE
 Chargers,Cole Strange,IOL,TRUE
+Chargers,Trevor Penning,IOL,TRUE
 Chargers,Tyler Biadasz,IOL,TRUE
 Chargers,Daiyan Henley,LB,TRUE
 Chargers,Denzel Perryman,LB,TRUE
-Chargers,Trevor Penning,IOL,TRUE
 Chargers,Joe Alt,OT,TRUE
 Chargers,Rashawn Slater,OT,TRUE
 Chargers,Justin Herbert,QB,TRUE
@@ -600,6 +602,7 @@ Chargers,Ben Cleveland,IOL,
 Chargers,Branson Taylor,IOL,
 Chargers,Josh Kaltenberger,IOL,
 Chargers,Kayode Awosika,IOL,
+Chargers,Trey Pipkins III,IOL,
 Chargers,Cameron Dicker,K,
 Chargers,Del'Shawn Phillips,LB,
 Chargers,Emany Johnson,LB,
@@ -608,7 +611,6 @@ Chargers,Marlowe Wax,LB,
 Chargers,Troy Dye,LB,
 Chargers,Josh Harris,LS,
 Chargers,Peter Bowden,LS,
-Chargers,Trey Pipkins III,IOL,
 Chargers,JK Scott,P,
 Chargers,DJ Uiagalelei,QB,
 Chargers,Trey Lance,QB,
@@ -698,11 +700,11 @@ Colts,DeForest Buckner,DT,TRUE
 Colts,Grover Stewart,DT,TRUE
 Colts,Arden Key,ED,TRUE
 Colts,Laiatu Latu,ED,TRUE
+Colts,Matt Goncalves,IOL,TRUE
 Colts,Quenton Nelson,IOL,TRUE
 Colts,Tanor Bortolini,IOL,TRUE
 Colts,Akeem Davis-Gaither,LB,TRUE
 Colts,Austin Ajiake,LB,TRUE
-Colts,Matt Goncalves,IOL,TRUE
 Colts,Bernhard Raimann,OT,TRUE
 Colts,Jalen Travis,OT,TRUE
 Colts,Daniel Jones,QB,TRUE
@@ -777,9 +779,9 @@ Commanders,K'Lavon Chaisson,ED,TRUE
 Commanders,Odafe Oweh,ED,TRUE
 Commanders,Chris Paul,IOL,TRUE
 Commanders,Nick Allegretti,IOL,TRUE
+Commanders,Sam Cosmi,IOL,TRUE
 Commanders,Frankie Luvu,LB,TRUE
 Commanders,Leo Chenal,LB,TRUE
-Commanders,Sam Cosmi,IOL,TRUE
 Commanders,Josh Conerly Jr.,OT,TRUE
 Commanders,Laremy Tunsil,OT,TRUE
 Commanders,Jayden Daniels,QB,TRUE
@@ -807,7 +809,11 @@ Commanders,Dorance Armstrong,ED,
 Commanders,Drake Jackson,ED,
 Commanders,Javontae Jean-Baptiste,ED,
 Commanders,T.J. Maguranyanga,ED,
+Commanders,Andrew Wylie,IOL,
+Commanders,Brandon Coleman,IOL,
+Commanders,Foster Sarell,IOL,
 Commanders,Julian Good-Jones,IOL,
+Commanders,Malaesala Aumavae-Laulu,IOL,
 Commanders,Timothy McKay,IOL,
 Commanders,Tyler Cooper,IOL,
 Commanders,Jake Moody,K,
@@ -816,10 +822,6 @@ Commanders,Jordan Magee,LB,
 Commanders,Kain Medrano,LB,
 Commanders,Nick Bellore,LB,
 Commanders,Tyler Ott,LS,
-Commanders,Andrew Wylie,IOL,
-Commanders,Brandon Coleman,IOL,
-Commanders,Foster Sarell,IOL,
-Commanders,Malaesala Aumavae-Laulu,IOL,
 Commanders,Trent Scott,OT,
 Commanders,Tress Way,P,
 Commanders,Marcus Mariota,QB,
@@ -852,9 +854,9 @@ Cowboys,Donovan Ezeiruaku,ED,TRUE
 Cowboys,Rashan Gary,ED,TRUE
 Cowboys,Cooper Beebe,IOL,TRUE
 Cowboys,Tyler Booker,IOL,TRUE
+Cowboys,Tyler Smith,IOL,TRUE
 Cowboys,DeMarvion Overshown,LB,TRUE
 Cowboys,Shemar James,LB,TRUE
-Cowboys,Tyler Smith,IOL,TRUE
 Cowboys,Terence Steele,OT,TRUE
 Cowboys,Tyler Guyton,OT,TRUE
 Cowboys,Dak Prescott,QB,TRUE
@@ -879,6 +881,7 @@ Cowboys,Marist Liufau,ED,
 Cowboys,Sam Williams,ED,
 Cowboys,Tyrus Wheat,ED,
 Cowboys,Hunter Luepke,FB,
+Cowboys,Marcellus Johnson,IOL,
 Cowboys,Matt Hennessy,IOL,
 Cowboys,Nick Leverett,IOL,
 Cowboys,T.J. Bass,IOL,
@@ -886,7 +889,6 @@ Cowboys,Trevor Keegan,IOL,
 Cowboys,Brandon Aubrey,K,
 Cowboys,Justin Barron,LB,
 Cowboys,Trent Sieg,LS,
-Cowboys,Marcellus Johnson,IOL,
 Cowboys,Ajani Cornelius,OT,
 Cowboys,Nate Thomas,OT,
 Cowboys,Bryan Anger,P,
@@ -916,10 +918,10 @@ Dolphins,Zach Sieler,DT,TRUE
 Dolphins,Chop Robinson,ED,TRUE
 Dolphins,Josh Uche,ED,TRUE
 Dolphins,Aaron Brewer,IOL,TRUE
+Dolphins,Jamaree Salyer,IOL,TRUE
 Dolphins,Jonah Savaiinaea,IOL,TRUE
 Dolphins,Jordyn Brooks,LB,TRUE
 Dolphins,Tyrel Dodson,LB,TRUE
-Dolphins,Jamaree Salyer,IOL,TRUE
 Dolphins,Austin Jackson,OT,TRUE
 Dolphins,Patrick Paul,OT,TRUE
 Dolphins,Malik Willis,QB,TRUE
@@ -950,6 +952,9 @@ Dolphins,Keith Cooper Jr.,ED,
 Dolphins,Robert Beal Jr.,ED,
 Dolphins,Seth Coleman,ED,
 Dolphins,Andrew Meyer,IOL,
+Dolphins,Braeden Daniels,IOL,
+Dolphins,Josh Priebe,IOL,
+Dolphins,Kion Smith,IOL,
 Dolphins,Riley Patterson,K,
 Dolphins,Zane Gonzalez,K,
 Dolphins,Jackson Woodard,LB,
@@ -958,9 +963,6 @@ Dolphins,Ronnie Harrison,LB,
 Dolphins,Willie Gay Jr.,LB,
 Dolphins,Taybor Pepper,LS,
 Dolphins,Tucker Addington,LS,
-Dolphins,Braeden Daniels,IOL,
-Dolphins,Josh Priebe,IOL,
-Dolphins,Kion Smith,IOL,
 Dolphins,Carter Warren,OT,
 Dolphins,Charlie Heck,OT,
 Dolphins,Bradley Pinion,P,
@@ -1018,13 +1020,13 @@ Eagles,Jose Ramirez,ED,
 Eagles,Ta'Quon Graham,ED,
 Eagles,Cameron Latu,FB,
 Eagles,Drew Kendall,IOL,
+Eagles,Hollin Pierce,IOL,
 Eagles,Jake Majors,IOL,
 Eagles,Willie Lampkin,IOL,
 Eagles,Jake Elliott,K,
 Eagles,Chance Campbell,LB,
 Eagles,Jeremiah Trotter Jr.,LB,
 Eagles,Smael Mondon Jr.,LB,
-Eagles,Hollin Pierce,IOL,
 Eagles,Cameron Williams,OT,
 Eagles,Fred Johnson,OT,
 Eagles,John Ojukwu,OT,
@@ -1048,6 +1050,7 @@ Eagles,Stone Smartt,TE,
 Eagles,Britain Covey,WR,
 Eagles,Danny Gray,WR,
 Eagles,Darius Cooper,WR,
+Eagles,Dontayvion Wicks,WR,
 Eagles,Elijah Moore,WR,
 Eagles,Johnny Wilson,WR,
 Eagles,Quez Watkins,WR,
@@ -1064,7 +1067,7 @@ Falcons,Ryan Neuzil,IOL,TRUE
 Falcons,Christian Harris,LB,TRUE
 Falcons,Divine Deablo,LB,TRUE
 Falcons,Jake Matthews,OT,TRUE
-Falcons,Kaleb McGary,OT,TRUE
+Falcons,Jawaan Taylor,OT,TRUE
 Falcons,Michael Penix Jr.,QB,TRUE
 Falcons,Bijan Robinson,RB,TRUE
 Falcons,Billy Bowman Jr.,S,TRUE
@@ -1124,8 +1127,8 @@ Falcons,Dylan Drummond,WR,
 Giants,Dru Phillips,CB,TRUE
 Giants,Greg Newsome II,CB,TRUE
 Giants,Paulson Adebo,CB,TRUE
-Giants,Dexter Lawrence II,DT,TRUE
 Giants,Roy Robertson-Harris,DT,TRUE
+Giants,Darius Alexander,DT,TRUE
 Giants,Abdul Carter,ED,TRUE
 Giants,Brian Burns,ED,TRUE
 Giants,Aaron Stinnie,IOL,TRUE
@@ -1151,7 +1154,6 @@ Giants,Myles Purchase,CB,
 Giants,Nic Jones,CB,
 Giants,Rico Payton,CB,
 Giants,TJ Moore,CB,
-Giants,Darius Alexander,DT,
 Giants,Elijah Chatman,DT,
 Giants,Marlon Tuipulotu,DT,
 Giants,Sam Roberts,DT,
@@ -1162,8 +1164,10 @@ Giants,Kayvon Thibodeaux,ED,
 Giants,Trace Ford,ED,
 Giants,Patrick Ricard,FB,
 Giants,Bryan Hudson,IOL,
+Giants,Daniel Faalele,IOL,
 Giants,Evan Neal,IOL,
 Giants,Jake Kubas,IOL,
+Giants,Joshua Ezeudu,IOL,
 Giants,Ben Sauls,K,
 Giants,Graham Gano,K,
 Giants,Jason Sanders,K,
@@ -1172,7 +1176,6 @@ Giants,Darius Muasau,LB,
 Giants,Swayze Bozeman,LB,
 Giants,Zaire Barnes,LB,
 Giants,Zach Triner,LS,
-Giants,Joshua Ezeudu,IOL,
 Giants,Marcus Mbow,OT,
 Giants,Reid Holskey,OT,
 Giants,Jordan Stout,P,
@@ -1213,8 +1216,8 @@ Jaguars,Patrick Mekari,IOL,TRUE
 Jaguars,Robert Hainsey,IOL,TRUE
 Jaguars,Foyesade Oluokun,LB,TRUE
 Jaguars,Ventrell Miller,LB,TRUE
-Jaguars,Cole Van Lanen,OT,TRUE
 Jaguars,Anton Harrison,OT,TRUE
+Jaguars,Cole Van Lanen,OT,TRUE
 Jaguars,Trevor Lawrence,QB,TRUE
 Jaguars,Bhayshul Tuten,RB,TRUE
 Jaguars,Antonio Johnson,S,TRUE
@@ -1233,10 +1236,13 @@ Jaguars,Maason Smith,DT,
 Jaguars,Matt Dickerson,DT,
 Jaguars,B.J. Green II,ED,
 Jaguars,Danny Striggow,ED,
+Jaguars,Chuma Edoga,IOL,
 Jaguars,Cooper Hodges,IOL,
 Jaguars,Jerome Carvin,IOL,
 Jaguars,Jonah Monheim,IOL,
 Jaguars,Sal Wormley,IOL,
+Jaguars,Walker Little,IOL,
+Jaguars,Wyatt Milum,IOL,
 Jaguars,Cam Little,K,
 Jaguars,Branson Combs,LB,
 Jaguars,Dennis Gardeck,LB,
@@ -1244,9 +1250,6 @@ Jaguars,Jack Kiser,LB,
 Jaguars,Jalen McLeod,LB,
 Jaguars,Yasir Abdullah,LB,
 Jaguars,Ross Matiscik,LS,
-Jaguars,Chuma Edoga,IOL,
-Jaguars,Walker Little,IOL,
-Jaguars,Wyatt Milum,IOL,
 Jaguars,Kilian Zierer,OT,
 Jaguars,Ricky Lee,OT,
 Jaguars,Logan Cooke,P,
@@ -1310,6 +1313,7 @@ Jets,Gus Hartwig,IOL,
 Jets,Kohl Levao,IOL,
 Jets,Liam Fornadel,IOL,
 Jets,Marquis Hayes,IOL,
+Jets,Max Mitchell,IOL,
 Jets,Xavier Newman,IOL,
 Jets,Cade York,K,
 Jets,Lenny Krieg,K,
@@ -1318,7 +1322,6 @@ Jets,Kobe King,LB,
 Jets,Marcelino McCrary-Ball,LB,
 Jets,Mykal Walker,LB,
 Jets,Thomas Hennessy,LS,
-Jets,Max Mitchell,IOL,
 Jets,Chukwuma Okorafor,OT,
 Jets,Austin McNamara,P,
 Jets,Bailey Zappe,QB,
@@ -1375,16 +1378,16 @@ Lions,Payton Turner,ED,
 Lions,Tyler Lacy,ED,
 Lions,Zach Horton,FB,
 Lions,Ben Bartch,IOL,
+Lions,Colby Sorsdal,IOL,
 Lions,Juice Scruggs,IOL,
+Lions,Mason Miller,IOL,
 Lions,Michael Niese,IOL,
+Lions,Miles Frazier,IOL,
 Lions,Seth McLaughlin,IOL,
 Lions,Jake Bates,K,
 Lions,Damone Clark,LB,
 Lions,Trevor Nowaske,LB,
 Lions,Hogan Hatten,LS,
-Lions,Colby Sorsdal,IOL,
-Lions,Mason Miller,IOL,
-Lions,Miles Frazier,IOL,
 Lions,Devin Cochran,OT,
 Lions,Giovanni Manu,OT,
 Lions,Jack Fox,P,
@@ -1413,11 +1416,11 @@ Packers,Javon Hargrave,DT,TRUE
 Packers,Lukas Van Ness,ED,TRUE
 Packers,Micah Parsons,ED,TRUE
 Packers,Aaron Banks,IOL,TRUE
+Packers,Anthony Belton,IOL,TRUE
 Packers,Sean Rhyan,IOL,TRUE
 Packers,Edgerrin Cooper,LB,TRUE
 Packers,Zaire Franklin,LB,TRUE
-Packers,Anthony Belton,IOL,TRUE
-Packers,Jordan Morgan,IOL,TRUE
+Packers,Jordan Morgan,OT,TRUE
 Packers,Zach Tom,OT,TRUE
 Packers,Jordan Love,QB,TRUE
 Packers,Josh Jacobs,RB,TRUE
@@ -1447,7 +1450,11 @@ Packers,Arron Mosby,ED,
 Packers,Barryn Sorrell,ED,
 Packers,Brenton Cox Jr.,ED,
 Packers,Collin Oliver,ED,
+Packers,Dalton Cooper,IOL,
+Packers,Darian Kinnard,IOL,
+Packers,Donovan Jennings,IOL,
 Packers,Jacob Monk,IOL,
+Packers,John Williams,IOL,
 Packers,Karsen Barnhart,IOL,
 Packers,Brandon McManus,K,
 Packers,Lucas Havrisik,K,
@@ -1457,10 +1464,6 @@ Packers,Kristian Welch,LB,
 Packers,Nick Niemann,LB,
 Packers,Ty'Ron Hopper,LB,
 Packers,Matt Orzech,LS,
-Packers,Dalton Cooper,IOL,
-Packers,Darian Kinnard,IOL,
-Packers,Donovan Jennings,IOL,
-Packers,John Williams,IOL,
 Packers,Brant Banks,OT,
 Packers,Travis Glover,OT,
 Packers,Daniel Whelan,P,
@@ -1478,7 +1481,6 @@ Packers,Josh Whyle,TE,
 Packers,Luke Musgrave,TE,
 Packers,McCallan Castles,TE,
 Packers,Messiah Swinson,TE,
-Packers,Dontayvion Wicks,WR,
 Packers,Isaiah Neyor,WR,
 Packers,Jakobie Keeney-James,WR,
 Packers,Savion Williams,WR,
@@ -1492,7 +1494,6 @@ Panthers,Derrick Brown,ED,TRUE
 Panthers,Jaelan Phillips,ED,TRUE
 Panthers,Nic Scourton,ED,TRUE
 Panthers,Tershawn Wharton,ED,TRUE
-Panthers,Nick Scott,S,TRUE
 Panthers,Damien Lewis,IOL,TRUE
 Panthers,Luke Fortner,IOL,TRUE
 Panthers,Robert Hunt,IOL,TRUE
@@ -1502,6 +1503,7 @@ Panthers,Ikem Ekwonu,OT,TRUE
 Panthers,Taylor Moton,OT,TRUE
 Panthers,Bryce Young,QB,TRUE
 Panthers,Chuba Hubbard,RB,TRUE
+Panthers,Nick Scott,S,TRUE
 Panthers,Tre'von Moehrig,S,TRUE
 Panthers,Tommy Tremble,TE,TRUE
 Panthers,Jalen Coker,WR,TRUE
@@ -1568,9 +1570,9 @@ Patriots,Harold Landry III,ED,TRUE
 Patriots,Milton Williams,ED,TRUE
 Patriots,Alijah Vera-Tucker,IOL,TRUE
 Patriots,Jared Wilson,IOL,TRUE
+Patriots,Mike Onwenu,IOL,TRUE
 Patriots,Christian Elliss,LB,TRUE
 Patriots,Robert Spillane,LB,TRUE
-Patriots,Mike Onwenu,IOL,TRUE
 Patriots,Morgan Moses,OT,TRUE
 Patriots,Will Campbell,OT,TRUE
 Patriots,Drake Maye,QB,TRUE
@@ -1597,16 +1599,15 @@ Patriots,Jack Westover,FB,
 Patriots,Reggie Gilliam,FB,
 Patriots,Andrew Rupcich,IOL,
 Patriots,Ben Brown,IOL,
+Patriots,Caedan Wallace,IOL,
 Patriots,Mehki Butler,IOL,
 Patriots,Andy Borregales,K,
 Patriots,Amari Gainer,LB,
 Patriots,Chad Muma,LB,
 Patriots,K.J. Britt,LB,
-Patriots,Marte Mapu,LB,
 Patriots,Otis Reese,LB,
 Patriots,Julian Ashby,LS,
 Patriots,Niko Lalos,LS,
-Patriots,Caedan Wallace,IOL,
 Patriots,James Hudson III,OT,
 Patriots,Lorenz Metz,OT,
 Patriots,Marcus Bryant,OT,
@@ -1653,7 +1654,6 @@ Raiders,Brock Bowers,TE,TRUE
 Raiders,Jack Bech,WR,TRUE
 Raiders,Jalen Nailor,WR,TRUE
 Raiders,Tre Tucker,WR,TRUE
-Raiders,Aidan O'Connell,QB,
 Raiders,Chigozie Anusiem,CB,
 Raiders,Decamerion Richardson,CB,
 Raiders,Greedy Vance,CB,
@@ -1684,11 +1684,13 @@ Raiders,Charles Grant,OT,
 Raiders,Dalton Wagner,OT,
 Raiders,Joshua Miles,OT,
 Raiders,AJ Cole,P,
+Raiders,Aidan O'Connell,QB,
 Raiders,Chris Collier,RB,
 Raiders,Dylan Laube,RB,
 Raiders,Tristin McCollum,S,
 Raiders,Albert Okwuegbunam Jr.,TE,
 Raiders,Carter Runyon,TE,
+Raiders,Ian Thomas,TE,
 Raiders,Michael Mayer,TE,
 Raiders,Brenden Rice,WR,
 Raiders,Dareke Young,WR,
@@ -1798,6 +1800,7 @@ Ravens,Kaimon Rucker,ED,
 Ravens,Mike Green,ED,
 Ravens,Lucas Scott,FB,
 Ravens,Danny Pinter,IOL,
+Ravens,Emery Jones Jr.,IOL,
 Ravens,Jared Penning,IOL,
 Ravens,Jovaughn Gwyn,IOL,
 Ravens,Tyler Loop,K,
@@ -1805,7 +1808,6 @@ Ravens,Carl Jones,LB,
 Ravens,Jay Higgins IV,LB,
 Ravens,Trenton Simpson,LB,
 Ravens,Nick Moore,LS,
-Ravens,Emery Jones Jr.,IOL,
 Ravens,Carson Vinson,OT,
 Ravens,Gerad Lichtenhan,OT,
 Ravens,Tyler Huntley,QB,
@@ -1851,18 +1853,18 @@ Saints,Chris Rumph II,ED,
 Saints,Fadil Diggs,ED,
 Saints,Myles Cole,ED,
 Saints,Vernon Broughton,ED,
+Saints,Asim Richards,IOL,
+Saints,Dillon Radunz,IOL,
+Saints,Easton Kilty,IOL,
 Saints,Nick Saldiveri,IOL,
 Saints,Torricelli Simpkins III,IOL,
+Saints,William Sherman,IOL,
+Saints,Xavier Truss,IOL,
 Saints,Charlie Smyth,K,
 Saints,Danny Stutsman,LB,
 Saints,Isaiah Stalbird,LB,
 Saints,Jaylan Ford,LB,
 Saints,Zach Wood,LS,
-Saints,Asim Richards,IOL,
-Saints,Dillon Radunz,IOL,
-Saints,Easton Kilty,IOL,
-Saints,William Sherman,IOL,
-Saints,Xavier Truss,IOL,
 Saints,Barry Wesley,OT,
 Saints,Ryan Wright,P,
 Saints,Spencer Rattler,QB,
@@ -1930,6 +1932,8 @@ Seahawks,Robbie Ouzts,FB,
 Seahawks,Bryce Cabeldue,IOL,
 Seahawks,Christian Haynes,IOL,
 Seahawks,Federico Maranges,IOL,
+Seahawks,Josh Jones,IOL,
+Seahawks,Mason Richman,IOL,
 Seahawks,Olu Oluwatimi,IOL,
 Seahawks,Jason Myers,K,
 Seahawks,Chazz Surratt,LB,
@@ -1938,8 +1942,6 @@ Seahawks,Ja'Markis Weston,LB,
 Seahawks,Patrick O'Connell,LB,
 Seahawks,Tyrice Knight,LB,
 Seahawks,Chris Stoll,LS,
-Seahawks,Josh Jones,IOL,
-Seahawks,Mason Richman,IOL,
 Seahawks,Amari Kight,OT,
 Seahawks,Logan Brown,OT,
 Seahawks,Michael Dickson,P,
@@ -2006,18 +2008,18 @@ Steelers,Nick Herbig,ED,
 Steelers,Sebastian Joseph-Day,ED,
 Steelers,Aiden Williams,IOL,
 Steelers,Brock Hoffman,IOL,
+Steelers,Doug Nester,IOL,
+Steelers,Jack Driscoll,IOL,
+Steelers,Lorenzo Thompson,IOL,
 Steelers,Ryan McCollum,IOL,
 Steelers,Sataoa Laumea,IOL,
+Steelers,Steven Jones,IOL,
 Steelers,Chris Boswell,K,
 Steelers,Carson Bruener,LB,
 Steelers,Cole Holcomb,LB,
 Steelers,Malik Harrison,LB,
 Steelers,Cal Adomitis,LS,
 Steelers,Christian Kuntz,LS,
-Steelers,Doug Nester,IOL,
-Steelers,Jack Driscoll,IOL,
-Steelers,Lorenzo Thompson,IOL,
-Steelers,Steven Jones,IOL,
 Steelers,Dylan Cook,OT,
 Steelers,Cameron Johnston,P,
 Steelers,Will Howard,QB,
@@ -2076,6 +2078,7 @@ Texans,Xavier Thomas,ED,
 Texans,British Brooks,FB,
 Texans,Eli Cox,IOL,
 Texans,Evan Brown,IOL,
+Texans,Jarrett Kingston,IOL,
 Texans,Jarrett Patterson,IOL,
 Texans,Sidy Sow,IOL,
 Texans,Ka'imi Fairbairn,K,
@@ -2083,8 +2086,8 @@ Texans,E.J. Speed,LB,
 Texans,Jake Hansen,LB,
 Texans,Jake Hummel,LB,
 Texans,Jamal Hill,LB,
+Texans,Marte Mapu,LB,
 Texans,Austin Brinkman,LS,
-Texans,Jarrett Kingston,IOL,
 Texans,Blake Fisher,OT,
 Texans,Trent Brown,OT,
 Texans,Kai Kroeger,P,
@@ -2187,11 +2190,11 @@ Vikings,Andrew Van Ginkel,ED,TRUE
 Vikings,Jalen Redmond,ED,TRUE
 Vikings,Jonathan Greenard,ED,TRUE
 Vikings,Tyrion Ingram-Dawkins,ED,TRUE
+Vikings,Blake Brandel,IOL,TRUE
 Vikings,Donovan Jackson,IOL,TRUE
 Vikings,Will Fries,IOL,TRUE
 Vikings,Blake Cashman,LB,TRUE
 Vikings,Eric Wilson,LB,TRUE
-Vikings,Blake Brandel,IOL,TRUE
 Vikings,Brian O'Neill,OT,TRUE
 Vikings,Christian Darrisaw,OT,TRUE
 Vikings,Kyler Murray,QB,TRUE
@@ -2211,6 +2214,7 @@ Vikings,Dallas Turner,ED,
 Vikings,Elijah Williams,ED,
 Vikings,Jaylon Hutchings,ED,
 Vikings,Tyler Batty,ED,
+Vikings,Henry Byrd,IOL,
 Vikings,Joe Huber,IOL,
 Vikings,Michael Jurgens,IOL,
 Vikings,Vershon Lee,IOL,
@@ -2219,7 +2223,6 @@ Vikings,Ivan Pace Jr.,LB,
 Vikings,Jacob Roberts,LB,
 Vikings,Josh Ross,LB,
 Vikings,Andrew DePaola,LS,
-Vikings,Henry Byrd,IOL,
 Vikings,Caleb Etienne,OT,
 Vikings,Ryan Van Demark,OT,
 Vikings,Walter Rouse,OT,
