@@ -1,10 +1,13 @@
 import { nflTeams } from "../data/nflTeamData.js";
+import { nflTeams27 } from "../data/nflTeamData27.js";
 import { playerData26 } from "../data/playerData26.js";
 
+let playerData27 = JSON.parse(localStorage.getItem("playerData27"));
 let rankUsed;
 let selectedBoard = JSON.parse(localStorage.getItem('boardInput'));
 
-const savedTheme = localStorage.getItem("theme");
+document.documentElement.setAttribute("data-theme", "dark");
+/*const savedTheme = localStorage.getItem("theme");
 if (savedTheme) {
   document.documentElement.setAttribute("data-theme", savedTheme);
 } else {
@@ -13,7 +16,7 @@ if (savedTheme) {
     "data-theme",
     prefersDark ? "dark" : "light"
   );
-}
+}*/
 
 document.getElementById('newDraftBtn').addEventListener("click", () => { // Add functionality to restart button
   if(confirm("Are you sure you want to start a new draft?")) {
@@ -30,7 +33,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const key = "functionExecuted";
 
   async function buildInitialSummary() {
-    await loadCSV();
+    //await loadCSV();
     if (!localStorage.getItem(key)) {
         buildSummary(1, 33); // Call your function
         localStorage.setItem(key, "true"); // Mark it as executed
@@ -110,46 +113,46 @@ document.querySelector('.next-summary').addEventListener("click", () => {
       }
       break;
     case '2':
-      buildSummary(65, 101);
+      buildSummary(65, 97);
       summaryViewing += 1;
-      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(18, 1fr)';
+      //document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(18, 1fr)';
       document.querySelector('.rs-header-round').innerHTML = `Third `;
       if (roundsInput === '3') {
         hideNext();
       }
       break;
     case '3':
-      buildSummary(101, 141);
+      buildSummary(97, 129);
       summaryViewing += 1;
-      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(20, 1fr)';
+      //document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(20, 1fr)';
       document.querySelector('.rs-header-round').innerHTML = `Fourth `;
       if (roundsInput === '4') {
         hideNext();
       }
       break;
     case '4':
-      buildSummary(141, 182);
+      buildSummary(129, 161);
       summaryViewing += 1;
-      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(21, 1fr)';
+      //document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(21, 1fr)';
       document.querySelector('.rs-header-round').innerHTML = `Fifth `;
       if (roundsInput === '5') {
         hideNext();
       }
       break;
     case '5':
-      buildSummary(182, 217);
+      buildSummary(161, 193);
       summaryViewing += 1;
-      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(18, 1fr)';
+      //document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(18, 1fr)';
       document.querySelector('.rs-header-round').innerHTML = `Sixth `;
       if (roundsInput === '6') {
         hideNext();
       }
       break;
     case '6':
-      buildSummary(217, 258);
+      buildSummary(193, 225);
       summaryViewing += 1;
       hideNext();
-      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(21, 1fr)';
+      //document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(21, 1fr)';
       document.querySelector('.rs-header-round').innerHTML = `Seventh `;
       break;
   }
@@ -167,35 +170,35 @@ document.querySelector('.last-summary').addEventListener("click", () => {
       buildSummary(33, 65);
       summaryViewing -= 1;
       showNext();
-      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(16, 1fr)';
+      //document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(16, 1fr)';
       document.querySelector('.rs-header-round').innerHTML = `Second `;
       break;
     case '4':
-      buildSummary(65, 101);
+      buildSummary(65, 97);
       summaryViewing -= 1;
       showNext();
-      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(18, 1fr)';
+      //document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(18, 1fr)';
       document.querySelector('.rs-header-round').innerHTML = `Third `;
       break;
     case '5':
-      buildSummary(101, 141);
+      buildSummary(97, 129);
       summaryViewing -= 1;
       showNext();
-      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(20, 1fr)';
+      //document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(20, 1fr)';
       document.querySelector('.rs-header-round').innerHTML = `Fourth `;
       break;
     case '6':
-      buildSummary(141, 182);
+      buildSummary(129, 161);
       summaryViewing -= 1;
       showNext();
-      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(21, 1fr)';
+      //document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(21, 1fr)';
       document.querySelector('.rs-header-round').innerHTML = `Fifth `;
       break;
     case '7':
-      buildSummary(182, 217);
+      buildSummary(161, 193);
       summaryViewing -= 1;
       showNext();
-      document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(18, 1fr)';
+      //document.querySelector('.rs-grid').style.gridTemplateRows = 'repeat(18, 1fr)';
       document.querySelector('.rs-header-round').innerHTML = `Sixth `;
       break;
   }
@@ -205,7 +208,7 @@ function buildSummary(low, high) {
   document.querySelector('.rs-grid').innerHTML = '';
   document.querySelector('.rs-trades').innerHTML = '';
   let draftee;
-  nflTeams.forEach((team) => {
+  nflTeams27.forEach((team) => {
     let selectedTeams = JSON.parse(localStorage.getItem('teamsInput'));
     if (selectedTeams.includes(team.name)) {
       document.querySelector('.ts-team').innerHTML = team.name;
@@ -216,7 +219,7 @@ function buildSummary(low, high) {
   });
 
   for (let i = low; i < high; i++) {
-    nflTeams.forEach((team) => {
+    nflTeams27.forEach((team) => {
       let newTest;
       if (JSON.parse(localStorage.getItem(`${team.name}test`))) {
         newTest = JSON.parse(localStorage.getItem(`${team.name}test`));
@@ -226,7 +229,7 @@ function buildSummary(low, high) {
 
       if (newTest.some(obj => obj.n === i)) {
         let example = JSON.parse(localStorage.getItem(`${i}${team.name}`)); // Get each pick that was saved when the draft button was clicked
-        playerData26.forEach((player) => {
+        playerData27.forEach((player) => {
           if (example.p === `${player.position} ${player.name}`) {
             draftee = player; // access player data
           }
@@ -238,7 +241,7 @@ function buildSummary(low, high) {
           <div class="rs-pick">
             <div class="rs-pick-colorBar" style="background-color: ${team.color};"></div>
             <div class="rs-pick-number">${i}</div>
-            <img src="${team.logo}" class="rs-pick-image">
+            <img src="teamLogos/${team.name.toLowerCase()}.png" class="rs-pick-image">
             <div class="rs-pick-player">
               <div class="rs-pick-name">${draftee.name}</div>
               <div class="rs-pick-info">${draftee.position} ${draftee.school} (${rankUsed})</div>
@@ -297,7 +300,7 @@ function buildTeamSummary(draftee) {
       totalPicks = 65;
       break;
     case '3':
-      totalPicks = 101;
+      totalPicks = 97;
       break;
     case '4':
       totalPicks = 139;
@@ -306,10 +309,10 @@ function buildTeamSummary(draftee) {
       totalPicks = 181;
       break;
     case '6':
-      totalPicks = 217;
+      totalPicks = 193;
       break;
     case '7':
-      totalPicks = 258;
+      totalPicks = 225;
       break;
   }
 
@@ -318,7 +321,7 @@ function buildTeamSummary(draftee) {
   document.querySelector('.ts-trades').style.paddingTop = '0px';
   document.querySelector('.ts-trades').style.borderTop = 'none';
   document.querySelector('.ts-trades').style.height = 'none';
-  nflTeams.forEach((team) => {
+  nflTeams27.forEach((team) => {
     if (document.querySelector('.ts-team-select').value === team.name) {
 
       let newTest;
@@ -331,7 +334,7 @@ function buildTeamSummary(draftee) {
       for (let i = 1; i < totalPicks; i++) {
         if (newTest.some(obj => obj.n === i)) {
           let example = JSON.parse(localStorage.getItem(`${i}${team.name}`)); // Get each pick that was saved when the draft button was clicked
-          playerData26.forEach((player) => {
+          playerData27.forEach((player) => {
             if (example.p === `${player.position} ${player.name}`) {
               draftee = player; // access player data
             }
@@ -342,7 +345,7 @@ function buildTeamSummary(draftee) {
             <div class="ts-pick">
               <div class="rs-pick-colorBar ts" style="background-color: ${team.color};"></div>
               <div class="rs-pick-number ts">${i}</div>
-              <img src="${team.logo}" class="rs-pick-image ts">
+              <img src="teamLogos/${team.name.toLowerCase()}.png" class="rs-pick-image ts">
               <div class="rs-pick-player ts">
                 <div class="rs-pick-name ts">${draftee.name}</div>
                 <div class="rs-pick-info ts">${draftee.position} ${draftee.school} (${rankUsed})</div>

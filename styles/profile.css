@@ -52,7 +52,7 @@
   color: rgb(0, 0, 0);
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0);
   border: 1px solid rgb(163, 163, 163);
-  border-left: 5px solid rgb(255, 94, 0);
+  border-left: 5px solid #11A1B6;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   text-shadow: 0px 0px 5px rgba(0, 0, 0, 0);
@@ -61,7 +61,7 @@
   transition: all 0.15s ease;
 }
 .draft-button:hover {
-  border-left: 10px solid rgb(255, 94, 0);
+  border-left: 10px solid #11A1B6;
 }
 
 .measurables {
@@ -112,7 +112,7 @@
   color: rgb(0, 0, 0);
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0);
   border: 1px solid rgb(163, 163, 163);
-  border-left: 5px solid rgb(255, 94, 0);
+  border-left: 5px solid #11A1B6;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   text-shadow: 0px 0px 5px rgba(0, 0, 0, 0);
@@ -124,7 +124,7 @@
   transition: all 0.15s ease;
 }
 .ref:hover {
-  border-left: 10px solid rgb(255, 94, 0);
+  border-left: 10px solid #11A1B6;
 }
 
 .fbref {

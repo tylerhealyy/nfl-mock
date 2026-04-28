@@ -33,7 +33,8 @@
 
 .draft-order-round {
   background-color: var(--bg);
-  border-bottom: 3px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
   text-align: center;
   font-weight: 700;
   padding-top: 3px;

@@ -1,9 +1,11 @@
 import { nflTeams } from "../data/nflTeamData.js";
+import { nflTeams27 } from "../data/nflTeamData27.js";
 import { playerData26 } from "../data/playerData26.js";
 import { draftPlayer } from "./sim.js";
 
 initializeData();
 
+let playerData27 = JSON.parse(localStorage.getItem("playerData27"));
 let rankUsed;
 let selectedBoard = JSON.parse(localStorage.getItem('boardInput'));
 let autoDraftEmphasis = JSON.parse(localStorage.getItem('autoDraftEmphasisInput'));
@@ -13,10 +15,10 @@ const defPositionList = ["ED", "DT", "LB", "CB", "S"];
 const picksPerRound = [{round:1, picks:0},
 {round:2, picks:32},
 {round:3, picks:64},
-{round:4, picks:100},
-{round:5, picks:140},
-{round:6, picks:181},
-{round:7, picks:216}
+{round:4, picks:96},
+{round:5, picks:128},
+{round:6, picks:160},
+{round:7, picks:192}
 ];
 
 export function buildDraftOrder2(rounds) { // Read the number of rounds to display the correct number of picks in the draft panel
@@ -34,31 +36,31 @@ export function buildDraftOrder2(rounds) { // Read the number of rounds to displ
       }
       break;
     case "3":
-      for (let i = 1; i < 101; i++) {
+      for (let i = 1; i < 97; i++) {
         buildPanelItems(i, rounds);
         addRoundDividers(i, rounds);
       }
       break;
     case "4":
-      for (let i = 1; i < 141; i++) {
+      for (let i = 1; i < 129; i++) {
         buildPanelItems(i, rounds);
         addRoundDividers(i, rounds);
       }
       break;
     case "5":
-      for (let i = 1; i < 182; i++) {
+      for (let i = 1; i < 161; i++) {
         buildPanelItems(i, rounds);
         addRoundDividers(i, rounds);
       }
       break;
     case "6":
-      for (let i = 1; i < 217; i++) {
+      for (let i = 1; i < 193; i++) {
         buildPanelItems(i, rounds);
         addRoundDividers(i, rounds);
       }
       break;
     case "7":
-      for (let i = 1; i < 258; i++) {
+      for (let i = 1; i < 225; i++) {
         buildPanelItems(i, rounds);
         addRoundDividers(i, rounds);
       }
@@ -68,7 +70,7 @@ export function buildDraftOrder2(rounds) { // Read the number of rounds to displ
 
 function buildPanelItems(i, rounds) { // Build HTML for each pick
 
-  const pickTeam = nflTeams.find(team => {
+  const pickTeam = nflTeams27.find(team => {
     const stored = JSON.parse(localStorage.getItem(`${team.name}test`));
     const newTest = Array.isArray(stored) ? stored : stored?.test || team.test;
 
@@ -100,7 +102,7 @@ function buildPanelItems(i, rounds) { // Build HTML for each pick
     ">
       <div class="pick-number">${i}</div>
       <div class="pick-logo">
-        <img src="${pickTeam.logo}" class="pick-image">
+        <img src="teamLogos/${pickTeam.name.toLowerCase()}.png" class="pick-image">
       </div>
       <div class="pick-player" data-info="${i}">${getInfo()}</div>
       <div class="pick-player-logo" data-logo="${i}">${getLogo()}</div>
@@ -114,7 +116,7 @@ function buildPanelItems(i, rounds) { // Build HTML for each pick
     item.addEventListener("click", () => {
       displayBoxElem.innerHTML = '';
 
-      nflTeams.forEach((team) => { // block is undefined somewhere
+      nflTeams27.forEach((team) => { // block is undefined somewhere
         if (team.name === item.dataset.team) {
           displayBoxElem.setAttribute("style", `
             background-color: var(--secondary);
@@ -130,19 +132,19 @@ function buildPanelItems(i, rounds) { // Build HTML for each pick
           displayBoxElem.innerHTML = `
             <img class="closeButton" src="https://img.icons8.com/ios_filled/512/FFFFFF/delete-sign--v2.png">
             <div class="teamHeader">
-              <img class="teamHeaderImage" src="${team.logo}">
+              <img class="teamHeaderImage" src="teamLogos/${team.name.toLowerCase()}.png">
               <div class="teamHeaderName">
                 ${team.city} ${team.name}<br><span class="teamProfileText">Team Profile</span>
               </div>
             </div>
   
             <div class="seasonInfo">
-              <div class="seasonRecord" style="padding-left: 20px">2025 Record: ${team.record}</div>
+              <div class="seasonRecord" style="padding-left: 20px">2025 Record: ${team.record ? team.record : "N/A"}</div>
             </div>
   
             <div class="staffInfo">
-              <div class="gmAndHc" style="padding-left: 20px">GM: ${team.gm}<br>HC: ${team.hc}</div>
-              <div class="coordinators">OC: ${team.oc}<br>DC: ${team.dc}</div>
+              <div class="gmAndHc" style="padding-left: 20px">GM: ${team.gm ? team.gm : "N/A"}<br>HC: ${team.hc ? team.hc : "N/A"}</div>
+              <div class="coordinators">OC: ${team.oc ? team.oc : "N/A"}<br>DC: ${team.dc ? team.dc : "N/A"}</div>
             </div>
 
             <div class="teamNeeds">
@@ -218,7 +220,7 @@ function buildPanelItems(i, rounds) { // Build HTML for each pick
     
               const pickCardTeamElem = document.querySelector(`.pickId${pick.n}`);
     
-              nflTeams.forEach((pickTeam) => {
+              nflTeams27.forEach((pickTeam) => {
                 if (pickTeam.abbv === pick.t) {
                   pickCardTeamElem.setAttribute("style", `background-color: ${pickTeam.color}`);
                 }
@@ -237,7 +239,7 @@ function buildPanelItems(i, rounds) { // Build HTML for each pick
 
               const futurePickCardTeamElem = teamFuturePickInfoElement.lastElementChild.querySelector('.futurePickCardTeam');
 
-              nflTeams.forEach((pickTeam) => {
+              nflTeams27.forEach((pickTeam) => {
                 if (pickTeam.abbv === pick.t) {
                   futurePickCardTeamElem.setAttribute("style", `background-color: ${pickTeam.color}`);
                 }
@@ -350,7 +352,7 @@ export function singleAutoPick(rounds) {
   let otc = JSON.parse(localStorage.getItem('otc'));
   let team;
 
-  nflTeams.forEach((tm) => {
+  nflTeams27.forEach((tm) => {
     if (localStorage.getItem(`${tm.name}test`)) {
       if (JSON.parse(localStorage.getItem(`${tm.name}test`)).some(y => y.n === otc)) {
         team = tm;
@@ -392,17 +394,14 @@ export function singleAutoPick(rounds) {
 }
 
 function aiDraftPick(team, otc) {
-  return playerData26
+  return JSON.parse(localStorage.getItem("playerData27ForAi"))
     .map(player => {
       rankUsed = player[`${selectedBoard}`];
       if (rankUsed === null) return null;
       let score = 1000 - rankUsed; // Base score on player rating
 
-      if (player.name === 'Fernando Mendoza') score += 500;
-
       switch (autoDraftEmphasis) {
         case "1": // BPA
-          if (player.name === 'Fernando Mendoza') score -= 500;
           break;
         case "2": // Mostly BPA
           if (team.needs.includes(player.position)) score += Math.floor(Math.random() * (5 - 1 + 1)) + 1;
@@ -458,15 +457,13 @@ function aiDraftPick(team, otc) {
         if (team.drafted.includes(player.position) && player.position === 'QB') score = 0;
         if (team.nogo.includes(player.position)) score = 0;
         if (team.drafted.includes(player.position)) score -= 5;
-        if (player.name === 'Ty Simpson' && otc <= 3) score -= 10;
-        if (player.name === 'Sonny Styles') score += 3;
       }
 
       function variability(chance, qbChance, genWhole, genHalf, firstWhole, firstHalf, lateWhole, lateHalf, qb) {
         if (Math.random() < chance) score += Math.floor(Math.random() * genWhole) - genHalf;
-        if (otc > 5 && otc < 33 && Math.random() < chance) score += Math.floor(Math.random() * firstWhole) - firstHalf;
-        if (otc > 33 && Math.random() < chance) score += Math.floor(Math.random() * lateWhole) - lateHalf;
-        if (player.position === 'QB' && Math.random() < qbChance) score += qb;
+        if (otc < 33 && Math.random() < chance) score += Math.floor(Math.random() * firstWhole * 2) - (firstHalf * 2);
+        if (otc > 33 && Math.random() < chance) score += Math.floor(Math.random() * lateWhole * 4) - (lateHalf * 4);
+        if (player.position === 'QB' && Math.random() < qbChance * 2) score += qb;
       }
       
       return { ...player, score };
@@ -500,7 +497,7 @@ async function populateRosters() {
       .map(val => val.trim());
 
     // Find the team object
-    const team = nflTeams.find(t => t.name === teamName);
+    const team = nflTeams27.find(t => t.name === teamName);
 
     if (!team) return;
 

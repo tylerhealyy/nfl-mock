@@ -46,10 +46,10 @@
   padding-right: 10px;
 }
 .players-player-card:hover {
-  background-color: rgba(255, 94, 0, 0.5);
+  background-color: #11a0b67a;
 }
 .players-player-card:active {
-  background-color: rgb(255, 94, 0);
+  background-color: #11A1B6;
 }
 
 .players-player-card-rank {

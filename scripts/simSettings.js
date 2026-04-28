@@ -1,6 +1,8 @@
 import { nflTeams } from "../data/nflTeamData.js";
+import { nflTeams27 } from "../data/nflTeamData27.js";
 
-const savedTheme = localStorage.getItem("theme");
+document.documentElement.setAttribute("data-theme", "dark");
+/*const savedTheme = localStorage.getItem("theme");
 if (savedTheme) {
   document.documentElement.setAttribute("data-theme", savedTheme);
 } else {
@@ -9,7 +11,7 @@ if (savedTheme) {
     "data-theme",
     prefersDark ? "dark" : "light"
   );
-}
+}*/
 
 const displayBoxElem = document.querySelector('.hickory');
 const offPositionList = ["QB", "RB", "WR", "TE", "OT", "IOL"];
@@ -17,10 +19,10 @@ const defPositionList = ["ED", "DT", "LB", "CB", "S", "K", "P", "LS"];
 const picksPerRound = [{round:1, picks:0},
 {round:2, picks:32},
 {round:3, picks:64},
-{round:4, picks:100},
-{round:5, picks:140},
-{round:6, picks:181},
-{round:7, picks:216}
+{round:4, picks:96},
+{round:5, picks:128},
+{round:6, picks:160},
+{round:7, picks:192}
 ];
 
 displayBoxElem.innerHTML = `
@@ -93,18 +95,18 @@ displayBoxElem.innerHTML = `
   </div>
 `;
 
-for (let i = 1; i <= 32; i++) {
-  nflTeams.forEach((team) => {
-    if (team.order === i) {
+//for (let i = 1; i <= 32; i++) {
+  nflTeams27.forEach((team) => {
+    //if (team.test.some(pick => pick.n === i)) {
       document.getElementById('teams').innerHTML += `
         <div class="team-block" id="team-block" data-team="${team.name}">
-          <img src="${team.logo}" class="team-block-logo" style="filter: drop-shadow(0px 0px 1px rgba(0, 0, 0, 1))">  
+          <img src="teamLogos/${team.name.toLowerCase()}.png" class="team-block-logo" style="filter: drop-shadow(0px 0px 1px rgba(0, 0, 0, 1))">  
           <img src="icons/ellipsis.png" class="teamBlockEllipsis">
         </div>
       `;
-    }
+    //}
   });
-}
+//}
 
 populateRosters();
 //populatePicks();
@@ -112,7 +114,7 @@ populateRosters();
 document.querySelectorAll('.team-block').forEach((block) => {
   block.addEventListener("click", () => {
     if (!block.style.backgroundColor) {
-      nflTeams.forEach((team) => {
+      nflTeams27.forEach((team) => {
         if (team.name === block.dataset.team) {
           block.setAttribute("style", `background-color: ${team.color}`);
         }
@@ -129,7 +131,7 @@ document.querySelectorAll('.teamBlockEllipsis').forEach((ellipsis) => {
   ellipsis.addEventListener("click", () => {
     setTimeout(() => {
       if (!block.style.backgroundColor) {
-        nflTeams.forEach((team) => {
+        nflTeams27.forEach((team) => {
           if (team.name === block.dataset.team) {
             block.setAttribute("style", `background-color: ${team.color}`);
           }
@@ -142,25 +144,25 @@ document.querySelectorAll('.teamBlockEllipsis').forEach((ellipsis) => {
     // Open team profile page
     displayBoxElem.innerHTML = '';
 
-    nflTeams.forEach((team) => {
+    nflTeams27.forEach((team) => {
       if (team.name === block.dataset.team) {
 
         displayBoxElem.innerHTML = `
           <img class="closeButton" src="icons/closeIcon.png">
           <div class="teamHeader">
-            <img class="teamHeaderImage" src="${team.logo}">
+            <img class="teamHeaderImage" src="teamLogos/${team.name.toLowerCase()}.png">
             <div class="teamHeaderName">
               ${team.city} ${team.name}<br><span class="teamProfileText">Team Profile</span>
             </div>
           </div>
 
           <div class="seasonInfo">
-            <div class="seasonRecord">2025 Record: ${team.record}</div>
+            <div class="seasonRecord">2025 Record: ${team.record ? team.record : 'N/A'}</div>
           </div>
 
           <div class="staffInfo">
-            <div class="gmAndHc">GM: ${team.gm}<br>HC: ${team.hc}</div>
-            <div class="coordinators">OC: ${team.oc}<br>DC: ${team.dc}</div>
+            <div class="gmAndHc">GM: ${team.gm ? team.gm : 'N/A'}<br>HC: ${team.hc ? team.hc : 'N/A'}</div>
+            <div class="coordinators">OC: ${team.oc ? team.oc : 'N/A'}<br>DC: ${team.dc ? team.dc : 'N/A'}</div>
           </div>
 
           <div class="teamNeeds">
@@ -306,7 +308,7 @@ document.querySelectorAll('.teamBlockEllipsis').forEach((ellipsis) => {
 
           const pickCardTeamElem = document.querySelector(`.pickId${pick.n}`);
 
-          nflTeams.forEach((pickTeam) => {
+          nflTeams27.forEach((pickTeam) => {
             if (pickTeam.abbv === pick.t) {
               pickCardTeamElem.setAttribute("style", `background-color: ${pickTeam.color}`);
             }
@@ -323,7 +325,7 @@ document.querySelectorAll('.teamBlockEllipsis').forEach((ellipsis) => {
 
           const futurePickCardTeamElem = teamFuturePickInfoElement.lastElementChild.querySelector('.futurePickCardTeam');
 
-          nflTeams.forEach((pickTeam) => {
+          nflTeams27.forEach((pickTeam) => {
             if (pickTeam.abbv === pick.t) {
               futurePickCardTeamElem.setAttribute("style", `background-color: ${pickTeam.color}`);
             }
@@ -370,7 +372,7 @@ selectAllBtn.addEventListener("click", () => {
   if (selectAllBtn.textContent.trim() === 'Select All') {
     selectAllBtn.textContent = `Deselect All`;
     document.querySelectorAll('.team-block').forEach((block) => {
-      nflTeams.forEach((team) => {
+      nflTeams27.forEach((team) => {
         if (team.name === block.dataset.team) {
           block.setAttribute("style", `background-color: ${team.color}`)
         }
@@ -439,7 +441,7 @@ async function populateRosters() {
       .map(val => val.trim());
 
     // Find the team object
-    const team = nflTeams.find(t => t.name === teamName);
+    const team = nflTeams27.find(t => t.name === teamName);
 
     if (!team) return;
 
@@ -454,31 +456,30 @@ async function populateRosters() {
 }
 
 async function populatePicks() {
-  const csv = await fetch('data/picks.csv');
+  const csv = await fetch('data/picks27.csv');
   const csvText = await csv.text();
   const lines = csvText.trim().split("\n");
 
   const rows = lines.slice(1);
 
   rows.forEach(row => {
-    const [round, overall, team, fromTeam] = row
+    const [round, pick, team, original] = row
       .split(",")
       .map(val => val.trim());
 
-    const teamObj = nflTeams.find(t => t.name === team);
-    const ownerAbbv = nflTeams.find(t => t.name === fromTeam).abbv;
+    const teamObj = nflTeams27.find(t => t.abbv === team);
 
     teamObj.test.push({
       r: Number(round),
-      n: Number(overall),
+      n: Number(pick),
       p: "",
       pn: "",
       pos: "",
-      t: ownerAbbv
+      t: original
     });
   });
 
-  nflTeams.forEach((team) => {
+  nflTeams27.forEach((team) => {
     let string = "";
     team.test.forEach((p) => {
       string += `{r: ${p.r}, n: ${p.n}, p: "", pn: "", pos: "", t: "${p.t}"},`;

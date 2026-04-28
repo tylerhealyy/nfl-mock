@@ -1,11 +1,13 @@
 import { playerData26 } from "../data/playerData26.js";
 import { nflTeams } from "../data/nflTeamData.js";
+import { nflTeams27 } from "../data/nflTeamData27.js";
 import { buildDraftOrder2 } from "./draftOrder.js";
 import { singleAutoPick } from "./draftOrder.js";
 import { tradeValueData } from "../data/tradeValueData.js";
 import { futurePickValueData } from "../data/tradeValueData.js";
 
-const savedTheme = localStorage.getItem("theme");
+document.documentElement.setAttribute("data-theme", "dark");
+/*const savedTheme = localStorage.getItem("theme");
 if (savedTheme) {
   document.documentElement.setAttribute("data-theme", savedTheme);
 } else {
@@ -14,8 +16,10 @@ if (savedTheme) {
     "data-theme",
     prefersDark ? "dark" : "light"
   );
-}
+}*/
 
+let playerData27 = JSON.parse(localStorage.getItem("playerData27"));
+localStorage.setItem("playerData27ForAi", JSON.stringify(playerData27));
 let playerList = '';
 let otc = 1;
 localStorage.setItem('otc', JSON.stringify(otc));
@@ -33,16 +37,16 @@ const allPositionList = ["QB", "RB", "WR", "TE", "OT", "IOL", "ED", "DT", "LB", 
 const picksPerRound = [{round:1, picks:0},
 {round:2, picks:32},
 {round:3, picks:64},
-{round:4, picks:100},
-{round:5, picks:140},
-{round:6, picks:181},
-{round:7, picks:216}
+{round:4, picks:96},
+{round:5, picks:128},
+{round:6, picks:160},
+{round:7, picks:192}
 ];
 const settingButtons = document.querySelector('.chicken');
 const wideContainer = document.querySelector('.wide');
 const vertContainer = document.querySelector('.vert');
 
-nflTeams.forEach((team) => { // Reset all picks on every refresh
+nflTeams27.forEach((team) => { // Reset all picks on every refresh
   team.test.forEach((pick) => {
     pick.p = "";
     pick.pn = "";
@@ -64,11 +68,11 @@ window.addEventListener('resize', moveButtons);
 moveButtons();
 
 window.addEventListener("DOMContentLoaded", () => {
-  for (let i = 1; i < 258; i++) {
+  for (let i = 1; i < 225; i++) {
     localStorage.removeItem(`${i}info`);
     localStorage.removeItem(`${i}logo`);
   }
-  nflTeams.forEach((team) => {
+  nflTeams27.forEach((team) => {
     localStorage.removeItem(`${team.name}test`);
   });
   selectedValue = JSON.parse(localStorage.getItem('roundsInput'));
@@ -84,7 +88,7 @@ document.querySelector('.begin').addEventListener("click", () => {
   init();
   document.querySelector('.begin').style.background = 'white';
   document.querySelector('.begin').style.color = 'black';
-  document.querySelector('.begin').style.borderLeftColor = 'rgb(255, 94, 0)';
+  document.querySelector('.begin').style.borderLeftColor = '#11A1B6';
   document.querySelector('.profile-js').setAttribute("style", `background-color: var(--secondary);`);
 });
 
@@ -157,7 +161,7 @@ document.querySelector('.trade').addEventListener("click", () => {
     const teamSelectInput = half.querySelector('.teamSelect');
     const displayBoxElem = half.querySelector('.teamTradePage');
 
-    nflTeams
+    nflTeams27
       .sort((a, b) => a.city.localeCompare(b.city))
       .forEach(team => {
         teamSelectInput.innerHTML += `
@@ -171,7 +175,7 @@ document.querySelector('.trade').addEventListener("click", () => {
       } else {
         team2SelectedCurrent.length = 0; team2SelectedFuture.length = 0; team2SelectedPlayers.length = 0;
       }
-      nflTeams.forEach((team) => {
+      nflTeams27.forEach((team) => {
         let teamNumber;
         if (team.name === teamSelectInput.value) {
           if (half.classList.contains('team1')) {
@@ -312,7 +316,7 @@ document.querySelector('.trade').addEventListener("click", () => {
     
               const pickCardTeamElem = half.querySelector(`.pickId${pick.n}`);
     
-              nflTeams.forEach((pickTeam) => {
+              nflTeams27.forEach((pickTeam) => {
                 if (pickTeam.abbv === pick.t) {
                   pickCardTeamElem.setAttribute("style", `background-color: ${pickTeam.color}`);
                 }
@@ -331,7 +335,7 @@ document.querySelector('.trade').addEventListener("click", () => {
 
               const futurePickCardTeamElem = teamFuturePickInfoElement.lastElementChild.querySelector('.futurePickCardTeam');
 
-              nflTeams.forEach((pickTeam) => {
+              nflTeams27.forEach((pickTeam) => {
                 if (pickTeam.abbv === pick.t) {
                   futurePickCardTeamElem.setAttribute("style", `background-color: ${pickTeam.color}`);
                 }
@@ -676,7 +680,7 @@ function startDraft() { // Close pre-draft settings and start draft
 
   if (document.querySelector('.begin').innerHTML !== 'Pause') {
     for (let i = 1; i < 1000; i++) { // Build the list of all players
-      playerData26.forEach((player) => {
+      playerData27.forEach((player) => {
         if (player[`${selectedBoard}`] === i) {buildPlayerList(player)}
       });
     }
@@ -720,7 +724,7 @@ function positionSort() { // Add functionality to position buttons
       if (button.innerHTML === 'ALL') { // Show all players when 'ALL' button clicked
         playerList = '';
         for (let i = 1; i < 1000; i++) {
-          playerData26.forEach((player) => {
+          playerData27.forEach((player) => {
             if (player[`${selectedBoard}`] === i) {buildPlayerList(player)}
           });
         }
@@ -728,7 +732,7 @@ function positionSort() { // Add functionality to position buttons
   
       
       for (let i = 1; i < 1000; i++) { // Any other button clicked, only add players of that position to the list
-        playerData26.forEach((player) => {
+        playerData27.forEach((player) => {
           if (player[`${selectedBoard}`] === i) {
             if (player.position === button.innerHTML) buildPlayerList(player);
           }
@@ -750,7 +754,8 @@ function displayProfile(playerCard, selectedValue) { // Add event listeners to p
       const profileHTML = document.querySelector(".profile-js");
       profileHTML.innerHTML = null; // Clear profile so the new one can be added
 
-      playerData26.forEach((player) => {
+      playerData27.forEach((player) => {
+        const na = 'N/A';
         rankUsed = player[`${selectedBoard}`];
         if (rankUsed === Number(playerRank)) { // Get the correct player data to display
           profileHTML.setAttribute("style", `
@@ -780,25 +785,25 @@ function displayProfile(playerCard, selectedValue) { // Add event listeners to p
             <div class="measurables">
               <div class="height measurable-item">
                 <div class="measurable-text">Height</div>
-                <div class="measurable-value">${player.height}</div>
+                <div class="measurable-value">${player.height ? player.height : na}</div>
               </div>
               <div class="weight measurable-item">
                 <div class="measurable-text">Weight</div>
-                <div class="measurable-value">${player.weight}</div>
+                <div class="measurable-value">${player.weight ? player.weight : na}</div>
               </div>
               <div class="measurable-item">
                 <div class="measurable-text">SIS Grade</div>
-                <div class="measurable-value">${player.ras}</div>
+                <div class="measurable-value">${player.ras ? player.ras : na}</div>
               </div>
               <div class="measurable-item">
                 <div class="measurable-text">SIS Projected Role</div>
-                <div class="measurable-value">${player.sisRole}</div>
+                <div class="measurable-value">${player.sisRole ? player.sisRole : na}</div>
               </div>
             </div>
 
             <div class="stats">
               <div class="analysis">
-                <span class="heading">Pre-Draft Analysis (SIS)</span><br>${player.analysis}
+                <span class="heading">Pre-Draft Analysis (SIS)</span><br>${player.analysis ? player.analysis : na}
               </div>
               <button class="ref">
                 <a href="${player.stats}" target="_blank" class="fbref">SIS Full Report</a>
@@ -842,7 +847,7 @@ export function draftPlayer(selectedValue, player) {
   });
   
 
-  nflTeams.forEach((team) => {
+  nflTeams27.forEach((team) => {
     let newTest;
     if (JSON.parse(localStorage.getItem(`${team.name}test`))) {
       newTest = JSON.parse(localStorage.getItem(`${team.name}test`));
@@ -881,41 +886,43 @@ export function draftPlayer(selectedValue, player) {
         break;
       }
     case "3":
-      if (otc === 100) {
+      if (otc === 96) {
         window.location.href='summary.html';
         break;
       }
     case "4":
-      if (otc === 140) {
+      if (otc === 128) {
         window.location.href='summary.html';
         break;
       }
     case "5":
-      if (otc === 181) {
+      if (otc === 160) {
         window.location.href='summary.html';
         break;
       }
     case "6":
-      if (otc === 216) {
+      if (otc === 192) {
         window.location.href='summary.html';
         break;
       }
     case "7":
-      if (otc === 257) {
+      if (otc === 224) {
         window.location.href='summary.html';
         break;
       }
   }
 
-  let indexToRemove = playerData26.findIndex(obj => obj.name === player.name);
+  let indexToRemove = playerData27.findIndex(obj => obj.name === player.name);
   if (indexToRemove !== -1) {
-    playerData26.splice(indexToRemove, 1); // Remove the selected player from the js file of all players' data
+    playerData27.splice(indexToRemove, 1); // Remove the selected player from the js file of all players' data
   }
+
+  localStorage.setItem("playerData27ForAi", JSON.stringify(playerData27));
   
   playerList = ''; // Reset player list so it can be rebuilt without the just-selected player
 
   for (let i = 1; i < 1000; i++) {
-    playerData26.forEach((player) => {
+    playerData27.forEach((player) => {
       if (player[`${selectedBoard}`] === i) {buildPlayerList(player)}
     });
   }
@@ -983,7 +990,7 @@ function logPick(pick, team, player) {
 }
 
 function changeHeader() {
-  nflTeams.forEach((team) => {
+  nflTeams27.forEach((team) => {
     let newTest;
     if (JSON.parse(localStorage.getItem(`${team.name}test`))) {
       newTest = JSON.parse(localStorage.getItem(`${team.name}test`));
@@ -999,7 +1006,7 @@ function changeHeader() {
           box-shadow: inset 0px 0px 350px ${team.color};
         ">
           <div class="otcLogo">
-            <img class="otcImage" src="${team.logo}">
+            <img class="otcImage" src="teamLogos/${team.name.toLowerCase()}.png">
           </div>
           <div class="otcInfo">
             <div class="otcNeeds">
@@ -1098,7 +1105,7 @@ async function loadCSV() {
 }
 
 async function init() {
-  await loadCSV();
+  //await loadCSV();
   startDraft(); // only runs after rankings are loaded
 }
 

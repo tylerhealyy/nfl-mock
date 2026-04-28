@@ -267,7 +267,7 @@ body::before {
   color: black;
   font-weight: 700;
   border: 1px solid rgb(163, 163, 163);
-  border-left: 5px solid rgb(255, 94, 0);
+  border-left: 5px solid #11A1B6;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 
@@ -284,7 +284,7 @@ body::before {
   border-left: none;
   border-radius: 0px;
   border: 1px solid rgb(163, 163, 163);
-  border-right: 5px solid rgb(255, 94, 0);
+  border-right: 5px solid #11A1B6;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 }
@@ -303,7 +303,7 @@ body::before {
   width: 300px;
   background-color: rgba(250, 250, 250, 1);
   border: 1px solid rgb(163, 163, 163);
-  border-left: 5px solid rgb(255, 94, 0);
+  border-left: 5px solid #11A1B6;
   color: rgb(0, 0, 0);
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -367,7 +367,7 @@ option {
   background-color: rgb(250, 250, 250);
   color: rgb(0, 0, 0);
   border: 1px solid rgb(163, 163, 163);
-  border-left: 5px solid rgb(255, 94, 0);
+  border-left: 5px solid #11A1B6;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   cursor: pointer;

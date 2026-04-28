@@ -28,7 +28,7 @@ body {
   background-color: rgb(20, 20, 20);
   border-radius: 1vw;
   box-shadow: 0 0 5vw rgba(0, 0, 0, 0.5);
-  border: 1px solid rgb(255, 94, 0);
+  border: 1px solid #11A1B6;
   position: absolute;
   inset: 2vw 2vw 80vh 2vw;
   min-height: 4rem;
@@ -291,7 +291,7 @@ body {
   right: 0;
   height: 3rem;
   width: fit-content;
-  background-color: rgb(255, 94, 0);
+  background-color: #11A1B6;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   margin: 1rem;
   padding: 0 1rem;

@@ -7,16 +7,18 @@
 
 :root {
   --bg: #ffffff;
-  --bgopc: 0.5;
+  --bgopc: 1;
   --text: #111111;
   --primary: rgb(255, 255, 255);
+  --menubg: rgba(255, 255, 255, 0.4);
 }
 
 [data-theme="dark"] {
   --bg: #111111;
-  --bgopc: 0.2;
+  --bgopc: 1;
   --text: #ffffff;
   --primary: rgb(0, 0, 0);
+  --menubg: rgba(0, 0, 0, 0.1);
 }
 
 body {
@@ -48,8 +50,7 @@ body {
   padding: 1rem;
   opacity: 100%;
 
-  background-color: rgb(255, 255, 255);
-  box-shadow: inset 0 0 200px rgba(0, 0, 0, 255);
+  background-color: var(--menubg);
 
   display: flex;
   flex-direction: row;
@@ -83,11 +84,10 @@ body {
   transform: translateX(-50%);
   
   background-color: white;
-  border-left: 10px solid white;
-  border-right: 10px solid white;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
-  padding: 1rem;
-  border-radius: 10px;
+  border: 1px solid #11A1B6;
+  box-shadow: 0 0 5px #11A1B6;
+  padding: 1rem 2rem;
+  border-radius: 50px;
 
   color: black;
   font-weight: 500;
@@ -100,8 +100,9 @@ body {
 }
 
 .mockBtn:hover {
-  border-left: 10px solid rgb(255, 94, 0);
-  border-right: 10px solid rgb(255, 94, 0);
+  border-left: 10px solid #11A1B6;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
 .author {
@@ -134,22 +135,24 @@ body {
   height: 24px;
   margin-right: 10px;
   margin-left: 5px;
+  filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.5));
 }
 
 .modeBtn {
   background-color: rgba(255, 255, 255, 0);
   height: fit-content;
   width: fit-content;
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   font-weight: 500;
-  color: rgb(255, 255, 255);
+  color: var(--text);
   text-shadow: 0 0 5px rgba(0, 0, 0, 0);
   cursor: pointer;
   transition: box-shadow 0.15s ease;
-  line-height: 1.2rem;
+  line-height: 0.9rem;
   margin-right: 10px;
-  border-left: 2px solid rgb(255, 94, 0);
+  border-left: 2px solid #11A1B6;
   padding-left: 5px;
+  text-wrap: nowrap;
   
   display: flex;
   align-items: center;
@@ -158,12 +161,12 @@ body {
 }
 
 .modeBtn:hover {
-  box-shadow: -5px 0px 0 rgb(255, 94, 0);
+  box-shadow: -5px 0px 0 #11A1B6;
   font-weight: 700;
 }
 
 .themeOptions {
-  display: flex;
+  display: none;
   flex-direction: row;
   height: fit-content;
 
@@ -181,7 +184,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 1px solid rgb(255, 94, 0);
+  border-bottom: 1px solid #11A1B6;
   cursor: pointer;
   transition: all 0.15s ease;
 }
@@ -198,5 +201,5 @@ body {
 }
 
 .themeBtn:hover {
-  border-bottom: 5px solid rgb(255, 94, 0);
+  border-bottom: 5px solid #11A1B6;
 }
