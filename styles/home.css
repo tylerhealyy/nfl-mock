@@ -136,6 +136,7 @@ body {
   margin-right: 10px;
   margin-left: 5px;
   filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.5));
+  cursor: pointer;
 }
 
 .modeBtn {

@@ -1,0 +1,279 @@
+body {
+  margin: 60px;
+  font-family: 'Roboto';
+  background-color: #111111;
+  color: #ffffff;
+
+  display: flex;
+  justify-content: center;
+}
+
+.backgroundImg {
+  position: fixed;
+  top: 0;
+
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+
+  z-index: -1;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: fit-content;
+  padding: 1rem;
+  opacity: 100%;
+
+  background-color: rgba(0, 0, 0, 0.1);
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: start;
+  gap: 1rem;
+  overflow: scroll;
+}
+
+.hamburger {
+  height: 24px;
+  margin-right: 10px;
+  margin-left: 5px;
+  filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.5));
+  cursor: pointer;
+}
+
+.modeBtn {
+  background-color: rgba(255, 255, 255, 0);
+  height: fit-content;
+  width: fit-content;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text);
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0);
+  cursor: pointer;
+  transition: box-shadow 0.15s ease;
+  line-height: 0.9rem;
+  margin-right: 10px;
+  border-left: 2px solid #11A1B6;
+  padding-left: 5px;
+  text-wrap: nowrap;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: start;
+}
+
+.modeBtn:hover {
+  box-shadow: -5px 0px 0 #11A1B6;
+  font-weight: 700;
+}
+
+.tierWindow {
+  background-color: rgb(30, 30, 30);
+  height: 550px;
+  width: 200px;
+  margin-right: 20px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  text-align: end;
+  padding-right: 10px;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.tierControls {
+  display: flex;
+  flex-direction: column;
+}
+
+.toggle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+
+  font-weight: 700;
+}
+
+.tier {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 10px;
+}
+
+.tierInfo {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  align-items: center;
+  font-weight: 700;
+}
+
+.tierColor {
+  height: 20px;
+  width: 20px;
+  border-radius: 2px;
+}
+
+.tierRange {
+  width: 50px;
+  height: 20px;
+  border: none;
+  border-radius: 2px;
+  padding: 0px;
+  margin: 0px;
+  font-size: 1.2rem;
+  font-family: 'Roboto';
+  font-weight: 700;
+  text-align: center;
+  justify-self: flex-end;
+}
+
+.graphic {
+  background-color: rgba(31, 31, 31, 0);
+  height: 550px;
+  width: 450px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.header, .footer {
+  height: 50px;
+  width: 100%;
+  background-color: rgb(30, 30, 30);
+
+  display: flex;
+  align-items: center;
+}
+
+.header {
+  height: 58px;
+}
+
+.header img {
+  height: 50px;
+  padding-left: 4px;
+}
+
+.content {
+  height: 450px;
+  width: 100%;
+  background-color: rgb(30, 30, 30);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: repeat(8, 45px);
+  grid-auto-flow: column;
+  gap: 10px;
+  padding: 8px;
+  padding-top: 0;
+}
+
+.spot {
+  height: 100%;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid white;
+
+  position: relative;
+  overflow: hidden;
+  cursor: grab;
+}
+
+.spot:active {
+  cursor: grabbing;
+}
+
+.left {
+  position: absolute;
+  inset: 0;
+  background: #000000;
+  color: #ffffff;
+  box-shadow: inset 0 0 45px #11A1B6;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+  
+  /* THIS creates the diagonal cut */
+  clip-path: var(--width);
+  
+  border: 0px solid var(--bg);
+  border-left-width: 5px;
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  padding-left: 4px;
+  font-weight: bold;
+
+  z-index: 3; /* sits above the logo */
+}
+
+.right {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+
+  background-color: var(--bg);
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.753);
+}
+
+.right img {
+  width: 55px;
+  padding-left: 40px;
+
+  position: absolute;
+  z-index: 1;
+}
+
+.l4 {
+  transform: translate(8px, 8px);
+  opacity: 0.2;
+}
+
+.l3 {
+  transform: translate(6px, 6px);
+  opacity: 0.4;
+}
+
+.l1 { 
+  transform: translate(4px, 4px);
+  opacity: 0.6;
+}
+
+.l2 {
+  transform: translate(2px, 2px);
+  opacity: 0.8;
+}
+
+.main {
+  transform: translate(0, 0);
+  opacity: 1;
+  position: relative;
+  z-index: 2;
+}
+
+.right::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 0px solid var(--bg);
+  pointer-events: none;
+  z-index: 2; /* always above logo */
+}

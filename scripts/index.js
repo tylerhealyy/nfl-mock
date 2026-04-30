@@ -15,16 +15,8 @@ if (savedTheme) {
   if (prefersDark) noiseSrc.src = "photos/darkNoise.jpg";
 }*/
 
-document.getElementById('mock').addEventListener("click", () => {
-  window.location.href = 'simSettings.html';
-});
-
 document.getElementById('mockBtn').addEventListener("click", () => {
   window.location.href = 'simSettings.html';
-});
-
-document.getElementById('schedule').addEventListener("click", () => {
-  window.location.href = 'standings.html';
 });
 
 document.querySelector('.lightTheme').addEventListener("click", () => {

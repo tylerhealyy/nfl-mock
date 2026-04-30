@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NFL Power Rankings | MockParadox</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <link rel="stylesheet" href="styles/powerRankings.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <img class="backgroundImg" src="photos/darkNoise.jpg">
+
+    <div class="menu">
+      <img class="hamburger" src="icons/mpWhite.png" onclick="window.location.href='index.html'">
+      <div class="modeBtn" id="mock" onclick="window.location.href='simSettings.html'">Mock Draft<br>Simulator</div>
+      <div class="modeBtn" id="schedule" onclick="window.location.href='standings.html'">Schedule<br>Predictor (Beta)</div>
+      <div class="modeBtn" id="rankings" onclick="window.location.href='powerRankings.html'">Power Rankings<br>(Beta)</div>
+      <div class="modeBtn" id="depth">Depth Chart Builder<br>(Coming Soon)</div>
+    </div>
+
+    <div class="tierWindow">
+      <div class="toggle">
+        <div class="toggleText">Show Tiers</div>
+        <input type="checkbox" id="toggleTiers">
+      </div>
+
+      <div class="label">Number<br>of Teams</div>
+
+      <div class="tierControls">
+        <div class="tier">
+          <div class="tierInfo">
+            <div class="tierColor" style="background-color: green;"></div>
+            Tier 1
+          </div>
+          <input type="number" class="tierRange" id="tierRank" value="7" min="1" max="29">
+        </div>
+        <div class="tier">
+          <div class="tierInfo">
+            <div class="tierColor" style="background-color: yellow;"></div>
+            Tier 2
+          </div>
+          <input type="number" class="tierRange" id="tierRank" value="7" min="1" max="29">
+        </div>
+        <div class="tier">
+          <div class="tierInfo">
+            <div class="tierColor" style="background-color: orange;"></div>
+            Tier 3
+          </div>
+          <input type="number" class="tierRange" id="tierRank" value="7" min="1" max="29">
+        </div>
+        <div class="tier">
+          <div class="tierInfo">
+            <div class="tierColor" style="background-color: red;"></div>
+            Tier 4
+          </div>
+          <input type="number" class="tierRange" id="tierRank" value="7" min="1" max="29">
+        </div>
+        <div class="tier">
+          <div class="tierInfo">
+            <div class="tierColor" style="background-color: black;"></div>
+            Tier 5
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="graphic">
+      <div class="header">
+        <img class="title" src="photos/powerRankings.png">
+      </div>
+
+      <div class="content">
+        <div class="grid">
+
+        </div>
+      </div>
+
+      <div class="footer">
+
+      </div>
+    </div>
+  </body>
+
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.6/Sortable.min.js"></script>
+  <script type="module" src="scripts/powerRankings.js"></script>
+</html>
