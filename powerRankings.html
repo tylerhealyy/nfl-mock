@@ -17,6 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
   </head>
 
   <body>
@@ -31,6 +32,15 @@
     </div>
 
     <div class="tierWindow">
+      <div class="toggle">
+        <div class="toggleText">Title</div>
+        <input type="text" class="titleInput" id="titleInput" placeholder="Ex. Week 1">
+      </div>
+      <div class="toggle">
+        <div class="toggleText">Title Size</div>
+        <input type="number" class="titleSize" id="titleSize" value="48" min="10" max="70" step="1">
+      </div>
+
       <div class="toggle">
         <div class="toggleText">Show Tiers</div>
         <input type="checkbox" id="toggleTiers">
@@ -76,9 +86,11 @@
       </div>
     </div>
 
-    <div class="graphic">
+    <div class="graphic" id="capture">
+      <img class="graphicBackground" src="photos/darkNoise.jpg">
       <div class="header">
-        <img class="title" src="photos/powerRankings.png">
+        <img class="headerImage" src="photos/powerRankingsNfl.png">
+        <div class="title">Offseason</div>
       </div>
 
       <div class="content">
@@ -88,11 +100,16 @@
       </div>
 
       <div class="footer">
-
+        Make Your Own at MockParadox.com
       </div>
+    </div>
+
+    <div class="download">
+      <img src="icons/saveIcon.png">
     </div>
   </body>
 
   <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.6/Sortable.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script type="module" src="scripts/powerRankings.js"></script>
 </html>

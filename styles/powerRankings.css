@@ -76,7 +76,8 @@ body {
 
 .tierWindow {
   background-color: rgb(30, 30, 30);
-  height: 550px;
+  border: 2px solid #11A1B6;
+  height: 520px;
   width: 200px;
   margin-right: 20px;
 
@@ -101,7 +102,7 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
+  padding: 10px 10px 0px 10px;
 
   font-weight: 700;
 }
@@ -129,7 +130,15 @@ body {
   border-radius: 2px;
 }
 
-.tierRange {
+.titleInput {
+  border: none;
+  height: 20px;
+  border-radius: 2px;
+  padding-left: 5px;
+  font-family: 'Roboto';
+}
+
+.tierRange, .titleSize {
   width: 50px;
   height: 20px;
   border: none;
@@ -144,30 +153,64 @@ body {
 }
 
 .graphic {
-  background-color: rgba(31, 31, 31, 0);
-  height: 550px;
+  height: 520px;
   width: 450px;
 
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+
+  position: relative;
+  border: 2px solid #11A1B6;
+  border-radius: 0px;
+  box-shadow: 0 0 10px #000000;
+}
+
+.graphicBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 .header, .footer {
   height: 50px;
   width: 100%;
-  background-color: rgb(30, 30, 30);
 
   display: flex;
+  flex-direction: row;
   align-items: center;
 }
 
 .header {
   height: 58px;
+  position: relative;
 }
 
-.header img {
-  height: 50px;
-  padding-left: 4px;
+.headerImage {
+  height: 75px;
+  transform: translate(-15px, -4px);
+  margin: 0;
+}
+
+.title {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  overflow: hidden;
+
+  height: 100%;
+  font-family: 'Bebas Neue';
+  padding: 5px 8px 0 0;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 26px;
+  color: #ffffff;
+  text-shadow: 0 0 5px #11A1B6;
+  cursor: default;
 }
 
 .content {
@@ -276,4 +319,40 @@ body {
   border: 0px solid var(--bg);
   pointer-events: none;
   z-index: 2; /* always above logo */
+}
+
+.footer {
+  height: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 3px;
+  font-weight: 700;
+}
+
+.download {
+  margin-left: 20px;
+  background-color: white;
+  border-bottom: 0px solid #11A1B6;
+  color: black;
+  font-weight: 700;
+  height: 18px;
+  width: 18px;
+  border-radius: 2px;
+  padding: 4px;
+  box-shadow: 0 0 5px #000000;
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  display: none;
+}
+
+.download img {
+  height: 18px;
+  width: 18px;
+}
+
+.download:active {
+  transform: scale(0.95);
 }

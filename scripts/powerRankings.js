@@ -5,6 +5,7 @@ let spotNum = 0;
 const spotNumWidthLong = "polygon(0 0, 40% 0, 35% 100%, 0% 100%)";
 const spotNumWidthShort = "polygon(0 0, 30% 0, 25% 100%, 0% 100%)";
 
+
 document.getElementById('toggleTiers').checked = false;
 
 nflTeams27.forEach(team => {
@@ -16,11 +17,11 @@ nflTeams27.forEach(team => {
       ">
       <div class="left">${spotNum}</div>
       <div class="right">
-        <img src="teamLogos/${team.name.toLowerCase()}.png" class="logo l4">
-        <img src="teamLogos/${team.name.toLowerCase()}.png" class="logo l3">
-        <img src="teamLogos/${team.name.toLowerCase()}.png" class="logo l1">
-        <img src="teamLogos/${team.name.toLowerCase()}.png" class="logo l2">
-        <img src="teamLogos/${team.name.toLowerCase()}.png" class="logo main">
+        <img src="teamLogos/${team.name.toLowerCase()}.png" class="logo l4" crossorigin="anonymous">
+        <img src="teamLogos/${team.name.toLowerCase()}.png" class="logo l3" crossorigin="anonymous">
+        <img src="teamLogos/${team.name.toLowerCase()}.png" class="logo l1" crossorigin="anonymous">
+        <img src="teamLogos/${team.name.toLowerCase()}.png" class="logo l2" crossorigin="anonymous">
+        <img src="teamLogos/${team.name.toLowerCase()}.png" class="logo main" crossorigin="anonymous">
       </div>
     </div>
   `;
@@ -37,6 +38,7 @@ document.getElementById('toggleTiers').addEventListener('change', (event) => {
 });
 
 const inputs = document.querySelectorAll('.tierRange');
+inputs.forEach(input => { input.value = 7; });
 const MAX_TOTAL = 32;
 
 inputs.forEach(input => {
@@ -141,3 +143,60 @@ function updateRank() {
       `)
   });
 }
+
+const titleInput = document.getElementById('titleInput');
+titleInput.value = "";
+const titleSizeInput = document.getElementById('titleSize');
+titleSizeInput.value = 48;
+
+titleInput.addEventListener('change', (event) => {
+  const title = event.target.value;
+  document.querySelector('.title').textContent = title;
+});
+
+titleSizeInput.addEventListener("wheel", (e) => {
+
+  e.preventDefault(); // stop page scrolling
+
+  const step = Number(titleSizeInput.step) || 1;
+  const min = titleSizeInput.min !== "" ? Number(titleSizeInput.min) : -Infinity;
+  const max = titleSizeInput.max !== "" ? Number(titleSizeInput.max) : Infinity;
+
+  let value = Number(titleSizeInput.value) || 0;
+
+  if (e.deltaY < 0) {
+    value += step; // scroll up
+  } else {
+    value -= step; // scroll down
+  }
+
+  // clamp to min/max
+  value = Math.min(max, Math.max(min, value));
+
+  titleSizeInput.value = value;
+
+  document.querySelector('.title').style.fontSize = `${value}px`;
+});
+
+titleSizeInput.addEventListener('change', (event) => {
+  const size = event.target.value;
+  document.querySelector('.title').style.fontSize = `${size}px`;
+});
+
+document.querySelector('.download').addEventListener("click", () => {
+  html2canvas(document.getElementById("capture"), {
+    useCORS: true,
+    scale: 3, // super sharp
+    backgroundColor: null
+  }).then((canvas) => {
+
+    // convert to compressed format
+    const image = canvas.toDataURL("image/png");
+
+    const link = document.createElement("a");
+    link.href = image;
+    link.download = `power-rankings.png`;
+    link.click();
+
+  });
+});
