@@ -12,12 +12,13 @@
     <link rel="manifest" href="/site.webmanifest">
 
     <link rel="stylesheet" href="styles/home.css">
-    <link rel="stylesheet" href="styles/standings/main.css">
+    <link rel="stylesheet" href="styles/standings/league.css">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
   </head>
+
   <body>
     <img class="backgroundImg" src="photos/darkNoise.jpg">
 
@@ -28,26 +29,35 @@
       <div class="modeBtn" id="rankings" onclick="window.location.href='powerRankings.html'">Power<br>Rankings</div>
     </div>
 
+    <div class="title">NFL Season Predictor</div>
+    <div class="downloadBtn">Download Image</div>
     <div class="content">
-      <div class="modeSelect">
-        <div class="modeText">Select Mode</div>
-        <div class="modeOptions">
-          <div class="modeButton" id="teamMode">
-            <div class="modeButtonIconBox">
-              <img class="modeButtonIcon" src="teamLogos/steelers.png">
-            </div>
-            <div class="modeButtonText">Team</div>
+      <div class="games">
+        <div class="header"></div>
+        <div class="list">
+          
+        </div>
+      </div>
+
+      <div class="summary" id="capture">
+        <div class="standings">
+        </div>
+        <div class="postseason">
+          <div class="playoffs">
+            <div class="header">Playoff Picture</div>
+            <div class="matchups"></div>
           </div>
-          <div class="modeButton league" id="leagueMode">
-            <div class="modeButtonIconBox">
-              <img class="modeButtonIcon" src="teamLogos/nfl.png">
+          <div class="draftOrder">
+            <div class="header">Draft Order</div>
+            <div class="order">
+              
             </div>
-            <div class="modeButtonText">Full Season</div>
           </div>
         </div>
       </div>
     </div>
   </body>
 
-  <script type="module" src="scripts/standings/standings.js"></script>
+  <script type="module" src="scripts/standings/league.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </html>

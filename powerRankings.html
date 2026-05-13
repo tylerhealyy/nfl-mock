@@ -26,81 +26,84 @@
     <div class="menu">
       <img class="hamburger" src="icons/mpWhite.png" onclick="window.location.href='index.html'">
       <div class="modeBtn" id="mock" onclick="window.location.href='simSettings.html'">Mock Draft<br>Simulator</div>
-      <div class="modeBtn" id="schedule" onclick="window.location.href='standings.html'">Schedule<br>Predictor (Beta)</div>
-      <div class="modeBtn" id="rankings" onclick="window.location.href='powerRankings.html'">Power Rankings<br>(Beta)</div>
-      <div class="modeBtn" id="depth">Depth Chart Builder<br>(Coming Soon)</div>
+      <div class="modeBtn" id="schedule" onclick="window.location.href='standings.html'">Schedule<br>Predictor</div>
+      <div class="modeBtn" id="rankings" onclick="window.location.href='powerRankings.html'">Power<br>Rankings</div>
     </div>
 
-    <div class="tierWindow">
-      <div class="toggle">
-        <div class="toggleText">Title</div>
-        <input type="text" class="titleInput" id="titleInput" placeholder="Ex. Week 1">
-      </div>
-      <div class="toggle">
-        <div class="toggleText">Title Size</div>
-        <input type="number" class="titleSize" id="titleSize" value="48" min="10" max="70" step="1">
-      </div>
+    <div class="contentHeader">NFL Power Rankings</div>
+    <div class="downloadBtn">Download Image</div>
+    <div class="contentWindow">
+      <div class="tierWindow">
+        <div class="toggle">
+          <div class="toggleText">Title</div>
+          <input type="text" class="titleInput" id="titleInput" placeholder="Ex. Week 1">
+        </div>
+        <div class="toggle">
+          <div class="toggleText">Title Size</div>
+          <input type="number" class="titleSize" id="titleSize" value="48" min="10" max="70" step="1">
+        </div>
 
-      <div class="toggle">
-        <div class="toggleText">Show Tiers</div>
-        <input type="checkbox" id="toggleTiers">
-      </div>
+        <div class="toggle">
+          <div class="toggleText">Show Tiers</div>
+          <input type="checkbox" id="toggleTiers">
+        </div>
 
-      <div class="label">Number<br>of Teams</div>
+        <div class="label">Number<br>of Teams</div>
 
-      <div class="tierControls">
-        <div class="tier">
-          <div class="tierInfo">
-            <div class="tierColor" style="background-color: green;"></div>
-            Tier 1
+        <div class="tierControls">
+          <div class="tier">
+            <div class="tierInfo">
+              <div class="tierColor" style="background-color: green;"></div>
+              Tier 1
+            </div>
+            <input type="number" class="tierRange" id="tierRank" value="7" min="1" max="29">
           </div>
-          <input type="number" class="tierRange" id="tierRank" value="7" min="1" max="29">
-        </div>
-        <div class="tier">
-          <div class="tierInfo">
-            <div class="tierColor" style="background-color: yellow;"></div>
-            Tier 2
+          <div class="tier">
+            <div class="tierInfo">
+              <div class="tierColor" style="background-color: yellow;"></div>
+              Tier 2
+            </div>
+            <input type="number" class="tierRange" id="tierRank" value="7" min="1" max="29">
           </div>
-          <input type="number" class="tierRange" id="tierRank" value="7" min="1" max="29">
-        </div>
-        <div class="tier">
-          <div class="tierInfo">
-            <div class="tierColor" style="background-color: orange;"></div>
-            Tier 3
+          <div class="tier">
+            <div class="tierInfo">
+              <div class="tierColor" style="background-color: orange;"></div>
+              Tier 3
+            </div>
+            <input type="number" class="tierRange" id="tierRank" value="7" min="1" max="29">
           </div>
-          <input type="number" class="tierRange" id="tierRank" value="7" min="1" max="29">
-        </div>
-        <div class="tier">
-          <div class="tierInfo">
-            <div class="tierColor" style="background-color: red;"></div>
-            Tier 4
+          <div class="tier">
+            <div class="tierInfo">
+              <div class="tierColor" style="background-color: red;"></div>
+              Tier 4
+            </div>
+            <input type="number" class="tierRange" id="tierRank" value="7" min="1" max="29">
           </div>
-          <input type="number" class="tierRange" id="tierRank" value="7" min="1" max="29">
-        </div>
-        <div class="tier">
-          <div class="tierInfo">
-            <div class="tierColor" style="background-color: black;"></div>
-            Tier 5
+          <div class="tier">
+            <div class="tierInfo">
+              <div class="tierColor" style="background-color: black;"></div>
+              Tier 5
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="graphic" id="capture">
-      <img class="graphicBackground" src="photos/darkNoise.jpg">
-      <div class="header">
-        <img class="headerImage" src="photos/powerRankingsNfl.png">
-        <div class="title">Offseason</div>
-      </div>
-
-      <div class="content">
-        <div class="grid">
-
+      <div class="graphic" id="capture">
+        <img class="graphicBackground" src="photos/darkNoise.jpg">
+        <div class="header">
+          <img class="headerImage" src="photos/powerRankingsNfl.png">
+          <div class="title">Offseason</div>
         </div>
-      </div>
 
-      <div class="footer">
-        Make Your Own at MockParadox.com
+        <div class="content">
+          <div class="grid">
+
+          </div>
+        </div>
+
+        <div class="footer">
+          Make Your Own at MockParadox.com
+        </div>
       </div>
     </div>
 

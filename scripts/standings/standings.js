@@ -1,11 +1,13 @@
 import { nflTeams } from "../../data/nflTeamData.js";
 import { gamesList } from "../../data/schedules.js";
 
+document.documentElement.setAttribute("data-theme", "dark");
+
 const divisions = ['an', 'ae', 'as', 'aw', 'nn', 'ne', 'ns', 'nw'];
 
 document.body.addEventListener('click', (e) => {
   if (e.target.closest('#teamMode')) {
-    doTeamMode();
+    window.location.href = 'teamSchedule.html';
   }
 
   if (e.target.closest('.backButton')) {
@@ -13,20 +15,13 @@ document.body.addEventListener('click', (e) => {
   }
 
   if (e.target.closest('#leagueMode')) {
-    window.location.href='index.html';
-  }
-
-  if (e.target.closest('#backToMock')) {
-    window.location.href = 'index.html';
+    window.location.href='leagueSchedule.html';
   }
 });
 
 function doTeamMode() {
   const titleElem = document.querySelector('.title');
   const contentElem = document.querySelector('.content');
-
-  titleElem.innerHTML = '';
-  titleElem.classList.remove('titleIndicator');
 
   contentElem.innerHTML = `
     <div class="teamSelect">
@@ -264,59 +259,6 @@ function showTeamSchedule(teamSelected) {
       finishButton.classList.toggle('hide', wins + losses !== 17);
     });
   });
-
-  /*document.querySelectorAll(".gameTeam").forEach(box => {
-    box.addEventListener("click", () => {
-      let teamClicked = nflTeams.find(p => p.name === box.dataset.team);
-      const game = box.closest(".game");
-      const teams = game.querySelectorAll(".gameTeam");
-
-      const winsElem = document.querySelector('.recordWins');
-      const lossesElem = document.querySelector('.recordLosses');
-
-      const prevResult = game.dataset.result;
-      if (prevResult === "win") wins--;
-      if (prevResult === "loss") losses--;
-
-      if (box.classList.contains("selected")) {
-        delete game.dataset.result;
-
-        teams.forEach(t => {
-          t.classList.remove("selected", "grayed");
-          t.style.backgroundColor = "rgb(200, 200, 200)";
-        });
-
-        winsElem.textContent = wins;
-        lossesElem.textContent = losses;
-
-        finishButton.classList.toggle('hide', wins + losses !== 17);
-
-        return;
-      }
-
-      let newResult;
-      if (box.dataset.team === teamObj.name) { wins++; newResult = "win"; }
-      else { losses++; newResult = "loss"; }
-
-      game.dataset.result = newResult;
-
-      winsElem.textContent = wins;
-      lossesElem.textContent = losses;
-
-      teams.forEach(t => {
-        t.classList.remove("selected", "grayed");
-        t.style.backgroundColor = "rgb(200, 200, 200)";
-      });
-
-      box.classList.add("selected");
-      box.style.backgroundColor = teamClicked.color;
-
-      teams.forEach(t => { if (t !== box) { t.classList.add("grayed"); } });
-
-      finishButton.classList.toggle('hide', wins + losses !== 17);
-      
-    });
-  });*/
 
   finishButton.addEventListener("click", () => {
     window.location.href = 'standingsSummary.html';

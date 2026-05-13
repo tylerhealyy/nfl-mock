@@ -1,0 +1,211 @@
+::-webkit-scrollbar {
+  display: none;
+}
+* {
+  scrollbar-width: none;
+}
+
+html {
+  font-family: Roboto;
+  color: white;
+}
+
+body {
+  background-color: black;
+  margin-top: 12vh;
+  overflow: scroll;
+  margin-bottom: 0;
+  gap: 0;
+}
+
+.backgroundImg {
+  opacity: 0.2;
+}
+
+.title {
+  color: white;
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 2.5rem;
+}
+
+.screenshotInfo {
+  font-size: 1rem;
+  font-weight: 400;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.teamSelect {
+  width: 350px;
+  height: fit-content;
+  background-color: rgb(30, 30, 30);
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: repeat(8, 40px);
+  grid-template-rows: repeat(4, 25px);
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  gap: 5px 2px;
+  padding: 10px 0;
+  margin: 10px 0;
+}
+
+.teamImg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.teamSelect img {
+  max-height: 25px;
+  max-width: 30px;
+  filter: drop-shadow(0 0 5px black);
+  cursor: pointer;
+}
+
+.teamSelect img:hover {
+  transform: scale(1.1);
+}
+
+.downloadBtn {
+  background-color: white;
+  color: black;
+  border-left: 5px solid #11A1B6;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.downloadBtn:hover {
+  border-left-width: 10px;
+}
+
+.graphic {
+  background-color: rgb(0, 0, 0);
+  width: 350px;
+  height: 438px;
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border: 1px solid rgb(30, 30, 30);
+  overflow: hidden;
+}
+
+.graphicBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  opacity: 0.3;
+}
+
+.graphic .header {
+  background-color: rgb(30, 30, 30);
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  box-shadow: 0 2px 5px black;
+  text-shadow: 0 0 5px black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: fit-content;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 5px 0;
+  z-index: 2;
+  position: relative;
+}
+
+.graphic .record {
+  background-color: rgb(20, 20, 20);
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  box-shadow: 0 2px 5px black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: fit-content;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 2px 0;
+  z-index: 2;
+  position: relative;
+}
+
+.graphic .gamesGrid {
+  flex: 1;
+  margin: 5px;
+  padding: 5px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+  gap: 5px;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-items: center;
+  z-index: 2;
+  position: relative;
+}
+
+.gamesGrid .game {
+  background-color: rgb(20, 20, 20);
+  border: 1px solid black;
+  border-radius: 5px;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 40px 1fr 1fr 5px;
+  align-items: center;
+}
+
+.game .gameInfo {
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.gameInfo img {
+  max-height: 28px;
+  max-width: 35px;
+}
+
+.gamesGrid .gameImg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-color: var(--color);
+  cursor: pointer;
+  box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.5);
+  transition: all 0.15s ease;
+}
+
+.gameImg:hover {
+  filter: brightness(0.8);
+}
+
+.gameImg img {
+  max-height: 28px;
+  max-width: 40px;
+}
+
+.game .indicator {
+  background-color: white;
+  height: 100%;
+}

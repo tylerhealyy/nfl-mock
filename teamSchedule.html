@@ -12,12 +12,13 @@
     <link rel="manifest" href="/site.webmanifest">
 
     <link rel="stylesheet" href="styles/home.css">
-    <link rel="stylesheet" href="styles/standings/main.css">
+    <link rel="stylesheet" href="styles/standings/team.css">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
   </head>
+
   <body>
     <img class="backgroundImg" src="photos/darkNoise.jpg">
 
@@ -28,26 +29,17 @@
       <div class="modeBtn" id="rankings" onclick="window.location.href='powerRankings.html'">Power<br>Rankings</div>
     </div>
 
-    <div class="content">
-      <div class="modeSelect">
-        <div class="modeText">Select Mode</div>
-        <div class="modeOptions">
-          <div class="modeButton" id="teamMode">
-            <div class="modeButtonIconBox">
-              <img class="modeButtonIcon" src="teamLogos/steelers.png">
-            </div>
-            <div class="modeButtonText">Team</div>
-          </div>
-          <div class="modeButton league" id="leagueMode">
-            <div class="modeButtonIconBox">
-              <img class="modeButtonIcon" src="teamLogos/nfl.png">
-            </div>
-            <div class="modeButtonText">Full Season</div>
-          </div>
-        </div>
-      </div>
+    <div class="title">NFL Team Season Predictor</div>
+    <div class="teamSelect"></div>
+    <div class="downloadBtn">Download Image</div>
+    <div class="graphic" id="capture">
+      <img class="graphicBackground" src="photos/darkNoise.jpg">
+      <div class="header">Team Season Prediction</div>
+      <div class="record">0-0</div>
+      <div class="gamesGrid"></div>
     </div>
   </body>
 
-  <script type="module" src="scripts/standings/standings.js"></script>
+  <script type="module" src="scripts/standings/team.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </html>

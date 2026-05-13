@@ -200,3 +200,20 @@ document.querySelector('.download').addEventListener("click", () => {
 
   });
 });
+
+document.querySelector('.downloadBtn').addEventListener("click", () => {
+  html2canvas(document.getElementById("capture"), {
+    useCORS: true,
+    scale: 3, // super sharp
+    backgroundColor: null
+  }).then((canvas) => {
+
+    const image = canvas.toDataURL("image/png");
+
+    const link = document.createElement("a");
+    link.href = image;
+    link.download = `nfl-power-rankings.png`;
+    link.click();
+
+  });
+});

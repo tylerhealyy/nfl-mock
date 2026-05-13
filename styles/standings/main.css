@@ -7,47 +7,23 @@
 
 html {
   font-family: Roboto;
-  font-size: 16px;
-  font-weight: 700;
   color: white;
 }
 
 body {
-  background-color: rgb(30, 30, 30);
+  background-color: rgb(0, 0, 0);
   margin: 0;
   overflow: scroll;
 }
 
-.background {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-
-.titleIndicator {
-  background-color: rgb(20, 20, 20);
-  border-radius: 1vw;
-  box-shadow: 0 0 5vw rgba(0, 0, 0, 0.5);
-  border: 1px solid #11A1B6;
-  position: absolute;
-  inset: 2vw 2vw 80vh 2vw;
-  min-height: 4rem;
-
-  color: white;
-  font-size: clamp(2.8rem, 5vw, 5rem);
-  white-space: wrap;
-  text-align: center;
-  padding: 0 4vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+.backgroundImg {
+  opacity: 0.2;
 }
 
 .modeSelect, .teamSelect, .teamSchedule {
   border-radius: 1vw;
   position: absolute;
-  top: 40vh;
+  top: 30vh;
   height: fit-content;
   left: 50%;
   transform: translateX(-50%);
@@ -92,8 +68,7 @@ body {
 }
 
 .modeButton.league {
-  pointer-events: none;
-  opacity: 0.4;
+  opacity: 1;
 }
 
 .modeButton:hover {
