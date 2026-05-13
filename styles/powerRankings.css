@@ -286,10 +286,10 @@ body {
   text-shadow: 0 0 5px rgba(0, 0, 0, 1);
   
   border: 0px solid var(--bg);
-  border-left-width: 10px;
+  border-left-width: 8px;
   display: flex;
   align-items: center;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 700;
   padding-left: 4px;
   font-weight: bold;
@@ -309,7 +309,7 @@ body {
 
 .right img {
   width: 55px;
-  padding-left: 40px;
+  padding-left: 45px;
 
   position: absolute;
   z-index: 1;

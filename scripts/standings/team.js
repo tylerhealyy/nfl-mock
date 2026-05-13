@@ -30,6 +30,7 @@ allTeamImages.forEach((i) => {
     i.style.filter = 'drop-shadow(0 0 5px white)';
     graphicHeader.textContent = `${userTeam.name} Season Prediction`;
     graphicHeader.style.backgroundColor = `${userTeam.color}`;
+    graphicElem.style.border = `1px solid ${userTeam.color}`;
     recordElem.textContent = '0-0';
     showGames();
   });
@@ -43,6 +44,7 @@ function showGames() {
   let losses = 0;
 
   userGames.forEach(g => {
+    g.result = null;
     let gameInfo = '';
     if (g.Day === 'SNF') {gameInfo = `<img src="teamLogos/snf.png">`}
     else if (g.Day === 'MNF') {gameInfo = `<img src="teamLogos/mnf.png">`}
@@ -62,7 +64,7 @@ function showGames() {
       `);
   });
   gamesGrid.insertAdjacentHTML('beforeend', `
-      <div style="font-weight: 700;">MockParadox.com</div>
+      <div style="font-weight: 700; text-shadow: 0 0 5px black;">MockParadox.com</div>
     `);
 
   document.querySelectorAll('.gameImg').forEach(t => {
