@@ -15,6 +15,9 @@ const divisionNames = {
 }
 let afcRound2Teams = [];
 let nfcRound2Teams = [];
+let afcRound3Teams = [];
+let nfcRound3Teams = [];
+let totalGamesPicked = 0;
 
 let teams = [];
 nflTeams27.forEach(team => {
@@ -100,7 +103,7 @@ function reinstateFunction() {
           if (divGame) {team.divWins--}
           if (confGame) {team.confWins--}
         }
-        else { team.losses--; opp.wins--; otherTeam.style.boxShadow = 'none'; otherTeam.style.backgroundColor = 'rgb(20, 20, 20)';
+        else { team.losses--; opp.wins--; otherTeam.style.boxShadow = 'none'; otherTeam.style.backgroundColor = 'rgb(20, 20, 20)'; totalGamesPicked--;
           if (divGame) {opp.divWins--}
           if (confGame) {opp.confWins--}
         };
@@ -108,6 +111,7 @@ function reinstateFunction() {
 
       if (prevWinner === team.name) {
         game.result = null;
+        totalGamesPicked--;
 
         teamRecord.textContent = `${team.wins}-${team.losses}`;
         oppRecord.textContent = `${opp.wins}-${opp.losses}`;
@@ -122,6 +126,7 @@ function reinstateFunction() {
       }
 
       game.result = team.name;
+      totalGamesPicked++;
 
       team.wins++;
       opp.losses++;
@@ -244,11 +249,80 @@ function updateStandings() {
 }
 
 const playoffTeams = document.querySelectorAll('.playoffTeam');
-playoffTeams.forEach(t => {
+const wildCardTeams = document.querySelectorAll('.wildCard .playoffTeam');
+const divisionalTeams = document.querySelectorAll('.divisional .playoffTeam');
+const confChipTeams = document.querySelectorAll('.confChamp .playoffTeam');
+const sbTeams = document.querySelectorAll('.sbTeam');
+wildCardTeams.forEach(t => {
+  t.addEventListener("click", () => {
+    if (totalGamesPicked !== 272) return;
+
+    const team = t.dataset.team;
+    const conf = teams.find(b => b.name === team).conf;
+    const game = t.closest('.game');
+    const oppEl = [...game.querySelectorAll('.playoffTeam')]
+      .find(teamEl => teamEl !== t);
+    const opp = oppEl.dataset.team;
+    
+    t.style.backgroundColor = `${teams.find(k => k.name === team).color}`;
+    t.style.opacity = '1';
+
+    oppEl.style.backgroundColor = 'rgb(60, 60, 60)';
+    oppEl.style.opacity = '0.5';
+    advanceWildCard(team, conf, opp);
+  });
+});
+
+divisionalTeams.forEach(t => {
   t.addEventListener("click", () => {
     const team = t.dataset.team;
     const conf = teams.find(b => b.name === team).conf;
-    //advancePlayoffs(team, conf);
+    const game = t.closest('.game');
+    const oppEl = [...game.querySelectorAll('.playoffTeam')]
+      .find(teamEl => teamEl !== t);
+    const opp = oppEl.dataset.team;
+    
+    t.style.backgroundColor = `${teams.find(k => k.name === team).color}`;
+    t.style.opacity = '1';
+
+    oppEl.style.backgroundColor = 'rgb(60, 60, 60)';
+    oppEl.style.opacity = '0.5';
+    advanceDivisional(team, conf, opp);
+  });
+});
+
+confChipTeams.forEach(t => {
+  t.addEventListener("click", () => {
+    const team = t.dataset.team;
+    const conf = teams.find(b => b.name === team).conf;
+    const game = t.closest('.game');
+    const oppEl = [...game.querySelectorAll('.playoffTeam')]
+      .find(teamEl => teamEl !== t);
+    const opp = oppEl.dataset.team;
+    
+    t.style.backgroundColor = `${teams.find(k => k.name === team).color}`;
+    t.style.opacity = '1';
+
+    oppEl.style.backgroundColor = 'rgb(60, 60, 60)';
+    oppEl.style.opacity = '0.5';
+    advanceConfChip(team, conf);
+  });
+});
+
+sbTeams.forEach(t => {
+  t.addEventListener("click", () => {
+    const team = t.dataset.team;
+    const game = t.closest('.superBowl');
+    const oppEl = [...game.querySelectorAll('.sbTeam')]
+      .find(teamEl => teamEl !== t);
+    
+    t.style.backgroundColor = `${teams.find(k => k.name === team).color}`;
+    t.style.opacity = '1';
+    t.style.border = `2px solid gold`;
+
+    oppEl.style.backgroundColor = 'rgb(60, 60, 60)';
+    oppEl.style.opacity = '0.5';
+    oppEl.style.border = `2px solid black`;
   });
 });
 
@@ -351,6 +425,16 @@ function updatePlayoffPicture(allTeams) {
       place.dataset.team = `${team.name}`;
       document.querySelector(`.${conf}${i}Img`).src = `teamLogos/${team.name.toLowerCase()}.png`;
     }
+
+    if (totalGamesPicked === 272) {
+      wildCardTeams.forEach(t => {
+        t.style.pointerEvents = 'auto';
+      });
+    } else {
+      wildCardTeams.forEach(t => {
+        t.style.pointerEvents = 'none';
+      });
+    }
   }
 }
 
@@ -390,34 +474,125 @@ function updateDraftOrder() {
   }
 }
 
-function advancePlayoffs(team, conference) {
-  let conf = conference;
-  let round2Teams;
+function advanceWildCard(team, conference, opp) {
+  const round2Map = {
+    afc: afcRound2Teams,
+    nfc: nfcRound2Teams
+  };
 
-  if (conf === 'afc') {round2Teams = afcRound2Teams} 
-  else {round2Teams = nfcRound2Teams}
+  const round2Teams = round2Map[conference];
 
-  const round1Teams = JSON.parse(localStorage.getItem(`${conf}PlayoffSeeding`));
+  const round1Teams = JSON.parse(
+    localStorage.getItem(`${conference}PlayoffSeeding`)
+  );
+
   const teamClicked = round1Teams.find(t => t.name === team);
-  const byeTeam = round1Teams.find(t => t.seed === 1);
 
   if (round2Teams.length === 0) {
-    round2Teams.push(byeTeam);
+    round2Teams.push(
+      round1Teams.find(t => t.seed === 1)
+    );
   }
-  round2Teams.push(teamClicked)
 
-  if (round2Teams.length === 4) {
-    round2Teams.sort((a, b) => a.seed - b.seed);
-    document.querySelector(`.${conf}OneAwayImg`).src = `teamLogos/${round2Teams[3].name.toLowerCase()}.png`;
-    document.querySelector(`.${conf}OneAway`).style.backgroundColor = `${round2Teams[3].color}`;
-    document.querySelector(`.${conf}OneAway div`).textContent = `${round2Teams[3].seed}`;
-    document.querySelector(`.${conf}DivAwayImg`).src = `teamLogos/${round2Teams[2].name.toLowerCase()}.png`;
-    document.querySelector(`.${conf}DivAway`).style.backgroundColor = `${round2Teams[2].color}`;
-    document.querySelector(`.${conf}DivAway div`).textContent = `${round2Teams[2].seed}`;
-    document.querySelector(`.${conf}DivHomeImg`).src = `teamLogos/${round2Teams[1].name.toLowerCase()}.png`;
-    document.querySelector(`.${conf}DivHome`).style.backgroundColor = `${round2Teams[1].color}`;
-    document.querySelector(`.${conf}DivHome div`).textContent = `${round2Teams[1].seed}`;
+  const opponentIndex = round2Teams.findIndex(t => t.name === opp);
+
+  if (opponentIndex !== -1) {round2Teams.splice(opponentIndex, 1)}
+
+  const alreadyExists = round2Teams.some(t => t.name === team);
+
+  if (!alreadyExists) {round2Teams.push(teamClicked)}
+
+  if (round2Teams.length !== 4) {
+    divisionalTeams.forEach(t => {t.style.pointerEvents = 'none'});
+    return;
+  } else {
+    divisionalTeams.forEach(t => {t.style.pointerEvents = 'auto'});
   }
+
+  round2Teams.sort((a, b) => a.seed - b.seed);
+  localStorage.setItem(`${conference}Round2Teams`, JSON.stringify(round2Teams));
+
+  const slots = [
+    ['OneAway', 3],
+    ['DivAway', 2],
+    ['DivHome', 1]
+  ];
+
+  slots.forEach(([slot, index]) => {
+    const team = round2Teams[index];
+
+    const container = document.querySelector(`.${conference}${slot}`);
+    const img = container.querySelector('img');
+    const seedDiv = container.querySelector('div');
+
+    img.src = `teamLogos/${team.name.toLowerCase()}.png`;
+    container.dataset.team = `${team.name}`;
+    container.style.backgroundColor = team.color;
+    seedDiv.textContent = team.seed;
+  });
+}
+
+function advanceDivisional(team, conference, opp) {
+  const round3Map = {
+    afc: afcRound3Teams,
+    nfc: nfcRound3Teams
+  };
+
+  const round3Teams = round3Map[conference];
+
+  const round2Teams = JSON.parse(
+    localStorage.getItem(`${conference}Round2Teams`)
+  );
+
+  const teamClicked = round2Teams.find(t => t.name === team);
+
+  const opponentIndex = round3Teams.findIndex(t => t.name === opp);
+
+  if (opponentIndex !== -1) {round3Teams.splice(opponentIndex, 1)}
+
+  const alreadyExists = round3Teams.some(t => t.name === team);
+
+  if (!alreadyExists) {round3Teams.push(teamClicked)}
+
+  if (round3Teams.length !== 2) {
+    confChipTeams.forEach(t => {t.style.pointerEvents = 'none'});
+    return;
+  } else {
+    confChipTeams.forEach(t => {t.style.pointerEvents = 'auto'});
+  }
+
+  round3Teams.sort((a, b) => a.seed - b.seed);
+
+  const slots = [
+    ['ConfAway', 1],
+    ['ConfHome', 0]
+  ];
+
+  slots.forEach(([slot, index]) => {
+    const team = round3Teams[index];
+
+    const container = document.querySelector(`.${conference}${slot}`);
+    const img = container.querySelector('img');
+    const seedDiv = container.querySelector('div');
+
+    img.src = `teamLogos/${team.name.toLowerCase()}.png`;
+    container.dataset.team = `${team.name}`;
+    container.style.backgroundColor = team.color;
+    seedDiv.textContent = team.seed;
+  });
+}
+
+function advanceConfChip(team, conference) {
+  const container = document.querySelector(`.${conference}Sb`);
+  const teamObj = teams.find(t => t.name === team);
+  container.dataset.team = `${team}`;
+  container.innerHTML = `
+    <img src="teamLogos/${team.toLowerCase()}.png">
+  `;
+  container.style.backgroundColor = `${teamObj.color}`;
+  sbTeams.forEach(t => {
+    t.style.pointerEvents = 'auto';
+  });
 }
 
 document.querySelector('.downloadBtn').addEventListener("click", () => {

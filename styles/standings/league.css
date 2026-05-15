@@ -280,11 +280,21 @@ body {
   text-shadow: 0 0 5px black;
   background-color: rgb(60, 60, 60);
   border-radius: 5px;
+  cursor: pointer;
+  pointer-events: none;
 }
 
 .sbTeam img {
   max-height: 40px;
   max-width: 65px;
+}
+
+.sbTeam:hover {
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 1);
+}
+
+.sbTeam:active {
+  box-shadow: inset 0 0 20px black;
 }
 
 .sbLogo {
@@ -333,11 +343,37 @@ body {
   gap: 5px;
   text-shadow: 0 0 5px black;
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  pointer-events: none;
+}
+
+.playoffTeam:hover {
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 1);
+}
+
+.playoffTeam:active {
+  box-shadow: inset 0 0 20px black;
 }
 
 .playoffTeam img {
   max-height: 15px;
   max-width: 30px;
+}
+
+.url {
+  height: 0px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.urlText{
+  position: absolute;
+  bottom: 0;
+  font-weight: 500;
 }
 
 .postseason .draftOrder {
