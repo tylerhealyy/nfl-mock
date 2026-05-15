@@ -121,14 +121,14 @@ function getUserGames() {
 }
 
 async function loadGames() {
-  const games = await fetch('data/nflSchedule.csv');
+  const games = await fetch('data/nflSchedule26.csv');
   const text = await games.text();
 
   const lines = text.trim().split("\n");
   const headers = lines[0].split(",").map(h => h.trim());
 
   const result = lines.slice(1).map(line => {
-    const [GameId, Away, Home, Division, Conference, Week, Day, Time, Primetime, International] = line.split(",");
+    const [GameId, Away, Home, Week, Day, Time] = line.split(",");
 
     return {GameId, Away, Home, Week, Day, Time, result: null};
   });

@@ -13,6 +13,8 @@ const divisionNames = {
   'ns': 'NFC South',
   'nw': 'NFC West'
 }
+let afcRound2Teams = [];
+let nfcRound2Teams = [];
 
 let teams = [];
 nflTeams27.forEach(team => {
@@ -161,24 +163,24 @@ weekBtns.forEach(btn => {
     btn.style.backgroundColor = 'rgb(120, 120, 120)';
 
     btn.scrollIntoView({
-      inline: 'center',  // aligns to left
-      block: 'center',
+      inline: 'center',
+      block: 'nearest',
       behavior: 'smooth'
     });
   });
 });
 
 async function loadGames() {
-  const games = await fetch('data/nflSchedule.csv');
+  const games = await fetch('data/nflSchedule26.csv');
   const text = await games.text();
 
   const lines = text.trim().split("\n");
   const headers = lines[0].split(",").map(h => h.trim());
 
   const result = lines.slice(1).map(line => {
-    const [GameId, Away, Home, Division, Conference, Week, Day, Time, Primetime, International] = line.split(",");
+    const [GameId, Away, Home, Week, Day, Time] = line.split(",");
 
-    return {GameId, Away, Home, Division, Conference, Week, Day, Time, Primetime, International, result: null};
+    return {GameId, Away, Home, Week, Day, Time, result: null};
   });
 
   let gamesArray = [];
@@ -241,51 +243,14 @@ function updateStandings() {
   });
 }
 
-for (let i = 1; i < 3; i++) {
-  const conf = i === 1 ? 'afc' : 'nfc';
-  document.querySelector('.matchups').insertAdjacentHTML('beforeend', `
-    <div class="conf ${conf}">
-      <div class="row top">
-        <img src="teamLogos/${conf}.png">
-        #1<br>Seed
-        <img class="${conf}1" src="">
-      </div>
-      <div class="row game">
-        <div class="lower">
-          <div class="seed">7</div>
-          <img class="${conf}7" src="">
-        </div>
-        <div class="middle">@</div>
-        <div class="higher">
-          <div class="seed">2</div>
-          <img class="${conf}2" src="">
-        </div>
-      </div>
-      <div class="row game">
-        <div class="lower">
-          <div class="seed">6</div>
-          <img class="${conf}6" src="">
-        </div>
-        <div class="middle">@</div>
-        <div class="higher">
-          <div class="seed">3</div>
-          <img class="${conf}3" src="">
-        </div>
-      </div>
-      <div class="row game">
-        <div class="lower">
-          <div class="seed">5</div>
-          <img class="${conf}5" src="">
-        </div>
-        <div class="middle">@</div>
-        <div class="higher">
-          <div class="seed">4</div>
-          <img class="${conf}4" src="">
-        </div>
-      </div>
-    </div>
-    `);
-}
+const playoffTeams = document.querySelectorAll('.playoffTeam');
+playoffTeams.forEach(t => {
+  t.addEventListener("click", () => {
+    const team = t.dataset.team;
+    const conf = teams.find(b => b.name === team).conf;
+    //advancePlayoffs(team, conf);
+  });
+});
 
 function updatePlayoffPicture(allTeams) {
   const afcTeams = [];
@@ -377,8 +342,14 @@ function updatePlayoffPicture(allTeams) {
       ...team
     }));
 
+    localStorage.setItem(`${conf}PlayoffSeeding`, JSON.stringify(conferenceSeeding));
+
     for (let i = 1; i < 8; i++) {
-      document.querySelector(`.${conf}${i}`).src = `teamLogos/${conferenceSeeding.find(t => t.seed === i).name.toLowerCase()}.png`;
+      const team = conferenceSeeding.find(t => t.seed === i);
+      const place = document.querySelector(`.${conf}${i}`);
+      place.style.backgroundColor = `${team.color}`;
+      place.dataset.team = `${team.name}`;
+      document.querySelector(`.${conf}${i}Img`).src = `teamLogos/${team.name.toLowerCase()}.png`;
     }
   }
 }
@@ -416,6 +387,36 @@ function updateDraftOrder() {
         <div class="record">${team.wins}-${team.losses}</div>
       </div>
       `)
+  }
+}
+
+function advancePlayoffs(team, conference) {
+  let conf = conference;
+  let round2Teams;
+
+  if (conf === 'afc') {round2Teams = afcRound2Teams} 
+  else {round2Teams = nfcRound2Teams}
+
+  const round1Teams = JSON.parse(localStorage.getItem(`${conf}PlayoffSeeding`));
+  const teamClicked = round1Teams.find(t => t.name === team);
+  const byeTeam = round1Teams.find(t => t.seed === 1);
+
+  if (round2Teams.length === 0) {
+    round2Teams.push(byeTeam);
+  }
+  round2Teams.push(teamClicked)
+
+  if (round2Teams.length === 4) {
+    round2Teams.sort((a, b) => a.seed - b.seed);
+    document.querySelector(`.${conf}OneAwayImg`).src = `teamLogos/${round2Teams[3].name.toLowerCase()}.png`;
+    document.querySelector(`.${conf}OneAway`).style.backgroundColor = `${round2Teams[3].color}`;
+    document.querySelector(`.${conf}OneAway div`).textContent = `${round2Teams[3].seed}`;
+    document.querySelector(`.${conf}DivAwayImg`).src = `teamLogos/${round2Teams[2].name.toLowerCase()}.png`;
+    document.querySelector(`.${conf}DivAway`).style.backgroundColor = `${round2Teams[2].color}`;
+    document.querySelector(`.${conf}DivAway div`).textContent = `${round2Teams[2].seed}`;
+    document.querySelector(`.${conf}DivHomeImg`).src = `teamLogos/${round2Teams[1].name.toLowerCase()}.png`;
+    document.querySelector(`.${conf}DivHome`).style.backgroundColor = `${round2Teams[1].color}`;
+    document.querySelector(`.${conf}DivHome div`).textContent = `${round2Teams[1].seed}`;
   }
 }
 

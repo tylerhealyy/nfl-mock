@@ -257,64 +257,87 @@ body {
   flex: 1;
   margin: 0 5px 5px 5px;
   display: flex;
-  flex-direction: row;
-  gap: 5px;
-}
-
-.matchups .conf {
-  flex: 1;
-  display: flex;
   flex-direction: column;
-  gap: 5px;
-  padding: 5px;
 }
 
-.conf .row {
-  flex: 1;
-  background-color: rgba(60, 60, 60, 0.4);
-  border: none;
-  border-radius: 5px;
-}
-
-.conf .top {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-  gap: 10px;
-  background-color: transparent;
-  text-align: center;
-  border-radius: 0px;
-  border-bottom: 1px solid rgb(60, 60, 60);
-}
-
-.top img {
-  max-height: 2.5rem;
-  max-width: 3.5rem;
-  filter: drop-shadow(0 0 5px black);
-}
-
-.conf .game {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-  gap: 10px;
-  font-weight: 700;
-}
-
-.game img {
-  max-height: 2rem;
-  max-width: 2.5rem;
-  filter: drop-shadow(0 0 5px black);
-}
-
-.game .lower, .game .higher {
+.matchups .superBowl {
+  height: 50px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: 5px;
+}
+
+.sbTeam {
+  width: 75px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: 700;
+  text-shadow: 0 0 5px black;
+  background-color: rgb(60, 60, 60);
+  border-radius: 5px;
+}
+
+.sbTeam img {
+  max-height: 40px;
+  max-width: 65px;
+}
+
+.sbLogo {
+  max-height: 50px;
+}
+
+.matchups .bracket {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 0 5px;
+}
+
+.afcBracket, .nfcBracket {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.round {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.round .game {
+  background-color: rgb(60, 60, 60);
+  border-radius: 5px;
+  overflow: hidden;
+  height: 45px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.game .playoffTeam {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  text-shadow: 0 0 5px black;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.playoffTeam img {
+  max-height: 15px;
+  max-width: 30px;
 }
 
 .postseason .draftOrder {
